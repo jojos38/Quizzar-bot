@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Logiciels et applications web",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel logiciel de traitement de texte a été mis au point par Microsoft ?",
+        "propositions": [
+          "Word",
+          "PowerPoint",
+          "Excel",
+          "Access"
+        ],
+        "réponse": "Word",
+        "anecdote": "Microsoft publie plusieurs logiciels de traitement de texte, mais 'Word' en reste la « vedette »."
+      },
+      {
+        "id": 2,
+        "question": "Le logiciel Excel extrait de la suite bureautique Microsoft Office est un...",
+        "propositions": [
+          "Traitement de texte",
+          "Client de messagerie",
+          "Tableur",
+          "Navigateur internet"
+        ],
+        "réponse": "Tableur",
+        "anecdote": "Excel a été critiqué pour ses problèmes de précision sur calculs à virgule flottante."
+      },
+      {
+        "id": 3,
+        "question": "En informatique, comment appelle-t-on une erreur de programmation encore non localisée ?",
+        "propositions": [
+          "Un spam",
+          "Un virus",
+          "Un crack",
+          "Un bug"
+        ],
+        "réponse": "Un bug",
+        "anecdote": "La gravité du dysfonctionnement informatique peut aller de bénigne à majeure."
+      },
+      {
+        "id": 4,
+        "question": "Quelle version de Windows Microsoft a-t-il lancé le vendredi 26 octobre 2012 ?",
+        "propositions": [
+          "Windows CE",
+          "Windows 8",
+          "Windows 7",
+          "Windows Mobile"
+        ],
+        "réponse": "Windows 8",
+        "anecdote": "La version Windows 8.1 est une mise à jour gratuite de Windows 8 disponible depuis 2013. "
+      },
+      {
+        "id": 5,
+        "question": "Comment est communément abrégée la publication assistée par ordinateur ?",
+        "propositions": [
+          "USB",
+          "PAO",
+          "VGA",
+          "CIO"
+        ],
+        "réponse": "PAO",
+        "anecdote": "La PAO consiste à créer des documents imprimés en travaillant la composition et la typographie de documents."
+      },
+      {
+        "id": 6,
+        "question": "Quelle application informatique de la société Apple permet de gérer facilement un iPod ?",
+        "propositions": [
+          "iTunes",
+          "FileMaker",
+          "QuickTime",
+          "HyperCard"
+        ],
+        "réponse": "iTunes",
+        "anecdote": "'iTunes' faisait partie de la suite logicielle d'Apple 'iLife' jusqu'à la version '06."
+      },
+      {
+        "id": 7,
+        "question": "En informatique, quel logiciel permet de créer des calculs automatiques ?",
+        "propositions": [
+          "Un tableur",
+          "Un navigateur",
+          "Un explorateur",
+          "Un débogueur"
+        ],
+        "réponse": "Un tableur",
+        "anecdote": "Une feuille de calcul est une table d'informations la plupart du temps financières."
+      },
+      {
+        "id": 8,
+        "question": "Quel pirate informatique casse les systèmes informatique et les logiciels protégés ?",
+        "propositions": [
+          "Un blagueur",
+          "Un pirateur",
+          "Un forceur",
+          "Un hacker"
+        ],
+        "réponse": "Un hacker",
+        "anecdote": "Certains utilisent ce savoir-faire dans un cadre légal, d'autres étant hors-la-loi."
+      },
+      {
+        "id": 9,
+        "question": "Quels logiciels installés sur PC, tablette ou smartphone, permettent de « surfer » sur Internet ?",
+        "propositions": [
+          "Des navigateurs",
+          "Des éditeurs",
+          "Des tableurs",
+          "Des émulateurs"
+        ],
+        "réponse": "Des navigateurs",
+        "anecdote": "Le premier navigateur stable et largement diffusé fut 'NCSA Mosaic', en 1993."
+      },
+      {
+        "id": 10,
+        "question": "Quel outil développé par le géant Google permet de gérer son emploi du temps ?",
+        "propositions": [
+          "Google Mobile",
+          "Google TimeLine",
+          "Google Agenda",
+          "Google Tempo"
+        ],
+        "réponse": "Google Agenda",
+        "anecdote": "'Google Agenda' permet de partager des événements et des agendas et de les publier sur internet ou sur un site Web."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle grande société a reçu le feu vert en  2011 pour le rachat de 'Skype' ?",
+        "propositions": [
+          "Facebook",
+          "Microsoft",
+          "Apple",
+          "Google"
+        ],
+        "réponse": "Microsoft",
+        "anecdote": "'Skype' est un logiciel gratuit qui permet de passer des appels téléphoniques et vidéo via Internet, ainsi que le partage d'écran."
+      },
+      {
+        "id": 12,
+        "question": "Quel est probablement le plus connu des systèmes informatiques dits « libre » ?",
+        "propositions": [
+          "Linux",
+          "MS-DOS",
+          "Mac OS",
+          "Windows"
+        ],
+        "réponse": "Linux",
+        "anecdote": "Linux est un système informatique qui fonctionne sur du matériel allant du téléphone portable au supercalculateur."
+      },
+      {
+        "id": 13,
+        "question": "Quelle est le nom de la solution professionnelle de services Google ?",
+        "propositions": [
+          "Google Apps",
+          "Google Mac",
+          "Google Pro",
+          "Google Serve"
+        ],
+        "réponse": "Google Apps",
+        "anecdote": "Ce site Web au service des entreprises met en ligne de nombreuses applications."
+      },
+      {
+        "id": 14,
+        "question": "Quel logiciel est mis gratuitement et librement à disposition par son créateur ?",
+        "propositions": [
+          "Un adware",
+          "Un software",
+          "Un malware",
+          "Un freeware"
+        ],
+        "réponse": "Un freeware",
+        "anecdote": "Il ne faut toutefois pas confondre freeware (gratuiciel) et shareware (partagiciel)."
+      },
+      {
+        "id": 15,
+        "question": "En avril 2012, quelle start-up Facebook a-t-il racheté pour un milliard de dollars ?",
+        "propositions": [
+          "Backelite",
+          "Valve",
+          "Instagram",
+          "Globalnet"
+        ],
+        "réponse": "Instagram",
+        "anecdote": "'Instagram' est une application  cofondée et lancée par l'américain Kevin Systrom et le Brésilien Michel Mike Krieger en octobre 2010."
+      },
+      {
+        "id": 16,
+        "question": "Au Québec, quel mot est souvent utilisé pour désigner le courrier électronique ?",
+        "propositions": [
+          "Lettrinter",
+          "Copitel",
+          "Courriel",
+          "Emel"
+        ],
+        "réponse": "Courriel",
+        "anecdote": "Le courriel tend à être reconnu comme moyen valide de contacter une personne."
+      },
+      {
+        "id": 17,
+        "question": "Quel logiciel de Microsoft a remplacé 'Windows Live Messenger' en 2013 ?",
+        "propositions": [
+          "QuickTime",
+          "Skype",
+          "Pidgin",
+          "Instagram"
+        ],
+        "réponse": "Skype",
+        "anecdote": "'Skype' a été fondé en Estonie par Niklas Zennström et Janus Friis en 2003 et développé par 3 Estoniens à l'origine du logiciel 'KaZaA'."
+      },
+      {
+        "id": 18,
+        "question": "Quel nom portait le navigateur Internet de Microsoft, devenu aujourd'hui 'Microsoft Edge' ?",
+        "propositions": [
+          "Safari",
+          "Firefox",
+          "Chrome",
+          "Internet Explorer"
+        ],
+        "réponse": "Internet Explorer",
+        "anecdote": "La version 11 du navigateur sera toujours présente dans Windows 10 avant le passage progressif à Microsoft Edge."
+      },
+      {
+        "id": 19,
+        "question": "Quel logiciel est indispensable pour protéger votre ordinateur sur Internet ?",
+        "propositions": [
+          "Un antivirus",
+          "Un navigateur",
+          "Une messagerie",
+          "Un chat"
+        ],
+        "réponse": "Un antivirus",
+        "anecdote": "Les antivirus peuvent balayer le contenu d'un disque dur, mais également la mémoire vive de l'ordinateur."
+      },
+      {
+        "id": 20,
+        "question": "Qui est le tout premier pape à avoir envoyé un message sur 'Twitter' ?",
+        "propositions": [
+          "Jean-Paul II",
+          "François",
+          "Benoît XVI",
+          "Paul VI"
+        ],
+        "réponse": "Benoît XVI",
+        "anecdote": "Réputé conservateur, le cardinal Ratzinger a été élu le 19 avril 2005 pour succéder à Jean-Paul II."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel courrielleur créé par Mozilla est le compagnon idéal du navigateur 'Firefox' ?",
+        "propositions": [
+          "Thunderbird",
+          "Foxmail",
+          "Incredimail",
+          "Sylpheed"
+        ],
+        "réponse": "Thunderbird",
+        "anecdote": "Tout comme 'Firefox', 'Thunderbird' et son interface en XUL est basé sur le moteur Gecko."
+      },
+      {
+        "id": 22,
+        "question": "Quel nom porte la suite bureautique en ligne proposée par Microsoft ?",
+        "propositions": [
+          "Office 365",
+          "KOffice",
+          "OpenOffice",
+          "StarOffice"
+        ],
+        "réponse": "Office 365",
+        "anecdote": "Les abonnements 'Office 365' pour les particuliers permettent de bénéficier de la version complète de la suite Office que l'on connaît."
+      },
+      {
+        "id": 23,
+        "question": "Quel était le nom de code de la version 3.1 de Windows ?",
+        "propositions": [
+          "Uranus",
+          "Janus",
+          "Opus",
+          "Startus"
+        ],
+        "réponse": "Janus",
+        "anecdote": "La version 3 a été la première à connaître un large succès, permettant à Microsoft de rivaliser avec l'Apple Macintosh."
+      },
+      {
+        "id": 24,
+        "question": "Quel nom porte le service de stockage en ligne de Windows Live ?",
+        "propositions": [
+          "MediaFire",
+          "Dropbox",
+          "RapidShare",
+          "Onedrive"
+        ],
+        "réponse": "Onedrive",
+        "anecdote": "Ce service en ligne de stockage et d'applications, créé en 2007, est une manifestation du concept de cloud computing."
+      },
+      {
+        "id": 25,
+        "question": "Quel est le nouveau nom du logiciel gratuit de messagerie instantanée 'Gaim' ?",
+        "propositions": [
+          "Komunnity",
+          "Connect",
+          "Pidgin",
+          "iShare"
+        ],
+        "réponse": "Pidgin",
+        "anecdote": "'Gaim' a été renommé en 'Pidgin' en 2007 en raison de plaintes de la société AOL et de sa marque AIM."
+      },
+      {
+        "id": 26,
+        "question": "Quelle suite logicielle équivaut à Microsoft Office chez le géant Google ?",
+        "propositions": [
+          "Google Sites",
+          "Google Documents",
+          "OpenOffice",
+          "Works"
+        ],
+        "réponse": "Google Documents",
+        "anecdote": "'Google Documents' est une suite des évolutions de 'Google Spreadsheets' et de 'Writely', logiciel de traitement de texte."
+      },
+      {
+        "id": 27,
+        "question": "De quel pays la suite logicielle gratuite 'Opera' est-elle originaire ?",
+        "propositions": [
+          "Norvège",
+          "France",
+          "Autriche",
+          "Italie"
+        ],
+        "réponse": "Norvège",
+        "anecdote": "'Opera' est un navigateur Web développé par la société norvégienne Opera Software, qui propose plusieurs logiciels relatifs à Internet."
+      },
+      {
+        "id": 28,
+        "question": "Lequel de ces outils ne permet pas de visionner des pages web ?",
+        "propositions": [
+          "Mozilla Firefox",
+          "Google Chrome",
+          "Internet Explorer",
+          "Acrobat Reader"
+        ],
+        "réponse": "Acrobat Reader",
+        "anecdote": "Adobe change régulièrement le nom des produits de la famille Acrobat et cela en subdivisant ses produits."
+      },
+      {
+        "id": 29,
+        "question": "Combien de téléchargements dénombrait-on sur le célèbre 'App Store' fin 2012 ?",
+        "propositions": [
+          "35 milliards",
+          "15 milliards",
+          "5 milliards",
+          "25 milliards"
+        ],
+        "réponse": "35 milliards",
+        "anecdote": "Depuis la mise à jour du système d'exploitation d'Apple iOS 7 en septembre 2013, l''App Store' possède un tout nouveau design."
+      },
+      {
+        "id": 30,
+        "question": "Quelle est la date « officielle » de création de 'Wikipédia' en Français ?",
+        "propositions": [
+          "Le 2 janvier 1999",
+          "Le 15 janvier 2002",
+          "Le 8 décembre 2000",
+          "Le 23 mars 2001"
+        ],
+        "réponse": "Le 23 mars 2001",
+        "anecdote": "Plusieurs moyens de consulter l'encyclopédie existent, tels que des sites web miroirs ou des applications pour smartphone."
+      }
+    ]
+  }
+}

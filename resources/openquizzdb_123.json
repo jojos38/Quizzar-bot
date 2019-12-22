@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Inventions",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Qui a réussi à imposer la commercialisation de la poubelle ?",
+        "propositions": [
+          "Louis Lépine",
+          "Ferdinand Duval",
+          "Bertrand Landrieu",
+          "Eugène Poubelle"
+        ],
+        "réponse": "Eugène Poubelle",
+        "anecdote": "Préfet de la Seine, il a donné son nom aux poubelles à travers ses décisions pour améliorer l'hygiène de la ville de Paris."
+      },
+      {
+        "id": 2,
+        "question": "Laquelle de ces inventions ne porte pas le nom de son inventeur ?",
+        "propositions": [
+          "Le colt",
+          "Le laser",
+          "La poubelle",
+          "Le macadam"
+        ],
+        "réponse": "Le laser",
+        "anecdote": "En 1950, Alfred Kastler proposa un procédé de pompage optique qu'il valida expérimentalement deux ans plus tard."
+      },
+      {
+        "id": 3,
+        "question": "Quelle compétition prime chaque année les meilleures inventions françaises ?",
+        "propositions": [
+          "Le Concours Lépine",
+          "Le Concours Edison",
+          "Le Concours Novastar",
+          "Le Concours Thomas"
+        ],
+        "réponse": "Le Concours Lépine",
+        "anecdote": "Ce concours-exposition de jouets était principalement destiné à sortir les petits fabricants du marasme économique ambiant."
+      },
+      {
+        "id": 4,
+        "question": "Quel jeu de société international Chris Haney et Scott Abbott ont-ils créé ?",
+        "propositions": [
+          "Monopoly",
+          "Trivial Pursuit",
+          "Puissance 4",
+          "Cluedo"
+        ],
+        "réponse": "Trivial Pursuit",
+        "anecdote": "Le jeu a été commercialisé en France sous le nom 'Remue-méninges' avant de connaître le succès que nous lui connaissons."
+      },
+      {
+        "id": 5,
+        "question": "Qui a inventé la dynamite au moyen de la nitroglycérine ?",
+        "propositions": [
+          "Albert Einstein",
+          "Isaac Newton",
+          "Lavoisier",
+          "Alfred Nobel"
+        ],
+        "réponse": "Alfred Nobel",
+        "anecdote": "La dynamite a été très utilisée, notamment dans l'industrie minière, jusqu'à son remplacement par des explosifs plus puissants."
+      },
+      {
+        "id": 6,
+        "question": "Quel biologiste français a inventé la pasteurisation de la bière ?",
+        "propositions": [
+          "Louis Pasteur",
+          "Laurent Chabry",
+          "Thomas Preat",
+          "Maurice Fontaine"
+        ],
+        "réponse": "Louis Pasteur",
+        "anecdote": "La pasteurisation est un procédé de conservation des aliments par lequel ceux-ci sont chauffés puis rapidement refroidis."
+      },
+      {
+        "id": 7,
+        "question": "Quel inventeur italien a conçu à la fin du XVe siècle un canon et un parachute ?",
+        "propositions": [
+          "Léonard de Vinci",
+          "Ettore Bugatti",
+          "Roberto Galletti",
+          "Alessandro Volta"
+        ],
+        "réponse": "Léonard de Vinci",
+        "anecdote": "Léonard de Vinci a fait progresser la connaissance dans les domaines de l'anatomie, du génie civil, de l'optique et de l'hydrodynamique."
+      },
+      {
+        "id": 8,
+        "question": "Selon des textes anciens, dans quel pays a-t-on inventé le cerf-volant ?",
+        "propositions": [
+          "Aux États-Unis",
+          "Au Mexique",
+          "En Chine",
+          "En Inde"
+        ],
+        "réponse": "En Chine",
+        "anecdote": "À l'origine, le cerf-volant servait de signal, mais aussi à porter des messages, à effrayer les ennemis ou à évaluer des distances."
+      },
+      {
+        "id": 9,
+        "question": "En quelle année la couturière Mary Quant a-t-elle inventé la minijupe ?",
+        "propositions": [
+          "1944",
+          "1964",
+          "1974",
+          "1954"
+        ],
+        "réponse": "1964",
+        "anecdote": "En 1966, Mary Quant fut promue Officier de l'Ordre de l'Empire britannique pour services rendus à l'industrie de la mode."
+      },
+      {
+        "id": 10,
+        "question": "Quel billet le banquier Law a-t-il inventé au XVIIIe siècle ?",
+        "propositions": [
+          "Le billet de loterie",
+          "Le billet notarial",
+          "Le billet doux",
+          "Le billet de banque"
+        ],
+        "réponse": "Le billet de banque",
+        "anecdote": "John Law recommanda l'utilisation de papier-monnaie plutôt que de monnaie métallique afin de faciliter le commerce et l'investissement."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel terme fut inventé en 1955 par le philologue français Jacques Perret ?",
+        "propositions": [
+          "Transistor",
+          "Ordinateur",
+          "Imprimante",
+          "Ampoule"
+        ],
+        "réponse": "Ordinateur",
+        "anecdote": "Le terme « Ordinateur » voulait dire, selon les intentions du docteur en lettres, « Dieu mettant de l'ordre dans le monde »."
+      },
+      {
+        "id": 12,
+        "question": "Quel français a inventé le stéthoscope, alors une simple liasse de papiers roulés ?",
+        "propositions": [
+          "Louis Pasteur",
+          "René Laennec",
+          "Léon Binet",
+          "Louis Braille"
+        ],
+        "réponse": "René Laennec",
+        "anecdote": "Ce procédé certes rudimentaire permettait d'éloigner l'oreille du médecin de son patient pour des raisons de pudeur et d'efficacité."
+      },
+      {
+        "id": 13,
+        "question": "Quelle grande marque inventa en 1936 le sac à dos aux nombreuses applications ?",
+        "propositions": [
+          "Adidas",
+          "Puma",
+          "Lafuma",
+          "Lacoste"
+        ],
+        "réponse": "Lafuma",
+        "anecdote": "Du transport de matériel scolaire aux utilisations sportives ou professionnelles, chaque sac à dos est adapté à son utilisation."
+      },
+      {
+        "id": 14,
+        "question": "Charles Darrow, inventeur du jeu de Monopoly, était lors de son invention en 1935...",
+        "propositions": [
+          "En prison",
+          "Banquier",
+          "Au chômage",
+          "Agent immobilier"
+        ],
+        "réponse": "Au chômage",
+        "anecdote": "Malgré de nombreuses difficultés, Charles Darrow réussit finalement à faire éditer son jeu par la société Parker Brothers en 1935."
+      },
+      {
+        "id": 15,
+        "question": "Quel savant italien a découvert le principe de la pile électrique ?",
+        "propositions": [
+          "Marconi",
+          "Volta",
+          "Bugatti",
+          "Turriano"
+        ],
+        "réponse": "Volta",
+        "anecdote": "À l'origine, le terme « pile » désignait un dispositif inventé par Alessandro Volta, composé d'un empilement de rondelles."
+      },
+      {
+        "id": 16,
+        "question": "Quelle invention Nicolas Appert a-t-il mise au point pour les armées de Napoléon ?",
+        "propositions": [
+          "Le lit de camp",
+          "La conserve",
+          "Le ceinturon",
+          "Le tissu imperméable"
+        ],
+        "réponse": "La conserve",
+        "anecdote": "Par sa méthode de conservation, Nicolas Appert a créé en France la première usine de conserves au monde."
+      },
+      {
+        "id": 17,
+        "question": "Quelle marque a inventé la cassette audio ou minicassette ?",
+        "propositions": [
+          "Philips",
+          "Fuji",
+          "Sony",
+          "BASF"
+        ],
+        "réponse": "Philips",
+        "anecdote": "Bien que le CD ait supplanté la cassette audio, on peut encore en trouver des exemplaires vierges dans beaucoup d'enseignes."
+      },
+      {
+        "id": 18,
+        "question": "Quel célèbre médecin a conçu une table de correspondance entre les rêves et les organes ?",
+        "propositions": [
+          "Pilate",
+          "Pythagore",
+          "Icare",
+          "Hippocrate"
+        ],
+        "réponse": "Hippocrate",
+        "anecdote": "« Père de la Médecine », son école de médecine hippocratique a intellectuellement révolutionné la pratique de la médecine."
+      },
+      {
+        "id": 19,
+        "question": "À qui doit-on le prototype de la première dynamo industrielle réalisé en 1869 ?",
+        "propositions": [
+          "Frédéric Neuhaus",
+          "Victor Simon",
+          "John Cockerill",
+          "Zénobe Gramme"
+        ],
+        "réponse": "Zénobe Gramme",
+        "anecdote": "La dynamo est une machine à courant continu fonctionnant en générateur électrique par induction électromagnétique."
+      },
+      {
+        "id": 20,
+        "question": "Quel physicien et mathématicien italien a inventé le baromètre en 1643 ?",
+        "propositions": [
+          "Orazio Grassi",
+          "Evangelista Torricelli",
+          "Pietro Blaserna",
+          "Giuseppe Piazzi"
+        ],
+        "réponse": "Evangelista Torricelli",
+        "anecdote": "Un baromètre, pouvant aussi servir d'altimètre, est un instrument de mesure servant à mesurer la pression atmosphérique."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel ingénieur écossais fut le premier à utiliser le terme « cheval-vapeur » ?",
+        "propositions": [
+          "William Rankine",
+          "James Watt",
+          "Henry Dyer",
+          "Alexander Thom"
+        ],
+        "réponse": "James Watt",
+        "anecdote": "En 1879, les 38 lignes d'omnibus de Paris requéraient l'entretien pharaonique de pas moins de 16 500 chevaux."
+      },
+      {
+        "id": 22,
+        "question": "Selon la légende, quelle spécialité le grec Aphtonite aurait-il inventée ?",
+        "propositions": [
+          "Les rillettes",
+          "Le boudin noir",
+          "Le saucisson",
+          "Le jambon cru"
+        ],
+        "réponse": "Le boudin noir",
+        "anecdote": "Le boudin noir est fabriqué à partir de sang et de graisse de porc, et, dans une moindre mesure, de sang de mouton ou de chèvre."
+      },
+      {
+        "id": 23,
+        "question": "Quelle société a inventé (et pas breveté) la souris de votre ordinateur ?",
+        "propositions": [
+          "Microsoft",
+          "Hewlett Packard",
+          "Xerox",
+          "IBM"
+        ],
+        "réponse": "Xerox",
+        "anecdote": "Douglas Carl Engelbart a déposé 21 brevets au total, dont un pour sa souris en 1967 qu'il reçut en 1970."
+      },
+      {
+        "id": 24,
+        "question": "Quel était le véritable métier de Samuel Morse, qui déposa en 1840 le brevet du télégraphe ?",
+        "propositions": [
+          "Peintre sculpteur",
+          "Compositeur lyrique",
+          "Chorégraphe danseur",
+          "Écrivain éditeur"
+        ],
+        "réponse": "Peintre sculpteur",
+        "anecdote": "Le génie de Samuel Morse fut de concevoir une machine simple, efficace, bon marché et robuste à la fois."
+      },
+      {
+        "id": 25,
+        "question": "Quel docteur et professeur en médecine est surtout connu pour avoir inventé le basket-ball ?",
+        "propositions": [
+          "Martin Roy",
+          "James Naismith",
+          "Jacques Dextraze",
+          "Gordon Herbert"
+        ],
+        "réponse": "James Naismith",
+        "anecdote": "Durant sa jeunesse, James Naismith était un gymnaste et un joueur de football canadien de haut niveau à l'université McGill."
+      },
+      {
+        "id": 26,
+        "question": "Dans quel pays le 'Lego' a-t-il été inventé par un charpentier ?",
+        "propositions": [
+          "Suède",
+          "Norvège",
+          "Danemark",
+          "Finlande"
+        ],
+        "réponse": "Danemark",
+        "anecdote": "Le nom de la société fut créé par Ole Kirk Christiansen en 1932, à partir du danois « leg godt », signifiant « joue bien »."
+      },
+      {
+        "id": 27,
+        "question": "Quel inventeur français a mis au point la première carte à puce ?",
+        "propositions": [
+          "Léon Bollée",
+          "Gustave Lyon",
+          "Henri Fourel",
+          "Roland Moreno"
+        ],
+        "réponse": "Roland Moreno",
+        "anecdote": "Roland Moreno a reçu pour son invention de la carte à puce l'Oscar du livre mondial des inventions en 1985."
+      },
+      {
+        "id": 28,
+        "question": "Combien de brevets furent déposés par Thomas Edison au cours de sa vie ?",
+        "propositions": [
+          "57",
+          "1 074",
+          "234",
+          "421"
+        ],
+        "réponse": "1 074",
+        "anecdote": "Thomas Edison employa au cours de sa vie plus de 35 000 personnes dans son « empire industriel » fondé sur l'électricité."
+      },
+      {
+        "id": 29,
+        "question": "Louis Réard a inventé le bikini, mais quel était son véritable métier ?",
+        "propositions": [
+          "Barbier",
+          "Ingénieur automobile",
+          "Charcutier",
+          "Coiffeur"
+        ],
+        "réponse": "Ingénieur automobile",
+        "anecdote": "Il le présenta en 1946 à la piscine Molitor, porté par Micheline Bernardini, une danseuse nue bien connue du Casino de Paris."
+      },
+      {
+        "id": 30,
+        "question": "Quelle était la nationalité des deux ingénieurs inventeurs du carburateur ?",
+        "propositions": [
+          "Suisse",
+          "Roumaine",
+          "Autrichienne",
+          "Hongroise"
+        ],
+        "réponse": "Hongroise",
+        "anecdote": "Le carburateur permet de préparer un mélange d'air et de carburant pour constituer un mélange de richesse adéquate."
+      }
+    ]
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Culture générale 2",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel arbre est connu pour atteindre les volumes les plus importants ?",
+        "propositions": [
+          "Le hêtre",
+          "Le pin",
+          "Le chêne",
+          "Le séquoia"
+        ],
+        "réponse": "Le séquoia",
+        "anecdote": "Le séquoia géant a une croissance rapide annuelle moyenne de cinquante cm dans ses premières années, puis un mètre par an."
+      },
+      {
+        "id": 2,
+        "question": "Quelles sont les trois couleurs fondamentales pour le peintre ?",
+        "propositions": [
+          "Blanc, bleu et rouge",
+          "Rouge, bleu et jaune",
+          "Vert, rouge et jaune",
+          "Rouge, bleu et vert"
+        ],
+        "réponse": "Rouge, bleu et jaune",
+        "anecdote": "La couleur et la tonalité sont l'essence même de la peinture, comme le sont la hauteur et le rythme pour la musique."
+      },
+      {
+        "id": 3,
+        "question": "Dans quelle ville peut-on admirer le très touristique pont des Soupirs ?",
+        "propositions": [
+          "Prague",
+          "Avignon",
+          "Londres",
+          "Venise"
+        ],
+        "réponse": "Venise",
+        "anecdote": "Le pont des Soupirs, suggérant le soupir des prisonniers, est l'un des lieux touristiques les plus célèbres de Venise."
+      },
+      {
+        "id": 4,
+        "question": "Quel métier exerçait le sportif argentin Juan Manuel Fangio ?",
+        "propositions": [
+          "Boxeur",
+          "Pilote",
+          "Coureur",
+          "Nageur"
+        ],
+        "réponse": "Pilote",
+        "anecdote": "Juan Manuel Fangio a littéralement dominé la discipline reine du sport automobile dans les années cinquante."
+      },
+      {
+        "id": 5,
+        "question": "Quelle personne a pour mission principale de gérer un site internet ?",
+        "propositions": [
+          "Un websiter",
+          "Un webcleaner",
+          "Un webcontroler",
+          "Un webmaster"
+        ],
+        "réponse": "Un webmaster",
+        "anecdote": "Un webmaster est un professionnel d'internet entendu comme responsable d'un site web, de sa conception à sa maintenance."
+      },
+      {
+        "id": 6,
+        "question": "Avant de devenir chevalier, quel est le rang pour un apprenti Jedi ?",
+        "propositions": [
+          "Jawas",
+          "Hutts",
+          "Padawan",
+          "Novice"
+        ],
+        "réponse": "Padawan",
+        "anecdote": "Les chevaliers Jedi du monde de la saga 'Star Wars' forment un ordre d'individus qui maîtrisent la « Force »."
+      },
+      {
+        "id": 7,
+        "question": "Dans quelle aventure Tintin se retrouve-t-il face à un impressionnant Yeti ?",
+        "propositions": [
+          "Tintin au Congo",
+          "Coke en Stock",
+          "Tintin au Tibet",
+          "Le Lotus bleu"
+        ],
+        "réponse": "Tintin au Tibet",
+        "anecdote": "Le film 'La Neige en deuil', d'Edward Dmytryk, comporte des séquences qui ont probablement dû marquer la mémoire d'Hergé."
+      },
+      {
+        "id": 8,
+        "question": "Comment se prénomment les frères de William et Averell Dalton dans 'Lucky Luke' ?",
+        "propositions": [
+          "Jack et Jim",
+          "John et Joe",
+          "Joe et Jack",
+          "Jim et John"
+        ],
+        "réponse": "Joe et Jack",
+        "anecdote": "Les frères Dalton ont inspiré maintes histoires, dont la bande dessinée 'Lucky Luke' de Morris et de René Goscinny."
+      },
+      {
+        "id": 9,
+        "question": "Dans quel sport Rocco Francis Marchegiano dit « Rocky Marciano » était-il imbattable ?",
+        "propositions": [
+          "La boxe",
+          "Le catch",
+          "La natation",
+          "Le tennis"
+        ],
+        "réponse": "La boxe",
+        "anecdote": "Rocky Marciano est le premier boxeur blanc à avoir repris la couronne des poids lourds aux afro-américains en 1952."
+      },
+      {
+        "id": 10,
+        "question": "Quels muscles du corps humain peuvent être qualifiés de « tablettes de chocolat » ?",
+        "propositions": [
+          "Les triceps",
+          "Les adducteurs",
+          "Les biceps",
+          "Les abdominaux"
+        ],
+        "réponse": "Les abdominaux",
+        "anecdote": "Au nombre de cinq paires, les abdominaux sont des muscles qui s'étendent du thorax au bord supérieur du bassin."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Durant quelle période Philippe Pétain assura-t-il le gouvernement de la France ?",
+        "propositions": [
+          "De 1941 à 1944",
+          "De 1941 à 1945",
+          "De 1939 à 1945",
+          "De 1940 à 1944"
+        ],
+        "réponse": "De 1940 à 1944",
+        "anecdote": "Militaire de carrière, le maréchal Pétain est généralement présenté comme le « vainqueur de la bataille de Verdun »."
+      },
+      {
+        "id": 12,
+        "question": "Quel est le prénom de Kate Winslet dans le film 'Titanic' de James Cameron ?",
+        "propositions": [
+          "Carla",
+          "Liz",
+          "Rose",
+          "Jeanne"
+        ],
+        "réponse": "Rose",
+        "anecdote": "'Titanic' est le second plus grand succès de l'histoire du cinéma après 'Avatar' (également réalisé par James Cameron)."
+      },
+      {
+        "id": 13,
+        "question": "Sur quelle espérance de vie moyenne une girafe peut-elle compter ?",
+        "propositions": [
+          "15 ans",
+          "75 ans",
+          "55 ans",
+          "25 ans"
+        ],
+        "réponse": "25 ans",
+        "anecdote": "Les Grecs pensaient que la girafe résultait de l'union du chameau et du léopard, d'où le nom scientifique 'camelopardalis'."
+      },
+      {
+        "id": 14,
+        "question": "Quel célèbre Claude a réalisé en 1985 le film 'Poulet au vinaigre' ?",
+        "propositions": [
+          "Claude Pieplu",
+          "Claude Berri",
+          "Claude Miller",
+          "Claude Chabrol"
+        ],
+        "réponse": "Claude Chabrol",
+        "anecdote": "Le film 'Poulet au vinaigre' a été tourné en quelques semaines seulement à Forges-les-Eaux avec un budget très réduit."
+      },
+      {
+        "id": 15,
+        "question": "Quel archipel appartenant au Portugal est constitué de neuf îles et de plusieurs îlots ?",
+        "propositions": [
+          "Les îles Caïman",
+          "Les Canaries",
+          "Les Açores",
+          "Les Baléares"
+        ],
+        "réponse": "Les Açores",
+        "anecdote": "L'origine volcanique de toutes les îles des Açores est démontrée par l'existence de très nombreux cônes de scories."
+      },
+      {
+        "id": 16,
+        "question": "En combien de provinces le Canada est-il divisé en plus des trois territoires fédéraux ?",
+        "propositions": [
+          "50 provinces",
+          "10 provinces",
+          "4 provinces",
+          "6 provinces"
+        ],
+        "réponse": "10 provinces",
+        "anecdote": "Les provinces sont des États fédérés possédant des pouvoirs souverains, indépendamment du gouvernement fédéral."
+      },
+      {
+        "id": 17,
+        "question": "Quelle faille des États-Unis est la cause de nombreux tremblements de terre ?",
+        "propositions": [
+          "San Francisco",
+          "Nouveau Mexique",
+          "Los Angeles",
+          "San Andreas"
+        ],
+        "réponse": "San Andreas",
+        "anecdote": "Le système des failles de San Andreas s'étend sur environ 1 300 kilomètres de long et 140 kilomètres de large."
+      },
+      {
+        "id": 18,
+        "question": "Quel groupe hollandais des années 1990 était composé de Ray et Anita ?",
+        "propositions": [
+          "2 Unlimited",
+          "Ace of base",
+          "Enigma",
+          "Scorpions"
+        ],
+        "réponse": "2 Unlimited",
+        "anecdote": "Le temps de leur contrat, le duo du groupe 2 Unlimited est devenu populaire à travers le monde durant cinq ans."
+      },
+      {
+        "id": 19,
+        "question": "Quel titre donnait-on à Simon Bolivar, général et homme d'État vénézuélien ?",
+        "propositions": [
+          "Conquistador",
+          "Volador",
+          "Dictator",
+          "Libertador"
+        ],
+        "réponse": "Libertador",
+        "anecdote": "Le bolivarisme est un courant politique que l'on retrouve en Amérique du Sud, se revendiquant de certaines idées de Bolivar."
+      },
+      {
+        "id": 20,
+        "question": "Qui a écrit et composé le deuxième album de Vanessa Paradis ?",
+        "propositions": [
+          "Johnny Depp",
+          "Lenny Kravitz",
+          "Serge Gainsbourg",
+          "Alain Bashung"
+        ],
+        "réponse": "Serge Gainsbourg",
+        "anecdote": "Vanessa Paradis, née en France en 1972, est la nièce de Didier Pain et la sur de l'actrice Alysson Paradis."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle est la couleur du cercle figurant sur le drapeau du Laos ?",
+        "propositions": [
+          "Bleue",
+          "Blanche",
+          "Jaune",
+          "Rouge"
+        ],
+        "réponse": "Blanche",
+        "anecdote": "Les montagnes et les plateaux du Laos, confinés au centre de la péninsule indochinoise, occupent plus de 70% de sa superficie."
+      },
+      {
+        "id": 22,
+        "question": "Hô-Chi-Minh-Ville est le nouveau nom de quel poumon économique ?",
+        "propositions": [
+          "Pékin",
+          "Tokyo",
+          "Saigon",
+          "Vientiane"
+        ],
+        "réponse": "Saigon",
+        "anecdote": "Située près du delta du Mékong, Hô-Chi-Minh-Ville est la métropole et la plus grande ville du sud du Viêt Nam."
+      },
+      {
+        "id": 23,
+        "question": "Dans quel pays les falaises de Moher sont-elles une attraction touristique ?",
+        "propositions": [
+          "Irlande",
+          "Grèce",
+          "Australie",
+          "Argentine"
+        ],
+        "réponse": "Irlande",
+        "anecdote": "Les falaises de Moher, qui s'élèvent jusqu'à 214m sur 8km, fascinent par leur beauté et leurs pentes vertigineuses."
+      },
+      {
+        "id": 24,
+        "question": "Qui débute un de ses romans par : « Longtemps, je me suis couché de bonne heure » ?",
+        "propositions": [
+          "Proust",
+          "Gide",
+          "Zola",
+          "Flaubert"
+        ],
+        "réponse": "Proust",
+        "anecdote": "uvre majeure en sept tomes, 'La Recherche' analysa d'une manière souvent impitoyable la société de son temps."
+      },
+      {
+        "id": 25,
+        "question": "Dans quel domaine est utilisé le terme « propylée », apparu bien avant Jésus-Christ ?",
+        "propositions": [
+          "En architecture",
+          "En généalogie",
+          "En littérature",
+          "En botanique"
+        ],
+        "réponse": "En architecture",
+        "anecdote": "À l'origine un vestibule conduisant à un sanctuaire, le plus célèbre exemple de propylée est celui de l'Acropole d'Athènes."
+      },
+      {
+        "id": 26,
+        "question": "De quelle plante de la famille des Liliacées le nom signifie-t-il « turban » en perse ?",
+        "propositions": [
+          "Le renoncule",
+          "La tulipe",
+          "La digitale",
+          "La jonquille"
+        ],
+        "réponse": "La tulipe",
+        "anecdote": "Les tulipes sont des plantes vivaces bulbeuses à tige longues, dures et solitaires, parfois tendues vers le haut."
+      },
+      {
+        "id": 27,
+        "question": "Qui a inspiré à Ian Fleming le nom de James Bond pour son célèbre personnage ?",
+        "propositions": [
+          "Un géologue",
+          "Un ornithologue",
+          "Un sportif",
+          "Un marin"
+        ],
+        "réponse": "Un ornithologue",
+        "anecdote": "Les nombreux romans mettant en scène le séduisant « agent 007 » ont connu un succès mondial, également au cinéma."
+      },
+      {
+        "id": 28,
+        "question": "Quelles festivités étaient célébrées à Sparte en hommage à Apollon ?",
+        "propositions": [
+          "Les Septéries",
+          "Les Thalysies",
+          "Les Karneia",
+          "Les Mounichies"
+        ],
+        "réponse": "Les Karneia",
+        "anecdote": "Ce sont les Karneia qui retardèrent l'arrivée des Spartiates à Marathon, ainsi que celle des renforts aux Thermopyles."
+      },
+      {
+        "id": 29,
+        "question": "Combien existe-t-il de manières différentes de commencer une partie aux échecs ?",
+        "propositions": [
+          "24",
+          "10",
+          "20",
+          "32"
+        ],
+        "réponse": "20",
+        "anecdote": "La composition échiquéenne, la forme artistique du jeu, a produit des milliers de problèmes dans de multiples genres."
+      },
+      {
+        "id": 30,
+        "question": "Quelle girafe en caoutchouc était destinée à être mordillée par les nourrissons en 1961 ?",
+        "propositions": [
+          "Noémie",
+          "Barbie",
+          "Mimie",
+          "Sophie"
+        ],
+        "réponse": "Sophie",
+        "anecdote": "La girafe Sophie connaît toujours un fort succès dans l'hexagone avec déjà plus de 816 000 exemplaires vendus en France."
+      }
+    ]
+  }
+}

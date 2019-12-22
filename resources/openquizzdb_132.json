@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Moyens de transport",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Qu'est-ce qui s'est lancé à vive allure entre Paris et Lyon en septembre 1980 ?",
+        "propositions": [
+          "Le Thalys",
+          "Le Transilien",
+          "L'Eurostar",
+          "Le TGV"
+        ],
+        "réponse": "Le TGV",
+        "anecdote": "Le train à grande vitesse atteint régulièrement la vitesse de 320 km/h sur des lignes à grande vitesse (LGV)."
+      },
+      {
+        "id": 2,
+        "question": "Dans quelle station spatiale le soviétique Iouri Romanenko a-t-il passé 326 jours ?",
+        "propositions": [
+          "Saliout",
+          "Skylab",
+          "Mir",
+          "Tiangong"
+        ],
+        "réponse": "Mir",
+        "anecdote": "Mir (signifiant « paix » et « monde ») a été placée en orbite le 19 février 1986 et détruite volontairement le 23 mars 2001."
+      },
+      {
+        "id": 3,
+        "question": "Quel moyen de transport est fréquemment utilisé par les médecins en Australie ?",
+        "propositions": [
+          "L'avion",
+          "La montgolfière",
+          "La voiture",
+          "Le train"
+        ],
+        "réponse": "L'avion",
+        "anecdote": "L'Australie compte 7 686 850 km2 de superficie dont 34 218 km de côtes et 7 148 250 km2 de zone économique exclusive."
+      },
+      {
+        "id": 4,
+        "question": "Dans quelle ville utilise-t-on essentiellement les vaporetto, motoscafo et motonave ?",
+        "propositions": [
+          "Rome",
+          "Milan",
+          "Venise",
+          "Naples"
+        ],
+        "réponse": "Venise",
+        "anecdote": "Compte tenu du caractère très particulier de la ville de Venise, les vaporettos sont utilisés comme moyen de transport public."
+      },
+      {
+        "id": 5,
+        "question": "Que portent aux mains de nombreux conducteurs de taxi au Japon ?",
+        "propositions": [
+          "Des bagues",
+          "Des baguettes",
+          "Des coups",
+          "Des gants blancs"
+        ],
+        "réponse": "Des gants blancs",
+        "anecdote": "Le mot taxi provient du taximètre, appareil destiné à mesurer le temps et la distance d'un trajet pour établir un montant à payer."
+      },
+      {
+        "id": 6,
+        "question": "Combien de roues compte-t-on sur un samlo en Thaïlande ?",
+        "propositions": [
+          "Cinq",
+          "Quatre",
+          "Deux",
+          "Trois"
+        ],
+        "réponse": "Trois",
+        "anecdote": "Le samlo, qui signifie « trois roues » en thaïlandais, est un sorte de cyclo-pousse pouvant remorquer 1 ou 2 passagers."
+      },
+      {
+        "id": 7,
+        "question": "Contre quoi protègent les « roo bars » que portent les voitures en Australie ?",
+        "propositions": [
+          "Des aigles",
+          "Des serpents",
+          "Des kangourous",
+          "Des éléphants"
+        ],
+        "réponse": "Des kangourous",
+        "anecdote": "Les roo bars sont en fait des barres de métal ou un cadre de barres de métal placés sur le devant d'un véhicule."
+      },
+      {
+        "id": 8,
+        "question": "Quelles marques de motos voit-on dans 'Easy Rider', de Dennis Hopper ?",
+        "propositions": [
+          "Vectrix",
+          "Harley-Davidson",
+          "Polaris",
+          "Boss Hoss"
+        ],
+        "réponse": "Harley-Davidson",
+        "anecdote": "Ce road movie est très vite devenu un emblème de la génération hippie des années 1960-1970."
+      },
+      {
+        "id": 9,
+        "question": "Combien de temps dure la traversée en ferry qui vous emmène de Calais à Douvres ?",
+        "propositions": [
+          "105 min",
+          "75 min",
+          "45 min",
+          "135 min"
+        ],
+        "réponse": "75 min",
+        "anecdote": "Bien adapté au fret roulier, Calais reste encore à ce jour le premier port européen pour les échanges avec l'Angleterre."
+      },
+      {
+        "id": 10,
+        "question": "Combien de pédales trouve-t-on sur sur la bicyclette baptisée « triplette » ?",
+        "propositions": [
+          "Quatre",
+          "Huit",
+          "Six",
+          "Douze"
+        ],
+        "réponse": "Six",
+        "anecdote": "De la même manière qu'un tandem, les trois protagonistes sont assis l'un derrière l'autre et pédalent de manière synchrone."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel est le point commun des navires Waratah, Admiral Karpfanger et Sao Paolo ?",
+        "propositions": [
+          "Bateaux musées",
+          "Coulés",
+          "Portés disparus",
+          "Croisières"
+        ],
+        "réponse": "Portés disparus",
+        "anecdote": "Reinhold Werner, officier de marine, a écrit en 1900 'Admiral Karpfanger. Eine Erzählung aus Hamburgs Vorzeit'."
+      },
+      {
+        "id": 12,
+        "question": "Dans quel genre d'appareil est mort en 1968 l'astronaute russe Youri Gagarine ?",
+        "propositions": [
+          "Une fusée",
+          "Une navette",
+          "Une capsule",
+          "Un avion"
+        ],
+        "réponse": "Un avion",
+        "anecdote": "Youri Gagarine est le premier homme à avoir effectué un vol dans l'espace au cours de la mission Vostok 1 le 12 avril 1961."
+      },
+      {
+        "id": 13,
+        "question": "Combien de roues possédait le premier véhicule automobile de Carl Benz ?",
+        "propositions": [
+          "Six",
+          "Cinq",
+          "Quatre",
+          "Trois"
+        ],
+        "réponse": "Trois",
+        "anecdote": "Le Tricycle Benz 1, fabriqué par Carl Benz en 1885, est considéré comme la première automobile de l'histoire."
+      },
+      {
+        "id": 14,
+        "question": "Qu'a inventé l'ingénieur et industriel russo-américain Igor Sikorsky ?",
+        "propositions": [
+          "L'avion",
+          "Le tracteur",
+          "L'hélicoptère",
+          "Le train"
+        ],
+        "réponse": "L'hélicoptère",
+        "anecdote": "Sikorsky Aircraft Corporation, basée à Stratford, est encore aujourd'hui l'un des premiers hélicoptéristes mondiaux."
+      },
+      {
+        "id": 15,
+        "question": "Quelle est l'altitude de croisière des appareils de la gamme Airbus A320 ?",
+        "propositions": [
+          "13 000 m",
+          "7 000 m",
+          "4 000 m",
+          "10 000 m"
+        ],
+        "réponse": "10 000 m",
+        "anecdote": "L'A320-200 est la version la plus répandue de l'A320, disposant de winglets et d'une capacité en kérosène supérieure."
+      },
+      {
+        "id": 16,
+        "question": "Quelles seront les lettres qu'abordera l'arrière d'une voiture immatriculée en Suisse ?",
+        "propositions": [
+          "CH",
+          "DK",
+          "SU",
+          "SE"
+        ],
+        "réponse": "CH",
+        "anecdote": "Les codes ISO 3166-1 alpha-2 sont des codes pays de deux lettres définis dans la norme ISO 3166 (partie ISO 3166-1)."
+      },
+      {
+        "id": 17,
+        "question": "En quel bois sont faits les tableaux de bord des voitures de la marque Rolls-Royce ?",
+        "propositions": [
+          "Sapin",
+          "Chêne",
+          "Noyer",
+          "Hêtre"
+        ],
+        "réponse": "Noyer",
+        "anecdote": "« Chercher la perfection en tout. Prendre le meilleur de ce qui existe et l'améliorer. Et quand rien n'existe, le concevoir »."
+      },
+      {
+        "id": 18,
+        "question": "Qu'est-ce qu'on ajoute à une moto pour qu'elle devienne un side-car ?",
+        "propositions": [
+          "Deux roues",
+          "Un panier",
+          "Une selle",
+          "Un toit"
+        ],
+        "réponse": "Un panier",
+        "anecdote": "Un pilote de side-car est souvent appelé « side-cariste », et son passager, le « singe » (surtout en compétition)."
+      },
+      {
+        "id": 19,
+        "question": "Quelle a été la première navette spatiale lancée du dos d'un Boeing 747 en 1977 ?",
+        "propositions": [
+          "Enterprise",
+          "Challenger",
+          "Columbia",
+          "Discovery"
+        ],
+        "réponse": "Enterprise",
+        "anecdote": "'Enterprise' ou OV-101 (Orbital Vehicle-101) est aussi la première navette spatiale américaine construite pour la NASA."
+      },
+      {
+        "id": 20,
+        "question": "Comment circulaient les premières lettres par air aux USA en 1859 ?",
+        "propositions": [
+          "En hélicoptère",
+          "En fusée",
+          "En avion",
+          "En montgolfière"
+        ],
+        "réponse": "En montgolfière",
+        "anecdote": "Le maintien de la température de l'air dans une montgolfière nécessite l'emport d'un carburant et d'un brûleur."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel est le moyen de transport qui possède kiosque, coque et schnorkel ?",
+        "propositions": [
+          "Le side-car",
+          "Le tracteur",
+          "Le sous-marin",
+          "Le TGV"
+        ],
+        "réponse": "Le sous-marin",
+        "anecdote": "L'usage civil du sous-marin concerne, pour l'essentiel, la recherche océanographique et l'exploitation pétrolière."
+      },
+      {
+        "id": 22,
+        "question": "Quel est le verdoyant pays du 'Taxi Mauve' de Michel Déon ?",
+        "propositions": [
+          "La Suisse",
+          "LAustralie",
+          "Le Brésil",
+          "LIrlande"
+        ],
+        "réponse": "LIrlande",
+        "anecdote": "Paru en 1973 aux éditions Gallimard, le roman a reçu le Grand prix du roman de l'Académie française la même année."
+      },
+      {
+        "id": 23,
+        "question": "Qu'était la Tucker '48, dont 51 exemplaires sont sortis à la fin des années 1940 ?",
+        "propositions": [
+          "Une locomotive",
+          "Une fusée",
+          "Une voiture",
+          "Une motocyclette"
+        ],
+        "réponse": "Une voiture",
+        "anecdote": "Les difficultés s'étant multipliées, la production cesse bien avant les mille qui devaient sortir pour ce millésime."
+      },
+      {
+        "id": 24,
+        "question": "Que transportent les camions du film franco-italien 'Le Salaire de la peur' ?",
+        "propositions": [
+          "Des armes",
+          "De la drogue",
+          "De la nitroglycérine",
+          "Des migrants"
+        ],
+        "réponse": "De la nitroglycérine",
+        "anecdote": "C'est l'un des seuls films à avoir remporté la même année la Palme d'or du Festival de Cannes et l'Ours d'or au Festival de Berlin."
+      },
+      {
+        "id": 25,
+        "question": "Que fabriquait Ferruccio Lamborghini avant de construire des voitures de luxe ?",
+        "propositions": [
+          "Des bateaux",
+          "Des tracteurs",
+          "Des avions",
+          "Des vélos"
+        ],
+        "réponse": "Des tracteurs",
+        "anecdote": "Lamborghini fera fortune en moins de dix ans en fondant la société Lamborghini Trattori (« Tracteurs Lamborghini »)."
+      },
+      {
+        "id": 26,
+        "question": "Comment s'appelait le bateau des 200 premiers immigrants aux États-Unis ?",
+        "propositions": [
+          "Concord",
+          "Leeuwin",
+          "Mayflower",
+          "America"
+        ],
+        "réponse": "Mayflower",
+        "anecdote": "En 1620, il transportait des dissidents religieux anglais et d'autres Européens à la recherche d'un lieu pour pratiquer leur religion."
+      },
+      {
+        "id": 27,
+        "question": "De quelle couleur est le « T » du logo du métro de Stockholm ?",
+        "propositions": [
+          "Orange",
+          "Verte",
+          "Bleue",
+          "Rouge"
+        ],
+        "réponse": "Bleue",
+        "anecdote": "Le métro de Stockholm (Stockholms tunnelbana) est un ouvrage artistique mais aussi le seul métro de Suède."
+      },
+      {
+        "id": 28,
+        "question": "Quelle marque de voiture conduisait Grace Kelly quand elle trouva la mort ?",
+        "propositions": [
+          "Une Bentley",
+          "Une Mercedes",
+          "Une Rover",
+          "Une Rolls-Royce"
+        ],
+        "réponse": "Une Rover",
+        "anecdote": "Grace Kelly trouva la mort le 14 septembre 1982 sur la route de la Turbie qui avait servi de décor au film 'La Main au collet'."
+      },
+      {
+        "id": 29,
+        "question": "De quelle couleur étaient les premiers autobus roulant dans la ville de Genève ?",
+        "propositions": [
+          "Verte",
+          "Marron",
+          "Orange",
+          "Bleue"
+        ],
+        "réponse": "Orange",
+        "anecdote": "Le réseau compte, en 2016, 50 lignes exploitées par 231 autobus appartenant aux Transports publics genevois."
+      },
+      {
+        "id": 30,
+        "question": "Quel instrument de locomotion à deux roues était fort en vogue en 1818 ?",
+        "propositions": [
+          "Le vélocipède",
+          "Le vélocar",
+          "La draisienne",
+          "La michaudine"
+        ],
+        "réponse": "La draisienne",
+        "anecdote": "Les anciennes draisiennes actuellement connues pèsent entre 17,3 kg (musée d'Apelborn) et 23 kg (musée de Munich)."
+      }
+    ]
+  }
+}

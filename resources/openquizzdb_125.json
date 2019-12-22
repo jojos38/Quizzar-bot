@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Objets et instruments",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Avec quel appareil peut-on mesurer la profondeur des océans ?",
+        "propositions": [
+          "Un compteur Geiger",
+          "Un sonar",
+          "Un sextant",
+          "Un radar"
+        ],
+        "réponse": "Un sonar",
+        "anecdote": "Un sonar est un appareil utilisant les propriétés de la propagation du son dans l'eau pour détecter et situer les objets sous l'eau."
+      },
+      {
+        "id": 2,
+        "question": "Quel petit objet est utilisé pour maintenir solidaire une liasse de feuilles de papier ?",
+        "propositions": [
+          "Un stencil",
+          "Un post-it",
+          "Un trombone",
+          "Un Rolodex"
+        ],
+        "réponse": "Un trombone",
+        "anecdote": "Le mot s'emploie pour désigner la petite « agrafe provisoire » permettant d'assembler plusieurs feuilles de papier."
+      },
+      {
+        "id": 3,
+        "question": "Combien de trous possédait autrefois le cadran de votre ancien téléphone ?",
+        "propositions": [
+          "12 trous",
+          "10 trous",
+          "6 trous",
+          "8 trous"
+        ],
+        "réponse": "10 trous",
+        "anecdote": "Le cadran était alors composé d'un disque rotatif autour duquel sont portés les chiffres de 1 à 9 puis 0."
+      },
+      {
+        "id": 4,
+        "question": "Contre quoi un paratonnerre avec mise à la terre protège-t-il un bâtiment ?",
+        "propositions": [
+          "Le vent",
+          "La pluie",
+          "Le soleil",
+          "La foudre"
+        ],
+        "réponse": "La foudre",
+        "anecdote": "Pour construire une protection contre la foudre, il faut construire une cage de Faraday enveloppant l'édifice à protéger."
+      },
+      {
+        "id": 5,
+        "question": "Quel appareil de levage permet entre autre de soulever une voiture ?",
+        "propositions": [
+          "Un cric",
+          "Un delco",
+          "Un hayon",
+          "Une rustine"
+        ],
+        "réponse": "Un cric",
+        "anecdote": "L'utilisation la plus fréquente du cric permet de changer une roue après une crevaison ou un problème de pneumatique."
+      },
+      {
+        "id": 6,
+        "question": "Quel appareil, redouté par toutes les femmes, sert à arracher le poil ?",
+        "propositions": [
+          "Un épilateur",
+          "Un sèche-cheveux",
+          "Un aspirateur",
+          "Un vibromasseur"
+        ],
+        "réponse": "Un épilateur",
+        "anecdote": "Les raisons invoquées vont des critères cosmétiques de beauté, de traditions ethniques aux soucis de confort ou d'hygiène."
+      },
+      {
+        "id": 7,
+        "question": "Que retrouve-ton traditionnellement à l'intérieur d'un juke-box ?",
+        "propositions": [
+          "Des disques",
+          "Des fruits",
+          "Des friandises",
+          "Des jeux vidéo"
+        ],
+        "réponse": "Des disques",
+        "anecdote": "Un juke-box (ou jukebox) est un appareil public capable de jouer automatiquement de la musique enregistrée."
+      },
+      {
+        "id": 8,
+        "question": "Quel accessoire, indispensable pour jouer au 421, peut être « pipé » ?",
+        "propositions": [
+          "Une cible",
+          "Un dé",
+          "Un tapis",
+          "Une carte"
+        ],
+        "réponse": "Un dé",
+        "anecdote": "Les dés les plus courants sont des petits cubes de 1 à 2 cm de côté, possédant donc 6 faces numérotées de 1 à 6."
+      },
+      {
+        "id": 9,
+        "question": "De quel organe du corps humain un pacemaker règle-t-il le rythme ?",
+        "propositions": [
+          "Le poumon",
+          "Le rein",
+          "Le cur",
+          "Le foie"
+        ],
+        "réponse": "Le cur",
+        "anecdote": "C'est en 1781 que Luigi Galvani constate que la stimulation électrique d'un nerf provoque la contraction du muscle relié."
+      },
+      {
+        "id": 10,
+        "question": "Quel appareil électroménager peut être à la fois « balai », « sans sac » ou « à main » ?",
+        "propositions": [
+          "Frigidaire",
+          "Aspirateur",
+          "Cuit vapeur",
+          "Grille-pain"
+        ],
+        "réponse": "Aspirateur",
+        "anecdote": "L'aspirateur motorisé a été inventé en 1901 par lingénieur britannique Hubert Cecil Booth, né à Paris en 1871."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel ustensile sert à couper les légumes en très fines tranches ?",
+        "propositions": [
+          "Une mandoline",
+          "Un bandonéon",
+          "Un massicot",
+          "Un hachoir"
+        ],
+        "réponse": "Une mandoline",
+        "anecdote": "La mandoline est généralement en inox pour les professionnels ou en matière plastique ABS pour les particuliers."
+      },
+      {
+        "id": 12,
+        "question": "En alpinisme, quelle lame métallique est enfoncée dans une fissure avec un marteau ?",
+        "propositions": [
+          "Un baudrier",
+          "Un piolet",
+          "Un crampon",
+          "Un piton"
+        ],
+        "réponse": "Un piton",
+        "anecdote": "Les pitons ont été le premier type de matériel de protection et sont toujours utilisés quand rien d'autre ne convient."
+      },
+      {
+        "id": 13,
+        "question": "Quel mammifère a donné son nom à un instrument de rasage ?",
+        "propositions": [
+          "Le buffle",
+          "Le bouquetin",
+          "Le bison",
+          "Le blaireau"
+        ],
+        "réponse": "Le blaireau",
+        "anecdote": "Traditionnellement fabriqué en poils de blaireau, il en existe aussi en soies de sanglier, en crin de cheval ou poils synthétiques."
+      },
+      {
+        "id": 14,
+        "question": "Quel outil utilise-t-on pour alimenter un foyer en air, domestique ou industriel ?",
+        "propositions": [
+          "Une chasse",
+          "Un soufflet",
+          "Un burin",
+          "Une estrapade"
+        ],
+        "réponse": "Un soufflet",
+        "anecdote": "Divers instruments de musique sont également munis de soufflets, tel l'orgue, l'accordéon ou diverses cornemuses."
+      },
+      {
+        "id": 15,
+        "question": "Quel long balai-brosse est généralement utilisé pour ramoner une cheminée ?",
+        "propositions": [
+          "Un blaireau",
+          "Un hérisson",
+          "Un col de cygne",
+          "Une girafe"
+        ],
+        "réponse": "Un hérisson",
+        "anecdote": "Les ramoneurs étaient souvent atteints de déformations articulaires, de brûlures et de cancer causé par la suie."
+      },
+      {
+        "id": 16,
+        "question": "Quel objet du quotidien peut être à la fois aiguille, bobine, plat ou crayon ?",
+        "propositions": [
+          "Une pince",
+          "Une assiette",
+          "Un fil",
+          "Un talon"
+        ],
+        "réponse": "Un talon",
+        "anecdote": "Un talon peut être la partie rigide à l'arrière d'une chaussure qui se pose sur le sol et sur laquelle repose l'arrière du pied."
+      },
+      {
+        "id": 17,
+        "question": "Quel appareil permet de surveiller la surface de la mer depuis un sous-marin en plongée ?",
+        "propositions": [
+          "Le monocle",
+          "Le fibroscope",
+          "Le catadioptre",
+          "Le périscope"
+        ],
+        "réponse": "Le périscope",
+        "anecdote": "Depuis l'avènement du matériel vidéo et de la fibre optique, le périscope est souvent remplacé par une caméra."
+      },
+      {
+        "id": 18,
+        "question": "Comment appelle-t-on familièrement des bottes à bout pointu et talon biseauté ?",
+        "propositions": [
+          "Des santiag",
+          "Des mocassins",
+          "Des mules",
+          "Des charentaises"
+        ],
+        "réponse": "Des santiag",
+        "anecdote": "Les santiags ou bottes de cowboy, au talon assez haut, sont principalement fabriquées à base de cuir de vachette."
+      },
+      {
+        "id": 19,
+        "question": "En aviation, quelle est la couleur de la boîte noire enregistrant des informations liées au vol ?",
+        "propositions": [
+          "Blanche",
+          "Noire",
+          "Verte",
+          "Orange"
+        ],
+        "réponse": "Orange",
+        "anecdote": "Dans la pratique, les boîtes noires sont de couleur orange ou rouge avec des bandes blanches réfléchissantes."
+      },
+      {
+        "id": 20,
+        "question": "À quel objet utilisé par le pêcheur se rapporte le terme « madrague » ?",
+        "propositions": [
+          "Un bateau de pêche",
+          "Une canne à pêche",
+          "Un filet de pêche",
+          "Un épuisette"
+        ],
+        "réponse": "Un filet de pêche",
+        "anecdote": "Ce filet de pêche fixe est particulièrement conçu pour la pêche aux thons migrant régulièrement en longeant certaines côtes."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel autre nom est donné au détecteur de mensonges appliqué sur un individu ?",
+        "propositions": [
+          "Tachigraphe",
+          "Polygraphe",
+          "Mésographe",
+          "Détectographe"
+        ],
+        "réponse": "Polygraphe",
+        "anecdote": "Le stress engendré par le mensonge augmenterait sensiblement la transpiration et donc la conductance cutanée."
+      },
+      {
+        "id": 22,
+        "question": "Quel instrument servait autrefois à enfoncer les portes des châteaux-forts ?",
+        "propositions": [
+          "Le bélier",
+          "La baliste",
+          "Le scorpion",
+          "Le corbeau"
+        ],
+        "réponse": "Le bélier",
+        "anecdote": "L'utilisation des béliers a eu un effet important sur l'évolution de la conception des murailles et des fortifications."
+      },
+      {
+        "id": 23,
+        "question": "Quel outil des cordonniers et des bourreliers sert à percer le cuir ?",
+        "propositions": [
+          "Un touchau",
+          "Un cachet",
+          "Un perçoir",
+          "Une alêne"
+        ],
+        "réponse": "Une alêne",
+        "anecdote": "Ce poinçon servant à percer le cuir existe depuis le paléolithique où il servait alors à assembler les peaux."
+      },
+      {
+        "id": 24,
+        "question": "Quel ciseau à tranchant courbé ou en V sert à sculpter et faire des moulures ?",
+        "propositions": [
+          "La gouge",
+          "La masse",
+          "Le fusain",
+          "Le burin"
+        ],
+        "réponse": "La gouge",
+        "anecdote": "La gouge a été perfectionnée en Angleterre et réintroduite au faubourg St Antoine par la sur du roi Louis XIII."
+      },
+      {
+        "id": 25,
+        "question": "Quel récipient cylindrique à fond plat est utilisé dans de nombreux laboratoires ?",
+        "propositions": [
+          "Une cuvette",
+          "Un bécher",
+          "Un décanteur",
+          "Une pipette"
+        ],
+        "réponse": "Un bécher",
+        "anecdote": "Le bécher, signifiant « gobelet » en allemand, est également appelé « vase de Berlin » ou « berlin » (surtout en Belgique)."
+      },
+      {
+        "id": 26,
+        "question": "Comment appelle-t-on le petit robinet installé sur les tonneaux à alcool ?",
+        "propositions": [
+          "Une diluvienne",
+          "Une valsesource",
+          "Un chantepleure",
+          "Une tendrefontaine"
+        ],
+        "réponse": "Un chantepleure",
+        "anecdote": "Ce robinet pour tonneau de vin, souvent fabriqué en laiton, est utilisé avec le pressoir à robinet d'écoulement."
+      },
+      {
+        "id": 27,
+        "question": "Quel instrument de navigation maritime sert à mesurer la vitesse des bateaux ?",
+        "propositions": [
+          "Le sextant",
+          "La boussole",
+          "Le loch",
+          "Le compas"
+        ],
+        "réponse": "Le loch",
+        "anecdote": "La vitesse est simplement obtenue par division de la distance parcourue par le temps passé à effectuer la mesure."
+      },
+      {
+        "id": 28,
+        "question": "Dans quel objet peut-on souffler pour reproduire le chant des oiseaux ?",
+        "propositions": [
+          "Un moineau",
+          "Un chat",
+          "Un appeau",
+          "Un berlingot"
+        ],
+        "réponse": "Un appeau",
+        "anecdote": "L'appeau est utilisé à la chasse pour produire un son ou un bruit particulier attirant les oiseaux ou le gibier."
+      },
+      {
+        "id": 29,
+        "question": "Que peut-on utiliser pour mesurer le nombre de dents sur un timbre-poste on utilise un...",
+        "propositions": [
+          "Un dentoscope",
+          "Un odontoscope",
+          "Un odontomètre",
+          "Un dentomètre"
+        ],
+        "réponse": "Un odontomètre",
+        "anecdote": "Cet instrument philatélique donne avec précision le nombre exact de dents sur environ deux centimètres."
+      },
+      {
+        "id": 30,
+        "question": "Comment appelle-t-on la partie ronde située au bout des ancres des navires ?",
+        "propositions": [
+          "Le lapin",
+          "Le lièvre",
+          "La fourmi",
+          "La cigale"
+        ],
+        "réponse": "La cigale",
+        "anecdote": "Les ancres modernes sont conçues pour pénétrer profondément et par leur surface importante, résister à l'ensemble de ces forces."
+      }
+    ]
+  }
+}

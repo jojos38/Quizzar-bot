@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Escalade (Qui veut gravir commence par le bas)",
+  "difficulté": "3 / 5",
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Combien faut-il être au minimum pour prétendre pouvoir grimper en escalade ?",
+        "propositions": [
+          "Deux",
+          "Trois",
+          "Un",
+          "Quatre"
+        ],
+        "réponse": "Un",
+        "anecdote": "L'escalade sportive se pratique sur des voies entièrement équipées, où des points d'ancrage ont été au préalable mis en place."
+      },
+      {
+        "id": 2,
+        "question": "Quel nud important doit-on au minimum savoir réaliser pour faire de l'escalade ?",
+        "propositions": [
+          "Nud en huit",
+          "Nud plat",
+          "Nud de chaise",
+          "Nud papillon"
+        ],
+        "réponse": "Nud en huit",
+        "anecdote": "Le nud en huit est relativement simple à défaire, n'abîme pas trop le cordage et forme un nud plus gros que le nud simple."
+      },
+      {
+        "id": 3,
+        "question": "Quelle technique de descente se pratique le long d'une corde munie d'un système de freinage ?",
+        "propositions": [
+          "Rappel",
+          "Désobstruction",
+          "Assurage",
+          "Tyrolienne"
+        ],
+        "réponse": "Rappel",
+        "anecdote": "L'invention en 1876 de la technique de descente en rappel est attribuée à Jean Charlet-Straton, un guide chamoniard."
+      },
+      {
+        "id": 4,
+        "question": "Que dois-je suivre si je décide de n'utiliser que des prises de même couleur sur un mur ?",
+        "propositions": [
+          "Tracé",
+          "Voie",
+          "Chemin",
+          "Parcours"
+        ],
+        "réponse": "Voie",
+        "anecdote": "Une voie d'escalade est un cheminement par lequel un grimpeur atteint le haut d'une montagne ou d'un rocher."
+      },
+      {
+        "id": 5,
+        "question": "Laquelle de ces cotations désigne un niveau de difficulté officiel en escalade ?",
+        "propositions": [
+          "C2",
+          "2-4",
+          "B+",
+          "7C"
+        ],
+        "réponse": "7C",
+        "anecdote": "Le grimpeur qui réussit la première ascension d'une voie est généralement celui qui donne la première cotation de la voie."
+      },
+      {
+        "id": 6,
+        "question": "En escalade, quel système constitue un point d'ancrage dans la roche ?",
+        "propositions": [
+          "Coinceur",
+          "Mousqueton",
+          "Grigri",
+          "Relais"
+        ],
+        "réponse": "Coinceur",
+        "anecdote": "Ce point d'ancrage peut servir de point de protection dans une longueur ou de progression, ou bien servir à constituer un relais."
+      },
+      {
+        "id": 7,
+        "question": "Quel équipement vient enserrer le bassin du grimpeur tel un harnais ?",
+        "propositions": [
+          "Anneau de sangle",
+          "Crash pad",
+          "Baudrier",
+          "Coinceur"
+        ],
+        "réponse": "Baudrier",
+        "anecdote": "Le baudrier est largement utilisé dans la pratique de divers sports comme l'escalade, l'alpinisme, le canyonisme et la spéléologie."
+      },
+      {
+        "id": 8,
+        "question": "Quelle poudre blanche sert à ne pas transpirer des mains en escalade ?",
+        "propositions": [
+          "Sucre glace",
+          "Magnésie",
+          "Farine",
+          "Talc"
+        ],
+        "réponse": "Magnésie",
+        "anecdote": "Le carbonate de magnésium peut contenir une faible proportion de silice qui, inhalée, peut avoir des effets néfastes sur les poumons."
+      },
+      {
+        "id": 9,
+        "question": "Quel type de chaussures est généralement utilisé pour l'escalade ?",
+        "propositions": [
+          "Botte",
+          "Basket",
+          "Chausson",
+          "Pantoufle"
+        ],
+        "réponse": "Chausson",
+        "anecdote": "Afin d'améliorer l'accroche du pied par friction sur un mur d'escalade ou un rocher, le chausson est recouvert d'une couche de gomme."
+      },
+      {
+        "id": 10,
+        "question": "Laquelle de ces cotations est la plus haute pour un grimpeur averti ?",
+        "propositions": [
+          "9a",
+          "1a",
+          "7c+",
+          "e7"
+        ],
+        "réponse": "9a",
+        "anecdote": "La difficulté est estimée pour une ascension en tête, sans s'aider des points d'assurage et sans se reposer pendu à la corde."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Que signifie 'lover une corde' dans la terminologie des grimpeurs ?",
+        "propositions": [
+          "Détacher",
+          "Enrouler",
+          "Accrocher",
+          "Dénouer"
+        ],
+        "réponse": "Enrouler",
+        "anecdote": "L'utilisation est dite à simple lorsque le sportif est assuré par un seul brin de corde et à double par deux brins indépendants."
+      },
+      {
+        "id": 12,
+        "question": "Quelle est la nationalité de la marque Petzl, surtout connue pour ses lampes frontales ?",
+        "propositions": [
+          "Anglaise",
+          "Américaine",
+          "Française",
+          "Autrichienne"
+        ],
+        "réponse": "Française",
+        "anecdote": "La marque Petzl propose du matériel pour l'alpinisme, l'escalade, la spéléologie, la via ferrata, le canyonisme et le trail running."
+      },
+      {
+        "id": 13,
+        "question": "Quel nud bien connu des grimpeurs permet de se vacher en toute sécurité ?",
+        "propositions": [
+          "Pêcheur",
+          "Cabestan",
+          "Chaise",
+          "Papillon"
+        ],
+        "réponse": "Cabestan",
+        "anecdote": "Le nud de cabestan est noué sur la corde d'assurance passée dans un mousqueton: la corde est alors bloquée dans les deux sens."
+      },
+      {
+        "id": 14,
+        "question": "Quelle partie du mur d'escalade appelle-t-on le dévers ?",
+        "propositions": [
+          "En bordure",
+          "Droite",
+          "Penchée",
+          "Verticale"
+        ],
+        "réponse": "Penchée",
+        "anecdote": "C'est en 1983 que François Savigny inventa les prises d'escalade amovibles, d'abord en grès puis en béton de résine."
+      },
+      {
+        "id": 15,
+        "question": "Dans quel système de sécurité peut-on passer une corde lorsque l'on grimpe ?",
+        "propositions": [
+          "Tamponnoir",
+          "Piolet",
+          "Mousqueton",
+          "Crash pad"
+        ],
+        "réponse": "Mousqueton",
+        "anecdote": "L'utilisation du mousqueton en escalade était en fait une conséquence logique de l'usage des pitons inventés par Hans Fiechtl."
+      },
+      {
+        "id": 16,
+        "question": "Quel est l'autre nom que donnent parfois les grimpeurs à la colophane ?",
+        "propositions": [
+          "Clip",
+          "Jumar",
+          "Pof",
+          "Longe"
+        ],
+        "réponse": "Pof",
+        "anecdote": "Le pof ou colophane est une résine que les musiciens mettent sur les crins des archets. En escalade, le pof imperméabilise et colle."
+      },
+      {
+        "id": 17,
+        "question": "En escalade sur roche, quel autre terme est utilisé pour mousquetonner ?",
+        "propositions": [
+          "Flasher",
+          "Clipper",
+          "Corder",
+          "Brocher"
+        ],
+        "réponse": "Clipper",
+        "anecdote": "Apparue dans les années 1980, l'escalade sportive est un des types d'escalade les plus modernes et aussi la pratique la plus sécuritaire."
+      },
+      {
+        "id": 18,
+        "question": "Quelle règle faut-il suivre pour garder son équilibre en escalade ?",
+        "propositions": [
+          "Carré interne",
+          "Trois points",
+          "Temps zéro",
+          "Pleine main"
+        ],
+        "réponse": "Trois points",
+        "anecdote": "Elle consiste à garder en permanence au moins trois points d'appui lors de la progression (deux pieds une main ou deux mains un pied)."
+      },
+      {
+        "id": 19,
+        "question": "Dans quel livre sont répertoriées les voies d'escalade et leur difficulté ?",
+        "propositions": [
+          "Prussik",
+          "Sérac",
+          "Topo-guide",
+          "Lunule"
+        ],
+        "réponse": "Topo-guide",
+        "anecdote": "Les topos peuvent aussi offrir de l'information sur l'histoire, les possibilités locales de restauration, les bars et les hébergements."
+      },
+      {
+        "id": 20,
+        "question": "En escalade, que donne-t-on lorsque l'on assure son partenaire en tête ?",
+        "propositions": [
+          "De la résistance",
+          "Un panier",
+          "Du mou",
+          "Un harnais"
+        ],
+        "réponse": "Du mou",
+        "anecdote": "L'assureur peut ainsi bloquer son défilement au cas où le grimpeur viendrait à chuter via un frein ou un dispositif autobloquant."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel matériel faut-il en plus des dégaines pour grimper en falaise ?",
+        "propositions": [
+          "Vache",
+          "Bélier",
+          "Chamois",
+          "Mouton"
+        ],
+        "réponse": "Vache",
+        "anecdote": "La vache ou longe est constituée d'un anneau de sangle et de son mousqueton ainsi que d'un bout de corde dynamique."
+      },
+      {
+        "id": 22,
+        "question": "Quel grimpeur de haut niveau est couramment appelé le Spiderman français ?",
+        "propositions": [
+          "Alain Robert",
+          "Patrick Edlinger",
+          "Charles Albert",
+          "Jeff Mercier"
+        ],
+        "réponse": "Alain Robert",
+        "anecdote": "Alain Robert s'est spécialisé dans l'escalade rocheuse en solo intégral puis dans l'escalade d'immeubles, aussi en solo intégral."
+      },
+      {
+        "id": 23,
+        "question": "Quel nud faut-il impérativement réaliser après un nud de chaise ?",
+        "propositions": [
+          "Nud d'arrêt",
+          "Nud de papillon",
+          "Nud de cur",
+          "Nud de Lorenzi"
+        ],
+        "réponse": "Nud d'arrêt",
+        "anecdote": "Contrairement au nud de huit, qui peut être difficile à desserrer après une chute, le nud de chaise est facile à desserrer."
+      },
+      {
+        "id": 24,
+        "question": "Quel est le meilleur moyen pour effectuer une réchappe en voie ?",
+        "propositions": [
+          "Mousqueton",
+          "Cordelette",
+          "Maillon rapide",
+          "Dégaine"
+        ],
+        "réponse": "Maillon rapide",
+        "anecdote": "Depuis trois générations, Péguet est le fabricant du Maillon Rapide pour toute connexion permanente ou semi permanente."
+      },
+      {
+        "id": 25,
+        "question": "Quel grimpeur a participé en 2004 à une publicité pour les céréales Grany ?",
+        "propositions": [
+          "Laurent Jacob",
+          "Patrick Edlinger",
+          "Manuel Romain",
+          "Daniel Du Lac"
+        ],
+        "réponse": "Patrick Edlinger",
+        "anecdote": "Réputé pour ses ascensions en solo intégral, Patrick Edlinger est l'un des grands pionniers de l'escalade libre de haut niveau."
+      },
+      {
+        "id": 26,
+        "question": "Quel est le nom de la plus célèbre voie réalisée par Fred Rouhling ?",
+        "propositions": [
+          "Silence",
+          "Akira",
+          "Dreamtime",
+          "Hubble"
+        ],
+        "réponse": "Akira",
+        "anecdote": "En 1995, Fred Rouhling ouvre Akira et propose la cotation inédite de 9b, ce qui entraînera de nombreuses réactions de grimpeurs."
+      },
+      {
+        "id": 27,
+        "question": "Quel nud faut-il utiliser pour faire du rappel avec un mousqueton ovoïde ?",
+        "propositions": [
+          "Nud en huit",
+          "Demi-cabestan",
+          "Nud plat",
+          "Nud de chaise"
+        ],
+        "réponse": "Demi-cabestan",
+        "anecdote": "Ce nud peut être utilisé pour assurer un grimpeur en escalade ou le remplacement d'un descendeur lorsqu'on a perdu celui-ci."
+      },
+      {
+        "id": 28,
+        "question": "Dans quel mode d'ascension escalade-t-on une voie encore non testée ?",
+        "propositions": [
+          "À vue",
+          "Trad",
+          "Flash",
+          "Urbaine"
+        ],
+        "réponse": "À vue",
+        "anecdote": "Ce mode d'ascension pour grimpeurs avertis est considéré comme plus difficile que l'ascension flash ou que l'ascension après travail."
+      },
+      {
+        "id": 29,
+        "question": "Depuis 1875, comment l'escalade était-elle autrefois appelée ?",
+        "propositions": [
+          "Varappe",
+          "Vantance",
+          "Valdrague",
+          "Vairon"
+        ],
+        "réponse": "Varappe",
+        "anecdote": "Ce nom provient de plusieurs couloirs rocheux du mont Salève, près de Genève où, dès 1862, des grimpeurs se retrouvaient amicalement."
+      },
+      {
+        "id": 30,
+        "question": "Quelle norme européenne régit les structures artificielles d'escalade ?",
+        "propositions": [
+          "EN 12572",
+          "RG 165",
+          "BD 432",
+          "KC 8855"
+        ],
+        "réponse": "EN 12572",
+        "anecdote": "La France a quant à elle élaboré une seconde norme, à titre expérimental en 2005: la norme XP P 90-312."
+      }
+      ]
+  }
+}

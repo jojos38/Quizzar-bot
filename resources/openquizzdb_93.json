@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Personnages imaginaires",
+  "difficulté": 1,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Qui est le héros principal du 'Livre de la jungle' de Rudyard Kipling ?",
+        "propositions": [
+          "Buldeo",
+          "Machua",
+          "Mowgli",
+          "Teddy"
+        ],
+        "réponse": "Mowgli",
+        "anecdote": "Mowgli est un nourrisson abandonné au cur de la jungle indienne et élevé par une louve."
+      },
+      {
+        "id": 2,
+        "question": "Quel agent secret de l'Intelligence Service est repris dans de nombreux films ?",
+        "propositions": [
+          "Sam Fisher",
+          "James Bond",
+          "Jack Bauer",
+          "John Steed"
+        ],
+        "réponse": "James Bond",
+        "anecdote": "De 1953 à sa mort en 19641, Ian Fleming publiera douze romans et neuf nouvelles avec le personnage de James Bond."
+      },
+      {
+        "id": 3,
+        "question": "Quel marin imaginaire tire sa force des épinards en boîte ?",
+        "propositions": [
+          "Barnaby",
+          "Popeye",
+          "Sappo",
+          "Grimmy"
+        ],
+        "réponse": "Popeye",
+        "anecdote": "Depuis janvier 2009, le personnage de Popeye est entré dans le domaine public dans la plupart des pays du monde."
+      },
+      {
+        "id": 4,
+        "question": "Quel magicien doué de métamorphose côtoie les chevaliers de la Table ronde ?",
+        "propositions": [
+          "Panoramix",
+          "Zatanna",
+          "Merlin",
+          "Voldemort"
+        ],
+        "réponse": "Merlin",
+        "anecdote": "Dans la littérature médiévale, Merlin commande aux éléments naturels et aux animaux."
+      },
+      {
+        "id": 5,
+        "question": "Quelle marionnette en bois s'est un jour transformée en être humain ?",
+        "propositions": [
+          "Arlequin",
+          "Malvira",
+          "Gnafron",
+          "Pinocchio"
+        ],
+        "réponse": "Pinocchio",
+        "anecdote": "'Les Aventures de Pinocchio' a été le deuxième livre le plus vendu en Italie au XXe siècle."
+      },
+      {
+        "id": 6,
+        "question": "Quel personnage mythique s'introduit dans les maisons par la cheminée ?",
+        "propositions": [
+          "Ganelon",
+          "Guillaume Tell",
+          "Belphégor",
+          "Le père Noël"
+        ],
+        "réponse": "Le père Noël",
+        "anecdote": "La première mention du « père Noël » en français est trouvée en 1855 sous la plume de George Sand."
+      },
+      {
+        "id": 7,
+        "question": "Quel irréductible gaulois de la BD s'oppose aux armées romaines ?",
+        "propositions": [
+          "Félix",
+          "Astérix",
+          "Alix",
+          "Spirou"
+        ],
+        "réponse": "Astérix",
+        "anecdote": "'Astérix' est une série de BD franco-belge créée en obre 1959 par René Goscinny et Albert Uderzo."
+      },
+      {
+        "id": 8,
+        "question": "Quel ami de Tintin a inventé un sous-marin en forme de requin ?",
+        "propositions": [
+          "Haddock",
+          "Nestor",
+          "Professeur Tournesol",
+          "Arumbayas"
+        ],
+        "réponse": "Professeur Tournesol",
+        "anecdote": "Tournesol a rejoint Tintin, Milou et le capitaine Haddock à partir de l'album 'Le Trésor de Rackham le Rouge'."
+      },
+      {
+        "id": 9,
+        "question": "Quel animal se sert de sa queue pour pêcher des piranhas dont il est friand ?",
+        "propositions": [
+          "Le fantasio",
+          "Le champignac",
+          "Le zorglub",
+          "Le marsupilami"
+        ],
+        "réponse": "Le marsupilami",
+        "anecdote": "Doté d'une force herculéenne, la fantaisie du marsupilami fascine autant qu'elle amuse."
+      },
+      {
+        "id": 10,
+        "question": "Quel personnage créé par Walt Disney parle avec une vois nasillarde ?",
+        "propositions": [
+          "Donald Duck",
+          "Dingo",
+          "Pluto",
+          "Figaro"
+        ],
+        "réponse": "Donald Duck",
+        "anecdote": "Dans le monde de l'édition, il reste très populaire dans les pays scandinaves et d'Europe du Nord."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel pauvre bûcheron, un jour parti couper du bois, a pénétré dans la caverne des 40 voleurs ?",
+        "propositions": [
+          "Fortunatus",
+          "Aladin",
+          "Barbe bleue",
+          "Ali Baba"
+        ],
+        "réponse": "Ali Baba",
+        "anecdote": "Un moyen permettant de vite avoir accès à quelque chose est souvent qualifié de « sésame »."
+      },
+      {
+        "id": 12,
+        "question": "Quel célèbre détective se cache souvent sous une apparence malhabile ?",
+        "propositions": [
+          "Bayard",
+          "Columbo",
+          "Japp",
+          "Duflair"
+        ],
+        "réponse": "Columbo",
+        "anecdote": "L'inspecteur Columbo est sujet au vertige et au mal de mer, il ne sait pas nager."
+      },
+      {
+        "id": 13,
+        "question": "Quel commissaire de fiction, héros de romans policiers, fume souvent la pipe ?",
+        "propositions": [
+          "Sam Spade",
+          "Simon Templar",
+          "Maigret",
+          "Hercule Poirot"
+        ],
+        "réponse": "Maigret",
+        "anecdote": "Le commissaire Jules Maigret est en effet le héros de 75 romans policiers et 28 nouvelles de Georges Simenon."
+      },
+      {
+        "id": 14,
+        "question": "Quel détective habile et orgueilleux a été créé par la romancière Agatha Christie ?",
+        "propositions": [
+          "Hercule Poirot",
+          "Adrian Monk",
+          "Sam Spade",
+          "Dick Tracy"
+        ],
+        "réponse": "Hercule Poirot",
+        "anecdote": "Hercule Poirot dit souvent devoir sa victoire à l'utilisation rationnelle de ses « petites cellules grises »."
+      },
+      {
+        "id": 15,
+        "question": "Quel archétype du gamin de Paris est un héros du roman 'Les Misérables' ?",
+        "propositions": [
+          "Javert",
+          "Gavroche",
+          "Azelma",
+          "Marius"
+        ],
+        "réponse": "Gavroche",
+        "anecdote": "Depuis, par antonomase, « Gavroche » se dit d'un gamin gouailleur, débrouillard et à la vulgarité attachante."
+      },
+      {
+        "id": 16,
+        "question": "Quel héros porte le nom d'une pièce de Corneille représentée le 7 janvier 1637 au théâtre du Marais ?",
+        "propositions": [
+          "Hamlet",
+          "Macbeth",
+          "Le Cid",
+          "Le Lutrin"
+        ],
+        "réponse": "Le Cid",
+        "anecdote": "Cid est un surnom de guerre qui ne sera rappelé quaux actes IV et V et uniquement par le roi et l'Infante."
+      },
+      {
+        "id": 17,
+        "question": "Quelle jeune bonne à tout faire bretonne sert chez Madame de Bel-Air ?",
+        "propositions": [
+          "Bécassine",
+          "Célestine",
+          "Zanni",
+          "Mascarille"
+        ],
+        "réponse": "Bécassine",
+        "anecdote": "Bécassine est apparue pour la première fois dans le premier numéro de 'La Semaine de Suzette', en 1905."
+      },
+      {
+        "id": 18,
+        "question": "Quel cow-boy solitaire est parfois accompagné d'un chien stupide ?",
+        "propositions": [
+          "Lucky Luke",
+          "Teddy Ted",
+          "Cotton Kid",
+          "Red Ryder"
+        ],
+        "réponse": "Lucky Luke",
+        "anecdote": "Lucky Luke, cow-boy solitaire au Far West, est connu pour être « L'homme qui tire plus vite que son ombre »."
+      },
+      {
+        "id": 19,
+        "question": "Quel héros de BD empêche toujours par ses bourdes la signature de fructueux contrats ?",
+        "propositions": [
+          "Gaston Lagaffe",
+          "Papyrus",
+          "Gai-Luron",
+          "Cubitus"
+        ],
+        "réponse": "Gaston Lagaffe",
+        "anecdote": "Gaston a une famille, notamment sa tante Hortense que l'on ne voit jamais mais à qui il rend service."
+      },
+      {
+        "id": 20,
+        "question": "Quel personnage abandonné par ses parents, difforme et sourd est sonneur de cloches ?",
+        "propositions": [
+          "Leonardo",
+          "Frollo",
+          "Quasimodo",
+          "Figaro"
+        ],
+        "réponse": "Quasimodo",
+        "anecdote": "Depuis la parution du roman, Quasimodo est devenu l'archétype du « monstre sympathique »."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel super-héros parcourt le ciel new-yorkais à la poursuite des malfaiteurs ?",
+        "propositions": [
+          "Batman",
+          "Cyborg",
+          "Superman",
+          "Flash"
+        ],
+        "réponse": "Superman",
+        "anecdote": "Superman a été créé en janvier 1933 par l'écrivain américain Jerry Siegel et l'artiste canadien Joe Shuster."
+      },
+      {
+        "id": 22,
+        "question": "Que chien de fiction est apparu aux côtés d'Hercule, son ennemi intime ?",
+        "propositions": [
+          "Scooby-Doo",
+          "Idéfix",
+          "Bolivar",
+          "Pif"
+        ],
+        "réponse": "Pif",
+        "anecdote": "Après 'L'Humanité', Pif est devenu la série vedette du journal pour enfants 'Vaillant'."
+      },
+      {
+        "id": 23,
+        "question": "Qui a masqué à sa femme les cadavres de ses huit précédentes épouses ?",
+        "propositions": [
+          "Perceval",
+          "Barbe-Bleue",
+          "Tom Pouce",
+          "Raiponce"
+        ],
+        "réponse": "Barbe-Bleue",
+        "anecdote": "'La Barbe bleue' est un conte populaire, dont la version la plus célèbre est celle de Charles Perrault, parue en 1697."
+      },
+      {
+        "id": 24,
+        "question": "Quel héros de conte de Saint-Exupéry a pour seul ami une rose ?",
+        "propositions": [
+          "Pinocchio",
+          "Harry Potter",
+          "Le petit Prince",
+          "Chabridou"
+        ],
+        "réponse": "Le petit Prince",
+        "anecdote": "'Le Petit Prince' est un conte poétique et philosophique sous l'apparence d'un conte pour enfants."
+      },
+      {
+        "id": 25,
+        "question": "Quelle ancienne lavandière a illustré des publicités de marque de machines à laver ?",
+        "propositions": [
+          "La mère Denis",
+          "Mamie Nova",
+          "Betty Bossi",
+          "Madman Muntz"
+        ],
+        "réponse": "La mère Denis",
+        "anecdote": "La campagne de pubs est sortie à contre courant d'une époque qui était plutôt portée sur les pin-ups."
+      },
+      {
+        "id": 26,
+        "question": "Quel architecte a découvert par hasard l'invasion sournoise d'extra-terrestres ?",
+        "propositions": [
+          "Buck Rogers",
+          "Perry Rhodan",
+          "David Vincent",
+          "Peter Bishop"
+        ],
+        "réponse": "David Vincent",
+        "anecdote": "David Vincent, personnage principal de la série 'Les Envahisseurs', est interprété par Roy Thinnes."
+      },
+      {
+        "id": 27,
+        "question": "Quel célèbre conteuse narre des histoires de voleurs et de marchands de tapis ?",
+        "propositions": [
+          "Shéhérazade",
+          "Tartaro",
+          "Poucette",
+          "Sur Anne"
+        ],
+        "réponse": "Shéhérazade",
+        "anecdote": "Le noyau de ces histoires est formé par un ancien livre persan nommé 'Hazar-afsana' (Les Mille contes)."
+      },
+      {
+        "id": 28,
+        "question": "Quel héros de Cervantes est surnommé « le chevalier à la Triste Figure » ?",
+        "propositions": [
+          "Gargantua",
+          "Don Quichotte",
+          "Huckleberry Finn",
+          "Pantagruel"
+        ],
+        "réponse": "Don Quichotte",
+        "anecdote": "Le livre de  Miguel de Cervantes est une parodie des murs médiévales et de l'idéal chevaleresque."
+      },
+      {
+        "id": 29,
+        "question": "Quel personnage de BD, créé par Greg en 1963, est amoureux de Virgule de Guillemets ?",
+        "propositions": [
+          "Colby",
+          "Bernard Prince",
+          "Olivier Rameau",
+          "Achille Talon"
+        ],
+        "réponse": "Achille Talon",
+        "anecdote": "Achille Talon est généreux, mesquin, pacifiste, agressif, bourgeois, désintéressé, jaloux, et intrépide."
+      },
+      {
+        "id": 30,
+        "question": "Quel officier de l'US Navy se bat contre Lady X, sa principale ennemie ?",
+        "propositions": [
+          "Perry Rhodan",
+          "John Casey",
+          "Buck Danny",
+          "Martin Milan"
+        ],
+        "réponse": "Buck Danny",
+        "anecdote": "Le contexte historique où s'accomplissent ses exploits se déroule de 1940 à nos jours (2008)."
+      }
+    ]
+  }
+}

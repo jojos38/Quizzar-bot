@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Culture générale 3",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Dans quel domaine artistique le français Jacques Majorelle a-t-il exercé ses talents ?",
+        "propositions": [
+          "Peinture",
+          "Photographie",
+          "Théâtre",
+          "Cinéma"
+        ],
+        "réponse": "Peinture",
+        "anecdote": "En 1937, Jacques Majorelle a peint sa villa de couleurs vives, dominées par le bleu auquel il donnera son nom."
+      },
+      {
+        "id": 2,
+        "question": "Quelle est la nationalité du talentueux coureur cycliste Eddy Merckx ?",
+        "propositions": [
+          "Autrichienne",
+          "Suisse",
+          "Hollandaise",
+          "Belge"
+        ],
+        "réponse": "Belge",
+        "anecdote": "Professionnel de 1965 à 1978, Eddy Merckx est souvent considéré comme le plus grand cycliste de l'histoire de ce sport."
+      },
+      {
+        "id": 3,
+        "question": "À quel historien et pédagogue français doit-on les Jeux olympiques modernes ?",
+        "propositions": [
+          "Pie XI",
+          "Duc de Windsor",
+          "Napoléon Bonaparte",
+          "Pierre de Coubertin"
+        ],
+        "réponse": "Pierre de Coubertin",
+        "anecdote": "La médaille Pierre-de-Coubertin, attribuée par le CIO, démontre aux Jeux olympiques un véritable esprit sportif."
+      },
+      {
+        "id": 4,
+        "question": "À quel insecte Volkswagen a-t-elle emprunté le nom pour une des ses voitures ?",
+        "propositions": [
+          "Papillon",
+          "Coccinelle",
+          "Libellule",
+          "Sauterelle"
+        ],
+        "réponse": "Coccinelle",
+        "anecdote": "Produite en 1938, la Coccinelle fut conçue par l'ingénieur Ferdinand Porsche à la demande du chancelier Adolf Hitler."
+      },
+      {
+        "id": 5,
+        "question": "Quel petit animal porte parfois le nom vernaculaire de « rainette » ?",
+        "propositions": [
+          "Hérisson",
+          "Tortue",
+          "Libellule",
+          "Grenouille"
+        ],
+        "réponse": "Grenouille",
+        "anecdote": "Les rainettes les plus connues en Europe sont la rainette verte (aux yeux d'or et arboricoles) et la rainette méridionale."
+      },
+      {
+        "id": 6,
+        "question": "Quel reptile africain fait en sorte que sa peau prenne la couleur du milieu où il évolue ?",
+        "propositions": [
+          "Genette",
+          "Crotale",
+          "Caméléon",
+          "Lézard"
+        ],
+        "réponse": "Caméléon",
+        "anecdote": "Avec plus de 200 espèces, les plus anciens fossiles de caméléons connus datent d'il y a environ 65 millions d'années."
+      },
+      {
+        "id": 7,
+        "question": "Selon une expression bien connue, avec quoi ne mélange-t-on pas les serviettes ?",
+        "propositions": [
+          "Les balais",
+          "Les torchons",
+          "Les brosses",
+          "Les éponges"
+        ],
+        "réponse": "Les torchons",
+        "anecdote": "La serpillière est un morceau de toile grossière et résistante, de forme plus ou moins régulière, servant à laver les sols."
+      },
+      {
+        "id": 8,
+        "question": "Le sens du mot « capharnaüm » désigne en français un lieu...",
+        "propositions": [
+          "Perdu",
+          "En désordre",
+          "Inexistant",
+          "Secret"
+        ],
+        "réponse": "En désordre",
+        "anecdote": "Le mot se rapproche phonétiquement de « cafourniau », petite pièce à côté de la maison servant de « débarras obscur »."
+      },
+      {
+        "id": 9,
+        "question": "Quel est le métier exercé par Dick Tracy, personnage créé par Chester Gould ?",
+        "propositions": [
+          "Informaticien",
+          "Détective",
+          "Photographe",
+          "Journaliste"
+        ],
+        "réponse": "Détective",
+        "anecdote": "Dick Tracy incarne un détective très intelligent de la culture pop américaine qui combat divers « méchants »."
+      },
+      {
+        "id": 10,
+        "question": "Qui aurait murmuré cette phrase en 1633 : « Et pourtant elle tourne » ?",
+        "propositions": [
+          "Galilée",
+          "De Vinci",
+          "Copernic",
+          "Newton"
+        ],
+        "réponse": "Galilée",
+        "anecdote": "Galilée est considéré comme fondateur de la physique, qui s'est imposée comme la première des sciences exactes modernes."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Dans quel pays se situe la Kabylie, région historique et ethnolinguistique ?",
+        "propositions": [
+          "Irak",
+          "Maroc",
+          "Algérie",
+          "Tunisie"
+        ],
+        "réponse": "Algérie",
+        "anecdote": "Dénuée d'existence administrative globale, la Kabylie tient son nom d'une population de culture et de traditions berbères."
+      },
+      {
+        "id": 12,
+        "question": "Quel sport fut créé par Jigoro Kano, alors éducateur dans l'enseignement primaire ?",
+        "propositions": [
+          "Tae kwon do",
+          "Sumo",
+          "Judo",
+          "Karaté"
+        ],
+        "réponse": "Judo",
+        "anecdote": "Jigoro Kano, père de neuf enfants, est le seul judoka à avoir reçu la ceinture blanche après la ceinture rouge."
+      },
+      {
+        "id": 13,
+        "question": "Quel célèbre compositeur et musicien allemand est devenu sourd à 27 ans ?",
+        "propositions": [
+          "Beethoven",
+          "Mozart",
+          "Wagner",
+          "Bach"
+        ],
+        "réponse": "Beethoven",
+        "anecdote": "Aujourd'hui encore, l'uvre de Ludwig van Beethoven est reprise dans de nombreux films et génériques d'émissions."
+      },
+      {
+        "id": 14,
+        "question": "Situé au nord du continent africain, sur combien de pays le Sahara est-il étendu ?",
+        "propositions": [
+          "13",
+          "8",
+          "10",
+          "5"
+        ],
+        "réponse": "10",
+        "anecdote": "Des analyses de pollen pratiquées par des scientifiques montrent que des zones forestières ont bel et bien existé au Sahara."
+      },
+      {
+        "id": 15,
+        "question": "Quel poisson prédateur commun en eaux douces possède environ 700 dents ?",
+        "propositions": [
+          "Goujon",
+          "Carpe",
+          "Brochet",
+          "Truite"
+        ],
+        "réponse": "Brochet",
+        "anecdote": "Partiellement protégé en France, le brochet est un excellent régulateur de population des lacs et des étangs."
+      },
+      {
+        "id": 16,
+        "question": "Qui a réalisé le film 'The Pledge' avec Jack Nicholson et Robin Wright Penn ?",
+        "propositions": [
+          "Tom Hanks",
+          "Sam Mendes",
+          "John Astin",
+          "Sean Penn"
+        ],
+        "réponse": "Sean Penn",
+        "anecdote": "Le film 'The Pledge' sera un échec au box-office, ne récoltant qu'environ 29 millions de dollars pour un budget de 35 millions."
+      },
+      {
+        "id": 17,
+        "question": "En quelle année Philippe Noiret se fit-il connaître avec le film 'Zazie dans le métro' ?",
+        "propositions": [
+          "1960",
+          "1950",
+          "1970",
+          "1980"
+        ],
+        "réponse": "1960",
+        "anecdote": "Philippe Noiret a écrit son autobiographie intitulée 'Mémoire cavalière' avec la collaboration d'Antoine de Meaux."
+      },
+      {
+        "id": 18,
+        "question": "Aux côtés de quel musicien Élodie Frégé a-t-elle sorti 'Le jeu des 7 erreurs' ?",
+        "propositions": [
+          "Pascal Obispo",
+          "Etienne Daho",
+          "Laurent Voulzy",
+          "Benjamin Biolay"
+        ],
+        "réponse": "Benjamin Biolay",
+        "anecdote": "Le deuxième album d'Élodie Frégé, sorti en 2006 et certifié disque d'or, tranche avec le premier, le souhaitant plus à son image."
+      },
+      {
+        "id": 19,
+        "question": "Quel auteur belge de bandes dessinées est le scénariste de 'Kid Paddle' ?",
+        "propositions": [
+          "Midem",
+          "Modem",
+          "Mudim",
+          "Midam"
+        ],
+        "réponse": "Midam",
+        "anecdote": "Fan absolu de jeux vidéo, le jeune Kid Paddle a tendance à confondre les univers de ces jeux avec le monde réel."
+      },
+      {
+        "id": 20,
+        "question": "Dans quel continent trouve-t-on le mandrill, apparenté au babouin ?",
+        "propositions": [
+          "Asie",
+          "Europe",
+          "Afrique",
+          "Océanie"
+        ],
+        "réponse": "Afrique",
+        "anecdote": "75 des 188 espèces de primates sont aujourd'hui menacées de disparition, victimes de la déforestation et du braconnage."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Combien de temps dura l'impressionnant règne de la reine Victoria ?",
+        "propositions": [
+          "Près de 53 ans",
+          "Près de 39 ans",
+          "Près de 47 ans",
+          "Près de 64 ans"
+        ],
+        "réponse": "Près de 64 ans",
+        "anecdote": "Son règne de 63 ans et sept mois est le second plus long de toute l'histoire du Royaume-Uni, après celui d'Élisabeth II."
+      },
+      {
+        "id": 22,
+        "question": "Combien y avait-il de candidats au premier tour des présidentielles de 2007 en France ?",
+        "propositions": [
+          "12",
+          "13",
+          "10",
+          "11"
+        ],
+        "réponse": "12",
+        "anecdote": "Le déroulement de l'élection présidentielle est fixé par les articles 6, 7 et 58 de la Constitution française."
+      },
+      {
+        "id": 23,
+        "question": "Le futurisme est un mouvement littéraire et artistique originaire de quel pays ?",
+        "propositions": [
+          "Allemagne",
+          "Italie",
+          "France",
+          "Royaume-Uni"
+        ],
+        "réponse": "Italie",
+        "anecdote": "Le futurisme est un mouvement qui rejette la tradition esthétique et exalte le monde moderne et les machines."
+      },
+      {
+        "id": 24,
+        "question": "De symbole T, que vaut le préfixe « téra », extrait du système international ?",
+        "propositions": [
+          "10 exposant 9",
+          "10 exposant 12",
+          "10 exposant 20",
+          "10 exposant 15"
+        ],
+        "réponse": "10 exposant 12",
+        "anecdote": "Dans le domaine des ondes électromagnétiques, on parle de térahertz tandis qu'en astronomie, on parle de téramètres."
+      },
+      {
+        "id": 25,
+        "question": "À qui doit-on le canal de Suez, percé entre 1859 et 1869 ?",
+        "propositions": [
+          "Ferdinand de Lesseps",
+          "Andrew Jackson",
+          "Léonide Méssine",
+          "François Charles"
+        ],
+        "réponse": "Ferdinand de Lesseps",
+        "anecdote": "Le canal de Suez permet aux navires d'aller d'Europe en Asie sans devoir contourner l'Afrique par le cap de Bonne-Espérance."
+      },
+      {
+        "id": 26,
+        "question": "Quelle plante à la racine comestible est utilisée pour la fabrication du tapioca ?",
+        "propositions": [
+          "Manioc",
+          "Gingembre",
+          "Guarana",
+          "Ginseng"
+        ],
+        "réponse": "Manioc",
+        "anecdote": "Le tapioca est une fécule produite à partir des racines du manioc amer (toxique avant traitement) séchées puis traitées."
+      },
+      {
+        "id": 27,
+        "question": "Quelle unité monétaire est principalement utilisée au Paraguay ?",
+        "propositions": [
+          "Peso",
+          "Guarani",
+          "Franc",
+          "Couronne"
+        ],
+        "réponse": "Guarani",
+        "anecdote": "La Banco Central del Paraguay a annoncé l'adoption en 2011 du nuevo guarani, valant 1 000 guaranies actuels."
+      },
+      {
+        "id": 28,
+        "question": "Quel est le prénom de la fille du musicien brésilien Joao Gilberto ?",
+        "propositions": [
+          "Felicia",
+          "Bebel",
+          "Rosanna",
+          "Hanne"
+        ],
+        "réponse": "Bebel",
+        "anecdote": "Joao Gilberto, né au Brésil en 1931 et maîtrisant le français, est considéré comme le principal créateur de la bossa nova."
+      },
+      {
+        "id": 29,
+        "question": "Quel guitariste a fondé le groupe de heavy-metal Kiss, en 1973 ?",
+        "propositions": [
+          "Paul Stanley",
+          "Mick Mars",
+          "Kirk Hammett",
+          "Dave Mustaine"
+        ],
+        "réponse": "Paul Stanley",
+        "anecdote": "Le groupe Kiss est devenu célèbre entre autres avec leurs costumes extravagants et la très grande langue de Gene Simmons."
+      },
+      {
+        "id": 30,
+        "question": "Les félins ont tous des griffes rétractiles sauf lequel de ces carnivores ?",
+        "propositions": [
+          "Panthère",
+          "Lion",
+          "Guépard",
+          "Léopard"
+        ],
+        "réponse": "Guépard",
+        "anecdote": "Les félins sont digitigrades : ils marchent en appuyant sur leurs doigts (la plante du pied ne se posant pas sur le sol)."
+      }
+    ]
+  }
+}

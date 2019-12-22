@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Culture en vrac (De la culture générale à tous les niveaux)",
+  "difficulté": "4 / 5",
+  "quizz": {
+      "débutant": [
+      {
+        "id": 1,
+        "question": "Que jette-t-on sur le ring en cas d'abandon durant un match de boxe ?",
+        "propositions": [
+          "Gant",
+          "Protège-dents",
+          "Culotte",
+          "Éponge"
+        ],
+        "réponse": "Éponge",
+        "anecdote": "Durant un match, l'arbitre est le garant principal de la sécurité des boxeurs et peut sanctionner les gestes interdits et dangereux."
+      },
+      {
+        "id": 2,
+        "question": "Quelle espèce d'oiseaux encore présente en Europe gringotte, quiritte ou trille ?",
+        "propositions": [
+          "Perroquet",
+          "Corbeau",
+          "Moineau",
+          "Rossignol"
+        ],
+        "réponse": "Rossignol",
+        "anecdote": "Son chant des plus mélodieux et des plus complexes a fasciné les chercheurs qui ont dénombré 260 séquences différentes."
+      },
+      {
+        "id": 3,
+        "question": "Qui est devenu célèbre grâce au 'Poinçonneur des Lilas' sorti en 1958 ?",
+        "propositions": [
+          "Serge Gainsbourg",
+          "Charles Trenet",
+          "Boris Vian",
+          "Johnny Hallyday"
+        ],
+        "réponse": "Serge Gainsbourg",
+        "anecdote": "Un scopitone a été réalisé pour l'occasion par Jean Bacqué, produit par Pathé, montrant Gainsbourg dans le métro parisien."
+      },
+      {
+        "id": 4,
+        "question": "Laquelle de ces professions ne peut-on associer au grand Léonard de Vinci ?",
+        "propositions": [
+          "Auteur dramatique",
+          "Peintre",
+          "Botaniste",
+          "Sculpteur"
+        ],
+        "réponse": "Auteur dramatique",
+        "anecdote": "Léonard de Vinci, génie universel, est souvent décrit comme l'archétype et le symbole de l'homme de la Renaissance."
+      },
+      {
+        "id": 5,
+        "question": "Fils de Laïos et de Jocaste, qui dipe a-t-il tué dans la mythologie grecque ?",
+        "propositions": [
+          "Son fils",
+          "Sa mère",
+          "Son père",
+          "Sa fille"
+        ],
+        "réponse": "Son père",
+        "anecdote": "dipe est connu pour avoir résolu l'énigme du sphinx et pour s'être rendu involontairement coupable de parricide et d'inceste."
+      },
+      {
+        "id": 6,
+        "question": "En France, à la Libération, combien de personnes se retrouvèrent à Notre-Dame de Paris ?",
+        "propositions": [
+          "13 000",
+          "17 000",
+          "5 000",
+          "9 000"
+        ],
+        "réponse": "13 000",
+        "anecdote": "Le général de Gaulle a descendu le 26 août l'Arc de Triomphe vers Notre-Dame pour un office religieux après la libération de Paris."
+      },
+      {
+        "id": 7,
+        "question": "En quelle année a été bu le premier Coca-Cola concocté par John Pemberton ?",
+        "propositions": [
+          "1886",
+          "1906",
+          "1946",
+          "1926"
+        ],
+        "réponse": "1886",
+        "anecdote": "Contrairement à la chronologie officielle de l'entreprise, Coca-Cola ne s'est pas implantée en France en 1933, mais bien en 1919."
+      },
+      {
+        "id": 8,
+        "question": "Dans quelle ville se sont déroulés les Jeux olympiques de 1900 ?",
+        "propositions": [
+          "Athènes",
+          "Los Angeles",
+          "Rome",
+          "Paris"
+        ],
+        "réponse": "Paris",
+        "anecdote": "Aucune cérémonie d'ouverture ou de fermeture ne fut au programme, excepté un défilé des gymnastes à Vincennes."
+      },
+      {
+        "id": 9,
+        "question": "À quelle substance naturelle ou synthétique la pénicilline est-elle associée ?",
+        "propositions": [
+          "Anesthésique",
+          "Soporifique",
+          "Analgésique",
+          "Antibiotique"
+        ],
+        "réponse": "Antibiotique",
+        "anecdote": "À la base, la pénicilline est une toxine inoffensive pour l'homme synthétisée par certaines espèces de moisissures."
+      },
+      {
+        "id": 10,
+        "question": "Quel prix Nobel Winston Leonard Spencer-Churchill a-t-il reçu en 1953 ?",
+        "propositions": [
+          "Littérature",
+          "Physique",
+          "Paix",
+          "Chimie"
+        ],
+        "réponse": "Littérature",
+        "anecdote": "Winston Churchill reste à ce jour l'unique ancien Premier ministre britannique à avoir reçu, en 1953, le prix Nobel de littérature."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "'Le train sifflera trois fois' est un western américain de quel réalisateur ?",
+        "propositions": [
+          "Fred Zinnemann",
+          "John Ford",
+          "George Stevens",
+          "Vincente Minnelli"
+        ],
+        "réponse": "Fred Zinnemann",
+        "anecdote": "L'album de Lucky Luke intitulé 'Les Dalton à la noce' reprend la trame scénaristique générale et quelques passages-clés du film."
+      },
+      {
+        "id": 12,
+        "question": "En quelle année a-t-on pu assister à l'inauguration du métro parisien ?",
+        "propositions": [
+          "1840",
+          "1880",
+          "1860",
+          "1900"
+        ],
+        "réponse": "1900",
+        "anecdote": "La métro de Paris comporte à ce jour seize lignes en site propre, essentiellement souterraines, totalisant près de 220 kilomètres."
+      },
+      {
+        "id": 13,
+        "question": "Quel écrivain et journaliste littéraire français fut surnommé le taureau normand ?",
+        "propositions": [
+          "Guy de Maupassant",
+          "Alfred de Musset",
+          "Victor Hugo",
+          "Honoré de Balzac"
+        ],
+        "réponse": "Guy de Maupassant",
+        "anecdote": "C'est un de ses biographes, Paul Morand, qui comparera ce Maupassant au physique robuste et athlétique à un taureau."
+      },
+      {
+        "id": 14,
+        "question": "À quel autre objet peut-on associer le paléophone inventé par Charles Cross ?",
+        "propositions": [
+          "Disque à sillon",
+          "Émetteur",
+          "Poste de radio",
+          "Téléphone"
+        ],
+        "réponse": "Disque à sillon",
+        "anecdote": "Faute de preuve, nul ne peut affirmer que Charles Cros ait pu réellement reproduire en 1877 le son qu'il avait réussi à enregistrer."
+      },
+      {
+        "id": 15,
+        "question": "Durant quel siècle les pins furent-ils plantés dans la forêt des Landes de Gascogne ?",
+        "propositions": [
+          "XVe siècle",
+          "XVIIe siècle",
+          "XIIIe siècle",
+          "XIXe siècle"
+        ],
+        "réponse": "XIXe siècle",
+        "anecdote": "D'une superficie de près d'un million d'hectares, la forêt des Landes est la plus grande forêt artificielle d'Europe occidentale."
+      },
+      {
+        "id": 16,
+        "question": "Monsieur Diafoirus est un médecin issu de l'imagination de quel dramaturge ?",
+        "propositions": [
+          "Rabelais",
+          "Corneille",
+          "Voltaire",
+          "Molière"
+        ],
+        "réponse": "Molière",
+        "anecdote": "'Le Malade imaginaire' est une comédie-ballet en trois actes représentée en 1673 et la dernière comédie écrite par Molière."
+      },
+      {
+        "id": 17,
+        "question": "Par rapport à la vitesse duquel de ces éléments le mètre peut-il se définir ?",
+        "propositions": [
+          "Son",
+          "Eau",
+          "Lumière",
+          "Vent"
+        ],
+        "réponse": "Lumière",
+        "anecdote": "La valeur du mètre est définie comme la distance parcourue par la lumière dans le vide en 1/299 792 458 de seconde."
+      },
+      {
+        "id": 18,
+        "question": "Auquel de ces politiciens français Lénine aurait-il pu expliquer la révolution ?",
+        "propositions": [
+          "Raymond Barre",
+          "Jacques Chirac",
+          "Georges Marchais",
+          "Robert Hue"
+        ],
+        "réponse": "Georges Marchais",
+        "anecdote": "Lénine est à l'origine de la Tchéka, police politique chargée d'éliminer tous les ennemis du nouveau régime qu'il met en place."
+      },
+      {
+        "id": 19,
+        "question": "La perle à abdomen remarquable ou plécoptère est en fait...",
+        "propositions": [
+          "Une fleur",
+          "Un oiseau",
+          "Un insecte",
+          "Un coquillage"
+        ],
+        "réponse": "Un insecte",
+        "anecdote": "Les Plécoptères sont appelés mouches de pierre car ils se posent très fréquemment sur les pierres en bordure de cours d'eau."
+      },
+      {
+        "id": 20,
+        "question": "Quel prolifique compositeur français est mort à Paris en 1918 ?",
+        "propositions": [
+          "Édouard Lalo",
+          "Georges Bizet",
+          "Claude Debussy",
+          "Hector Berlioz"
+        ],
+        "réponse": "Claude Debussy",
+        "anecdote": "Une part importante de l'uvre de Claude Debussy est pour piano et utilise une palette sonore particulièrement riche et évocatrice."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Pour quelle profession la ville de Crémone, située dans le nord de l'Italie, est-elle célèbre ?",
+        "propositions": [
+          "Luthier",
+          "Sabotier",
+          "Potier",
+          "Peintre"
+        ],
+        "réponse": "Luthier",
+        "anecdote": "La ville est la patrie d'Antonio Giacomo Stradivari, dit Stradivarius, fabricant de violons, de violoncelles, d'altos et de guitares."
+      },
+      {
+        "id": 22,
+        "question": "Autrefois, la phtisie désignait une des formes de quelle maladie ?",
+        "propositions": [
+          "Tuberculose",
+          "Syphilis",
+          "Asthme",
+          "Lèpre"
+        ],
+        "réponse": "Tuberculose",
+        "anecdote": "La tuberculose est une maladie contagieuse infectieuse causée par une bactérie, avec des signes cliniques variables."
+      },
+      {
+        "id": 23,
+        "question": "Par quel pays Macao a-t-elle été colonisée et administrée durant plus de 400 ans ?",
+        "propositions": [
+          "Angleterre",
+          "Portugal",
+          "Espagne",
+          "Allemagne"
+        ],
+        "réponse": "Portugal",
+        "anecdote": "La ville de Macao est considérée comme le dernier comptoir ainsi que la dernière colonie européenne en Chine et en Asie."
+      },
+      {
+        "id": 24,
+        "question": "Lequel de ces écrivains avait 40 ans à la naissance de Gustave Flaubert ?",
+        "propositions": [
+          "Balzac",
+          "Stendhal",
+          "Favre",
+          "Hugo"
+        ],
+        "réponse": "Balzac",
+        "anecdote": "Gustave Flaubert a marqué la littérature par la profondeur de ses analyses psychologiques et son souci de réalisme."
+      },
+      {
+        "id": 25,
+        "question": "Comment peut-on littéralement traduire le terme république d'Albanie ?",
+        "propositions": [
+          "Pays des morts",
+          "Pays des chevaux",
+          "Pays des vivants",
+          "Pays des aigles"
+        ],
+        "réponse": "Pays des aigles",
+        "anecdote": "Le pays a un régime politique de type démocratie parlementaire, sa capitale est Tirana et sa langue officielle est l'albanais."
+      },
+      {
+        "id": 26,
+        "question": "Dans quel état se trouve la prison américaine de Sing Sing, située sur les rives de l'Hudson ?",
+        "propositions": [
+          "Texas",
+          "Alabama",
+          "New York",
+          "Géorgie"
+        ],
+        "réponse": "New York",
+        "anecdote": "La prison de Sing Sing est classée comme établissement de sécurité maximale et a été le lieu, avant 2004, d'exécutions capitales."
+      },
+      {
+        "id": 27,
+        "question": "Quelle est probablement la rencontre la plus célèbre de Camp David en 1978 ?",
+        "propositions": [
+          "Nixon-Brejnev",
+          "Reagan-Thatcher",
+          "Clinton-Arafat",
+          "Sadate-Begin"
+        ],
+        "réponse": "Sadate-Begin",
+        "anecdote": "Le Camp David, d'une superficie de 50 hectares dans le Maryland, est le lieu de villégiature officiel du président des États-Unis."
+      },
+      {
+        "id": 28,
+        "question": "Dans quel journal est paru le célèbre 'J'accuse... !' d'Émile Zola ?",
+        "propositions": [
+          "Pravda",
+          "Aurore",
+          "Humanité",
+          "Figaro"
+        ],
+        "réponse": "Aurore",
+        "anecdote": "Rédigé au cours de l'affaire Dreyfus, cet article est paru sous la forme d'une lettre ouverte au président français Félix Faure."
+      },
+      {
+        "id": 29,
+        "question": "Dans quel pays coule le Shannon, traversant des successions interminables de lacs ?",
+        "propositions": [
+          "Canada",
+          "Israël",
+          "Irlande",
+          "États-Unis"
+        ],
+        "réponse": "Irlande",
+        "anecdote": "Les 386 kilomètres du fleuve Shannon en font le plus long cours d'eau des Îles Britanniques et le plus abondant par son débit."
+      },
+      {
+        "id": 30,
+        "question": "Quel philosophe français habitait 10 rue Monsieur-le-Prince à Paris ?",
+        "propositions": [
+          "Pierre Leroux",
+          "Marcel Proust",
+          "Anatole France",
+          "Auguste Comte"
+        ],
+        "réponse": "Auguste Comte",
+        "anecdote": "Auguste Comte fut le secrétaire particulier puis collaborateur du comte de Saint-Simon, fondateur du mouvement saint-simonien."
+      }
+      ]
+  }
+}

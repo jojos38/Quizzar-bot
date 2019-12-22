@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Animaux en chiffres (Si un animal vous dit qu'il peut parler, il ment probablement.)",
+  "difficulté": 4,
+  "quizz": {
+      "débutant": [
+      {
+        "id": 1,
+        "question": "Combien de temps dure en moyenne la gestation d'une éléphante ?",
+        "propositions": [
+          "21 mois",
+          "9 mois",
+          "13 mois",
+          "17 mois"
+        ],
+        "réponse": "21 mois",
+        "anecdote": "Une éléphante peut être en gestation jusqu'à l'âge de cinquante ans, où un seul éléphant est porté dans la plupart des cas."
+      },
+      {
+        "id": 2,
+        "question": "À combien de pulsations par minute bat le cur d'un hérisson en hibernation ?",
+        "propositions": [
+          "8",
+          "38",
+          "28",
+          "18"
+        ],
+        "réponse": "18",
+        "anecdote": "Il ne faut pas confondre les hérissons avec d'autres mammifères porteurs de piquants, comme par exemple les porcs-épics."
+      },
+      {
+        "id": 3,
+        "question": "Jusqu'à combien de kilomètres le cri du singe hurleur est-il audible ?",
+        "propositions": [
+          "12 km",
+          "3 km",
+          "6 km",
+          "9 km"
+        ],
+        "réponse": "3 km",
+        "anecdote": "Ce singe hurle chaque matin, et quand il combat avec d'autres singes hurleurs, ils se battent également à coups de hurlements."
+      },
+      {
+        "id": 4,
+        "question": "En quelle année le dernier dodo vivant a-t-il été vu à l'île Maurice ?",
+        "propositions": [
+          "1908",
+          "1723",
+          "1832",
+          "1681"
+        ],
+        "réponse": "1681",
+        "anecdote": "En plus de son incapacité à voler, le dodo n'avait développé aucune peur à l'encontre des êtres humains, faisant de lui une proie facile."
+      },
+      {
+        "id": 5,
+        "question": "Combien de bisons environ Buffalo Bill a-t-il abattus en 18 mois seulement ?",
+        "propositions": [
+          "4 000",
+          "1 000",
+          "2 000",
+          "3 000"
+        ],
+        "réponse": "4 000",
+        "anecdote": "Le chapeau stetson ainsi que le bandana ont été popularisés par Buffalo Bill alors que tous les cow-boys n'en portaient pas forcément."
+      },
+      {
+        "id": 6,
+        "question": "Jusqu'à quelle altitude vivent en général les bouquetins des Alpes ?",
+        "propositions": [
+          "3 500 m",
+          "4 600 m",
+          "1 900 m",
+          "2 300 m"
+        ],
+        "réponse": "3 500 m",
+        "anecdote": "Le milieu de prédilection du bouquetin des Alpes comprend des murailles abruptes, des falaises à pics ou des parois escarpées."
+      },
+      {
+        "id": 7,
+        "question": "Combien de minutes une otarie peut-elle nager sous l'eau sans respirer ?",
+        "propositions": [
+          "9 min",
+          "11 min",
+          "7 min",
+          "5 min"
+        ],
+        "réponse": "5 min",
+        "anecdote": "Contrairement aux phoques, les otaries pourvuent de nageoires se servent à terre de leurs postérieurs pour marcher."
+      },
+      {
+        "id": 8,
+        "question": "Quelle est, en centimètres, la longueur de la langue d'un fourmilier adulte ?",
+        "propositions": [
+          "80 cm",
+          "50 cm",
+          "60 cm",
+          "70 cm"
+        ],
+        "réponse": "60 cm",
+        "anecdote": "Le plus grand représentant du groupe est le fourmilier géant ou grand tamanoir, un animal mesurant plus d'un mètre de longueur."
+      },
+      {
+        "id": 9,
+        "question": "Quel est le pourcentage de rongeurs parmi les mammifères ?",
+        "propositions": [
+          "30 %",
+          "20 %",
+          "40 %",
+          "10 %"
+        ],
+        "réponse": "40 %",
+        "anecdote": "Ces animaux se caractérisent par leur unique paire d'incisives qui leur servent à ronger, à creuser des galeries ou à se défendre."
+      },
+      {
+        "id": 10,
+        "question": "Combien de fois par minute un fourmilier peut-il sortir la langue de sa gueule ?",
+        "propositions": [
+          "80 fois",
+          "120 fois",
+          "40 fois",
+          "160 fois"
+        ],
+        "réponse": "160 fois",
+        "anecdote": "Le fourmilier mange surtout des fourmis, mais il aime aussi les termites et d'autres insectes comme la coccinelle."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Jusqu'à combien de kilos de viande une hyène peut-elle manger au cours d'un repas ?",
+        "propositions": [
+          "4 kg",
+          "14 kg",
+          "24 kg",
+          "34 kg"
+        ],
+        "réponse": "14 kg",
+        "anecdote": "Il est impossible de discerner par la simple observation un mâle hyène d'une femelle tant l'un et l'autre se ressemblent."
+      },
+      {
+        "id": 12,
+        "question": "Quel est le poids moyen de la langue d'une baleine bleue adulte ?",
+        "propositions": [
+          "2,7 tonnes",
+          "880 kg",
+          "2,2 tonnes",
+          "1,3 tonne"
+        ],
+        "réponse": "2,7 tonnes",
+        "anecdote": "Quand la gueule de la baleine bleue est complètement ouverte, elle est assez grande pour contenir 90 tonnes d'eau et de nourriture."
+      },
+      {
+        "id": 13,
+        "question": "Combien une reine termite pond-elle d'ufs en moyenne par jour ?",
+        "propositions": [
+          "90",
+          "30",
+          "120",
+          "60"
+        ],
+        "réponse": "30",
+        "anecdote": "D'un couple de termites naissent des larves qui donnent des ouvriers stériles ou des nymphes qui donneront des adultes sexués."
+      },
+      {
+        "id": 14,
+        "question": "Quelle vitesse un léopard au repos peut-il atteindre en seulement deux secondes ?",
+        "propositions": [
+          "40 km/h",
+          "60 km/h",
+          "80 km/h",
+          "100 km/h"
+        ],
+        "réponse": "60 km/h",
+        "anecdote": "Le léopard tient une place importante dans certaines cultures africaines où ce roi des animaux est l'attribut des chefs."
+      },
+      {
+        "id": 15,
+        "question": "Combien de minutes un cachalot peut-il rester sous l'eau sans respirer ?",
+        "propositions": [
+          "50 min",
+          "30 min",
+          "90 min",
+          "70 min"
+        ],
+        "réponse": "90 min",
+        "anecdote": "La chasse au cachalot permettait de récolter le spermaceti, substance blanche et cireuse issue de la tête de l'animale."
+      },
+      {
+        "id": 16,
+        "question": "Quelle vitesse un faucon pèlerin peut-il atteindre lorsqu'il fond sur sa proie ?",
+        "propositions": [
+          "120 km/h",
+          "160 km/h",
+          "200 km/h",
+          "240 km/h"
+        ],
+        "réponse": "240 km/h",
+        "anecdote": "Ses proies sont souvent des oiseaux, mais certains individus peuvent également s'attaquer à de petits animaux terrestres."
+      },
+      {
+        "id": 17,
+        "question": "Combien de millilitres de sang une chauve-souris vampire peut-elle boire en une nuit ?",
+        "propositions": [
+          "20 ml",
+          "60 ml",
+          "40 ml",
+          "80 ml"
+        ],
+        "réponse": "20 ml",
+        "anecdote": "La chauve-souris vampire est originaire des zones tropicales du continent américain (Mexique, Chili, Brésil et Argentine)."
+      },
+      {
+        "id": 18,
+        "question": "Par quel facteur le poids d'un ours blanc est-il multiplié deux mois après sa naissance ?",
+        "propositions": [
+          "35",
+          "45",
+          "25",
+          "55"
+        ],
+        "réponse": "25",
+        "anecdote": "Parfaitement adapté à son habitat, l'ours blanc possède une épaisse couche de graisse et une fourrure qui l'isolent du froid."
+      },
+      {
+        "id": 19,
+        "question": "Combien de fois compte-t-on plus de serpents non venimeux que venimeux ?",
+        "propositions": [
+          "1 500 fois",
+          "1 100 fois",
+          "1 700 fois",
+          "1 300 fois"
+        ],
+        "réponse": "1 700 fois",
+        "anecdote": "La plupart des serpents possèdent une langue bifide, des yeux sans paupière, un crâne articulé et des mâchoires mobiles."
+      },
+      {
+        "id": 20,
+        "question": "Combien d'ufs pond en moyenne un crocodile du Nil en bonne santé ?",
+        "propositions": [
+          "40",
+          "130",
+          "70",
+          "100"
+        ],
+        "réponse": "100",
+        "anecdote": "À l'éclosion des ufs, le bébé crocodile mesure environ 30 cm et a le même corps que sa mère, qu'il soit mâle ou femelle."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle est la longueur maximale du bond que peut effectuer un puma ?",
+        "propositions": [
+          "10 m",
+          "8 m",
+          "12 m",
+          "6 m"
+        ],
+        "réponse": "12 m",
+        "anecdote": "Pour les besoins de la chasse ou en cas de menace, il est capable de grimper aux arbres et de faire preuve d'une grande agilité."
+      },
+      {
+        "id": 22,
+        "question": "Combien un moustique normalement constitué a-t-il de dents ?",
+        "propositions": [
+          "34",
+          "11",
+          "29",
+          "47"
+        ],
+        "réponse": "47",
+        "anecdote": "Les adultes se nourrissent de nectar de fleurs et participent à la pollinisation des plantes, au même titre que les papillons."
+      },
+      {
+        "id": 23,
+        "question": "Quelle est la longueur en centimètres d'un intestin de koala ?",
+        "propositions": [
+          "300 cm",
+          "100 cm",
+          "200 cm",
+          "400 cm"
+        ],
+        "réponse": "300 cm",
+        "anecdote": "Le koala est étroitement lié à l'eucalyptus ou gommier, dont il ne mange que les feuilles de certaines espèces."
+      },
+      {
+        "id": 24,
+        "question": "Combien de jours dure l'hibernation d'un écureuil d'Alaska ?",
+        "propositions": [
+          "180 jours",
+          "410 jours",
+          "320 jours",
+          "270 jours"
+        ],
+        "réponse": "270 jours",
+        "anecdote": "La queue en panache de l'écureuil et son acharnement à faire des provisions pour l'hiver ont contribué à sa popularité."
+      },
+      {
+        "id": 25,
+        "question": "Quelle est la vitesse maximale déjà atteinte par l'espadon-voilier ?",
+        "propositions": [
+          "119 km/h",
+          "89 km/h",
+          "109 km/h",
+          "99 km/h"
+        ],
+        "réponse": "109 km/h",
+        "anecdote": "Possédant des stries verticales sur les flancs, l'espadon-voilier est considéré comme étant le plus rapide des poissons."
+      },
+      {
+        "id": 26,
+        "question": "Combien d'animaux du zoo de Berlin survécurent à la Seconde Guerre mondiale ?",
+        "propositions": [
+          "1 712",
+          "892",
+          "344",
+          "91"
+        ],
+        "réponse": "91",
+        "anecdote": "Les premiers dons d'animaux au zoo de Berlin, fondé en 1844, furent effectués par Frédéric-Guillaume IV, roi de Prusse."
+      },
+      {
+        "id": 27,
+        "question": "Sur mille tortues marines, combien seulement atteignent l'âge de se reproduire ?",
+        "propositions": [
+          "640",
+          "100",
+          "15",
+          "250"
+        ],
+        "réponse": "15",
+        "anecdote": "Les tortues marines, bien que vulnérables, sont présentes dans tous les océans du monde, à l'exception de l'océan Arctique."
+      },
+      {
+        "id": 28,
+        "question": "Combien de fois par seconde un colibri peut-il battre des ailes ?",
+        "propositions": [
+          "18 fois",
+          "58 fois",
+          "78 fois",
+          "38 fois"
+        ],
+        "réponse": "78 fois",
+        "anecdote": "Les colibris sont également surnommés oiseaux-mouches à cause de leur petite taille et de leurs battements d'ailes rapides."
+      },
+      {
+        "id": 29,
+        "question": "Au sens large du terme, combien existe-t-il d'espèces de kangourous ?",
+        "propositions": [
+          "51",
+          "63",
+          "44",
+          "37"
+        ],
+        "réponse": "63",
+        "anecdote": "Animal emblématique de l'Australie, le grand kangourou y est plus populaire dans les campagnes que dans les villes."
+      },
+      {
+        "id": 30,
+        "question": "Combien a-t-on découvert jusqu'ici d'espèces de coléoptères ?",
+        "propositions": [
+          "8 700",
+          "9 600",
+          "7 200",
+          "6 400"
+        ],
+        "réponse": "9 600",
+        "anecdote": "Les scarabées, les coccinelles, les lucanes, les chrysomèles, les hannetons et les charançons sont des coléoptères."
+      }
+      ]
+  }
+}

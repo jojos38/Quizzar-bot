@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Guerres et batailles",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "En quelle année les États-Unis ont-ils pris part à la Première Guerre mondiale ?",
+        "propositions": [
+          "1915",
+          "1917",
+          "1918",
+          "1916"
+        ],
+        "réponse": "1917",
+        "anecdote": "Cette guerre a atteint une échelle et une intensité inconnues jusqu'alors."
+      },
+      {
+        "id": 2,
+        "question": "Quels Jeux olympiques ont été supprimés à cause de la Seconde Guerre mondiale ?",
+        "propositions": [
+          "1936 et 1940",
+          "1932 et 1936",
+          "1944 et 1948",
+          "1940 et 1944"
+        ],
+        "réponse": "1940 et 1944",
+        "anecdote": "Les jeux ont été rénovés par le baron Pierre de Coubertin à la fin du XIX<sup>e</sup> siècle."
+      },
+      {
+        "id": 3,
+        "question": "Dans les plaines de quel champ de bataille se dresse la Butte du Lion ?",
+        "propositions": [
+          "Valmy",
+          "Verdun",
+          "Waterloo",
+          "Austerlitz"
+        ],
+        "réponse": "Waterloo",
+        "anecdote": "Une table d'orientation permet de situer les fermes et les troupes antagonistes."
+      },
+      {
+        "id": 4,
+        "question": "Quelle ligne de défense française fut contournée par les Allemands en 1940 ?",
+        "propositions": [
+          "La ligne Maginot",
+          "La ligne Daladier",
+          "La ligne Siegfried",
+          "La ligne Verte"
+        ],
+        "réponse": "La ligne Maginot",
+        "anecdote": "Le terme « ligne Maginot » désigne parfois le système entier, mais plus souvent les seules défenses contre l'Allemagne."
+      },
+      {
+        "id": 5,
+        "question": "Le général Cambronne, qui commandait la vieille garde, eut une conduite héroïque à...",
+        "propositions": [
+          "Iena",
+          "Wagram",
+          "Midway",
+          "Waterloo"
+        ],
+        "réponse": "Waterloo",
+        "anecdote": "La détermination de Cambronne provoqua l'admiration des Britanniques."
+      },
+      {
+        "id": 6,
+        "question": "Où a eu lieu le grand procès des criminels de guerre nazis ?",
+        "propositions": [
+          "Munich",
+          "Berlin",
+          "Hambourg",
+          "Nuremberg"
+        ],
+        "réponse": "Nuremberg",
+        "anecdote": "Le procès de Nuremberg fut intenté contre 24 responsables du Troisième Reich."
+      },
+      {
+        "id": 7,
+        "question": "Qui fut vainqueur de la Guerre de Troie, conflit légendaire de la mythologie grecque ?",
+        "propositions": [
+          "Sophocle",
+          "Ulysse",
+          "Ajax",
+          "Arkantos"
+        ],
+        "réponse": "Ulysse",
+        "anecdote": "La guerre de Troie, qui représente une pierre fondatrice de la culture grecque, est un conflit légendaire suscité par l'enlèvement d'Hélène."
+      },
+      {
+        "id": 8,
+        "question": "En quelle année la bataille de Waterloo a-t-elle eu lieu, à vingt kilomètres au sud de Bruxelles ?",
+        "propositions": [
+          "1809",
+          "1815",
+          "1831",
+          "1824"
+        ],
+        "réponse": "1815",
+        "anecdote": "La bataille de Waterloo est la dernière bataille à laquelle prit part directement Napoléon Bonaparte."
+      },
+      {
+        "id": 9,
+        "question": "Quel humoriste représenta la « voix de la France » sur Radio Londres en 1943-1944 ?",
+        "propositions": [
+          "Pierre Dac",
+          "Fernand Raynaud",
+          "Francis Blanche",
+          "Fernandel"
+        ],
+        "réponse": "Pierre Dac",
+        "anecdote": "Preuve de son succès : les Allemands tenteront de faire interdire l'écoute de Radio Londres en confisquant les postes."
+      },
+      {
+        "id": 10,
+        "question": "Quelle célèbre bataille se déroula en 1515 et fit environ 16 000 morts en seize heures de combat ?",
+        "propositions": [
+          "Marignan",
+          "Waterloo",
+          "Valmy",
+          "Marino"
+        ],
+        "réponse": "Marignan",
+        "anecdote": "Elle donna lieu à une intense propagande développée par le pouvoir royal afin de justifier cette expédition."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Exception faite des porte-aéronefs, quel est le plus grand des navires de guerre ?",
+        "propositions": [
+          "Un croiseur",
+          "Un destroyer",
+          "Une frégate",
+          "Un aviso"
+        ],
+        "réponse": "Un croiseur",
+        "anecdote": "Le croiseur était considéré comme un navire susceptible d'opérer individuellement."
+      },
+      {
+        "id": 12,
+        "question": "De quelle guerre le film britanno-américain 'Full Metal Jacket' traite-t-il ?",
+        "propositions": [
+          "Irak",
+          "Viêt Nam",
+          "Corée",
+          "Koweit"
+        ],
+        "réponse": "Viêt Nam",
+        "anecdote": "Le titre du film fait référence à un type de munition standard utilisé par les armées."
+      },
+      {
+        "id": 13,
+        "question": "Quel collaborateur hitlérien fit des efforts historiques en 1941 pour négocier la paix ?",
+        "propositions": [
+          "Reinhard Heydrich",
+          "Herbert Backe",
+          "Rudolf Hess",
+          "Hans Kammler"
+        ],
+        "réponse": "Rudolf Hess",
+        "anecdote": "Lors du procès de Nuremberg, Hess sera condamné à l'emprisonnement à perpétuité."
+      },
+      {
+        "id": 14,
+        "question": "Quel roi poussa les Grecs à la guerre contre Troie pour reprendre sa femme Hélène ?",
+        "propositions": [
+          "Diomède",
+          "Ménélas",
+          "Egée",
+          "Agamemnon"
+        ],
+        "réponse": "Ménélas",
+        "anecdote": "Ménélas est l'un des héros grecs de la guerre de Troie et le roi de Sparte."
+      },
+      {
+        "id": 15,
+        "question": "À quelle guerre la France a-t-elle été mêlée entre 1853 et 1856 ?",
+        "propositions": [
+          "Guerre de Sécession",
+          "Guerre des Cent-Jours",
+          "Guerre de Crimée",
+          "Guerre du Mexique"
+        ],
+        "réponse": "Guerre de Crimée",
+        "anecdote": "Durant cette période, Napoléon III avait besoin d'une guerre pour asseoir son pouvoir."
+      },
+      {
+        "id": 16,
+        "question": "Qui a réalisé le film de guerre 'Platoon', inspiré en partie par la propre vie du réalisateur ?",
+        "propositions": [
+          "Brian De Palma",
+          "Steven Spielberg",
+          "Oliver Stone",
+          "Clint Eastwood"
+        ],
+        "réponse": "Oliver Stone",
+        "anecdote": "Oliver Stone s'est lui-même engagé comme volontaire pour la guerre du Viêt Nam où il a été blessé à deux reprises."
+      },
+      {
+        "id": 17,
+        "question": "Quel écrivain célèbre perdit un bras lors de la Première Guerre Mondiale ?",
+        "propositions": [
+          "Blaise Cendrars",
+          "Louis Aragon",
+          "Guillaume Apollinaire",
+          "Max Jacob"
+        ],
+        "réponse": "Blaise Cendrars",
+        "anecdote": "Blaise Cendrars participa dès le début à la Première Guerre mondiale comme engagé volontaire."
+      },
+      {
+        "id": 18,
+        "question": "Dans quelle ville fut signé le traité marquant la fin de la Première Guerre mondiale ?",
+        "propositions": [
+          "Paris",
+          "Bordeaux",
+          "Versailles",
+          "Lyon"
+        ],
+        "réponse": "Versailles",
+        "anecdote": "Le traité de Versailles de 1919 est le traité de paix entre l'Allemagne et les Alliés."
+      },
+      {
+        "id": 19,
+        "question": "Quel acteur américain fut recherché par Hitler pendant la seconde Guerre mondiale ?",
+        "propositions": [
+          "John Wayne",
+          "Charlie chaplin",
+          "Clark Gable",
+          "Dean Martin"
+        ],
+        "réponse": "Clark Gable",
+        "anecdote": "Adolf Hitler plaçait Clark Gable au-dessus des autres acteurs et offrit une récompense pour sa capture."
+      },
+      {
+        "id": 20,
+        "question": "Quel roi est sorti vainqueur à la bataille des Thermopyles ?",
+        "propositions": [
+          "Xerxès",
+          "Darius",
+          "Artaxerxès",
+          "Cyrus"
+        ],
+        "réponse": "Xerxès",
+        "anecdote": "La bataille des Thermopyles est l'un des plus célèbres faits d'armes de l'histoire antique."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Sur quelle plage les troupes britanniques débarquèrent le 7 juin 1944 pour libérer Bayeux ?",
+        "propositions": [
+          "Arromanches",
+          "Utah Beach",
+          "Gold Beach",
+          "Omaha-Beach"
+        ],
+        "réponse": "Gold Beach",
+        "anecdote": "Environ 25 000 hommes ont débarqué à Gold Beach le jour J où l'on dénombra 413 pertes au total."
+      },
+      {
+        "id": 22,
+        "question": "Dans quel pays a eu lieu la bataille des Arapiles, livrée le 22 juillet 1812 ?",
+        "propositions": [
+          "En Turquie",
+          "En Italie",
+          "En Grèce",
+          "En Espagne"
+        ],
+        "réponse": "En Espagne",
+        "anecdote": "On a dit que Wellington y avait défait une armée de 40 000 hommes en 40 minutes."
+      },
+      {
+        "id": 23,
+        "question": "En quelle année se déroula la bataille de Pavie, événement décisif de la sixième guerre d'Italie ?",
+        "propositions": [
+          "1525",
+          "1775",
+          "1635",
+          "1415"
+        ],
+        "réponse": "1525",
+        "anecdote": "La bataille de Pavie marque la défaite des rois de France dans leur domination du nord de l'Italie."
+      },
+      {
+        "id": 24,
+        "question": "En quelle année débuta la guerre de Cent Ans, entrecoupée de trêves plus ou moins longues ?",
+        "propositions": [
+          "1317",
+          "1327",
+          "1337",
+          "1347"
+        ],
+        "réponse": "1337",
+        "anecdote": "La guerre de Cent Ans marque l'apparition de l'artillerie et le déclin de la chevalerie."
+      },
+      {
+        "id": 25,
+        "question": "Quel roman écrit par Émile Zola relate la guerre Franco-Allemande de 1870 ?",
+        "propositions": [
+          "Le naturalisme",
+          "Le ventre de Paris",
+          "La bête humaine",
+          "La débâcle"
+        ],
+        "réponse": "La débâcle",
+        "anecdote": "'La Débâcle' est le dix-neuvième volume de la série 'les Rougon-Macquart'."
+      },
+      {
+        "id": 26,
+        "question": "Quelle déesse personnifie la Guerre sanglante et furieuse chez les Romains ?",
+        "propositions": [
+          "Artémis",
+          "Hécate",
+          "Bellone",
+          "Cérès"
+        ],
+        "réponse": "Bellone",
+        "anecdote": "Bellone est considérée tantôt comme l'épouse, tantôt comme la sur de Mars."
+      },
+      {
+        "id": 27,
+        "question": "Qui a dit : « Il est plus facile de faire la guerre que la paix » ?",
+        "propositions": [
+          "Clemenceau",
+          "Churchill",
+          "Pompidou",
+          "De Gaulle"
+        ],
+        "réponse": "Clemenceau",
+        "anecdote": "Pour mémoire, on a dit de lui qu'il avait gagné la guerre mais perdu la paix."
+      },
+      {
+        "id": 28,
+        "question": "Quel militaire français fut surnommé « Père des chars » ?",
+        "propositions": [
+          "Général Mangin",
+          "Général Gallieni ",
+          "Colonel Estienne",
+          "Général De Castelnau"
+        ],
+        "réponse": "Colonel Estienne",
+        "anecdote": "Jean-Baptiste Eugène Estienne est l'homme qui créa une arme blindée en France."
+      },
+      {
+        "id": 29,
+        "question": "Lequel de ces hommes fut emprisonné à la sinistre Tour de Londres ?",
+        "propositions": [
+          "Le mahatma Gandhi",
+          "Le maréchal Pétain",
+          "Rudolf Hess",
+          "Oscar Wilde"
+        ],
+        "réponse": "Rudolf Hess",
+        "anecdote": "La construction de la Tour de Londres commença vers la fin de l'année 1066 dans le cadre de la conquête normande de lAngleterre."
+      },
+      {
+        "id": 30,
+        "question": "Quel général auvergnat, qui s'est illustré sous les ordres de Bonaparte, est mort à Marengo ?",
+        "propositions": [
+          "Desaix",
+          "Junot",
+          "Hoche",
+          "Kléber"
+        ],
+        "réponse": "Desaix",
+        "anecdote": "Malgré la mort de Desaix, la victoire permit à Bonaparte de monter une vaste opération de propagande."
+      }
+    ]
+  }
+}

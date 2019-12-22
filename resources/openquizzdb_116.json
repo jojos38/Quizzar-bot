@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Animaux célèbres",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Dans le film d'animation 'L'Âge de glace', qu'est-ce qui échappe à l'écureuil Scrat ?",
+        "propositions": [
+          "Un os",
+          "Une bille",
+          "Un gland",
+          "Une pierre"
+        ],
+        "réponse": "Un gland",
+        "anecdote": "À l'occasion de la sortie de 'L'Âge de glace 4', Scrat a eu son double de cire au Musée Grévin le 20 juin 2012."
+      },
+      {
+        "id": 2,
+        "question": "Comment se nomme l'orque à sauver dans une saga cinématographique populaire ?",
+        "propositions": [
+          "Willy",
+          "Jennifer",
+          "Monica",
+          "Tom"
+        ],
+        "réponse": "Willy",
+        "anecdote": "Si les deuxième et troisième films sont des suites du premier, le 4e n'a aucun lien avec le reste et est en quelque sorte un reboot."
+      },
+      {
+        "id": 3,
+        "question": "Dans le film 'Les Dents de la mer', quel animal provoque la terreur sur l'île d'Amity ?",
+        "propositions": [
+          "Une orque",
+          "Un kraken",
+          "Un piranha",
+          "Un requin"
+        ],
+        "réponse": "Un requin",
+        "anecdote": "'Les Dents de la mer' est un film charnière qui a rétrospectivement été considéré comme le premier des blockbusters américains."
+      },
+      {
+        "id": 4,
+        "question": "Quel personnage de Disney, ami de Mickey Mouse, est un chien anthropomorphe très maladroit ?",
+        "propositions": [
+          "Mortimer",
+          "Félix",
+          "Dingo",
+          "Donald"
+        ],
+        "réponse": "Dingo",
+        "anecdote": "À partir des années 1990, Dingo est devenu papa dans une série télévisée dans laquelle son fils se prénomme Max."
+      },
+      {
+        "id": 5,
+        "question": "Dans un film d'animation de Disney, comment se nomme le renardeau ami d'un chien de chasse ?",
+        "propositions": [
+          "Simba",
+          "Alex",
+          "Z",
+          "Rox"
+        ],
+        "réponse": "Rox",
+        "anecdote": "Rox et Rouky est le dernier dessin animé de Disney commençant par un générique complet et finissant par « The End »."
+      },
+      {
+        "id": 6,
+        "question": "Quel est le nom du chien de Mickey, apparenté à la race des Saint-Hubert ?",
+        "propositions": [
+          "Taz",
+          "Pluto",
+          "Hector",
+          "Sylvestre"
+        ],
+        "réponse": "Pluto",
+        "anecdote": "Dessiné par Norman Ferguson, Pluto est considéré comme l'un des premiers personnages Disney à sortir du modèle standard."
+      },
+      {
+        "id": 7,
+        "question": "Dans le célèbre dessin animé, qui le chat Tom poursuit-il sans cesse ?",
+        "propositions": [
+          "Manny",
+          "Jerry",
+          "Titi",
+          "Grosminet"
+        ],
+        "réponse": "Jerry",
+        "anecdote": "Malgré sa popularité très acclamée, les courts-métrages Tom et Jerry ont fait l'objet de nombreuses controverses."
+      },
+      {
+        "id": 8,
+        "question": "Quel chien peureux a pour compagnons Samy, Daphné, Véra et Fred ?",
+        "propositions": [
+          "Beethoven",
+          "Droopy",
+          "Pluto",
+          "Scooby-Doo"
+        ],
+        "réponse": "Scooby-Doo",
+        "anecdote": "Une gamme Lego est sortie en 2015 avec six produits inspirés de différents épisodes et fi de 'Scooby-Do'."
+      },
+      {
+        "id": 9,
+        "question": "Parmi ces personnages des Looney Tunes, lequel est un canard ?",
+        "propositions": [
+          "Titi",
+          "Elmer Fudd",
+          "Bugs Bunny",
+          "Daffy Duck"
+        ],
+        "réponse": "Daffy Duck",
+        "anecdote": "Daffy Ducka « sévi » dans 126 dessins animés jusqu'en 1968 au cinéma avant d'en disparaître totalement."
+      },
+      {
+        "id": 10,
+        "question": "Dans les deux films 'Babe', quel animal campe le personnage principal ?",
+        "propositions": [
+          "Un chien",
+          "Un mouton",
+          "Une chèvre",
+          "Un cochon"
+        ],
+        "réponse": "Un cochon",
+        "anecdote": "Babe eut l'idée tout à fait farfelue de devenir chien de berger, ou plutôt « cochon de berger »."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Dans le film 'Le Roi Lion', quel animal est Timon, le grand ami de Pumbaa ?",
+        "propositions": [
+          "Un tatou",
+          "Un suricate",
+          "Un écureuil",
+          "Un castor"
+        ],
+        "réponse": "Un suricate",
+        "anecdote": "Le suricate est toujours là quand on a besoin de lui, mais il est très souvent ailleurs quand on est avec lui."
+      },
+      {
+        "id": 12,
+        "question": "Quel nom de compositeur désigne aussi un saint-bernard héros de films ?",
+        "propositions": [
+          "Brahms",
+          "Mozart",
+          "Beethoven",
+          "Chopin"
+        ],
+        "réponse": "Beethoven",
+        "anecdote": "Le chien fut baptisé Beethoven parce qu'il a aboyé à la symphonie n°5 de Ludwig van Beethoven."
+      },
+      {
+        "id": 13,
+        "question": "Des spécimens de quelle race de chiens intéressent tout particulièrement Cruella d'Enfer ?",
+        "propositions": [
+          "Fox-terrier",
+          "Jack Russel",
+          "Dalmatien",
+          "Berger allemand"
+        ],
+        "réponse": "Dalmatien",
+        "anecdote": "Le personnage de Cruella d'Enfer fut en partie inspiré par Tallulah Bankhead, dont certaines excentricités furent reprises dans le film."
+      },
+      {
+        "id": 14,
+        "question": "Dans un film d'animation de Disney, quel animal est moqué pour ses grandes oreilles ?",
+        "propositions": [
+          "Une girafe",
+          "Un éléphant",
+          "Un cerf",
+          "Un chien"
+        ],
+        "réponse": "Un éléphant",
+        "anecdote": "Un message d'espoir est délivré par l'histoire : « quand on fait de son mieux, on en retire quelque chose de bien à la fin »."
+      },
+      {
+        "id": 15,
+        "question": "Quel cheval de selle autrichien Napoléon Bonaparte a-t-il emporté avec lui sur l'île d'Elbe ?",
+        "propositions": [
+          "Le malin",
+          "L'Affranchi",
+          "L'Ingénu",
+          "L'Iconoclaste"
+        ],
+        "réponse": "L'Ingénu",
+        "anecdote": "Également surnommé Wagram en l'honneur de la bataille du même nom, Napoléon l'appréciait énormément."
+      },
+      {
+        "id": 16,
+        "question": "Quelle marque est représentée par un chat blanc généralement habillé de couleur rose ?",
+        "propositions": [
+          "Bravo Sammy",
+          "Hello Kitty",
+          "Santa Maria",
+          "Hola Ginola"
+        ],
+        "réponse": "Hello Kitty",
+        "anecdote": "Selon le profil officiel de Hello Kitty, cette dernière se nomme Kitty White et est née à Londres, en Angleterre."
+      },
+      {
+        "id": 17,
+        "question": "Dans les films d'animation en pâte à modeler, qui est le partenaire canin de Wallace ?",
+        "propositions": [
+          "Gromit",
+          "Kaa",
+          "Coyote",
+          "Rouky"
+        ],
+        "réponse": "Gromit",
+        "anecdote": "Tous les personnages sont en plasticine et les scènes sont animées image par image (stop motion)."
+      },
+      {
+        "id": 18,
+        "question": "Comment s'appelle le chat noir et blanc, héros d'une pub pour de la nourriture pour chats ?",
+        "propositions": [
+          "Figaro",
+          "Félix",
+          "José",
+          "André"
+        ],
+        "réponse": "Félix",
+        "anecdote": "Felix ne prend pas d'accent, principalement en raison de l'internationalisation des marques."
+      },
+      {
+        "id": 19,
+        "question": "Dans le film d'animation de Pixar '1001 Pattes', quel insecte est Tilt, le personnage principal ?",
+        "propositions": [
+          "Un cafard",
+          "Une libellule",
+          "Une fourmi",
+          "Une araignée"
+        ],
+        "réponse": "Une fourmi",
+        "anecdote": "Woody le cow-boy héros du film d'animation 'Toy Story' est apparu dans le bêtisier du générique de fin."
+      },
+      {
+        "id": 20,
+        "question": "Auprès de quel héros de BD le chien inefficace Rantanplan s'est-il illustré ?",
+        "propositions": [
+          "Tintin",
+          "Astérix",
+          "Lucky Luke",
+          "Gaston Lagaffe"
+        ],
+        "réponse": "Lucky Luke",
+        "anecdote": "Rantanplan appartient à l'administration pénitentiaire, et a pour maître, le gardien Pavlov (en référence au fameux réflexe)."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Dans la film d'animation 'Robin des Bois', quel animal est Robin des Bois ?",
+        "propositions": [
+          "Un lion",
+          "Un ours",
+          "Un tigre",
+          "Un renard"
+        ],
+        "réponse": "Un renard",
+        "anecdote": "La réalisation de 'Robin des Bois' sera marquée par la réutilisation d'éléments d'animation des précédentes productions Disney."
+      },
+      {
+        "id": 22,
+        "question": "De quel animal prénommé Roger veut-on « la peau » dans un film d'animation ?",
+        "propositions": [
+          "Un chien",
+          "Un lapin",
+          "Un kangourou",
+          "Un renard"
+        ],
+        "réponse": "Un lapin",
+        "anecdote": "Zemeckis dira de Roger qu'il a « un corps de chez Disney, une tête de chez Warner et une attitude à la Tex Avery »."
+      },
+      {
+        "id": 23,
+        "question": "Dans le roman de Cécile Aubry, quelle chienne Sébastien recueille-t-il dans son village ?",
+        "propositions": [
+          "Aurore",
+          "Daisy",
+          "Belle",
+          "Simba"
+        ],
+        "réponse": "Belle",
+        "anecdote": "'Belle et Sébastien' a fait l'objet d'une adaptation en feuilleton télévisé, d'une série d'animation japonaise et de deux films."
+      },
+      {
+        "id": 24,
+        "question": "Quelle tortue sait « compter deux par deux et lacer ses chaussures » ?",
+        "propositions": [
+          "Gamera",
+          "Caroline",
+          "Donatello",
+          "Franklin"
+        ],
+        "réponse": "Franklin",
+        "anecdote": "Dans chaque épisode, Franklin a un dilemme qu'il résout toujours à la fin, permettant aux enfants de s'identifier au personnage."
+      },
+      {
+        "id": 25,
+        "question": "Quel chien est devenu le rival du chat Socks en tant qu'animal de compagnie de la famille Clinton ?",
+        "propositions": [
+          "Oscar",
+          "Buddy",
+          "Scooby",
+          "Snoopy"
+        ],
+        "réponse": "Buddy",
+        "anecdote": "Les parents Clinton ont adopté un labrador nommé Buddy en hommage à l'oncle de Bill qui vient de décéder."
+      },
+      {
+        "id": 26,
+        "question": "Dans 'Peter Pan', comment se nomme la chienne de Wendy, John et Michael ?",
+        "propositions": [
+          "Jasmine",
+          "Nana",
+          "Dolly",
+          "Belle"
+        ],
+        "réponse": "Nana",
+        "anecdote": "Peter Pan est un personnage créé par l'auteur écossais J. M. Barrie, apparu pour la première fois en 1902."
+      },
+      {
+        "id": 27,
+        "question": "Quel célèbre chat a une langue qui pend en permanence suite à une malformation ?",
+        "propositions": [
+          "Bébert",
+          "Choupette",
+          "Lil Bub",
+          "Simon"
+        ],
+        "réponse": "Lil Bub",
+        "anecdote": "La célèbre chatte est apparue dans un spot de l'ONG Greenpeace à l'occasion de la Journée internationale des tigres."
+      },
+      {
+        "id": 28,
+        "question": "Dans le dessin animé 'Dora l'exploratrice', comment s'appelle le renard voleur ?",
+        "propositions": [
+          "Chipeur",
+          "Silver",
+          "Denver",
+          "Sylvester"
+        ],
+        "réponse": "Chipeur",
+        "anecdote": "Par ce biais de ce méchant renard voleur, la série tente de faire distinguer aux enfants le bien du mal."
+      },
+      {
+        "id": 29,
+        "question": "Quel cochon Martin Veyron et Jean-Marc Rochette ont-ils inventé pour une BD humoristique ?",
+        "propositions": [
+          "Edmond",
+          "Grégoire",
+          "Babe",
+          "Jonathan"
+        ],
+        "réponse": "Edmond",
+        "anecdote": "Le style de cette série à l'humour cru et hilarant se situe entre l'underground américain et la tradition animalière française."
+      },
+      {
+        "id": 30,
+        "question": "Dans l'aquarium de quelle ville allemande Paul le poulpe a-t-il eu son heure de gloire ?",
+        "propositions": [
+          "Mannheim",
+          "Oberhausen",
+          "Karlsruhe",
+          "Brunswick"
+        ],
+        "réponse": "Oberhausen",
+        "anecdote": "Paul était renommé pour le spectacle de ses prédictions du résultat des matchs de léquipe d'Allemagne de football."
+      }
+    ]
+  }
+}

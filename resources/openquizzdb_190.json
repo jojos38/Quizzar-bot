@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Culture en vrac 2 (De la culture générale à tous les niveaux)",
+  "difficulté": 3,
+  "quizz": {
+      "débutant": [
+      {
+        "id": 1,
+        "question": "Quel acteur, chanteur et humoriste aimé des français s'appelait en réalité André Raimbourg ?",
+        "propositions": [
+          "Rufus",
+          "Fernandel",
+          "Coluche",
+          "Bourvil"
+        ],
+        "réponse": "Bourvil",
+        "anecdote": "Bourvil a reçu le prix du meilleur acteur du festival de Venise pour son rôle dans le film 'La Traversée de Paris' de Claude Autant-Lara."
+      },
+      {
+        "id": 2,
+        "question": "Quel fromage représente, avec la baguette et le béret, l'image traditionnelle des Français ?",
+        "propositions": [
+          "Fourme",
+          "Camembert",
+          "Boursin",
+          "Babybel"
+        ],
+        "réponse": "Camembert",
+        "anecdote": "Symbole de son aura, il existe des collectionneurs de boîtes de camembert appelés tyrosémiophiles."
+      },
+      {
+        "id": 3,
+        "question": "Qui a interprété 'L'Homme de la Mancha' aux côtés de Dario Moreno ?",
+        "propositions": [
+          "Christian Vidal",
+          "Pierre Rapsat",
+          "Salvatore Adamo",
+          "Jacques Brel"
+        ],
+        "réponse": "Jacques Brel",
+        "anecdote": "Fort de l'immense succès de Bruxelles, le spectacle est repris au théâtre des Champs-Élysées à Paris dès décembre 1968."
+      },
+      {
+        "id": 4,
+        "question": "Quel roman a souvent été décrit comme le plus représentatif des années folles ?",
+        "propositions": [
+          "Germinal",
+          "David Copperfield",
+          "Moby Dick",
+          "Gatsby le Magnifique"
+        ],
+        "réponse": "Gatsby le Magnifique",
+        "anecdote": "Le public n'a pas bien accueilli ce roman : sur les 75 000 ventes escomptées, 24 000 exemplaires furent vendus à sa sortie."
+      },
+      {
+        "id": 5,
+        "question": "En entomologie, quel insecte est parfois désigné comme demoiselle ?",
+        "propositions": [
+          "Mouche",
+          "Moustique",
+          "Libellule",
+          "Coccinelle"
+        ],
+        "réponse": "Libellule",
+        "anecdote": "On les distingue des libellules au sens strict, surtout par leur corps plus grêle et leurs ailes généralement repliées au repos."
+      },
+      {
+        "id": 6,
+        "question": "Dans quel océan pouvez-vous vous baigner si vous voyagez en Argentine ?",
+        "propositions": [
+          "Indien",
+          "Pacifique",
+          "Arctique",
+          "Atlantique"
+        ],
+        "réponse": "Atlantique",
+        "anecdote": "Le climat est typique de façade orientale des continents, subtropical humide dans le nord et subantarctique dans l'extrême sud du pays."
+      },
+      {
+        "id": 7,
+        "question": "La saignée a peu à peu médicalement remplacé quel hermaphrodite ?",
+        "propositions": [
+          "Sangsue",
+          "Cochenille",
+          "Lombric",
+          "Escargot"
+        ],
+        "réponse": "Sangsue",
+        "anecdote": "Certaines espèces font l'objet d'un usage médicinal mais la diversité des sangsues est encore aujourd'hui mal connue dans le monde."
+      },
+      {
+        "id": 8,
+        "question": "Comment fut aussi appelé le mercure jusqu'au début du XIXe siècle ?",
+        "propositions": [
+          "Radon",
+          "Gallium",
+          "Étain",
+          "Vif-argent"
+        ],
+        "réponse": "Vif-argent",
+        "anecdote": "Le mercure, de symbole Hg, a longtemps été utilisé dans les thermomètres et les batteries avant d'être interdit en 1999."
+      },
+      {
+        "id": 9,
+        "question": "Quel pays a perdu environ quinze pourcents de sa population entre 1939 et 1945 ?",
+        "propositions": [
+          "Luxembourg",
+          "Norvège",
+          "Tchécoslovaquie",
+          "Pologne"
+        ],
+        "réponse": "Pologne",
+        "anecdote": "L'invasion de la Pologne orientale par l'Armée rouge le 17 septembre 1939 asséna un coup fatal au plan de défense polonais."
+      },
+      {
+        "id": 10,
+        "question": "Le tigre à dents de sabre (ou smilodon) est aujourd'hui une espèce...",
+        "propositions": [
+          "Menacée",
+          "Légendaire",
+          "Protégée",
+          "Disparue"
+        ],
+        "réponse": "Disparue",
+        "anecdote": "Semblable au lion, le smilodon était caractérisé par ses longues canines supérieures émergeant devant la mâchoire inférieure."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel est le diamètre approximatif de la place Charles-de-Gaulle à Paris ?",
+        "propositions": [
+          "240 m",
+          "200 m",
+          "280 m",
+          "160 m"
+        ],
+        "réponse": "240 m",
+        "anecdote": "Encore très connue sous son ancien nom (place de l'Étoile), cette place fut officiellement rebaptisée le 13 novembre 1970."
+      },
+      {
+        "id": 12,
+        "question": "Les USA sont entrés en guerre en 1915 suite au torpillage de quel paquebot ?",
+        "propositions": [
+          "Queen Elisabteth",
+          "Titanic",
+          "Lusitania",
+          "France"
+        ],
+        "réponse": "Lusitania",
+        "anecdote": "Le RMS Lusitania fut torpillé par un sous-marin allemand U-20, le 7 mai 1915, au large de l'Irlande, avec 1 200 passagers à bord."
+      },
+      {
+        "id": 13,
+        "question": "Sur un planisphère, de quel côté se situe le mont Blanc par rapport au lac Léman ?",
+        "propositions": [
+          "Ouest",
+          "Est",
+          "Nord",
+          "Sud"
+        ],
+        "réponse": "Sud",
+        "anecdote": "Le Léman ou lac de Genève est traversé d'est en ouest par le Rhône qui constitue le principal affluent du lac."
+      },
+      {
+        "id": 14,
+        "question": "Quel célèbre peintre florentin a habité le manoir du Cloux, à Amboise ?",
+        "propositions": [
+          "Léonard de Vinci",
+          "Bernardo Daddi",
+          "Filippino Lippi",
+          "Valerio Cigoli"
+        ],
+        "réponse": "Léonard de Vinci",
+        "anecdote": "C'est François Ier qui le mettra à la disposition de Léonard de Vinci qui y vivra trois ans, jusqu'à sa mort le 2 mai 1519."
+      },
+      {
+        "id": 15,
+        "question": "Laquelle de ces tragédies n'a pas été écrite par William Shakespeare ?",
+        "propositions": [
+          "César et Rosalie",
+          "Antoine et Cléopâtre",
+          "Le Roi Lear",
+          "Roméo et Juliette"
+        ],
+        "réponse": "César et Rosalie",
+        "anecdote": "Shakespeare est réputé pour sa maîtrise des formes poétiques et sa capacité à représenter les aspects de la nature humaine."
+      },
+      {
+        "id": 16,
+        "question": "Laquelle de ces professions Beaumarchais n'a-t-il pas exercé ?",
+        "propositions": [
+          "Espion",
+          "Pâtissier",
+          "Négrier",
+          "Musicien"
+        ],
+        "réponse": "Pâtissier",
+        "anecdote": "Figure importante du siècle des Lumières, Beaumarchais est estimé comme un des annonciateurs de la Révolution française."
+      },
+      {
+        "id": 17,
+        "question": "Comment se prénomme le valet de D'Artagnan créé par Alexandre Dumas ?",
+        "propositions": [
+          "Carlos",
+          "Planchet",
+          "Dantès",
+          "Sancho"
+        ],
+        "réponse": "Planchet",
+        "anecdote": "Bien que traité occasionnellement comme un personnage comique, Planchet se montre un serviteur efficace, intelligent et très dévoué."
+      },
+      {
+        "id": 18,
+        "question": "Quelle chanteuse s'est donné '2 minutes 35 de bonheur' en 1967 ?",
+        "propositions": [
+          "Françoise Hardy",
+          "Alice Dona",
+          "Brigitte Bardot",
+          "Sylvie Vartan"
+        ],
+        "réponse": "Sylvie Vartan",
+        "anecdote": "'2'35 de bonheur' est le sixième album de Sylvie Vartan, sorti en LP 33 tours en 1967 et chanté aux côtés de son ami Carlos."
+      },
+      {
+        "id": 19,
+        "question": "Quel journal a longtemps été l'organe officiel du Parti Communiste Français ?",
+        "propositions": [
+          "Libération",
+          "L'Opinion",
+          "Le Figaro",
+          "L'Humanité"
+        ],
+        "réponse": "L'Humanité",
+        "anecdote": "Comme de nombreux titres de la presse écrite, le journal fondé par Jean Jaurès bénéficie de subventions de la part de l'État français."
+      },
+      {
+        "id": 20,
+        "question": "Qui Marlon Brando séduit-il dans 'Le Dernier Tango à Paris' ?",
+        "propositions": [
+          "Anna Magnani",
+          "Eva Marie Saint",
+          "Joanne Woodward",
+          "Maria Schneider"
+        ],
+        "réponse": "Maria Schneider",
+        "anecdote": "Le réalisateur avait fait le rêve de rencontrer une femme dans la rue et d'avoir avec elle un rapport sexuel sans connaître son nom."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Qui incarne la première femme sur terre dans la mythologie grecque ?",
+        "propositions": [
+          "Eurydice",
+          "Séléné",
+          "Psyché",
+          "Pandore"
+        ],
+        "réponse": "Pandore",
+        "anecdote": "La boîte de Pandore contenait notamment la Vieillesse, la Maladie, la Guerre, la Famine, la Misère, la Folie, la Mort et le Vice."
+      },
+      {
+        "id": 22,
+        "question": "Dans quel pays consomme-t-on annuellement le plus de pommes de terre par habitant ?",
+        "propositions": [
+          "France",
+          "Russie",
+          "Allemagne",
+          "Inde"
+        ],
+        "réponse": "Russie",
+        "anecdote": "La pomme de terre est un aliment relativement riche en amidon et parfois considéré comme un féculent."
+      },
+      {
+        "id": 23,
+        "question": "Avec laquelle de ses épouses Clark Gable a-t-il déclaré avoir été le plus heureux ?",
+        "propositions": [
+          "Carole Lombard",
+          "Josephine Dillon",
+          "Kay Williams",
+          "Sylvia Ashley"
+        ],
+        "réponse": "Carole Lombard",
+        "anecdote": "Après son accident d'avion, Carole Lombard deviendra la première femme américaine victime de la Seconde Guerre mondiale."
+      },
+      {
+        "id": 24,
+        "question": "Quel code binaire est aussi appelé code télégraphique Alphabet International ?",
+        "propositions": [
+          "Code morse",
+          "Sémaphore",
+          "Code Baudot",
+          "Code Chappe"
+        ],
+        "réponse": "Code Baudot",
+        "anecdote": "Ce code inventé en 1877, bien que plus riche que le code Morse, ne traite pas les minuscules ni certains symboles."
+      },
+      {
+        "id": 25,
+        "question": "Dans quel pays peut-on manger du maniçoba servi avec du riz ?",
+        "propositions": [
+          "Vietnam",
+          "Inde",
+          "Sénégal",
+          "Brésil"
+        ],
+        "réponse": "Brésil",
+        "anecdote": "Ce plat festif est fait avec des feuilles de la plante Manioc qui ont été finement broyées et bouillies pendant une semaine."
+      },
+      {
+        "id": 26,
+        "question": "Quel élément possède le plus haut point de fusion de tous les métaux ?",
+        "propositions": [
+          "Platine",
+          "Or",
+          "Nickel",
+          "Tungstène"
+        ],
+        "réponse": "Tungstène",
+        "anecdote": "Le tungstène pur est un métal dur allant du gris acier au blanc étain que l'on peut couper à l'aide d'une scie à métaux."
+      },
+      {
+        "id": 27,
+        "question": "Quel romancier s'est suicidé au cyanure quai Voltaire, à Paris ?",
+        "propositions": [
+          "Malraux",
+          "Butor",
+          "Hemingway",
+          "Montherlant"
+        ],
+        "réponse": "Montherlant",
+        "anecdote": "À sa mort en 1972, Montherlant laissera un mot à Jean-Claude Barat, son légataire universel: 'Je deviens aveugle. Je me tue'."
+      },
+      {
+        "id": 28,
+        "question": "Jeanne Chauvin fut la première femme en France à exercer quel métier ?",
+        "propositions": [
+          "Banquière",
+          "Ministre",
+          "Pharmacienne",
+          "Avocate"
+        ],
+        "réponse": "Avocate",
+        "anecdote": "Depuis 2017, la bibliothèque de la faculté de droit de l'université publique Paris-Descartes porte le nom de Jeanne Chauvin."
+      },
+      {
+        "id": 29,
+        "question": "Quelle rivière est aussi le plus long affluent du fleuve Mississippi ?",
+        "propositions": [
+          "Arkansas",
+          "Minnesota",
+          "Wisconsin",
+          "Missouri"
+        ],
+        "réponse": "Missouri",
+        "anecdote": "Le Missouri est surnommé Big Muddy car ses eaux charrient du limon visible à son point de confluence avec le Mississippi."
+      },
+      {
+        "id": 30,
+        "question": "Quel célèbre homme politique français est né la même année que Jean-Paul II ?",
+        "propositions": [
+          "Georges Marchais",
+          "François Miterrand",
+          "Jacques Chirac",
+          "Raymond Barre"
+        ],
+        "réponse": "Georges Marchais",
+        "anecdote": "Le pape Jean-Paul II est généralement considéré par beaucoup comme l'un des meneurs politiques les plus influents du XXe siècle."
+      }
+      ]
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Le Roi Lion",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Comment se prénomme le personnage principal du long-métrage d'animation 'Le Roi Lion' ?",
+        "propositions": [
+          "Simba",
+          "Timon",
+          "Rafiki",
+          "Scar"
+        ],
+        "réponse": "Simba",
+        "anecdote": "Après avoir remporté la victoire contre Scar le tyran et ses hyènes, Simba devient roi de la Terre des Lions."
+      },
+      {
+        "id": 2,
+        "question": "Quelle année marque la sortie en France du dessin animé 'Le Roi Lion', des studios Disney ?",
+        "propositions": [
+          "1992",
+          "1994",
+          "1990",
+          "1996"
+        ],
+        "réponse": "1994",
+        "anecdote": "Le film est inspiré en grande partie de l'uvre d'Osamu Tezuka 'Le Roi Léo' (1951) et d''Hamlet' de William Shakespeare."
+      },
+      {
+        "id": 3,
+        "question": "Quel animal est Pumba, compagnon de Timon le suricate dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Un calao",
+          "Un phacochère",
+          "Un suricate",
+          "Un mandrill"
+        ],
+        "réponse": "Un phacochère",
+        "anecdote": "Les phacochères peuvent courir très vite en cas de danger avec des pointes à plus de 50 km/h pour échapper aux prédateurs."
+      },
+      {
+        "id": 4,
+        "question": "Quel lion portant une cicatrice est le « méchant » de l'histoire du film 'Le Roi Lion' ?",
+        "propositions": [
+          "Simba",
+          "Pumba",
+          "Nala",
+          "Scar"
+        ],
+        "réponse": "Scar",
+        "anecdote": "Devenu un tyran, Scar a ravagé la Terre des Lions et imagine plusieurs plans diaboliques pour anéantir son frère et son neveu."
+      },
+      {
+        "id": 5,
+        "question": "Comment se prénomme le père du prince Simba dans le « Classique d'animation » 'Le Roi Lion' ?",
+        "propositions": [
+          "Mufasa",
+          "Sarafina",
+          "Scar",
+          "Pumba"
+        ],
+        "réponse": "Mufasa",
+        "anecdote": "Aimé et respecté des siens, Mufasa règne avec sagesse sur la Terre des Lions mais sera pourtant trahi et tué par son frère Scar."
+      },
+      {
+        "id": 6,
+        "question": "Qui est à l'origine du complot conduisant au meurtre de Mufasa dans 'Le Roi Lion' ?",
+        "propositions": [
+          "Scar",
+          "Pumba",
+          "Simba",
+          "Ed"
+        ],
+        "réponse": "Scar",
+        "anecdote": "Fourbe, machiavélique et cruel, il est finalement destitué par Simba après avoir régné en tyran et meurt dévoré par les hyènes."
+      },
+      {
+        "id": 7,
+        "question": "Quelle est la particularité physique de Scar dans 'Le Roi Lion' ?",
+        "propositions": [
+          "Un il blanc",
+          "Un visage brûlé",
+          "Une cicatrice",
+          "Pas de moustaches"
+        ],
+        "réponse": "Une cicatrice",
+        "anecdote": "Frère cadet de Mufasa et oncle de Simba, « méchant » de l'histoire, Scar a un nom qui signifie « cicatrice » en anglais."
+      },
+      {
+        "id": 8,
+        "question": "Comment se prénomme le compagnon de Timon dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Scar",
+          "Pumbaa",
+          "Zazu",
+          "Shenzi"
+        ],
+        "réponse": "Pumbaa",
+        "anecdote": "On en apprendra plus sur l'histoire de ces deux personnages dans le film 'Le Roi lion 3 : Hakuna Matata'."
+      },
+      {
+        "id": 9,
+        "question": "Dans quel paysage se déroule l'action du dessin animé 'Le Roi Lion' ?",
+        "propositions": [
+          "Dans les steppes",
+          "Dans la savane",
+          "Dans les rochers",
+          "Dans le désert"
+        ],
+        "réponse": "Dans la savane",
+        "anecdote": "Dans la savane africaine, tous les animaux de la Terre des Lions se sont réunis pour célébrer la naissance du prince Simba."
+      },
+      {
+        "id": 10,
+        "question": "Quelle jeune lionne est l'amie d'enfance de Simba dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Zazu",
+          "Pumba",
+          "Sarafina",
+          "Nala"
+        ],
+        "réponse": "Nala",
+        "anecdote": "Devenu adulte, Simba retrouve par hasard Nala qu'une expédition de chasse avait emmenée de l'autre côté du désert."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel artiste international chante dans la bande originale du film 'Le Roi Lion' ?",
+        "propositions": [
+          "Phil Collins",
+          "Tom Jones",
+          "Kurt Cobain",
+          "Elton John"
+        ],
+        "réponse": "Elton John",
+        "anecdote": "C'est avec le titre 'Can You Feel the Love Tonight' qu'Elton John a pu intégrer le générique de fin du film."
+      },
+      {
+        "id": 12,
+        "question": "Quel animal est Timon, le meilleur ami du phacochère Pumbaa dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Un phacochère",
+          "Un suricate",
+          "Un calao",
+          "Un mandrill"
+        ],
+        "réponse": "Un suricate",
+        "anecdote": "Toujours à la recherche de confort et de bien-être, Timon et Pumbaa ont adopté la philosophie « Hakuna matata »."
+      },
+      {
+        "id": 13,
+        "question": "Qui est le frère cadet de Mufasa dans le film Disney 'Le Roi Lion' ?",
+        "propositions": [
+          "Sarafina",
+          "Zazu",
+          "Simba",
+          "Scar"
+        ],
+        "réponse": "Scar",
+        "anecdote": "C'est Jeremy Irons qui prête sa voix à Scar dans la version originale du 'Roi Lion' et Jean Piat qui s'y prête dans la version française."
+      },
+      {
+        "id": 14,
+        "question": "Combien de temps dure le film 'Le Roi Lion', sorti en 1994 des studios Walt Disney Pictures ?",
+        "propositions": [
+          "78 minutes",
+          "89 minutes",
+          "105 minutes",
+          "68 minutes"
+        ],
+        "réponse": "89 minutes",
+        "anecdote": "Une nouvelle version du film est sortie directement en DVD en 2003 avec de nombreuses scènes modifiées et retouchées."
+      },
+      {
+        "id": 15,
+        "question": "Quel grand poète et dramaturge est à l'origine de l'histoire du film 'Le Roi Lion' de Disney ?",
+        "propositions": [
+          "Doyle",
+          "Dickens",
+          "Austen",
+          "Shakespeare"
+        ],
+        "réponse": "Shakespeare",
+        "anecdote": "William Shakespeare est réputé pour sa capacité à représenter les aspects de la nature humaine."
+      },
+      {
+        "id": 16,
+        "question": "Comment se prénomme la lionne et mère de Nala dans 'Le Roi Lion' ?",
+        "propositions": [
+          "Sarabi",
+          "Safarova",
+          "Sérafina",
+          "Sarafina"
+        ],
+        "réponse": "Sarafina",
+        "anecdote": "Son nom n'est jamais mentionné dans le film : ce n'est que dans les bandes dessinées et livres dérivés du film qu'il sera révélé."
+      },
+      {
+        "id": 17,
+        "question": "Dans 'Le Roi Lion', où Simba revoit-il son père après sa mort ?",
+        "propositions": [
+          "Dans un arbre",
+          "Dans un rêve",
+          "Dans la poussière",
+          "Dans les nuages"
+        ],
+        "réponse": "Dans les nuages",
+        "anecdote": "Turbulent et désobéissant, Simba devient à l'âge adulte un roi aussi sage et bienveillant que le fut son père."
+      },
+      {
+        "id": 18,
+        "question": "En quoi se déguise Timon, le petit suricate du célèbre film 'Le Roi Lion' ?",
+        "propositions": [
+          "En hyène",
+          "En lionceau",
+          "En brindille",
+          "En vahiné"
+        ],
+        "réponse": "En vahiné",
+        "anecdote": "Le suricate, parfois surnommé « sentinelle du désert », est un petit carnivore vivant dans le sud-ouest de l'Afrique."
+      },
+      {
+        "id": 19,
+        "question": "Qui rodent autour de Simba quand Timon et Pumba le trouvent ?",
+        "propositions": [
+          "Des vautours",
+          "Des fourmis",
+          "Des lions",
+          "Des hyènes"
+        ],
+        "réponse": "Des hyènes",
+        "anecdote": "Shenzi, Banzaï et Ed constituent un trio de hyènes tachetées, affamées et présentées comme sauvages."
+      },
+      {
+        "id": 20,
+        "question": "Combien de suites à succès ont été données au film d'animation 'Le Roi Lion' ?",
+        "propositions": [
+          "Trois",
+          "Deux",
+          "Cinq",
+          "Quatre"
+        ],
+        "réponse": "Deux",
+        "anecdote": "Deux suites seront données : 'Le Roi lion 2 : L'Honneur de la tribu' (1998) et 'Le Roi lion 3 : Hakuna Matata' (2004), sorties en vidéo."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Lequel de ces noms n'est pas celui d'une hyène dans 'Le Roi Lion' ?",
+        "propositions": [
+          "Shenzi",
+          "Ed",
+          "Banzaï",
+          "Korea"
+        ],
+        "réponse": "Korea",
+        "anecdote": "Ed, le second mâle du trio, ne parle pas et se contente d'approuver les initiatives des deux autres en riant de manière hystérique."
+      },
+      {
+        "id": 22,
+        "question": "Qui traite Zazu de « bec-de-banane » dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Les Hyènes",
+          "Simba",
+          "Nala",
+          "Scar"
+        ],
+        "réponse": "Simba",
+        "anecdote": "Heureux d'exercer son rôle auprès de Mufasa, Zazu est un calao à bec rouge occupant le poste de majordome royal."
+      },
+      {
+        "id": 23,
+        "question": "Dans la savane profonde, où habite Rafiki dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "On ne le sait pas",
+          "Dans les rochers",
+          "Dans un baobab",
+          "Chez sa mère"
+        ],
+        "réponse": "Dans un baobab",
+        "anecdote": "Ce mandrill intervient ponctuellement pour informer un personnage ou l'amener à se poser « les bonnes questions »."
+      },
+      {
+        "id": 24,
+        "question": "Qui conserve sa voix originale dans toutes les versions étrangères du 'Roi Lion' ?",
+        "propositions": [
+          "Nala",
+          "Ed",
+          "Scar",
+          "Zazu"
+        ],
+        "réponse": "Ed",
+        "anecdote": "Ses ricanements frénétiques et sa langue pendante donnent à Ed un air assez attardé sur le plan mental."
+      },
+      {
+        "id": 25,
+        "question": "Quelle race simiesque caractérise le sage Rafiki, sorcier du film 'Le Roi Lion' ?",
+        "propositions": [
+          "Babouin",
+          "Mandrill",
+          "Gorille",
+          "Macaque"
+        ],
+        "réponse": "Mandrill",
+        "anecdote": "Ce primate de la famille des cercopithécidés, apparenté au babouin, est très proche du drill."
+      },
+      {
+        "id": 26,
+        "question": "Qui prête sa voix au personnage de Mufasa dans la version française du 'Roi Lion' ?",
+        "propositions": [
+          "Jean Reno",
+          "Gérard Darmon",
+          "Sébastien Cauet",
+          "Elie Semoun"
+        ],
+        "réponse": "Jean Reno",
+        "anecdote": "Jean Reno, pseudonyme de Juan Moreno y Herrera-Jiménez, est né à Casablanca de parents espagnols."
+      },
+      {
+        "id": 27,
+        "question": "Qui a réalisé le film 'Le Roi Lion', sorti en France et en Belgique en novembre 1994 ?",
+        "propositions": [
+          "Mecchi & Roberts",
+          "Roberts & Allers",
+          "Minkoff & Mecchi",
+          "Allers & Minkoff"
+        ],
+        "réponse": "Allers & Minkoff",
+        "anecdote": "'Le Roi lion' est l'un des deux seuls « Classiques » Disney (avec 'Dinosaure') dans lequel il n'est fait aucune référence aux humains."
+      },
+      {
+        "id": 28,
+        "question": "Quel animal est Zazu dans le film 'Le Roi Lion' réalisé par Roger Allers et Rob Minkoff ?",
+        "propositions": [
+          "Un toucan",
+          "Une perruche",
+          "Un perroquet",
+          "Un calao"
+        ],
+        "réponse": "Un calao",
+        "anecdote": "Zazu conserve ses fonctions lorsque Scar devient roi, mais celui-ci le confine alors dans un rôle subalterne."
+      },
+      {
+        "id": 29,
+        "question": "Qui occupe le poste de « majordome royal » dans le film 'Le Roi Lion' ?",
+        "propositions": [
+          "Ed",
+          "Zazu",
+          "Scar",
+          "Nala"
+        ],
+        "réponse": "Zazu",
+        "anecdote": "Qualifié de « bec-de-banane » ou de « loufiat du Grand Manitou », Zazu reste fier et essaye d'être à la hauteur de ses fonctions."
+      },
+      {
+        "id": 30,
+        "question": "Quel est le titre laotien du film 'Le Roi Lion', distribué par Gaumont Buena Vista International ?",
+        "propositions": [
+          "Leona Rego",
+          "Re Leone",
+          "Krol Lew",
+          "Rex Leo"
+        ],
+        "réponse": "Rex Leo",
+        "anecdote": "Dans toutes les versions étrangères du 'Roi lion' sorties dans le monde, le seul personnage à conserver sa voix originale est Ed."
+      }
+    ]
+  }
+}

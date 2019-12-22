@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Oiseaux",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel oiseau de couleur blanche est un des symboles de la paix ?",
+        "propositions": [
+          "Le pigeon",
+          "La tourterelle",
+          "La pie",
+          "La colombe"
+        ],
+        "réponse": "La colombe",
+        "anecdote": "Pour la plupart des francophones, la « colombe » désigne la forme blanche d'un pigeon biset ou d'une tourterelle domestique."
+      },
+      {
+        "id": 2,
+        "question": "Quels oiseaux fournissent le duvet qui sert à la fabrication des édredons ?",
+        "propositions": [
+          "Les eiders",
+          "Les perruches",
+          "Les sarcelles",
+          "Les colverts"
+        ],
+        "réponse": "Les eiders",
+        "anecdote": "Les plumes de l'eider étaient naguère cueillies en Islande ou au Groenland et recherchées comme rembourrage de vêtements."
+      },
+      {
+        "id": 3,
+        "question": "Quel oiseau possède bien souvent une mauvaise réputation en Occident ?",
+        "propositions": [
+          "Le colibri",
+          "Le hibou",
+          "Le corbeau",
+          "Le rossignol"
+        ],
+        "réponse": "Le corbeau",
+        "anecdote": "Considérés comme des prédateurs nuisibles capables de menacer les populations, ils sont l'objet de campagnes d'élimination."
+      },
+      {
+        "id": 4,
+        "question": "Quel oiseau pond généralement ses ufs dans le nid des autres espèces ?",
+        "propositions": [
+          "Le merle",
+          "Le coucou",
+          "Le faisan",
+          "La mésange"
+        ],
+        "réponse": "Le coucou",
+        "anecdote": "Le terme « coucou » est une onomatopée issue du chant du coucou gris dont les francophones font souvent référence."
+      },
+      {
+        "id": 5,
+        "question": "Comment désigne-t-on le changement de plumage chez un oiseau ?",
+        "propositions": [
+          "La tombée",
+          "La perte",
+          "La plumée",
+          "La mue"
+        ],
+        "réponse": "La mue",
+        "anecdote": "Ce processus au minimum annuel, étudié de près par l'ornithologie, est très coûteux en énergie et en ressources pour l'oiseau."
+      },
+      {
+        "id": 6,
+        "question": "Quels oiseaux sont parfois surnommés les « mainates du pauvre » ?",
+        "propositions": [
+          "Les étourneaux",
+          "Les rossignols",
+          "Les vanneaux",
+          "Les chardonnerets"
+        ],
+        "réponse": "Les étourneaux",
+        "anecdote": "L'étourneau marche ou trottine plutôt que de sautiller et son vol est énergique et direct, grâce à ses ailes et à sa queue courtes."
+      },
+      {
+        "id": 7,
+        "question": "En France, quel oiseau est communément représenté sur la pointe des clochers ?",
+        "propositions": [
+          "Le pingouin",
+          "La dinde",
+          "Le coq",
+          "Le canard"
+        ],
+        "réponse": "Le coq",
+        "anecdote": "Le clocher est un repère dans le paysage pour se situer et se déplacer (sur le littoral, il constitue un amer pour la navigation)."
+      },
+      {
+        "id": 8,
+        "question": "Grâce à quel oiseau les paysages de la Camargue sont-ils célèbres ?",
+        "propositions": [
+          "Busard",
+          "Cigogne",
+          "Flamant rose",
+          "Autruche"
+        ],
+        "réponse": "Flamant rose",
+        "anecdote": "La région est une halte migratoire pour les canards et les oiseaux d'eau : on recense 150 000 individus en transit chaque année."
+      },
+      {
+        "id": 9,
+        "question": "Associé à un nid, quel oiseau a donné son nom à un succulent mets asiatique ?",
+        "propositions": [
+          "Perroquet",
+          "Colibri",
+          "Rouge-gorge",
+          "Hirondelle"
+        ],
+        "réponse": "Hirondelle",
+        "anecdote": "Sa rareté et l'effort nécessaire à la récolte du nid dhirondelle en ont fait un mets particulièrement apprécié."
+      },
+      {
+        "id": 10,
+        "question": "Quel oiseau se suspend parfois la tête en bas pendant la parade nuptiale ?",
+        "propositions": [
+          "La mésange",
+          "Le paradisier",
+          "La corneille",
+          "La pie bleue"
+        ],
+        "réponse": "Le paradisier",
+        "anecdote": "Les espèces à dimorphisme sexuel sont polygames tandis que les espèces monomorphes sont principalement monogames."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel oiseau vivant dans lhémisphère nord nage le plus vite ?",
+        "propositions": [
+          "La pie",
+          "Le martinet",
+          "La bécassine",
+          "Le pingouin"
+        ],
+        "réponse": "Le pingouin",
+        "anecdote": "Par abus de langage, le pingouin est souvent confondu avec le manchot, de par sa ressemblance avec le Grand Pingouin."
+      },
+      {
+        "id": 12,
+        "question": "Quel oiseau piscivore vit dans les régions antarctiques ?",
+        "propositions": [
+          "Le manchot",
+          "Le pingouin",
+          "Le goéland",
+          "Le guillemot"
+        ],
+        "réponse": "Le manchot",
+        "anecdote": "Les ailes des manchots, devenues inutilisables pour le vol, se sont merveilleusement adaptées à la nage et à la plongée."
+      },
+      {
+        "id": 13,
+        "question": "Quel est le seul oiseau au monde qui puisse voler à reculons ?",
+        "propositions": [
+          "La mésange",
+          "Le moineau",
+          "Le colibri",
+          "La fauvette"
+        ],
+        "réponse": "Le colibri",
+        "anecdote": "Le terme « colibri », qui dériverait d'une langue caribe, s'est imposé dans bon nombre de langues, y compris le français."
+      },
+      {
+        "id": 14,
+        "question": "Lequel de ces oiseaux est-il permis de chasser en France ?",
+        "propositions": [
+          "Le martinet",
+          "La perdrix",
+          "Le cormoran",
+          "Le rossignol"
+        ],
+        "réponse": "La perdrix",
+        "anecdote": "Les perdrix, qui ne possèdent en principe pas d'ergots, sont de taille intermédiaire entre une grosse caille et un petit faisan."
+      },
+      {
+        "id": 15,
+        "question": "Quel est le nom du petit oiseau jaune confident de Snoopy ?",
+        "propositions": [
+          "Peppermint",
+          "Woodstock",
+          "Archibald",
+          "Franklin"
+        ],
+        "réponse": "Woodstock",
+        "anecdote": "'Peanuts', au Québec 'Charlie Brown', tourne autour de deux personnages centraux, Charlie Brown et Snoopy."
+      },
+      {
+        "id": 16,
+        "question": "Quel oiseau utilise son bec pour réguler sa température ?",
+        "propositions": [
+          "Le colibri",
+          "Le perroquet",
+          "Le ménate",
+          "Le toucan"
+        ],
+        "réponse": "Le toucan",
+        "anecdote": "Ces oiseaux au bec surdimensionné sont présents dans toute l'Amérique tropicale, notamment dans la forêt amazonienne. "
+      },
+      {
+        "id": 17,
+        "question": "Le bec du macareux ressemble à celui de quel autre oiseau ?",
+        "propositions": [
+          "La corneille",
+          "Le moineau",
+          "La pie",
+          "Le perroquet"
+        ],
+        "réponse": "Le perroquet",
+        "anecdote": "Après la période de reproduction, les plaques colorées du bec tombent et celui-ci devient plus petit, plus terne et plus sombre."
+      },
+      {
+        "id": 18,
+        "question": "Quel oiseau au bec coloré, parfois utilisé comme mascotte, peut être « moine » ?",
+        "propositions": [
+          "Le guillemot",
+          "Le macareux",
+          "Le sterne",
+          "Le mergule"
+        ],
+        "réponse": "Le macareux",
+        "anecdote": "Le Macareux moine, également dit « perroquet de mer », est une espèce d'oiseau marin pélagique nord-atlantique de haute mer."
+      },
+      {
+        "id": 19,
+        "question": "Quel mot désigne les excréments des oiseaux marins et des chauves-souris ?",
+        "propositions": [
+          "Guano",
+          "Fumier",
+          "Purin",
+          "Lisier"
+        ],
+        "réponse": "Guano",
+        "anecdote": "Engrais très efficace, le guano est une substance fertilisante composée d'excréments d'oiseaux marins et de chauves-souris."
+      },
+      {
+        "id": 20,
+        "question": "Quel oiseau peut-on retrouver sur le drapeau du Mexique ?",
+        "propositions": [
+          "Un faucon",
+          "Un condor",
+          "Un balbuzard",
+          "Un aigle"
+        ],
+        "réponse": "Un aigle",
+        "anecdote": "Ce drapeau tricolore est rectangulaire de proportions 4/7 à bandes verticales vert, blanc et rouge de même taille."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel oiseau exotique, aussi appelé Dronte de Maurice, a disparu au XVIIe siècle ?",
+        "propositions": [
+          "Le pigeon du pacifique",
+          "Le piu-piu",
+          "Le dodo",
+          "Le mainate religieux"
+        ],
+        "réponse": "Le dodo",
+        "anecdote": "Le bec crochu du dodo avait une tache rouge caractéristique à son extrémité et une bleue sur la mandibule inférieure."
+      },
+      {
+        "id": 22,
+        "question": "Quel oiseau vert métallique était tenu sacré par les Aztèques ?",
+        "propositions": [
+          "Le pharochrus",
+          "Le trognon",
+          "Le parapactes",
+          "Le quetzal"
+        ],
+        "réponse": "Le quetzal",
+        "anecdote": "Le quetzal est un animal rare en captivité qui meurt si on le met en cage : c'est pourquoi il est symbole de liberté."
+      },
+      {
+        "id": 23,
+        "question": "Quel oiseau, décrit par Baudelaire, accompagne les marins ?",
+        "propositions": [
+          "Mouette",
+          "Goéland",
+          "Albatros",
+          "Cormoran"
+        ],
+        "réponse": "Albatros",
+        "anecdote": "Ces volatiles sont connus pour détenir le record de la plus grande envergure de toutes les espèces d'oiseaux actuels."
+      },
+      {
+        "id": 24,
+        "question": "Quel oiseau palmipède a pour particularité de construire un nid flottant ?",
+        "propositions": [
+          "Le grèbe",
+          "La grève",
+          "La grène",
+          "Le grèle"
+        ],
+        "réponse": "Le grèbe",
+        "anecdote": "La position des pattes, très courtes et très en arrière par rapport au corps, a valu au grèbe le nom de « pieds au derrière »."
+      },
+      {
+        "id": 25,
+        "question": "Quel oiseau relativement commun est pourtant vénéneux ?",
+        "propositions": [
+          "Le faucon noir",
+          "La mouette rieuse",
+          "Le pitohui bicolore",
+          "Le martinet blanc"
+        ],
+        "réponse": "Le pitohui bicolore",
+        "anecdote": "Connu depuis plus d'un siècle et demi, il a cependant fallu attendre 1990 pour que sa toxicité soit enfin découverte."
+      },
+      {
+        "id": 26,
+        "question": "Où se situe le plus grand parc zoologique au monde consacré aux oiseaux ?",
+        "propositions": [
+          "Langenhagen",
+          "Barver",
+          "Saterland",
+          "Walsrode"
+        ],
+        "réponse": "Walsrode",
+        "anecdote": "Plus de 4 000 oiseaux de 700 espèces différentes sont présents dans le parc ornithologique de Walsrode, ouvert en 1962."
+      },
+      {
+        "id": 27,
+        "question": "Sur quelle partie du corps des oiseaux trouve-t-on un os « pygostyle » ?",
+        "propositions": [
+          "Les ailes",
+          "Le croupion",
+          "Les pattes",
+          "Le cou"
+        ],
+        "réponse": "Le croupion",
+        "anecdote": "Provenant de la soudure des trois ou quatre dernières vertèbres caudales, le pygostyle sert de support aux grandes plumes."
+      },
+      {
+        "id": 28,
+        "question": "Quel gros oiseau est très connu pour son chant ressemblant à un mugissement ?",
+        "propositions": [
+          "Le butor",
+          "Le cochevis",
+          "Le fulmar",
+          "La ganga"
+        ],
+        "réponse": "Le butor",
+        "anecdote": "Le butor est un oiseau échassier qui fréquente régulièrement les marais densément peuplés de roseaux et de joncs."
+      },
+      {
+        "id": 29,
+        "question": "Quel adjectif spécifique désigne un oiseau évoluant en haute mer ?",
+        "propositions": [
+          "Empirique",
+          "Endémique",
+          "Pélagique",
+          "Atomique"
+        ],
+        "réponse": "Pélagique",
+        "anecdote": "Un chalut pélagique (« la haute mer » en grec) est un chalut utilisé dans la colonne d'eau et non traîné sur le fond."
+      },
+      {
+        "id": 30,
+        "question": "Lequel de ces oiseaux possède la particularité de pouvoir manger la tête en bas ?",
+        "propositions": [
+          "Le moineau",
+          "La mésange",
+          "La grive",
+          "Le merle"
+        ],
+        "réponse": "La mésange",
+        "anecdote": "Les mésanges, qui nichent dans des trous d'arbres, sont très sociables et fréquentent volontiers les mangeoires en hiver."
+      }
+    ]
+  }
+}

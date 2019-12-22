@@ -1,0 +1,375 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Harry Potter au cinéma (La saga n'est pas terminée)",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel poste tient Harry Potter dans son équipe de quidditch ?",
+        "propositions": [
+          "Batteur",
+          "Lanceur",
+          "Attrapeur",
+          "Poursuiveur"
+        ],
+        "réponse": "Attrapeur",
+        "anecdote": "Chaque équipe de quidditch possède sept joueurs chevauchant des balais volants."
+      },
+      {
+        "id": 2,
+        "question": "Dans quelle école de sorcellerie Harry Potter a-t-il suivi ses enseignements ?",
+        "propositions": [
+          "Poudlard",
+          "Cambridge",
+          "West Point",
+          "Oxford"
+        ],
+        "réponse": "Poudlard",
+        "anecdote": "Le directeur y enseigne à ses élèves la valeur du courage, de l'amitié, de la justice et de la vérité par son attitude et ses discours."
+      },
+      {
+        "id": 3,
+        "question": "À quelle adresse habite la famille Dursley dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "4 Privet Square",
+          "4 Privet Drive",
+          "4 Privet Road",
+          "4 Privet Avenue"
+        ],
+        "réponse": "4 Privet Drive",
+        "anecdote": "Dursley, le cousin d'Harry Potter, est un garçon indiscipliné, violent et colérique."
+      },
+      {
+        "id": 4,
+        "question": "Qui a succédé à Armando Dippet comme directeur de Poudlard dans 'Harry Potter' ?",
+        "propositions": [
+          "Albus Dumbledore",
+          "Severus Rogue",
+          "Lord Voldemort",
+          "Ron Weasley"
+        ],
+        "réponse": "Albus Dumbledore",
+        "anecdote": "Albus Dumbledore, promu nouveau directeur, est entré à Poudlard en 1892, dans la maison Gryffondor."
+      },
+      {
+        "id": 5,
+        "question": "Quel est le nom de famille de Hermione dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Grindelwald",
+          "Granger",
+          "Greengrass",
+          "Gaunt"
+        ],
+        "réponse": "Granger",
+        "anecdote": "Hermione est la meilleure amie d'Harry Potter et de Ron Weasley et réside, durant sa scolarité, à Poudlard, à la maison Gryffondor."
+      },
+      {
+        "id": 6,
+        "question": "Dans la saga 'Harry Potter', un Moldu est une personne née dans une famille...",
+        "propositions": [
+          "Sans magie",
+          "Sans argent",
+          "Sans secrets",
+          "Sans enfants"
+        ],
+        "réponse": "Sans magie",
+        "anecdote": "Chez les humains, les pouvoirs magiques sont héréditaires, transmis par des allèles dominants ou récessifs."
+      },
+      {
+        "id": 7,
+        "question": "Quel est le prénom du meilleur ami du jeune Harry Potter ?",
+        "propositions": [
+          "Ron",
+          "Sirius",
+          "Hagrid",
+          "Drago"
+        ],
+        "réponse": "Ron",
+        "anecdote": "Ron, qui a rencontré Harry à King's Cross, fait partie de la famille Weasley, une famille de sang-pur, qui réside au Terrier."
+      },
+      {
+        "id": 8,
+        "question": "Quelle actrice incarne Hermione Granger dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Danielle Taylor ",
+          "Maggie Smith ",
+          "Zoë Wanamaker ",
+          "Emma Watson"
+        ],
+        "réponse": "Emma Watson",
+        "anecdote": "Emma Watson est l'actrice la plus rentable de la décennie, en grande partie grâce à la saga 'Harry Potter'."
+      },
+      {
+        "id": 9,
+        "question": "Dans 'Harry Potter', quel titre Voldemort a-t-il décidé de porter ?",
+
+        "propositions": [
+          "Baron",
+          "Lord",
+          "Comte",
+          "Duc"
+        ],
+        "réponse": "Lord",
+        "anecdote": "Lord Voldemort est aussi appelé « Le Seigneur des Ténèbres » ou « Celui-Dont-On-Ne-Doit-Pas-Prononcer-Le-Nom »."
+      },
+      {
+        "id": 10,
+        "question": "Qui garde Azkaban, la prison des sorciers dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Les détraqueurs",
+          "Les épouvantards",
+          "Les cerbères",
+          "Les goules"
+        ],
+        "réponse": "Les détraqueurs",
+        "anecdote": "Les détraqueurs sont considérés comme des créatures parmi les plus répugnantes de toutes celles qui existent."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle forme prend l'épouvantard de Ron dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Un dragon",
+          "Un loup",
+          "Un scorpion",
+          "Une araignée"
+        ],
+        "réponse": "Une araignée",
+        "anecdote": "Dix-neuf ans après la chute de Voldemort, Ron et Hermione ont deux enfants : Rose et son frère cadet Hugo."
+      },
+      {
+        "id": 12,
+        "question": "Comment se prénomment les parents du jeune Harry Potter ?",
+        "propositions": [
+          "James et Lily",
+          "Laurena et Victor",
+          "Hermione et Ron",
+          "Olivia et Tom"
+        ],
+        "réponse": "James et Lily",
+        "anecdote": "La famille Potter est également un descendant d'Ignotus Peverell, le premier propriétaire de la convoitée cape d'Invisibilité."
+      },
+      {
+        "id": 13,
+        "question": "Quel acteur joue le rôle de Drago Malefoy dans 'Harry Potter' ?",
+        "propositions": [
+          "Robbie Coltrane",
+          "Rupert Grint",
+          "Tom Felton",
+          "Jeff Rawle"
+        ],
+        "réponse": "Tom Felton",
+        "anecdote": "Tom Felton a, début 2007, commencé une carrière musicale sous le pseudonyme Feltbeats, réunissant 3 millions de fans sur Instagram."
+      },
+      {
+        "id": 14,
+        "question": "Quelle est la marque du balai de course utilisé par Harry Potter ?",
+        "propositions": [
+          "Comète 260",
+          "Étoile Filante",
+          "Brossdur 5",
+          "Nimbus 2000"
+        ],
+        "réponse": "Nimbus 2000",
+        "anecdote": "Dans l'univers 'Harry Potter', les balais sont utilisés pour le transport des sorciers ainsi que pour le Quidditch."
+      },
+      {
+        "id": 15,
+        "question": "Quel est le nom du dragon appartenant à Hagrid dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Crockdur",
+          "Norbert",
+          "Errol",
+          "Aragog"
+        ],
+        "réponse": "Norbert",
+        "anecdote": "Hagrid, né d'un humain et d'une géante, a été l'un des premiers personnages créés par J. K. Rowling."
+      },
+      {
+        "id": 16,
+        "question": "Qui est ministre de la magie dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Ludovic Verpey",
+          "Lucius Malefoy",
+          "Albus Dumbledore",
+          "Cornelius Fudge"
+        ],
+        "réponse": "Cornelius Fudge",
+        "anecdote": "Cornelius Fudge est également nommé Cornelius Lafadaise dans la première édition de 'Harry Potter à l'école des sorciers'."
+      },
+      {
+        "id": 17,
+        "question": "Quelle matière enseigne le Professeur Rogue dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Défense",
+          "Enchantement",
+          "Potions",
+          "Métamorphose"
+        ],
+        "réponse": "Potions",
+        "anecdote": "Personnage sombre, orgueilleux, aigri et amer, Rogue a une personnalité complexe, ambiguë et quelque peu indéchiffrable."
+      },
+      {
+        "id": 18,
+        "question": "Quel est le prénom de Hagrid, le demi-géant de la saga 'Harry Potter' ?",
+        "propositions": [
+          "Severus",
+          "Albus",
+          "Remus",
+          "Rubeus"
+        ],
+        "réponse": "Rubeus",
+        "anecdote": "Hagrid est garde-chasse et enseigne les Soins aux Créatures magiques depuis le tome 3 de la saga."
+      },
+      {
+        "id": 19,
+        "question": "Qui est professeur de soins aux créatures magiques dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Mme Chourave",
+          "Hagrid",
+          "Severus Rogue",
+          "Albus Dumbledore"
+        ],
+        "réponse": "Hagrid",
+        "anecdote": "Rubeus Hagrid, membre de l'Ordre du Phénix depuis son origine, est interprété au cinéma par Robbie Coltrane."
+      },
+      {
+        "id": 20,
+        "question": "Qui a offert le très performant Nimbus 2000 à Harry Potter ?",
+        "propositions": [
+          "Severus Rogue",
+          "Albus Dumbledore",
+          "Drago Malefoy",
+          "Minerva McGonagall"
+        ],
+        "réponse": "Minerva McGonagall",
+        "anecdote": "Minerva McGonagall est directrice de Poudlard et également professeur de métamorphose."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle est la formule du sortilège de mort dans la saga 'Harry Potter' ?",
+        "propositions": [
+          "Mortibus Rem",
+          "Post Mortem ",
+          "Machina Fino",
+          "Avada Kedavra "
+        ],
+        "réponse": "Avada Kedavra ",
+        "anecdote": "L'Avada Kedavra provoque la mort instantanée, dans un éclair de lumière verte et un bruit semblable à une rafale de vent."
+      },
+      {
+        "id": 22,
+        "question": "Quels prénoms portent les jumeaux Weasley dans 'Harry Potter' ?",
+        "propositions": [
+          "Bill et George",
+          "Charlie et Bill",
+          "Lou et Cédric",
+          "Fred et George"
+        ],
+        "réponse": "Fred et George",
+        "anecdote": "L'ambition des jumeaux a toujours été d'ouvrir un magasin de farces et attrapes pour vendre certaines de leurs inventions."
+      },
+      {
+        "id": 23,
+        "question": "Dans la saga 'Harry Potter', qui est le prince de sang mêlé ?",
+        "propositions": [
+          "Dumbledore",
+          "Voldemort",
+          "Severus Rogue",
+          "Drago Malefoy"
+        ],
+        "réponse": "Severus Rogue",
+        "anecdote": "Le rôle de Severus Rogue dans l'intrigue est difficile à interpréter pour le lecteur qui est fréquemment entraîné sur de fausses pistes."
+      },
+      {
+        "id": 24,
+        "question": "À qui Harry Potter doit-il sa cicatrice obtenue suite à un sortilège de la Mort ?",
+        "propositions": [
+          "Ron",
+          "Professeur Lupin",
+          "Voldemort",
+          "James Potter"
+        ],
+        "réponse": "Voldemort",
+        "anecdote": "Harry Potter porte des lunettes rondes à monture noire et une fine cicatrice en forme d'éclair sur le front."
+      },
+      {
+        "id": 25,
+        "question": "Quelle boisson sert-on principalement aux 'Trois balais' dans 'Harry Potter' ?",
+        "propositions": [
+          "Le vinausucre",
+          "Le sodalamenthe",
+          "Le laitpinard",
+          "La bièraubeurre"
+        ],
+        "réponse": "La bièraubeurre",
+        "anecdote": "La bièraubeurre, servie bien fraîche aux Trois balais, est la boisson la plus célèbre dans le monde des sorciers."
+      },
+      {
+        "id": 26,
+        "question": "Comment se prénomme la mère de Drago Malefoy dans 'Harry Potter' ?",
+        "propositions": [
+          "Lily",
+          "Dolores",
+          "Bellatrix",
+          "Narcissa"
+        ],
+        "réponse": "Narcissa",
+        "anecdote": "Les Malefoy et les Black sont parents par le mariage de Narcissa et de Lucius où le jeune Drago est l'unique héritier."
+      },
+      {
+        "id": 27,
+        "question": "À Poudlard, à quel étage se trouve la « salle sur demande » ?",
+        "propositions": [
+          "Vingtième étage",
+          "Septième étage",
+          "Onzième étage",
+          "Deuxième étage"
+        ],
+        "réponse": "Septième étage",
+        "anecdote": "Un grand nombre de passages dissimulés, d'escaliers et de portraits de peinture mouvants rendent l'établissement assez mystérieux."
+      },
+      {
+        "id": 28,
+        "question": "Quel est le premier cadeau de Noël que Hagrid offre à Harry Potter ?",
+        "propositions": [
+          "Baguette",
+          "Chouette",
+          "Flûte",
+          "Clé"
+        ],
+        "réponse": "Flûte",
+        "anecdote": "Hagrid, membre de l'ordre du Phénix, fut élève à Poudlard, dans la maison Gryffondor, où il arriva en 1940."
+      },
+      {
+        "id": 29,
+        "question": "Quel est le signe zodiacal du jeune Harry Potter, né en 1980 ?",
+        "propositions": [
+          "Lion",
+          "Vierge",
+          "Taureau",
+          "Balance"
+        ],
+        "réponse": "Lion",
+        "anecdote": "Harry James Potter est né le 31 juillet 1980 et a donc le même jour d'anniversaire que J. K. Rowling."
+      },
+      {
+        "id": 30,
+        "question": "En quoi se transforme Peter Pettigrow dans 'Harry Potter' ?",
+        "propositions": [
+          "En chat",
+          "En poisson",
+          "En serpent",
+          "En rat"
+        ],
+        "réponse": "En rat",
+        "anecdote": "Peter Pettigrow est un sorcier né en 1960, responsable de la mort de Lily et James Potter."
+      }
+    ]
+  }
+}

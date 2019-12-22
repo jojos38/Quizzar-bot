@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Nos amis les chats",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "À quelle classe d'animaux vertébrés regroupant près de 5 400 espèces appartient le chat ?",
+        "propositions": [
+          "Aux mammifères",
+          "Aux poissons",
+          "Aux reptiles",
+          "Aux oiseaux"
+        ],
+        "réponse": "Aux mammifères",
+        "anecdote": "De nombreux mammifères élevés par l'homme jusqu'au XIXème siècle ont disparu ou ont fortement régressé."
+      },
+      {
+        "id": 2,
+        "question": "Lorsque vous apercevez votre chat faire le gros dos, il est probablement...",
+        "propositions": [
+          "En chasse",
+          "Content",
+          "Malade",
+          "Effrayé"
+        ],
+        "réponse": "Effrayé",
+        "anecdote": "Si un chat fait une chute de deux mètres et plus alors qu'il est sur le dos, il peut se retourner afin d'amortir cette chute."
+      },
+      {
+        "id": 3,
+        "question": "Que fait principalement le chat de ses journées, selon de nombreux proverbes et idiotismes ?",
+        "propositions": [
+          "Il court",
+          "Il boit",
+          "Il mange",
+          "Il dort"
+        ],
+        "réponse": "Il dort",
+        "anecdote": "La plupart de ces dictons datent de plusieurs siècles, certains remontent même au Moyen Âge."
+      },
+      {
+        "id": 4,
+        "question": "Dans quel endroit du globe le chat reste-t-il synonyme de chance, de richesse ou de longévité ?",
+        "propositions": [
+          "En Asie",
+          "En Europe",
+          "En Afrique",
+          "En Australie"
+        ],
+        "réponse": "En Asie",
+        "anecdote": "Ce félin a laissé son empreinte dans la culture populaire au travers d'expressions populaires et de représentations diverses."
+      },
+      {
+        "id": 5,
+        "question": "Combien le chat possède-t-il de doigts aux pattes antérieures ?",
+        "propositions": [
+          "Cinq",
+          "Quatre",
+          "Trois",
+          "Six"
+        ],
+        "réponse": "Cinq",
+        "anecdote": "Le chat possède cinq doigts aux pattes antérieures, dont seulement quatre touchent le sol, le pouce restant à l'écart."
+      },
+      {
+        "id": 6,
+        "question": "Quel est le cri du chat, pourtant très peu utilisé lorsque des chats communiquent entre eux ?",
+        "propositions": [
+          "Le bêlement",
+          "Le miaulement",
+          "Le beuglement",
+          "Le jappement"
+        ],
+        "réponse": "Le miaulement",
+        "anecdote": "Par contre, au contact de l'humain, le chat continue souvent à utiliser différentes vocalises pour communiquer."
+      },
+      {
+        "id": 7,
+        "question": "Lequel de ces chats est le seul à avoir des poils longs ?",
+        "propositions": [
+          "Angora",
+          "Chartreux",
+          "Siamois",
+          "Abyssin"
+        ],
+        "réponse": "Angora",
+        "anecdote": "L'angora turc est caractérisé par sa robe à poils mi-longs très soyeuse et sans sous-poils."
+      },
+      {
+        "id": 8,
+        "question": "De quelle famille de carnivores féliformes le chat fait-il partie ?",
+        "propositions": [
+          "Les hominidés",
+          "Les canidés",
+          "Les félidés",
+          "Les mustélidés"
+        ],
+        "réponse": "Les félidés",
+        "anecdote": "Parmi leurs traits caractéristiques figurent leur tête ronde au crâne raccourci, leur mâchoire à trente dents et leurs griffes rétractiles."
+      },
+      {
+        "id": 9,
+        "question": "Quelle manifestation sonore du chat aurait selon certains spécialistes un effet relaxant sur l'homme ?",
+        "propositions": [
+          "Le bourdonnement",
+          "Le roucoulement",
+          "Le ronronnement",
+          "Le meuglement"
+        ],
+        "réponse": "Le ronronnement",
+        "anecdote": "Produit à l'expiration comme à l'inspiration, ce son de basse fréquence apparaît dès l'âge de deux jours."
+      },
+      {
+        "id": 10,
+        "question": "Le chat, qui possède une mâchoire et une denture lui permettant de chasser, est un mammifère...",
+        "propositions": [
+          "Carnivore",
+          "Frugivore",
+          "Insectivore",
+          "Omnivore"
+        ],
+        "réponse": "Carnivore",
+        "anecdote": "Tous les mammifères carnassiers ne sont pas forcément membres de l'ordre des carnivores."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Comment appelle-ton les longs poils présents sur les moustaches du chat ?",
+        "propositions": [
+          "Les barbules",
+          "Les bréchets",
+          "Les vibrisses",
+          "Les tectrices"
+        ],
+        "réponse": "Les vibrisses",
+        "anecdote": "Chez l'Homme, les vibrisses désignent les poils à l'intérieur des narines et sous les bras."
+      },
+      {
+        "id": 12,
+        "question": "Combien pèse environ un chaton à la naissance, directement soumis à un élevage communautaire ?",
+        "propositions": [
+          "300 g",
+          "500 g",
+          "100 g",
+          "700 g"
+        ],
+        "réponse": "100 g",
+        "anecdote": "En cas de disparition d'une des mères, les chatons orphelins sont ainsi élevés par les autres femelles."
+      },
+      {
+        "id": 13,
+        "question": "Bien que n'étant pas un coureur de fond, quelle vitesse maximale peut atteindre un chat ?",
+        "propositions": [
+          "90 Km/h",
+          "70 Km/h",
+          "50 Km/h",
+          "110 Km/h"
+        ],
+        "réponse": "50 Km/h",
+        "anecdote": "À la course, la vitesse moyenne du chat est de 40 km/h et il met environ neuf secondes pour parcourir 100 mètres."
+      },
+      {
+        "id": 14,
+        "question": "Combien de temps une chatte garde-t-elle environ les petits dans son ventre ?",
+        "propositions": [
+          "Neuf semaines",
+          "Neuf minutes",
+          "Neuf jours",
+          "Neuf mois"
+        ],
+        "réponse": "Neuf semaines",
+        "anecdote": "Le ventre de la chatte commence à gonfler vers 4 semaines et à environ 35 jours, les mamelles grossissent et rosissent."
+      },
+      {
+        "id": 15,
+        "question": "Combien de races différentes de chats sont reconnues par les instances de certification ?",
+        "propositions": [
+          "140",
+          "50",
+          "80",
+          "110"
+        ],
+        "réponse": "50",
+        "anecdote": "Dans de nombreux pays, le chat entre dans le cadre de la législation sur les carnivores domestiques à linstar du chien et du furet."
+      },
+      {
+        "id": 16,
+        "question": "De combien d'os est composé le squelette du chat, comprenant une partie axiale et appendiculaire ?",
+        "propositions": [
+          "220",
+          "160",
+          "190",
+          "250"
+        ],
+        "réponse": "250",
+        "anecdote": "Les vertèbres du cou du chat sont courtes et sa colonne vertébrale est quant à elle très souple."
+      },
+      {
+        "id": 17,
+        "question": "Combien de temps un chat mettra-t-il pour parcourir 100m le plus rapidement possible ?",
+        "propositions": [
+          "18 secondes",
+          "15 secondes",
+          "12 secondes",
+          "9 secondes"
+        ],
+        "réponse": "9 secondes",
+        "anecdote": "Les spécificités de l'anatomie du chat confèrent à cet animal une grande souplesse et une détente ample lors des sauts."
+      },
+      {
+        "id": 18,
+        "question": "Quel est en moyenne le nombre de lapées par seconde pour le chat ?",
+        "propositions": [
+          "Trois",
+          "Cinq",
+          "Quatre",
+          "Deux"
+        ],
+        "réponse": "Quatre",
+        "anecdote": "Une hypothèse expliquant ce lapement met en cause la région extrêmement sensible du nez et des moustaches du chat."
+      },
+      {
+        "id": 19,
+        "question": "Quel chat est le seul à être caractérisé par la quasi-absence de sa fourrure.",
+        "propositions": [
+          "Le maine coon",
+          "Le sphynx",
+          "Le siamois",
+          "Le persan"
+        ],
+        "réponse": "Le sphynx",
+        "anecdote": "C'est en 1966 au Canada qu'une chatte de gouttière donna naissance à une portée de chatons nus."
+      },
+      {
+        "id": 20,
+        "question": "Combien le chat a-t-il de griffes, sujettes à une pousse continue en réponse à une usure naturelle ?",
+        "propositions": [
+          "16",
+          "20",
+          "18",
+          "22"
+        ],
+        "réponse": "18",
+        "anecdote": "Le chat peut ajuster la longueur de ses griffes et les aiguiser en les frottant contre une surface rugueuse : il « fait ses griffes »."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel pourcentage les chats de race représentent-ils parmi la population totale ?",
+        "propositions": [
+          "25 %",
+          "15 %",
+          "5 %",
+          "35 %"
+        ],
+        "réponse": "5 %",
+        "anecdote": "Si votre animal est un chat de race, il doit posséder un pedigree ou avoir fait l'objet d'une demande spécifique."
+      },
+      {
+        "id": 22,
+        "question": "Bastet, déesse de la joie du foyer aux traits félins est une déesse de quelle nationalité ?",
+        "propositions": [
+          "Viking",
+          "Égyptienne",
+          "Romaine",
+          "Grecque"
+        ],
+        "réponse": "Égyptienne",
+        "anecdote": "Bastet est l'une des déesses les plus discrètes du panthéon égyptien et n'est jamais représentée."
+      },
+      {
+        "id": 23,
+        "question": "Le Manx est un chat très particulier car il ne possède pas...",
+        "propositions": [
+          "De poils",
+          "De queue",
+          "De moustaches",
+          "De nez"
+        ],
+        "réponse": "De queue",
+        "anecdote": "La mutation du gène s'est développée sur l'île de Man à cause de l'isolement des chats et de la trop forte consanguinité."
+      },
+      {
+        "id": 24,
+        "question": "Où sont situées les glandes odoriférantes chez le chat ?",
+        "propositions": [
+          "Derrière les oreilles",
+          "Dans le ventre",
+          "Sur la langue",
+          "Sous les pattes"
+        ],
+        "réponse": "Dans le ventre",
+        "anecdote": "Les chats communiquent principalement entre eux par des phéromones ou des positions corporelles."
+      },
+      {
+        "id": 25,
+        "question": "Selon Le langage courant, comment appelle-t-on un chat en argot ?",
+        "propositions": [
+          "Un greffier",
+          "Un grognant",
+          "Un bourrin",
+          "Un canasson"
+        ],
+        "réponse": "Un greffier",
+        "anecdote": "Deux explications s'opposent : le jeu de mot sur « griffe » ainsi que la fourrure de certains chats évoquant la robe des greffiers."
+      },
+      {
+        "id": 26,
+        "question": "À quel gène responsable de l'absence de pigment dans le poil est lié la surdité des chats blancs ?",
+        "propositions": [
+          "Gène Y",
+          "Gène Z",
+          "Gène W",
+          "Gène X"
+        ],
+        "réponse": "Gène W",
+        "anecdote": "Il est en effet démontré que l'allèle W est directement responsable d'une dégénérescence de l'oreille interne, occasionnant la surdité."
+      },
+      {
+        "id": 27,
+        "question": "À combien de degrés se monte le champ de vision total du chat, plus étendu que celui des humains ?",
+        "propositions": [
+          "253 degrés",
+          "175 degrés",
+          "287 degrés",
+          "206 degrés"
+        ],
+        "réponse": "287 degrés",
+        "anecdote": "L'angle de vision binoculaire est de 130°, pour un champ de vision total de 287°, contre seulement 180° chez l'homme."
+      },
+      {
+        "id": 28,
+        "question": "Comment appelle-t-on un chat domestique qui retourne à l'état sauvage ?",
+        "propositions": [
+          "Chartreux",
+          "Sibérien",
+          "Haret",
+          "Ragdoll"
+        ],
+        "réponse": "Haret",
+        "anecdote": "Le chat haret, ou chat errant, peut avoir connu la vie auprès des êtres humains ou bien être né dans la nature."
+      },
+      {
+        "id": 29,
+        "question": "Quel ecclésiastique et homme d'État possédait 14 chats à sa mort ?",
+        "propositions": [
+          "Richelieu",
+          "Colbert",
+          "Louis XV",
+          "Napoléon"
+        ],
+        "réponse": "Richelieu",
+        "anecdote": "Pour l'anecdote, le Cardinal de Richelieu a contribué à faire considérer les chats comme animaux de compagnie."
+      },
+      {
+        "id": 30,
+        "question": "Comment s'appelle le chat du 'Chat qui parlait malgré lui' de Claude Roy ?",
+        "propositions": [
+          "Gaspard",
+          "Titus",
+          "Thomas",
+          "Chaminou"
+        ],
+        "réponse": "Gaspard",
+        "anecdote": "Claude Roy, né et mort à Paris, était un poète, journaliste et écrivain français."
+      }
+    ]
+  }
+}

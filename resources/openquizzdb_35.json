@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Jeux et consoles Nintendo",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel plombier de jeu vidéo, vêtu de rouge, est également la mascotte de Nintendo ?",
+        "propositions": [
+          "Luigi",
+          "Wario",
+          "Peach",
+          "Mario"
+        ],
+        "réponse": "Mario",
+        "anecdote": "Mario est facilement reconnaissable à sa moustache, sa salopette, ses gants blancs et sa casquette rouge marquée d'un M."
+      },
+      {
+        "id": 2,
+        "question": "Sur quelle console de chez Nintendo sont sortis les deux premiers jeux 'Pokémon' ?",
+        "propositions": [
+          "Game Boy",
+          "Nintendo DS",
+          "Super Nintendo",
+          "Game Cube"
+        ],
+        "réponse": "Game Boy",
+        "anecdote": "Le joueur contrôle le personnage principal via une vue aérienne et le dirige dans l'ensemble de la région fictive de Kanto."
+      },
+      {
+        "id": 3,
+        "question": "Lequel de ces personnages de jeu ne fait pas partie de l'univers de Mario ?",
+        "propositions": [
+          "Luigi",
+          "Mylord",
+          "Wario",
+          "Peach"
+        ],
+        "réponse": "Mylord",
+        "anecdote": "La série 'Mario' est la plus vendue de l'histoire du jeu vidéo, avec plus de 195 millions d'exemplaires écoulés."
+      },
+      {
+        "id": 4,
+        "question": "Quel jeu vidéo de sport développé et édité par Nintendo était offert pour l'achat d'une Wii ?",
+        "propositions": [
+          "Wii Play",
+          "Wii Sports",
+          "Wii Games",
+          "Wii Mix"
+        ],
+        "réponse": "Wii Sports",
+        "anecdote": "Le jeu a été inclus dans un paquetage promotionnel avec la Wii sur tous les territoires, excepté au Japon et en Corée du Sud."
+      },
+      {
+        "id": 5,
+        "question": "Quel personnage fictif de jeu vidéo représente la fidèle monture de Mario ?",
+        "propositions": [
+          "Birbo",
+          "Peach",
+          "Yoshi",
+          "Kirby"
+        ],
+        "réponse": "Yoshi",
+        "anecdote": "Yoshi a fait sa première apparition (dans un jeu) dans le niveau 1-2 de 'Super Mario World' sur Super Nintendo, sorti en 1990 au Japon."
+      },
+      {
+        "id": 6,
+        "question": "Quel gorille costaud fut un des premiers personnages célèbres de la marque Nintendo ?",
+        "propositions": [
+          "King Kong",
+          "Mookie",
+          "Donkey Kong",
+          "Abu"
+        ],
+        "réponse": "Donkey Kong",
+        "anecdote": "Créé par Shigeru Miyamoto, ce gorille est à l'origine l'ennemi de Jumpman, son maître, dont il a enlevé la fiancée."
+      },
+      {
+        "id": 7,
+        "question": "Que signifie le sigle « DS » de la Nintendo DS, console portable sortie en 2005 en Europe ?",
+        "propositions": [
+          "Direct Shot",
+          "Dual Screen",
+          "Detect System",
+          "Data Super"
+        ],
+        "réponse": "Dual Screen",
+        "anecdote": "La Nintendo DS est devenue la console la plus vendue de tous les temps au cours du mois de décembre 2012."
+      },
+      {
+        "id": 8,
+        "question": "Parmi ces « catégories » de Game Boy, laquelle ne pourrez-vous jamais trouver en magasin ?",
+        "propositions": [
+          "Printer",
+          "Advance",
+          "Pocket",
+          "Color"
+        ],
+        "réponse": "Printer",
+        "anecdote": "Malgré la sortie de consoles portables technologiquement plus avancées, la Game Boy a véritablement connu un franc succès."
+      },
+      {
+        "id": 9,
+        "question": "Quel accessoire prévu pour être connecté à la console Wii est associé au jeu 'Wii Fit' ?",
+        "propositions": [
+          "Wii Balance Board",
+          "Wii Zapper",
+          "Wii Gun",
+          "Wii Shot"
+        ],
+        "réponse": "Wii Balance Board",
+        "anecdote": "La Wii Balance Board est un accessoire en forme de pèse-personne électronique conçu pour les consoles de jeu Wii et Wii U."
+      },
+      {
+        "id": 10,
+        "question": "Dans l'univers Nintendo, quel habitant de Dream Land est représenté par une petite boule rose ?",
+        "propositions": [
+          "Pinky",
+          "Kirby",
+          "Yoshi",
+          "Dadidou"
+        ],
+        "réponse": "Kirby",
+        "anecdote": "La particularité de Kirby est qu'il peut aspirer tout ce qu'il voit, que ce soit des objets ou des ennemis."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle arme est utilisée par Luigi dans 'Luigi's Mansion' sous la dénomination « Ectoblast 3000 » ?",
+        "propositions": [
+          "Un aspirateur",
+          "Un lance-flammes",
+          "Une raquette",
+          "Un marteau"
+        ],
+        "réponse": "Un aspirateur",
+        "anecdote": "Le jeu retrace les aventures de Luigi dans un manoir qu'il a gagné lors d'un concours auquel il n'a jamais participé."
+      },
+      {
+        "id": 12,
+        "question": "Quel a été le tout premier nom de Mario, apparu en 1981 dans le jeu 'Donkey Kong' ?",
+        "propositions": [
+          "Jumpman",
+          "Link",
+          "Yoshi",
+          "Zelda"
+        ],
+        "réponse": "Jumpman",
+        "anecdote": "Les jeux de la série 'Super Mario' ont joué un rôle important dans l'évolution du jeu de plates-formes."
+      },
+      {
+        "id": 13,
+        "question": "Quel était le nom de prototype de la Wii depuis la conférence de presse précédant l'E3 de 2004 ?",
+        "propositions": [
+          "Revolution",
+          "Nintendo 64",
+          "Super GameCube",
+          "Wiitendo"
+        ],
+        "réponse": "Revolution",
+        "anecdote": "La Wii était jusqu'alors évoquée sous les noms de « GCNext » et « N5 » (N5 signifiant cinquième génération de consoles Nintendo)."
+      },
+      {
+        "id": 14,
+        "question": "Quelle ville de la région de Kanto est la ville natale de Sacha dans 'Pokémon' ?",
+        "propositions": [
+          "SachaLand",
+          "Kong City",
+          "Dream Land",
+          "Bourg Palette"
+        ],
+        "réponse": "Bourg Palette",
+        "anecdote": "Kanto est la région utilisée dans les versions Vert (Japon uniquement), Rouge, Bleu, Jaune, Or, Argent et Rouge Feu."
+      },
+      {
+        "id": 15,
+        "question": "Quel accessoire transforme la wiimote et le nunchuk de la Wii en un simulateur de mitraillette ?",
+        "propositions": [
+          "Wii Wiz",
+          "Wii Shot",
+          "Wii Gun",
+          "Wii Zapper"
+        ],
+        "réponse": "Wii Zapper",
+        "anecdote": "Le Wii Zapper, vendu avec 'Link's Crossbow Training', a reçu ce nom en référence au pistolet optique du NES, le NES Zapper."
+      },
+      {
+        "id": 16,
+        "question": "Créée en 1983, quelle fut la première console de salon de chez Nintendo ?",
+        "propositions": [
+          "GameCube",
+          "Nintendo 64",
+          "Wii",
+          "Famicom"
+        ],
+        "réponse": "Famicom",
+        "anecdote": "Nintendo a élargi sa clientèle en exportant en 1985 aux États-Unis la console rebaptisée Nintendo Entertainment System."
+      },
+      {
+        "id": 17,
+        "question": "À quelle console au design très similaire la Nintendo DSi a-t-elle succédé ?",
+        "propositions": [
+          "Game Boy",
+          "Advance",
+          "DS",
+          "DS Lite"
+        ],
+        "réponse": "DS Lite",
+        "anecdote": "La DSi est équipée de deux caméras, un lecteur de cartes SD, un navigateur web Opera intégré et un lecteur audio."
+      },
+      {
+        "id": 18,
+        "question": "Laquelle de ces consoles révolutionnaire de Nintendo peut fonctionner avec un stylet ?",
+        "propositions": [
+          "DS",
+          "Famicom",
+          "Nintendo 64",
+          "GameCube"
+        ],
+        "réponse": "DS",
+        "anecdote": "Son jeu phare, 'New Super Mario Bros.', reste quant à lui l'un des jeux les plus vendus du monde."
+      },
+      {
+        "id": 19,
+        "question": "Quel message apparaît fréquemment derrière l'héroïne du jeu 'Donkey Kong' ?",
+        "propositions": [
+          "BONUS",
+          "HELP !",
+          "SMILE",
+          "PUSH"
+        ],
+        "réponse": "HELP !",
+        "anecdote": "Malgré les doutes initiaux de l'équipe américaine, 'Donkey Kong' fut un succès énorme au Japon et en Amérique du Nord."
+      },
+      {
+        "id": 20,
+        "question": "Laquelle de ces consoles fut considérée comme un échec commercial par Nintendo ?",
+        "propositions": [
+          "Virtual Boy",
+          "Wii",
+          "Game Cube",
+          "3DS"
+        ],
+        "réponse": "Virtual Boy",
+        "anecdote": "Le Virtual Boy est la console la moins vendue dans l'histoire des consoles de jeu vidéo de Nintendo, avec 770 000 unités vendues."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel petit astronaute est un personnage imaginaire et emblématique de Nintendo ?",
+        "propositions": [
+          "Louie",
+          "Pikmin",
+          "Olimar",
+          "Kirby"
+        ],
+        "réponse": "Olimar",
+        "anecdote": "Olimar est équipé d'un scaphandre qu'il met toujours sur la Planète Lointaine car, pour lui, l'oxygène est toxique."
+      },
+      {
+        "id": 22,
+        "question": "Quel était le tout premier métier de Mario avant de devenir plombier dans 'Mario Bros.' ?",
+        "propositions": [
+          "Charpentier",
+          "Boulanger",
+          "Pizzaïolo",
+          "Magicien"
+        ],
+        "réponse": "Charpentier",
+        "anecdote": "Le nom de Mario aurait été choisi en l'honneur du propriétaire des locaux de la société Nintendo of America de l'époque, Mario Segali."
+      },
+      {
+        "id": 23,
+        "question": "Quel était le nom de prototype de la  console de jeux vidéo de salon GameCube ?",
+        "propositions": [
+          "Revolution",
+          "Dolphin",
+          "Game 128",
+          "Famicom"
+        ],
+        "réponse": "Dolphin",
+        "anecdote": "C'est le 24 août 2000 que la machine est officiellement présentée avec son nouveau nom, la GameCube."
+      },
+      {
+        "id": 24,
+        "question": "Dans 'Super Mario Kart', chaque coupe est composée de 5 courses comptant chacune combien de tours ?",
+        "propositions": [
+          "3",
+          "5",
+          "2",
+          "4"
+        ],
+        "réponse": "5",
+        "anecdote": "Dans 'Super Mario Kart', le joueur contrôle l'un des huit personnages issus de l'univers 'Super Mario'."
+      },
+      {
+        "id": 25,
+        "question": "Dans quelle ville se trouve le siège de la société Nintendo fondée en 1889 par Fusajiro Yamauchi ?",
+        "propositions": [
+          "Kyoto",
+          "Tokyo",
+          "Shanghai",
+          "Pékin"
+        ],
+        "réponse": "Kyoto",
+        "anecdote": "Nintendo est l'une des rares entreprises de jeu vidéo à avoir su faire rentrer certaines de ses licences, en particulier 'Mario' ou 'Pokémon'."
+      },
+      {
+        "id": 26,
+        "question": "Quelle déesse a créé la vie dans le jeu vidéo phare 'Zelda : Ocarina of time' ?",
+        "propositions": [
+          "Eikichi",
+          "Din",
+          "Nayru",
+          "Farore"
+        ],
+        "réponse": "Farore",
+        "anecdote": "Les trois Déesses d'Hyrule sont Din, déesse de la Force, Nayru, déesse de la Sagesse et du Temps et Farore, déesse du Courage."
+      },
+      {
+        "id": 27,
+        "question": "Que faisait la société Nintendo avant de produire des jeux vidéo ?",
+        "propositions": [
+          "Des dés à jouer",
+          "Des montres",
+          "Des livres",
+          "Des cartes à jouer"
+        ],
+        "réponse": "Des cartes à jouer",
+        "anecdote": "Cest à partir des années 1970 que la société Nintendo a diversifié ses activités en produisant des jouets et des bornes darcade."
+      },
+      {
+        "id": 28,
+        "question": "Quelle est le nom de la deuxième génération de console Nintendo DS ?",
+        "propositions": [
+          "DS3D",
+          "DSi",
+          "Advance",
+          "DS Lite"
+        ],
+        "réponse": "DS Lite",
+        "anecdote": " La Nintendo DS Lite, avec ses 93 millions de ventes, est aujourd'hui la console portable la mieux vendue de tous les temps."
+      },
+      {
+        "id": 29,
+        "question": "En quelle année la société Nintendo est-elle entrée en bourse ?",
+        "propositions": [
+          "1972",
+          "1982",
+          "1962",
+          "1992"
+        ],
+        "réponse": "1962",
+        "anecdote": "Cest grâce à un contrat signé avec Disney en 1959 que la société prend une envergure internationale et entre en bourse en 1962."
+      },
+      {
+        "id": 30,
+        "question": "Comment se prénommait la petite amie de Jumpman dans 'Donkey Kong' ?",
+        "propositions": [
+          "Zelda",
+          "Daisy",
+          "Pauline",
+          "Lady"
+        ],
+        "réponse": "Lady",
+        "anecdote": "Maltraité par le charpentier, Donkey Kong s'échappe et kidnappe la petite amie de Jumpman, connue sous le nom de Lady."
+      }
+    ]
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Les réseaux sociaux",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Sur l'outil de microblogage 'Twitter', combien de caractères maximum peut contenir un « tweet » ?",
+        "propositions": [
+          "255",
+          "500",
+          "140",
+          "80"
+        ],
+        "réponse": "140",
+        "anecdote": "'Twitter' a été créé le 21 mars 2006 par Jack Dorsey, Evan Williams, Biz Stone et Noah Glass."
+      },
+      {
+        "id": 2,
+        "question": "Parmi ces réseaux sociaux fort appréciés, lequel a connu la plus forte croissance en 2014 ?",
+        "propositions": [
+          "Pinterest",
+          "LinkedIn",
+          "SoundCloud",
+          "Facebook"
+        ],
+        "réponse": "Pinterest",
+        "anecdote": "Le nom du site est un mot-valise des mots anglais 'pin' et 'interest' signifiant respectivement « épingler » et « intérêt »."
+      },
+      {
+        "id": 3,
+        "question": "Quel informaticien et chef d'entreprise américain a inventé 'Facebook' ?",
+        "propositions": [
+          "Paul Allen",
+          "Larry Page",
+          "Mark Zuckeberg",
+          "Steve Ballmer"
+        ],
+        "réponse": "Mark Zuckeberg",
+        "anecdote": "Mark Zuckeberg est aujourd'hui le plus jeune milliardaire du monde derrière son camarade Dustin Moskovitz."
+      },
+      {
+        "id": 4,
+        "question": "Récemment diplômée(e), sur quel réseau social allez-vous probablement rechercher un job ?",
+        "propositions": [
+          "Reddit",
+          "Twich",
+          "Tinder",
+          "LinkedIn"
+        ],
+        "réponse": "LinkedIn",
+        "anecdote": "Le site revendique plus de 400 millions de membres issus de 170 secteurs d'activités dans plus de 200 pays."
+      },
+      {
+        "id": 5,
+        "question": "Que pouvez-vous principalement partager sur le site web 'Flickr', développé par Ludicorp ?",
+        "propositions": [
+          "Des photos",
+          "Des vidéos",
+          "De la musique",
+          "Des adresses"
+        ],
+        "réponse": "Des photos",
+        "anecdote": "Sur 'Flickr', un utilisateur d'un compte gratuit dispose d'un espace d'un téraoctet pour stocker des photos et des vidéos."
+      },
+      {
+        "id": 6,
+        "question": "Quelle célébrité de la télévision a pris le selfie le plus « retweeté » de l'histoire ?",
+        "propositions": [
+          "Jenny McCarthy",
+          "Ellen DeGeneres",
+          "Oprah Winfrey",
+          "Kim Kardashian"
+        ],
+        "réponse": "Ellen DeGeneres",
+        "anecdote": "Ellen DeGeneres est une cousine éloignée de Catherine Middleton, duchesse de Cambridge et épouse de William."
+      },
+      {
+        "id": 7,
+        "question": "Avec 'Instagram', on peut bien évidemment prendre des photos, mais aussi réaliser...",
+        "propositions": [
+          "Un document texte",
+          "Une vidéo",
+          "Une présentation",
+          "Une musique"
+        ],
+        "réponse": "Une vidéo",
+        "anecdote": "L'application et le service de partage 'Instagram' ont été rachetés par la société 'Facebook' en 2012 pour plus d'un milliard de dollars."
+      },
+      {
+        "id": 8,
+        "question": "Quelle application de 'Twitter' héberge des vidéos de 6 secondes tournant en boucle ?",
+        "propositions": [
+          "Vine",
+          "Instagram",
+          "Viber",
+          "SoundCloud"
+        ],
+        "réponse": "Vine",
+        "anecdote": "Comme sur 'Twitter', il est possible d'accompagner son 'Vine' d'une petite description ainsi que des mots-clés et de hashtag."
+      },
+      {
+        "id": 9,
+        "question": "À quel réseau social américain êtes-vous accro si vous n'arrêtez pas de « piner » ?",
+        "propositions": [
+          "Pinterest",
+          "Google +",
+          "Tumblr",
+          "Facebook"
+        ],
+        "réponse": "Pinterest",
+        "anecdote": "'Pinterest' propose à ses utilisateurs d'épingler des images qui ont pu attirer leur attention dans différentes rubriques."
+      },
+      {
+        "id": 10,
+        "question": "Quel réseau social truste la première place des réseaux sociaux professionnels ?",
+        "propositions": [
+          "Heeloo",
+          "LinkedIn",
+          "Movim",
+          "Friendster"
+        ],
+        "réponse": "LinkedIn",
+        "anecdote": "'LinkedIn' constitue aujourd'hui un moyen efficace pour construire, développer et enrichir son capital social."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle site communautaire très actif est la source de nombreux documents postés sur Internet ?",
+        "propositions": [
+          "Reddit",
+          "Lurker",
+          "Delicious",
+          "Twich"
+        ],
+        "réponse": "Reddit",
+        "anecdote": "Le site 'Reddit' est fort dune communauté se retrouvant autour dune culture propre à lhistoire du site."
+      },
+      {
+        "id": 12,
+        "question": "Quel concurrent direct de 'Snapchat' a été lancé par 'Facebook' ?",
+        "propositions": [
+          "Facesnap",
+          "Whisper",
+          "Slingshot",
+          "Private Messenger"
+        ],
+        "réponse": "Slingshot",
+        "anecdote": "La particularité de cette application est l'existence d'une limite de temps de visualisation du média envoyé à ses destinataires."
+      },
+      {
+        "id": 13,
+        "question": "Fin 2014, combien d'utilisateurs comptait l'application 'Instagram' lancée en octobre 2010 ?",
+        "propositions": [
+          "100 millions",
+          "400 millions",
+          "200 millions",
+          "300 millions"
+        ],
+        "réponse": "300 millions",
+        "anecdote": "En août 2014, Instagram a lancé 'Hyperlapse', une application vidéo permettant de réaliser des time-lapse."
+      },
+      {
+        "id": 14,
+        "question": "Quel était en 2014 le pourcentage d'internautes français inscrits sur les réseaux sociaux ?",
+        "propositions": [
+          "80 %",
+          "65 %",
+          "50 %",
+          "37 %"
+        ],
+        "réponse": "80 %",
+        "anecdote": "La « règle de 150 » ou « nombre de Dunbar » affirme que la taille d'un réseau social originel est limité à environ 150 membres."
+      },
+      {
+        "id": 15,
+        "question": "En quelle année a été fondé 'Twitter', outil de microblogage géré par l'entreprise Twitter Inc ?",
+        "propositions": [
+          "2004",
+          "2002",
+          "2006",
+          "2008"
+        ],
+        "réponse": "2006",
+        "anecdote": "'Twitter' a été créé à San Francisco au sein de la startup 'Odeo' fondée par Noah Glass5 et Evan Williams."
+      },
+      {
+        "id": 16,
+        "question": "Quel média social permet d'indiquer où l'on se trouve et de recommander des lieux de sorties ?",
+        "propositions": [
+          "Piwie",
+          "Foursquare",
+          "Kaki",
+          "Viadeo"
+        ],
+        "réponse": "Foursquare",
+        "anecdote": "L'aspect ludique de 'Foursquare' vient du fait qu'il est possible à l'utilisateur de gagner des points et d'accumuler des badges."
+      },
+      {
+        "id": 17,
+        "question": "Quelle agence de renseignement, équivalent de la DGSE, a ouvert son compte 'Twitter' en 2014 ?",
+        "propositions": [
+          "CIA",
+          "KGB",
+          "MI6",
+          "NSA"
+        ],
+        "réponse": "CIA",
+        "anecdote": "La CIA a influencé parfois de façon décisive l'histoire politique des États dans lesquels elle est intervenue."
+      },
+      {
+        "id": 18,
+        "question": "Qu'allez-vous échanger si une Youtubeuse vous propose de faire un « swap » ?",
+        "propositions": [
+          "Des messages",
+          "Des cadeaux",
+          "Des blagues",
+          "Des vidéos"
+        ],
+        "réponse": "Des cadeaux",
+        "anecdote": "La plupart des vidéos du site ou les chaînes YouTube peuvent être visualisées par tous les internautes."
+      },
+      {
+        "id": 19,
+        "question": "Combien de photos sont environ partagées chaque jour sur le réseau 'Instagram' ?",
+        "propositions": [
+          "55 millions",
+          "45 millions",
+          "25 millions",
+          "35 millions"
+        ],
+        "réponse": "55 millions",
+        "anecdote": "La publicité est un enjeu important pour 'Instagram' et plus encore pour 'Facebook', propriétaire du réseau."
+      },
+      {
+        "id": 20,
+        "question": "Quelle plate-forme de microblogage accueille 300 millions de visiteurs uniques mensuels ?",
+        "propositions": [
+          "Tinder",
+          "Pinterest",
+          "Reddit",
+          "Tumblr"
+        ],
+        "réponse": "Tumblr",
+        "anecdote": "L'inscription sur Tumblr est gratuite et ne nécessite qu'une adresse e-mail, un nom dutilisateur et un mot de passe."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel réseau social professionnel cherche à s'adapter aux particularités culturelles de chaque pays ?",
+        "propositions": [
+          "Viadeo",
+          "Foursquare",
+          "Piwie",
+          "Kaki"
+        ],
+        "réponse": "Viadeo",
+        "anecdote": "Pour ses membres, 'Viadeo' est aussi un outil de gestion de réputation en ligne et de personal branding."
+      },
+      {
+        "id": 22,
+        "question": "Pour combien de dollars 'Facebook' a-t-il racheté l'application mobile multiplateforme 'Whatsapp' ?",
+        "propositions": [
+          "220 millions",
+          "850 millions",
+          "650 000 mille",
+          "16 milliards"
+        ],
+        "réponse": "16 milliards",
+        "anecdote": "'Whatsapp' a été racheté par 'Facebook' en février 2014 pour environ 19 milliards de dollars, dont 15 milliards en actions."
+      },
+      {
+        "id": 23,
+        "question": "Quel ancien réseau social « made in France » se revendiquait comme étant « LE tchat business » ?",
+        "propositions": [
+          "Foursquare",
+          "Viadeo",
+          "XING",
+          "Piwie"
+        ],
+        "réponse": "Piwie",
+        "anecdote": "'Piwie' mettait en relation tous ceux qui souhaiatent créer une entreprise avec ceux qui cherchaient un associé."
+      },
+      {
+        "id": 24,
+        "question": "En 2014, quel lieu très touristique a été le plus partagé sur 'Instagram' ?",
+        "propositions": [
+          "Le Taj Mahal",
+          "Disneyland",
+          "Time Square",
+          "Le Louvre"
+        ],
+        "réponse": "Disneyland",
+        "anecdote": "'Instagram' a subi de nombreuses critiques à cause de sa politique de censure, jugée disproportionnée."
+      },
+      {
+        "id": 25,
+        "question": "Quel ancien réseau social aujourd'hui disparu était orienté 100 % geek et jeux vidéo ?",
+        "propositions": [
+          "Foursquare",
+          "Kipi",
+          "Viadeo",
+          "Piwie"
+        ],
+        "réponse": "Kipi",
+        "anecdote": "De plus en plus de réseaux sociaux privatifs se créent sur le net, formant ainsi en quelque sorte des clubs « privés »."
+      },
+      {
+        "id": 26,
+        "question": "Quel réseau professionnel en ligne allemand revendique plusieurs millions de membres ?",
+        "propositions": [
+          "XING",
+          "Foursquare",
+          "Pinterest",
+          "Viadeo"
+        ],
+        "réponse": "XING",
+        "anecdote": "Les réseaux sociaux comme 'Facebook' ou 'Myspace' ne sont pas considérés comme des concurrents directs."
+      },
+      {
+        "id": 27,
+        "question": "Quelle application sociale est la plus populaire au Japon ?",
+        "propositions": [
+          "Viber",
+          "LINE",
+          "Emoji",
+          "Skype"
+        ],
+        "réponse": "LINE",
+        "anecdote": "La vente de produits dérivés tels les autocollants, jeux, figurines et peluches constitue une partie significative des revenus de LINE."
+      },
+      {
+        "id": 28,
+        "question": "Quel réseau social chinois récemment coté en bourse s'appelait autrefois 'Xiaonei' ?",
+        "propositions": [
+          "Baidu",
+          "Panguso",
+          "Renren",
+          "NetEase"
+        ],
+        "réponse": "Renren",
+        "anecdote": "'Xiaonei' a été créé en décembre 2005 par des étudiants de l'Université de Tsinghua, Wang Huiwen, Lai Binqiang et Jacky."
+      },
+      {
+        "id": 29,
+        "question": "Quel service de mise en relation d'annuaires sociaux a été créé par le cofondateur de 'Napster' ?",
+        "propositions": [
+          "Plaxo",
+          "LinkedIn",
+          "Pinterest",
+          "Viadeo"
+        ],
+        "réponse": "Plaxo",
+        "anecdote": "Après une perte brutale de notoriété entre 2007 et 2011, 'Plaxo' a jeté l'éponge en 2011, fermant 'Plaxo Pulse'."
+      },
+      {
+        "id": 30,
+        "question": "Quel site Web de réseautage social russe a été racheté par un proche de Vladimir Poutine ?",
+        "propositions": [
+          "Yammer",
+          "VK",
+          "Soup",
+          "Plaxo"
+        ],
+        "réponse": "VK",
+        "anecdote": "À sa création, le nom du site ne devait faire aucune allusion à certaines catégories sociales d'utilisateurs."
+      }
+    ]
+  }
+}

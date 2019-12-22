@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Canada",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "En combien de provinces le Canada est-il divisé en plus des trois territoires fédéraux ?",
+        "propositions": [
+          "4 provinces",
+          "10 provinces",
+          "50 provinces",
+          "6 provinces"
+        ],
+        "réponse": "10 provinces",
+        "anecdote": "Les provinces sont des États fédérés possédant des pouvoirs souverains, indépendamment du gouvernement fédéral."
+      },
+      {
+        "id": 2,
+        "question": "Quelles sont les deux couleurs du drapeau du Québec, révélé pour la première fois en 1948 ?",
+        "propositions": [
+          "Le bleu et le blanc",
+          "Le rouge et le bleu",
+          "Le bleu et le rouge",
+          "Le rouge et le blanc"
+        ],
+        "réponse": "Le bleu et le blanc",
+        "anecdote": "Le drapeau national du Québec est composé d'une croix blanche et de quatre fleurs de lys blanches sur fond azur."
+      },
+      {
+        "id": 3,
+        "question": "Quel festival se déroulant chaque année à Montréal au Québec a pour thème le rire ?",
+        "propositions": [
+          "Venir et rire",
+          "Rions un peu",
+          "Juste pour rire",
+          "Rire en famille"
+        ],
+        "réponse": "Juste pour rire",
+        "anecdote": "Créé en 1983 par Gilbert Rozon, le festival 'Juste pour rire' est le plus gros événement du genre sur la planète."
+      },
+      {
+        "id": 4,
+        "question": "Quel chanteur, auteur-compositeur-interprète et homme de scène, « reviendra à Montréal » ?",
+        "propositions": [
+          "Gaston Mandeville",
+          "Pierre Laurendeau",
+          "Robert Charlebois",
+          "Jacques Desrosiers"
+        ],
+        "réponse": "Robert Charlebois",
+        "anecdote": "Robert Charlebois est aujourd'hui considéré comme un géant de la chanson québécoise aux côtés de Félix Leclerc."
+      },
+      {
+        "id": 5,
+        "question": "Comment appelle-t-on le renne au Canada, cervidé des régions arctiques et subarctiques ?",
+        "propositions": [
+          "Le caribou",
+          "Le boisé",
+          "Le renne canadien",
+          "Le grand cerf"
+        ],
+        "réponse": "Le caribou",
+        "anecdote": "Les plus grandes hardes de caribous sauvages se trouvent en Alaska et dans le nord du Québec et du Labrador."
+      },
+      {
+        "id": 6,
+        "question": "Quel nom portent les habitants de Montréal, la ville la plus peuplée du Québec ?",
+        "propositions": [
+          "Les montréalois",
+          "Les montréalais",
+          "Les montroix",
+          "Les montréaliens"
+        ],
+        "réponse": "Les montréalais",
+        "anecdote": "Montréal est la quatrième agglomération francophone de langue officielle et la ville francophone la plus peuplée d'Amérique."
+      },
+      {
+        "id": 7,
+        "question": "Pourquoi un homme qui vit au Canada ne peut être enterré aux États-Unis ?",
+        "propositions": [
+          "Il est déjà décédé",
+          "Il vit au Canada",
+          "Il est encore vivant",
+          "À cause de la loi"
+        ],
+        "réponse": "Il est encore vivant",
+        "anecdote": "Le Canada occupe la partie septentrionale de l'Amérique du Nord et compte environ 36 millions d'habitants."
+      },
+      {
+        "id": 8,
+        "question": "Quelle artiste célèbre, née à Nieppe dans le Nord de la France, a chanté 'Ma cabane au Canada' ?",
+        "propositions": [
+          "Régine",
+          "Sheila",
+          "Line Renaud",
+          "Juliette Greco"
+        ],
+        "réponse": "Line Renaud",
+        "anecdote": "En 1950, Line Renaud épouse Loulou Gasté, qui restera son mari jusqu'à sa mort en 1995."
+      },
+      {
+        "id": 9,
+        "question": "Quelles sont les deux langues officielles les plus parlées au Canada ?",
+        "propositions": [
+          "Français et anglais",
+          "Anglais et espagnol",
+          "Français et italien",
+          "Espagnol et anglais"
+        ],
+        "réponse": "Français et anglais",
+        "anecdote": "Au Canada, le français et l'anglais ont un statut égal dans les tribunaux fédéraux ainsi qu'au Parlement."
+      },
+      {
+        "id": 10,
+        "question": "Avec 10 millions de km<sup>2</sup>, quel rang mondial occupe le Canada en terme de superficie ?",
+        "propositions": [
+          "Cinquième",
+          "Quatrième",
+          "Troisième",
+          "Deuxième"
+        ],
+        "réponse": "Deuxième",
+        "anecdote": "Le Canada occupe la partie septentrionale de l'Amérique du Nord, bordé par les États-Unis au sud et au nord-ouest."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Sur la rive nord de quel lac se situe la ville de Toronto, à la frontière avec les États-Unis ?",
+        "propositions": [
+          "Lac Ontario",
+          "Lac Michigan",
+          "Lac Érié",
+          "Lac Huron"
+        ],
+        "réponse": "Lac Ontario",
+        "anecdote": "Avec ses 2,5 millions d'habitants, Toronto est la plus grande ville du Canada et la capitale de la province de l'Ontario."
+      },
+      {
+        "id": 12,
+        "question": "Quelle chanteuse québécoise a remporté la saison 1 de 'La Voix' au Canada ?",
+        "propositions": [
+          "Léa Morgane",
+          "Valérie Carpentier",
+          "Valérie Amyot",
+          "Julie Massicotte"
+        ],
+        "réponse": "Valérie Carpentier",
+        "anecdote": "Adaptée d'un concept néerlandais, c'est la version de 'The Voice' la plus regardée au monde."
+      },
+      {
+        "id": 13,
+        "question": "Quel navigateur et explorateur malouin a découvert le Canada en 1534 ?",
+        "propositions": [
+          "Francis Drake",
+          "Pierre de Chauvin",
+          "Jacques Cartier",
+          "Humphrey Gilbert"
+        ],
+        "réponse": "Jacques Cartier",
+        "anecdote": "Jacques Cartier est le premier Européen à décrire et nommer les eaux, les rives et les habitants du Saint-Laurent."
+      },
+      {
+        "id": 14,
+        "question": "Quel est le plus long fleuve du Canada, navigable approximativement cinq mois par an ?",
+        "propositions": [
+          "Le Mackenzie",
+          "Le Fraser",
+          "Le Saint Laurent",
+          "Le Nechako"
+        ],
+        "réponse": "Le Mackenzie",
+        "anecdote": "L'embouchure du fleuve Mackenzie des Territoires du Nord-Ouest comporte un vaste delta marécageux."
+      },
+      {
+        "id": 15,
+        "question": "Combien de fois le Canada a-t-il accueilli les Jeux olympiques, en été comme en hiver ?",
+        "propositions": [
+          "Deux fois",
+          "Jamais",
+          "Une fois",
+          "Trois fois"
+        ],
+        "réponse": "Trois fois",
+        "anecdote": "Les Jeux olympiques ont été accueillis à Montréal en été 1976, Calgary en hiver 1988 et Vancouver en hiver 2010."
+      },
+      {
+        "id": 16,
+        "question": "Quelle ville au climat très continental est la capitale de la province du Manitoba, au Canada ?",
+        "propositions": [
+          "Montréal",
+          "Toronto",
+          "Ottawa",
+          "Winnipeg"
+        ],
+        "réponse": "Winnipeg",
+        "anecdote": "La ville de Winnipeg, septième ville par la population au Canada, est l'un des plus grands marchés aux grains du monde."
+      },
+      {
+        "id": 17,
+        "question": "Quelle est la plus peuplée des provinces du Canada avec 13,5 millions d'habitants ?",
+        "propositions": [
+          "Alberta",
+          "Manitoba",
+          "Nunavut",
+          "Ontario"
+        ],
+        "réponse": "Ontario",
+        "anecdote": "Sa capitale est Toronto, qui est une ville mondiale de classe alpha et aussi la plus grande ville du Canada."
+      },
+      {
+        "id": 18,
+        "question": "Quelle monnaie émise par la Banque du Canada est utilisée sur le territoire depuis 1858 ?",
+        "propositions": [
+          "La livre",
+          "Le dollar canadien",
+          "Le franc canadien",
+          "Le dollar américian"
+        ],
+        "réponse": "Le dollar canadien",
+        "anecdote": "En français québécois, le dollar est appelé « piastre » alors que la pièce de 2$ se fait appeler « toonie » en anglais."
+      },
+      {
+        "id": 19,
+        "question": "Alberta est une des provinces du Canada en grande majorité citadine dont la capitale est...",
+        "propositions": [
+          "Calgary",
+          "Lethbridge",
+          "Edmonton",
+          "Red Deer"
+        ],
+        "réponse": "Edmonton",
+        "anecdote": "L'Alberta tient son nom de la Princesse Louise Caroline Alberta, qui était la fille de la reine Victoria."
+      },
+      {
+        "id": 20,
+        "question": "Quelle ex-playmate, aujourd'hui productrice, est née le jour du Centenaire du Canada ?",
+        "propositions": [
+          "Katie Lohmann",
+          "Nichole Van Croft",
+          "Erika Eleniak",
+          "Pamela Anderson"
+        ],
+        "réponse": "Pamela Anderson",
+        "anecdote": "Pamela Anderson, playmate de 'Playboy', possède les nationalités américaine et canadienne."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle est la devise de la province de Québec, créée par Eugène-Étienne Taché en 1883 ?",
+        "propositions": [
+          "Vive le Québec libre",
+          "Je me souviens",
+          "La belle province",
+          "Vers les océans"
+        ],
+        "réponse": "Je me souviens",
+        "anecdote": "À l'image des armoiries qui ont été troquées pour un logo, la devise a été délaissée au profit de slogans gouvernementaux."
+      },
+      {
+        "id": 22,
+        "question": "Quelle ville canadienne a accueilli une Exposition universelle en 1967 ?",
+        "propositions": [
+          "Ottawa",
+          "Calgary",
+          "Montréal",
+          "Toronto"
+        ],
+        "réponse": "Montréal",
+        "anecdote": "Cette exposition universelle a été tenue sur le thème de « Terre des Hommes » (en anglais : « Man and his World »)."
+      },
+      {
+        "id": 23,
+        "question": "La poutine est un mets dorigine québécoise composé de frites, de fromage et de sauce...",
+        "propositions": [
+          "Bleue",
+          "Brune",
+          "Blanche",
+          "Verte"
+        ],
+        "réponse": "Brune",
+        "anecdote": "Il existe de nombreuses variantes basées sur l'ajout de différentes sauces, de fromage voire de viande."
+      },
+      {
+        "id": 24,
+        "question": "Quand célèbre-t-on la fête nationale du Québec, traditionnellement appelée la Saint-Jean-Baptiste ?",
+        "propositions": [
+          "Le 24 juin",
+          "Le 4 juillet",
+          "Le 1<sup>er</sup>  juillet",
+          "Le 15 août"
+        ],
+        "réponse": "Le 24 juin",
+        "anecdote": "En vertu de la Loi sur la fête nationale, le 24 juin est une journée fériée et chômée par presque tous les québecois."
+      },
+      {
+        "id": 25,
+        "question": "Quelle est la plus grande université du Canada, répartie sur trois campus ?",
+        "propositions": [
+          "Celle de Toronto",
+          "Celle de Vancouver",
+          "Celle de Montréal",
+          "Celle de Bedford"
+        ],
+        "réponse": "Celle de Toronto",
+        "anecdote": "Avec ses 70 000 étudiants, l'Université publique de Toronto constitue la plus grande université du Canada."
+      },
+      {
+        "id": 26,
+        "question": "Que peut-on voir sur les pièces de 5 cents au Canada, aussi appelées « cinq sous » et « nickel » ?",
+        "propositions": [
+          "Un orignal",
+          "Un castor",
+          "Un bateau",
+          "Un érable"
+        ],
+        "réponse": "Un castor",
+        "anecdote": "La Monnaie royale canadienne, qui produit les pièces de monnaie, possède une énorme réserve de métaux précieux."
+      },
+      {
+        "id": 27,
+        "question": "Quel humoriste et improvisateur québécois a adopté des petites chinoises ?",
+        "propositions": [
+          "Daniel Lemire",
+          "Jean-Michel Anctil",
+          "Laurent Paquin",
+          "Louis-José Houde"
+        ],
+        "réponse": "Jean-Michel Anctil",
+        "anecdote": "Jean-Michel Anctil est particulièrement connu pour ses personnages de Précilla, le jeune Maxime et Râteau."
+      },
+      {
+        "id": 28,
+        "question": "Au Canada français, comment le dollar est-il appelé par une grande partie de la population ?",
+        "propositions": [
+          "Dinar",
+          "Piastre",
+          "Sol",
+          "Florin"
+        ],
+        "réponse": "Piastre",
+        "anecdote": "Le dollar est appelé « piastre » par les colons français, le cent est quant à lui couramment appelé un « sou » ou une « cenne »."
+      },
+      {
+        "id": 29,
+        "question": "Dans quelle ville du Canada peut-on visiter le musée scientifique baptisé « Cosmodôme » ?",
+        "propositions": [
+          "Laval",
+          "Longueuil",
+          "Montréal",
+          "Toronto"
+        ],
+        "réponse": "Laval",
+        "anecdote": "Alan Shepard dira du Cosmodôme : « De tous les camps visités, celui-ci est le meilleur »."
+      },
+      {
+        "id": 30,
+        "question": "Quelle attraction touristique de Toronto a longtemps été la plus haute structure autoportante du monde ?",
+        "propositions": [
+          "Le SkyDome",
+          "Le Petit Glenn",
+          "La Tour CN",
+          "La Casa Loma"
+        ],
+        "réponse": "La Tour CN",
+        "anecdote": "La tour de 553,33 mètres, devenue l'emblème de la ville, est située dans le centre de Toronto."
+      }
+    ]
+  }
+}

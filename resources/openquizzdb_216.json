@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Snapchat (L'application aux messages éphémères)",
+  "difficulté": "3 / 5",
+  "quizz": {
+      "débutant": [
+      {
+        "id": 1,
+        "question": "Que représente le logo de l'application mobile Snapchat ?",
+        "propositions": [
+          "Fantôme",
+          "Ours",
+          "Appareil photo",
+          "Singe"
+        ],
+        "réponse": "Fantôme",
+        "anecdote": "Snapchat permet d'être visible par n'importe qui, pour ses amis uniquement ou pour personne (ce qu'on appelle le mode fantôme)."
+      },
+      {
+        "id": 2,
+        "question": "Quel outil de Snapchat permet depuis 2014 d'envoyer de l'argent ?",
+        "propositions": [
+          "Snapsend",
+          "Snapcash",
+          "Snapcoin",
+          "Snapmoney"
+        ],
+        "réponse": "Snapcash",
+        "anecdote": "La volonté de Snapchat étant de fidéliser ses utilisateurs, de nombreux services associés ont été proposés ces derniers temps."
+      },
+      {
+        "id": 3,
+        "question": "Quelle est la tranche d'âge de 85 % des utilisateurs de Snapchat ?",
+        "propositions": [
+          "60 à 78 ans",
+          "13 à 34 ans",
+          "47 à 59 ans",
+          "35 à 46 ans"
+        ],
+        "réponse": "13 à 34 ans",
+        "anecdote": "Le côté éphémère et rapide de l'utilisation des options de Snapchat attire plus les jeunes que les utilisateurs plus âgés."
+      },
+      {
+        "id": 4,
+        "question": "Quel est le nouveau nom de l'entreprise chargée de gérer Snapchat ?",
+        "propositions": [
+          "Brady",
+          "Enbridge",
+          "Celestia",
+          "Snap Inc."
+        ],
+        "réponse": "Snap Inc.",
+        "anecdote": "L'entreprise Snapchat Inc. fut créée en septembre 2011, mois qui marqua le lancement de Snapchat sur l'App Store."
+      },
+      {
+        "id": 5,
+        "question": "Quel élément de Snapchat a été modifié début février 2018 ?",
+        "propositions": [
+          "Publicité",
+          "PDG",
+          "Prix",
+          "Interface"
+        ],
+        "réponse": "Interface",
+        "anecdote": "Une pétition regroupant plus d'un million de signatures fut même lancée pour réclamer le retour à l'ancienne version."
+      },
+      {
+        "id": 6,
+        "question": "Sous quels environnements l'application Snapchat est-elle disponible ?",
+        "propositions": [
+          "Android et Windows",
+          "IOS et Android",
+          "IOS et Palm",
+          "Windows et IOS"
+        ],
+        "réponse": "IOS et Android",
+        "anecdote": "Suite au piratage dont Snapchat a été victime le 31 décembre 2013, l'application n'est plus disponible sous Windows Phone."
+      },
+      {
+        "id": 7,
+        "question": "Quelle couleur est généralement associée à Snapchat ?",
+        "propositions": [
+          "Bleu",
+          "Vert",
+          "Rouge",
+          "Jaune"
+        ],
+        "réponse": "Jaune",
+        "anecdote": "Le fantôme sur fond jaune permet d'immédiatement identifier un utilisateur qui se connecte au réseau social Snapchat."
+      },
+      {
+        "id": 8,
+        "question": "Dans quel État des États-Unis l'application Snapchat a-t-elle été développée ?",
+        "propositions": [
+          "Montana",
+          "Ohio",
+          "Texas",
+          "Californie"
+        ],
+        "réponse": "Californie",
+        "anecdote": "L'économie de la Californie représente 13 % du PIB des États-Unis et serait à elle seule la sixième puissance économique mondiale."
+      },
+      {
+        "id": 9,
+        "question": "Quelle est la durée minimale d'une publication sur Snapchat ?",
+        "propositions": [
+          "10 secondes",
+          "10 secondes",
+          "6 secondes",
+          "1 seconde"
+        ],
+        "réponse": "1 seconde",
+        "anecdote": "Cette période de temps va en fait d'une à dix secondes, mais aussi, depuis récemment, sans limite de durée."
+      },
+      {
+        "id": 10,
+        "question": "Sur quelle plateforme Snapchat a-t-il été lancé en premier ?",
+        "propositions": [
+          "Google Play",
+          "Apple Store",
+          "Ovi Store",
+          "F-Droid"
+        ],
+        "réponse": "Apple Store",
+        "anecdote": "L'application Snapchat a été lancée en septembre 2011 sur l'App Store d'Apple, puis en novembre 2012 sur Android."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel est l'âge requis pour télécharger et utiliser l'application Snapchat ?",
+        "propositions": [
+          "21 ans",
+          "13 ans",
+          "15 ans",
+          "17 ans"
+        ],
+        "réponse": "13 ans",
+        "anecdote": "La particularité de cette application est l'existence d'une limite de temps de visualisation du média envoyé à ses destinataires."
+      },
+      {
+        "id": 12,
+        "question": "Combien de snaps environ sont échangés chaque jour dans le monde ?",
+        "propositions": [
+          "150 millions",
+          "450 millions",
+          "350 millions",
+          "250 millions"
+        ],
+        "réponse": "350 millions",
+        "anecdote": "Depuis 2014, un chat a été inséré dans l'application ainsi qu'un détecteur de présence pour discuter en direct via caméra interposée."
+      },
+      {
+        "id": 13,
+        "question": "Quelle moyenne de temps les utilisateurs passent-ils chaque jour sur Snapchat ?",
+        "propositions": [
+          "30 minutes",
+          "2 heures",
+          "3 heures",
+          "1 heure"
+        ],
+        "réponse": "30 minutes",
+        "anecdote": "Snapchat possède des fonctionnalités ludiques et interactives qui font que les snapchateurs utilisent le réseau social tous les jours."
+      },
+      {
+        "id": 14,
+        "question": "Qui est devenu milliardaire à l'âge de 24 ans grâce à Snapchat ?",
+        "propositions": [
+          "Paul Allen",
+          "Evan Spiegel",
+          "Jeff Bezos",
+          "Tom Golisano"
+        ],
+        "réponse": "Evan Spiegel",
+        "anecdote": "Evan Thomas Spiegel est en couple avec le mannequin Miranda Kerr depuis 2015, avec qui il sera bientôt papa."
+      },
+      {
+        "id": 15,
+        "question": "Quelle somme Facebook a-t-il proposé pour le rachat de Snapchat ?",
+        "propositions": [
+          "3 milliards",
+          "5 milliards",
+          "1 milliard",
+          "7 milliards"
+        ],
+        "réponse": "3 milliards",
+        "anecdote": "Snapchat aurait également rejeté deux offres de 4 milliards de dollars, une du chinois Tencent, l'autre de Google."
+      },
+      {
+        "id": 16,
+        "question": "Combien de millions d'abonnés actifs à Snapchat comptait-on en 2015 ?",
+        "propositions": [
+          "100",
+          "50",
+          "200",
+          "150"
+        ],
+        "réponse": "200",
+        "anecdote": "En 2015, Snapchat connaît sa plus forte évolution en affichant +55 % de progression, surtout boostée par la publicité des annonceurs."
+      },
+      {
+        "id": 17,
+        "question": "Quelle fonctionnalité permet de stocker des snaps dans un espace privé ?",
+        "propositions": [
+          "Snapme",
+          "Memories",
+          "iCloud",
+          "Mysnap"
+        ],
+        "réponse": "Memories",
+        "anecdote": "Le contenu ainsi sauvegardé peut être recherché par date ou en utilisant un système de reconnaissance d'objets local."
+      },
+      {
+        "id": 18,
+        "question": "Depuis quelle année la Snap Map permet-elle de localiser ses amis ?",
+        "propositions": [
+          "2018",
+          "2017",
+          "2016",
+          "2015"
+        ],
+        "réponse": "2017",
+        "anecdote": "Les amis sont symbolisés par leur représentation en Actionmoji (ou un personnage standard s'il n'ont pas créé de Bitmoji)."
+      },
+      {
+        "id": 19,
+        "question": "Quel était le nombre d'utilisateurs moyen par jour de Snapchat en 2017 ?",
+        "propositions": [
+          "106 millions",
+          "126 millions",
+          "146 millions",
+          "166 millions"
+        ],
+        "réponse": "166 millions",
+        "anecdote": "Les applications de réseaux sociaux sont souvent pointées du doigt du fait de l'exploitation commerciale de données personnelles."
+      },
+      {
+        "id": 20,
+        "question": "Quel moment de la journée génère une hausse d'utilisation de Snapchat ?",
+        "propositions": [
+          "Midi",
+          "Nuit",
+          "Matinée",
+          "Fin de journée"
+        ],
+        "réponse": "Fin de journée",
+        "anecdote": "35 % des utilisateurs de Snapchat ne se retrouvent pas le même jour sur une discussion instantanée d'un autre réseau."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Pour quel pourcentage des revenus de Snapchat les États-Unis interviennent-ils ?",
+        "propositions": [
+          "85 %",
+          "65 %",
+          "95 %",
+          "75 %"
+        ],
+        "réponse": "95 %",
+        "anecdote": "Les revenus liés à la publicité de Snapchat ont atteint les 366 millions de dollars en 2016 et devraient encore augmenter."
+      },
+      {
+        "id": 22,
+        "question": "Avec quel service de paiement Snapchat est-il associé depuis 2014 ?",
+        "propositions": [
+          "O-Secure",
+          "Square",
+          "PayPal",
+          "Bitcoin"
+        ],
+        "réponse": "Square",
+        "anecdote": "Il propose aux utilisateurs du service de messages éphémères un outil leur permettant de s'envoyer de l'argent entre eux : Snapcash."
+      },
+      {
+        "id": 23,
+        "question": "Quelle paire de lunettes de soleil connectées a été lancée par Snap Inc. ?",
+        "propositions": [
+          "Spectacles",
+          "Odyssey",
+          "Connect Eyes",
+          "Mobisun"
+        ],
+        "réponse": "Spectacles",
+        "anecdote": "Connectées en bluetooth avec caméra intégrée, ces lunettes permettent de prendre des vidéos avec un angle de 115 degrés."
+      },
+      {
+        "id": 24,
+        "question": "Dans quel langage de programmation est principalement écrit Snapchat ?",
+        "propositions": [
+          "Java",
+          "Delphi",
+          "HTML",
+          "Cobol"
+        ],
+        "réponse": "Java",
+        "anecdote": "Java est un langage de programmation orienté objet créé par deux employés de Sun Microsystems, James Gosling et Patrick Naughton."
+      },
+      {
+        "id": 25,
+        "question": "Quelle plateforme Snapchat héberge des chaînes propres à l'application ?",
+        "propositions": [
+          "Spectacles",
+          "Picaboo",
+          "Memories",
+          "Discover"
+        ],
+        "réponse": "Discover",
+        "anecdote": "Onze premiers partenaires tels que MTV, CNN ou National Geographic alimentent des chaînes avec des contenus exclusifs."
+      },
+      {
+        "id": 26,
+        "question": "En quelle année Snapchat a-t-il été victime d'un important piratage le 31 décembre ?",
+        "propositions": [
+          "2016",
+          "2014",
+          "2015",
+          "2013"
+        ],
+        "réponse": "2013",
+        "anecdote": "À la suite de ces attaques, Snapchat a décidé de faire supprimer toutes les applications tierces des stores (6snap, SaveMySnap, ...)."
+      },
+      {
+        "id": 27,
+        "question": "Comment était initialement appelée l'application Snapchat ?",
+        "propositions": [
+          "Picaboo",
+          "Ester",
+          "Sigrid",
+          "Paola"
+        ],
+        "réponse": "Picaboo",
+        "anecdote": "Alors étudiant en design à Stanford, Evan Thomas propose Snapchat, à l'origine, un projet de classe dont il deviendra CEO."
+      },
+      {
+        "id": 28,
+        "question": "Qui complète le trio Snapchat aux côtés d'Evan Spiegel et Bobby Murphy ?",
+        "propositions": [
+          "Mark Cuban",
+          "Gabe Newell",
+          "Jim Walton",
+          "Reggie Brown"
+        ],
+        "réponse": "Reggie Brown",
+        "anecdote": "Franck Reginald Brown est le premier qui a eu l'idée à l'origine de créer une application permettant d'envoyer des photos éphémères."
+      },
+      {
+        "id": 29,
+        "question": "Quelle application permettant de réserver des sorties a été rachetée par Snapchat ?",
+        "propositions": [
+          "Park",
+          "Sign",
+          "Next",
+          "Vurb"
+        ],
+        "réponse": "Vurb",
+        "anecdote": "C'est en août 2016 que Snapchat a racheté pour 110 millions l'application Vurb qui permet de réserver des services de proximité."
+      },
+      {
+        "id": 30,
+        "question": "À quelle somme l'entreprise Snapchat était-elle valorisée en 2017 ?",
+        "propositions": [
+          "4 milliards",
+          "24 milliards",
+          "14 milliards",
+          "34 milliards"
+        ],
+        "réponse": "24 milliards",
+        "anecdote": "L'un des premiers moteurs de performance de Snapchat est tout d'abord son chiffre d'affaires élevé, calculé en millions de dollars."
+      }
+      ]
+  }
+}

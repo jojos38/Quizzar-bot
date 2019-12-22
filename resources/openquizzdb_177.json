@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Jeunesse et dessins animés (Souvenirs, souvenirs)",
+  "difficulté": 3,
+  "quizz": {
+      "débutant": [
+      {
+        "id": 1,
+        "question": "Où sont placés les deux propulseurs d'Astro le petit robot ?",
+        "propositions": [
+          "Dans ses pieds",
+          "Sous ses bras",
+          "Dans le dos",
+          "À la ceinture"
+        ],
+        "réponse": "Dans ses pieds",
+        "anecdote": "Diffusé depuis 1963 sur les écrans Japonais, le manga d'Osamu Tezuka avait déjà été publié pour la première fois en 1952."
+      },
+      {
+        "id": 2,
+        "question": "Qui n'en finit plus de mourir dans les premières saisons de South Park ?",
+        "propositions": [
+          "Stan",
+          "Kenny",
+          "Eric",
+          "Kyle"
+        ],
+        "réponse": "Kenny",
+        "anecdote": "Le petit garçon à la capuche orange est la risée de Cartman, l'un des quatre héros du dessin animé de Trey Parker et Matt Stone."
+      },
+      {
+        "id": 3,
+        "question": "Avec lequel des garçons de sa bande fait habituellement équipe Scoubidou ?",
+        "propositions": [
+          "Sammy",
+          "Logan",
+          "Roger",
+          "Fred"
+        ],
+        "réponse": "Sammy",
+        "anecdote": "Le chien détective a rapidement été de retour, accompagné de guest-stars comme Batman et Robin ou Laurel et Hardy."
+      },
+      {
+        "id": 4,
+        "question": "Qui est le plus âgé des enfants de la famille Simpson ?",
+        "propositions": [
+          "Bart",
+          "Maggie",
+          "Lisa",
+          "Marge"
+        ],
+        "réponse": "Bart",
+        "anecdote": "Depuis sa création en 1989, le dessin animé de Matt Groenig rencontre un succès mondial, traduit sur grand écran en 2007."
+      },
+      {
+        "id": 5,
+        "question": "Quel animal est Capucin, le petit compagnon de Candy ?",
+        "propositions": [
+          "Lapin",
+          "Hamster",
+          "Raton laveur",
+          "Chat"
+        ],
+        "réponse": "Raton laveur",
+        "anecdote": "La jeune fille se retrouve à l'orphelinat tenu par Mademoiselle Pony, et Candy tombe amoureuse du prince des collines."
+      },
+      {
+        "id": 6,
+        "question": "Comment qualifier le manège de Margotte, Zébulon et Pollux ?",
+        "propositions": [
+          "Hanté",
+          "Embrumé",
+          "Encerclé",
+          "Enchanté"
+        ],
+        "réponse": "Enchanté",
+        "anecdote": "La série d'animation de Serge Danot est apparue en 1963 sur la première chaîne de l'ORTF. En 2005, une version 3D a été diffusée."
+      },
+      {
+        "id": 7,
+        "question": "Qui est rond comme un ballon et plus jaune qu'un citron ?",
+        "propositions": [
+          "Pac-Man",
+          "Digger",
+          "Fruity",
+          "Pengo"
+        ],
+        "réponse": "Pac-Man",
+        "anecdote": "Ce héros a été l'une des premières vedettes de jeu vidéo à avoir son propre dessin animé, avant Super Mario Bros et Zelda."
+      },
+      {
+        "id": 8,
+        "question": "Quel pivert possède le rire le plus reconnaissable de la télévision ?",
+        "propositions": [
+          "Oscar Rapace",
+          "Falco Lombardi",
+          "Woody Woodpecker",
+          "Génius"
+        ],
+        "réponse": "Woody Woodpecker",
+        "anecdote": "Le petit oiseau à la houpette rouge, né en 1940 mais diffusé en 1967, a un rire original signé Mel Blanc."
+      },
+      {
+        "id": 9,
+        "question": "De quelle saga cinématographique 'Clone Wars' est-il dérivé ?",
+        "propositions": [
+          "Star Wars",
+          "Star Trek",
+          "Harry Potter",
+          "Voraces"
+        ],
+        "réponse": "Star Wars",
+        "anecdote": "D'après l'histoire signée George Lucas, le dessin animé a été produit à partir de 2003, entre les sorties des épisodes 2 et 3."
+      },
+      {
+        "id": 10,
+        "question": "Qui est le meilleur ami de Tom Sayer à Saint-Petersburg ?",
+        "propositions": [
+          "Muff Potter",
+          "Benjamin Rogers",
+          "Huckleberry Finn",
+          "Jim Hollis"
+        ],
+        "réponse": "Huckleberry Finn",
+        "anecdote": "Véritable vagabond livré à lui-même, il entraîne Tom Sayer avec lui dans de nombreuses aventures sur les bords du Mississippi."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Grâce à quel objet Gigi arrive-t-elle à se transformer en jeune femme ?",
+        "propositions": [
+          "Parapluie",
+          "Chapeau",
+          "Ceinture",
+          "Pendentif"
+        ],
+        "réponse": "Pendentif",
+        "anecdote": "Âgée de 12 ans, Gigi est une princesse envoyée sur Terre par ses parents pour redonner de l'espoir à certains humains."
+      },
+      {
+        "id": 12,
+        "question": "Qu'utilise le lutin Tofffsy pour savoir si on lui dit la vérité ?",
+        "propositions": [
+          "Herbe musicale",
+          "Grimoire",
+          "Diamant bleu",
+          "Clé magique"
+        ],
+        "réponse": "Herbe musicale",
+        "anecdote": "Le petit lutin à la chevelure jaune a toujours d'ingénieuses idées pour aider ses amis qui vivent avec lui au château de la comtesse."
+      },
+      {
+        "id": 13,
+        "question": "Quel jeune héros de série télé âgé de 10 ans utilise l'Omnitrix ?",
+        "propositions": [
+          "Ben 10",
+          "Astro",
+          "Yogi",
+          "Kenny"
+        ],
+        "réponse": "Ben 10",
+        "anecdote": "L'omnitrix est le bracelet qu'il fixe à son poignet et qui lui permet de se métamorphoser en dix héros aux super-pouvoirs."
+      },
+      {
+        "id": 14,
+        "question": "Grâce à quel objet Sophie communique-t-elle avec Finot dans 'Inspecteur Gadget' ?",
+        "propositions": [
+          "Bague",
+          "Montre",
+          "Poupée",
+          "Téléphone"
+        ],
+        "réponse": "Montre",
+        "anecdote": "Ultra-sophistiquée, la montre offre à Sophie la possibilité de parler et de voir son chien pour venir ensemble en aide à Gadget."
+      },
+      {
+        "id": 15,
+        "question": "Que pilotent Satanas et Diabolo pour attraper le messager Zéphyrin ?",
+        "propositions": [
+          "Fusée",
+          "Autobus",
+          "Biplan",
+          "Moto"
+        ],
+        "réponse": "Biplan",
+        "anecdote": "A la suite du succès des 'Fous du volant', Satanas et Diabolo ont en effet poursuivi leurs péripéties dans les airs."
+      },
+      {
+        "id": 16,
+        "question": "Pour quelle raison Calimero est-il le seul poussin de couleur noire autour de lui ?",
+        "propositions": [
+          "Il est brûlé",
+          "Il est sale",
+          "Il est malade",
+          "Il est furieux"
+        ],
+        "réponse": "Il est sale",
+        "anecdote": "En 1961, Calimero était la star d'une publicité pour la lessive italienne où il retrouvait sa couleur d'origine une fois nettoyé."
+      },
+      {
+        "id": 17,
+        "question": "Quelle est la particularité vestimentaire de Yogi l'ours ?",
+        "propositions": [
+          "Cravate et chapeau",
+          "Tee-shirt et tongs",
+          "Casquette et short",
+          "Cape et collants"
+        ],
+        "réponse": "Cravate et chapeau",
+        "anecdote": "Évoluant dans le parc de Jellystone en compagnie de son ami Boubou, il est toujours en quête de nourriture."
+      },
+      {
+        "id": 18,
+        "question": "Quel animal est Saturnin, héros de la série créée par Jean Tourane ?",
+        "propositions": [
+          "Un caneton",
+          "Un zèbre",
+          "Un éléphant",
+          "Un raton laveur"
+        ],
+        "réponse": "Un caneton",
+        "anecdote": "Le petit volatile caractériel, dont le monde miniature est à l'identique celui des humains, a démarré sa carrière en 1965."
+      },
+      {
+        "id": 19,
+        "question": "Par quel procédé d'animation le clown Kiri a-t-il été créé ?",
+        "propositions": [
+          "Papier carton",
+          "Mosaïques",
+          "Marionnettes",
+          "Plasticine"
+        ],
+        "réponse": "Marionnettes",
+        "anecdote": "De ville en ville, sa roulotte entraîne ses compagnons Pip'lett, Laura, Ratibus et Bianca dans de nombreuses aventures."
+      },
+      {
+        "id": 20,
+        "question": "Quelle héroïne de dessin animé a été la star des studios Fleischer avec Popeye ?",
+        "propositions": [
+          "Betty Boop",
+          "Dora Marquez",
+          "Charlotte",
+          "Manny"
+        ],
+        "réponse": "Betty Boop",
+        "anecdote": "Apparue en 1930, la sensuelle brunette est un des personnages animés emblématiques de l'entre-deux-guerres."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle est la chaîne jeunesse dont le slogan a été 'La télé qui remue toute la famille' ?",
+        "propositions": [
+          "Gulli",
+          "Cstar",
+          "W9",
+          "HD1"
+        ],
+        "réponse": "Gulli",
+        "anecdote": "Lors du lancement de la TNT en France, en 2005, le groupe Lagardère et France Televisions se sont associés."
+      },
+      {
+        "id": 22,
+        "question": "Quels personnages sautillent en s'engouffrant dans leur poche ?",
+        "propositions": [
+          "Bisounours",
+          "Entrechats",
+          "Tifins",
+          "Popples"
+        ],
+        "réponse": "Popples",
+        "anecdote": "Ces boules de poils adorent s'amuser et possèdent une poche dans le dos qui leur permet de faire sortir des objets insolites."
+      },
+      {
+        "id": 23,
+        "question": "De quelle série télévisée d'animation le jeune Yugo est-il le héros ?",
+        "propositions": [
+          "Code Lyoko",
+          "Wakfu",
+          "Molusco",
+          "Star Butterfly"
+        ],
+        "réponse": "Wakfu",
+        "anecdote": "Accompagné de ses cinq amis, l'enfant va tenter d'arrêter les ambitions du Nox volant l'énergie créatrice du monde."
+      },
+      {
+        "id": 24,
+        "question": "Qui est probablement le plus célèbre shérif de l'espace ?",
+        "propositions": [
+          "Ulysse",
+          "Bioman",
+          "X-Or",
+          "Jiban"
+        ],
+        "réponse": "X-Or",
+        "anecdote": "Cette série japonaise diffusée en 1983 a pour héros Gordan qui se transforme en X-Or en demandant sa transmutation."
+      },
+      {
+        "id": 25,
+        "question": "Comment se nomme le renard et ennemi d'Aglaé et Sidonie ?",
+        "propositions": [
+          "Agénor",
+          "Hugo",
+          "Croquetou",
+          "Saturnin"
+        ],
+        "réponse": "Croquetou",
+        "anecdote": "Dans la ferme, la truie Aglaé et l'oie Sidonie sont aidées par le coq Agénor pour démasquer Craquetou en moins de cinq minutes."
+      },
+      {
+        "id": 26,
+        "question": "Quel animal était Monsieur Ed dans la série éponyme américaine destinée aux enfants ?",
+        "propositions": [
+          "Cheval",
+          "Ane",
+          "Lion",
+          "Hibou"
+        ],
+        "réponse": "Cheval",
+        "anecdote": "Monsieur Ed, le cheval parlant qui appartient à l'architecte Wilbur Post, utilise ce don à foison en disant tout ce qu'il pense."
+      },
+      {
+        "id": 27,
+        "question": "Quel est le métier de Picolo, personnage créé pour Radio-Canada ?",
+        "propositions": [
+          "Peintre",
+          "Banquier",
+          "Plombier",
+          "Boulanger"
+        ],
+        "réponse": "Peintre",
+        "anecdote": "Créé par jean Image en 1963, Picolo parcourt les rues de Paris en compagnie de Picolette, son amoureuse."
+      },
+      {
+        "id": 28,
+        "question": "Combien sont les héros des Petites Canailles apparues en 1962 ?",
+        "propositions": [
+          "Cinq",
+          "Huit",
+          "Sept",
+          "Six"
+        ],
+        "réponse": "Cinq",
+        "anecdote": "Ces sacrés garnements à la personnalité bien différente ont pour nom Alfafa, Buck, Darla, Porky et Spanky."
+      },
+      {
+        "id": 29,
+        "question": "Lequel de ces dessins animés n'a pas été produit par Hanna-Barbera ?",
+        "propositions": [
+          "Les Pierrafeu",
+          "Capitaine Caverne",
+          "Calimero",
+          "Scoubidou"
+        ],
+        "réponse": "Calimero",
+        "anecdote": "La carrière de William Hanna et Joseph Barbera a démarré avec Tom et Jerry pour le cinéma et la MGM en 1940."
+      },
+      {
+        "id": 30,
+        "question": "Quel petit animal est Hamtaro dans le manga créé par Ritsuko Kawai ?",
+        "propositions": [
+          "Raton laveur",
+          "Cheval",
+          "Caneton",
+          "Hamster"
+        ],
+        "réponse": "Hamster",
+        "anecdote": "Le dessin animé est signé Ritsuko Kawai et est apparu sur les écrans de 'Midi les zouzous' de France 5 en 2003."
+      }
+      ]
+  }
+}

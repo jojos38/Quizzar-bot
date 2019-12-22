@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Histoire de France (Paris vaut bien une messe)",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quelle ville française était la « cité des papes » au Moyen-Âge ?",
+        "propositions": [
+          "Metz",
+          "Avignon",
+          "Tours",
+          "Nantes"
+        ],
+        "réponse": "Avignon",
+        "anecdote": "C'est l'une des rares villes françaises à avoir conservé ses remparts et son centre historique, composé du palais des papes."
+      },
+      {
+        "id": 2,
+        "question": "Quel diplomate français a succédé au Cardinal de Richelieu ?",
+        "propositions": [
+          "Jules Mazarin",
+          "Charles de Mantoue",
+          "Philippe Mancini",
+          "Antonio Barberini"
+        ],
+        "réponse": "Jules Mazarin",
+        "anecdote": "Le cardinal choisit comme pièce principale de son blason le faisceau de licteur, un signe de romanité."
+      },
+      {
+        "id": 3,
+        "question": "Quelle reine de France a porté le chapeau dans l'affaire du collier ?",
+        "propositions": [
+          "Marie-Louise",
+          "Marie-Joséphine",
+          "Marie-Antoinette",
+          "Marie-Thérèse"
+        ],
+        "réponse": "Marie-Antoinette",
+        "anecdote": "Les joailliers Boehmer et Bassange réclamèrent à la reine 1,6 million de livres pour l'achat d'un collier de diamants."
+      },
+      {
+        "id": 4,
+        "question": "Quand François Mitterrand fut-il élu président de la France pour la première fois ?",
+        "propositions": [
+          "1981",
+          "1976",
+          "1986",
+          "1991"
+        ],
+        "réponse": "1981",
+        "anecdote": "Il sera élu 21e président de la République française face à Valéry Giscard d'Estaing avec 51,76% des suffrages exprimés."
+      },
+      {
+        "id": 5,
+        "question": "Quelle ville Jeanne d'Arc a-t-elle héroïquement libérée des Anglais ?",
+        "propositions": [
+          "Tours",
+          "Orléans",
+          "Le Mans",
+          "Angers"
+        ],
+        "réponse": "Orléans",
+        "anecdote": "Jeanne d'Arc a été condamnée à être brûlée vive en 1431 après un procès en hérésie conduit par Pierre Cauchon."
+      },
+      {
+        "id": 6,
+        "question": "Quel homme d'État français fut surnommé « le Tigre » ou le « Père-la--victoire » ?",
+        "propositions": [
+          "Joffre",
+          "Foch",
+          "Clémenceau",
+          "Poincaré"
+        ],
+        "réponse": "Clémenceau",
+        "anecdote": "Se désignant comme « premier flic de France », Clémenceau réprimera les grèves et mettra fin à la querelle des inventaires."
+      },
+      {
+        "id": 7,
+        "question": "Quelle héroïne de l'histoire de France était la « Pucelle d'Orléans » ?",
+        "propositions": [
+          "Rita de Cascia",
+          "Alessandra Scala",
+          "Hélène Duglioli",
+          "Jeanne d'Arc"
+        ],
+        "réponse": "Jeanne d'Arc",
+        "anecdote": "Elle parvint à insuffler aux soldats français une énergie nouvelle et à contraindre les Anglais à lever le siège de la ville."
+      },
+      {
+        "id": 8,
+        "question": "Sur quelle principauté à régné la maison de Matignon ?",
+        "propositions": [
+          "Cambrai",
+          "Condé",
+          "Monaco",
+          "Foucarmont"
+        ],
+        "réponse": "Monaco",
+        "anecdote": "La maison de Goyon donna à la France, sous l'Ancien Régime, plusieurs maréchaux de France et évêques."
+      },
+      {
+        "id": 9,
+        "question": "Quel journal a brillé en sortant le premier l'affaire des diamants de Bokassa ?",
+        "propositions": [
+          "Charlie Hebdo",
+          "Minute",
+          "Le Canard Enchaîné",
+          "Paris Match"
+        ],
+        "réponse": "Le Canard Enchaîné",
+        "anecdote": "Cette affaire pourrait être une des causes de sa défaite face au candidat du Parti socialiste, François Mitterrand."
+      },
+      {
+        "id": 10,
+        "question": "Quel Guillaume, duc de Normandie, parfois surnommé « le Bâtard », a conquis l'Angleterre ?",
+        "propositions": [
+          "Le Chevelu",
+          "Le Conquérant",
+          "Le Pieux",
+          "Le Hardi"
+        ],
+        "réponse": "Le Conquérant",
+        "anecdote": "Vers 1050, il épouse Mathilde de Flandre fille de Baudouin V avec qui il aura au moins dix enfants dont quatre fils."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle ville assiégée Gambetta a-t-il quittée en ballon ?",
+        "propositions": [
+          "Paris",
+          "Lyon",
+          "Rouen",
+          "Toulouse"
+        ],
+        "réponse": "Paris",
+        "anecdote": "Gambetta, d'abord réticent, est sollicité par ses collègues ministres et le 7 octobre 1870, il quitte Paris en ballon monté."
+      },
+      {
+        "id": 12,
+        "question": "Quel roi a révoqué l'édit de Nantes ayant donné la liberté de religion ?",
+        "propositions": [
+          "Charles IX",
+          "François II",
+          "Henri IV",
+          "Louis XIV"
+        ],
+        "réponse": "Louis XIV",
+        "anecdote": "La promulgation de cet édit a mis fin aux guerres de religion qui avaient ravagé le royaume de France depuis 1572."
+      },
+      {
+        "id": 13,
+        "question": "Quel était le surnom du fils de Napoléon Ier et de Marie-Louise ?",
+        "propositions": [
+          "Le Corsaire",
+          "L'Incapable",
+          "L'Aiglon",
+          "Le Mal aimé"
+        ],
+        "réponse": "L'Aiglon",
+        "anecdote": "Jusqu'à sa mort à l'âge de 21 ans, Napoléon II fut reconnu par les bonapartistes comme l'héritier du trône impérial."
+      },
+      {
+        "id": 14,
+        "question": "Quel chevalier franc et comte urbain a été trahi par Ganelon au col de Roncevaux ?",
+        "propositions": [
+          "Perceval",
+          "Gauvain",
+          "Roland",
+          "Marsile"
+        ],
+        "réponse": "Roland",
+        "anecdote": "Pour cette raison, Ganelon est d'une certaine manière devenu dans la tradition française l'archétype du félon ou du traître."
+      },
+      {
+        "id": 15,
+        "question": "De quelle manière François Ravaillac a-t-il tué Henri IV ?",
+        "propositions": [
+          "Décapité",
+          "Poignardé",
+          "Fusillé",
+          "Empoisonné"
+        ],
+        "réponse": "Poignardé",
+        "anecdote": "Ravaillac sera condamné à mort par le Parlement de Paris au cours d'un procès de dix jours, présidé par Achille Ier de Harlay."
+      },
+      {
+        "id": 16,
+        "question": "Quel code régissait la vie d'une grand partie de la cour de Louis XIV ?",
+        "propositions": [
+          "Le pourboire",
+          "L'étiquette",
+          "La mayade",
+          "Le bonjour"
+        ],
+        "réponse": "L'étiquette",
+        "anecdote": "L'étiquette gouverne et restreint la manière dont les gens interagissent et sert à exprimer le respect dû à autrui."
+      },
+      {
+        "id": 17,
+        "question": "Quel pays Bertrand Du Guesclin a-t-il combattu toute sa vie ?",
+        "propositions": [
+          "L'Italie",
+          "L'Angleterre",
+          "Les Pays-Bas",
+          "L'Allemagne"
+        ],
+        "réponse": "L'Angleterre",
+        "anecdote": "Bertrand du Guesclin est considéré, selon les sources, soit comme un héros à la loyauté absolue, soit comme un traître."
+      },
+      {
+        "id": 18,
+        "question": "Quel âge avait Clovis lorsqu'il fut élu roi des Francs en 481 ?",
+        "propositions": [
+          "14 ans",
+          "10 ans",
+          "16 ans",
+          "12 ans"
+        ],
+        "réponse": "16 ans",
+        "anecdote": "Clovis est considéré dans l'historiographie comme un des personnages historiques les plus importants de l'histoire de France."
+      },
+      {
+        "id": 19,
+        "question": "À quelle élection présidentielle s'est présenté pour la première fois Michel Rocard ?",
+        "propositions": [
+          "1972",
+          "1975",
+          "1969",
+          "1978"
+        ],
+        "réponse": "1969",
+        "anecdote": "Michel Rocard fut chargé de la négociation internationale pour les pôles arctique et antarctique de 2009 à sa mort."
+      },
+      {
+        "id": 20,
+        "question": "Quel corsaire malouin s'est évadé d'Angleterre et a rejoint St-Malo à la rame ?",
+        "propositions": [
+          "Philippe Bequel",
+          "Nicolas Surcouf",
+          "Jean Bart",
+          "Jean Bernanos"
+        ],
+        "réponse": "Jean Bart",
+        "anecdote": "La bataille navale du Dogger Bank fut livrée en mer du Nord le 17 juin 1696, pendant la guerre de la Ligue d'Augsbourg."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel droit adopté en 1792 a été rétabli par la loi Naquet en 1884 ?",
+        "propositions": [
+          "Droit au vote",
+          "Droit à l'euthanasie",
+          "Droit au divorce",
+          "Droit à la retraite"
+        ],
+        "réponse": "Droit au divorce",
+        "anecdote": "Devant le nombre élevé de divorces qui se produisit, certaines modifications furent apportées à cette loi sur le divorce."
+      },
+      {
+        "id": 22,
+        "question": "Quel roi a fait installer les premières boîtes aux lettres dans Paris ?",
+        "propositions": [
+          "Henri IV",
+          "Charles IX",
+          "François II",
+          "Louis XIV"
+        ],
+        "réponse": "Louis XIV",
+        "anecdote": "La Poste est issue des relais de poste créés par Louis XI en 1477 pour le transport des messages royaux."
+      },
+      {
+        "id": 23,
+        "question": "À quel fruit les caricaturistes comparaient-ils la tête du roi Louis-Philippe ?",
+        "propositions": [
+          "Une fraise",
+          "Une banane",
+          "Un citron",
+          "Une poire"
+        ],
+        "réponse": "Une poire",
+        "anecdote": "Il fut caricaturé par Honoré Daumier qui accentua sa bedaine et ses rouflaquettes et le profilera en rat ou perroquet."
+      },
+      {
+        "id": 24,
+        "question": "Quel était l'emblème du régime de Vichy en France pendant la guerre ?",
+        "propositions": [
+          "Francisque",
+          "Cosse de genêts",
+          "Fleur de lys",
+          "Croix de Lorraine"
+        ],
+        "réponse": "Francisque",
+        "anecdote": "La francisque est le nom traditionnel de la hache de jet des Germains occidentaux, que popularisèrent les Francs."
+      },
+      {
+        "id": 25,
+        "question": "De quel roi de France le duc de Sully fut-il le ministre ?",
+        "propositions": [
+          "Louis XIV",
+          "François II",
+          "Henri IV",
+          "Charles IX"
+        ],
+        "réponse": "Henri IV",
+        "anecdote": "Sully eut de brillants conseillers, comme l'économiste Barthélemy de Laffemas, qui développa les manufactures et l'artisanat."
+      },
+      {
+        "id": 26,
+        "question": "Quel roi de la dynastie mérovingienne fut conseillé par Saint Eloi ?",
+        "propositions": [
+          "Dagobert",
+          "Caribert",
+          "Sigebert",
+          "Childebert"
+        ],
+        "réponse": "Dagobert",
+        "anecdote": "Sous son règne, la royauté mérovingienne jette un dernier éclat avant que la réalité du pouvoir ne passe aux maires du palais."
+      },
+      {
+        "id": 27,
+        "question": "Combien de prisonniers y avait-il dans la Bastille le 14 juillet 1789 ?",
+        "propositions": [
+          "47",
+          "1 257",
+          "167",
+          "7"
+        ],
+        "réponse": "7",
+        "anecdote": "L'événement fut sans précédent par ses répercussions, par ses implications politiques et son retentissement symbolique."
+      },
+      {
+        "id": 28,
+        "question": "Quelle expression a été utilisée pour la première fois à propos du Père Joseph ?",
+        "propositions": [
+          "Éminence grise",
+          "Stratège bleu",
+          "Bérurier noir",
+          "Suprême rouge"
+        ],
+        "réponse": "Éminence grise",
+        "anecdote": "François Leclerc du Tremblay est un capucin surnommé par ses détracteurs « l'éminence grise du cardinal de Richelieu »."
+      },
+      {
+        "id": 29,
+        "question": "Quel roi, connu sous le titre de comte d'Artois, a succédé à Louis XVIII ?",
+        "propositions": [
+          "Charles X",
+          "Jean II",
+          "Henri IV",
+          "François II"
+        ],
+        "réponse": "Charles X",
+        "anecdote": "Charles X est le dernier Bourbon (de la branche aînée) à avoir régné mais également le 68e et dernier roi de France."
+      },
+      {
+        "id": 30,
+        "question": "Quel évêque a baptisé Clovis à Reims un 25 décembre ?",
+        "propositions": [
+          "Saint André",
+          "Saint Justin",
+          "Saint Paul",
+          "Saint Rémi"
+        ],
+        "réponse": "Saint Rémi",
+        "anecdote": "Dans le diocèse de Reims, il est fêté le 1er octobre conformément à une tradition locale remontant à la fin du VIe siècle."
+      }
+    ]
+  }
+}

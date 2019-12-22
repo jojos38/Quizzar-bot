@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Automobile",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Dans quel pays se situe le circuit de course automobile du Mans ?",
+        "propositions": [
+          "En Belgique",
+          "En Suisse",
+          "Aux Pays-Bas",
+          "En France"
+        ],
+        "réponse": "En France",
+        "anecdote": "Il est aussi utilisé par les voitures de course anciennes lors du Mans Classic qui a lieu une fois tous les deux ans."
+      },
+      {
+        "id": 2,
+        "question": "À quel modèle de voiture ressemble le vieux tacot jaune et délabré que conduit Gaston Lagaffe ?",
+        "propositions": [
+          "Jeep",
+          "Citroën B10",
+          "Fiat 509",
+          "Rolls-Royce"
+        ],
+        "réponse": "Fiat 509",
+        "anecdote": "Franquin s'est inspiré de la Fiat 509, une voiture de 1925 donc déjà antédiluvienne dans les années 1960."
+      },
+      {
+        "id": 3,
+        "question": "Quel sport automobile consiste à accélérer le plus rapidement possible avec son véhicule ?",
+        "propositions": [
+          "Le monster truck",
+          "Le dragster",
+          "Le trial",
+          "Le drift"
+        ],
+        "réponse": "Le dragster",
+        "anecdote": "La catégorie reine est le « Top Fuel », les plus rapides passant la ligne des 402 mètres en moins de 4.5 secondes."
+      },
+      {
+        "id": 4,
+        "question": "Comment s'appelle le véhicule du personnage de bande dessinée Batman ?",
+        "propositions": [
+          "La Batmobile",
+          "La Batdrive",
+          "La Batcar",
+          "La Batauto"
+        ],
+        "réponse": "La Batmobile",
+        "anecdote": "Au fil des années, les artistes ayant travaillé sur la série ont souvent modifié son aspect et ses caractéristiques."
+      },
+      {
+        "id": 5,
+        "question": "De quand date le Duster, véhicule utilitaire sport vendu par la marque roumaine Dacia ?",
+        "propositions": [
+          "2006",
+          "2010",
+          "2008",
+          "2012"
+        ],
+        "réponse": "2010",
+        "anecdote": "Disponible en version 4×2 et 4×4, le Renault Duster est le véhicule de la marque le plus produit en 2014."
+      },
+      {
+        "id": 6,
+        "question": "En France, refuser une priorité peut vous coûter combien de points sur le permis ?",
+        "propositions": [
+          "6 points",
+          "2 points",
+          "4 points",
+          "8 points"
+        ],
+        "réponse": "4 points",
+        "anecdote": "En France, le permis de conduire est apparu dans le code de la route de 1922, en remplacement du certificat de capacité."
+      },
+      {
+        "id": 7,
+        "question": "Quelle principauté accueille l'un des plus prestigieux Grand Prix de Formule 1 ?",
+        "propositions": [
+          "Liechtenstein",
+          "Andorre",
+          "Monaco",
+          "Montoue"
+        ],
+        "réponse": "Monaco",
+        "anecdote": "La course inaugurale fut remportée le 14 avril 1929 par William Grover-Williams au volant d'une Bugatti."
+      },
+      {
+        "id": 8,
+        "question": "Quel principal organisme régit les courses automobiles de stock-car aux États-Unis ?",
+        "propositions": [
+          "NASCAR",
+          "GOCAR",
+          "GASPAR",
+          "LASCAR"
+        ],
+        "réponse": "NASCAR",
+        "anecdote": "Les origines de la Nascar sont liées à la contrebande d'alcool aux États-Unis du temps de la prohibition dans les années 1930."
+      },
+      {
+        "id": 9,
+        "question": "Dans le monde automobile, quel sigle correspond au Grand Tourisme Injection ?",
+        "propositions": [
+          "Sport",
+          "TT",
+          "GTi",
+          "Turbo"
+        ],
+        "réponse": "GTi",
+        "anecdote": "Le terme « grand tourisme » est le nom donné à une catégorie de voitures de petite production à tendance luxueuse et sportive."
+      },
+      {
+        "id": 10,
+        "question": "Quelle société appartenant au groupe Belron « répare et remplace » votre pare-brise ?",
+        "propositions": [
+          "Carglass",
+          "Midas",
+          "Norauto",
+          "Speedy"
+        ],
+        "réponse": "Carglass",
+        "anecdote": "Le siège français se situe à Courbevoie dans les Hauts-de-Seine au nord du quartier d'affaires de La Défense."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Dans le jargon automobile courant, « avoir une chaussette trouée » signifie avoir...",
+        "propositions": [
+          "Une vidange à faire",
+          "Un pneu crevé",
+          "Un vitre cassée",
+          "Un moteur qui fuit"
+        ],
+        "réponse": "Un pneu crevé",
+        "anecdote": "Une crevaison a pour conséquence directe le dégonflement du pneu et le contact indirect de la jante avec le sol."
+      },
+      {
+        "id": 12,
+        "question": "De quand date le premier radar fixe en France, parmi les 4 200 aujourd'hui installés ?",
+        "propositions": [
+          "27 octobre 1993",
+          "27 octobre 1983",
+          "27 octobre 2003",
+          "27 octobre 2013"
+        ],
+        "réponse": "27 octobre 2003",
+        "anecdote": "En France, depuis 2003, une directive gouvernementale dans le cadre de la sécurité routière généralise les radars automatiques."
+      },
+      {
+        "id": 13,
+        "question": "Quelle firme automobile, filiale française de FIAT, a ensuite intégré le groupe Chrysler ?",
+        "propositions": [
+          "Hommell",
+          "Simca",
+          "Packard",
+          "Triumph"
+        ],
+        "réponse": "Simca",
+        "anecdote": "Ce procédé a permis à Fiat de vendre ses modèles sur le territoire français sans payer de taxes d'importations et de droits de douane."
+      },
+      {
+        "id": 14,
+        "question": "En quelle année a été commercialisé pour la première fois le coupé Audi TT ?",
+        "propositions": [
+          "1998",
+          "1978",
+          "2008",
+          "1988"
+        ],
+        "réponse": "1998",
+        "anecdote": "Le nom de TT provient du modèle NSU Prinz TT (La marque NSU a été absorbée par Audi en 1977)."
+      },
+      {
+        "id": 15,
+        "question": "Dans quel pays se situe le circuit automobile de Silvertsone, situé sur une ancienne base aérienne ?",
+        "propositions": [
+          "États-Unis",
+          "Australie",
+          "Portugal",
+          "Royaume-Uni"
+        ],
+        "réponse": "Royaume-Uni",
+        "anecdote": "Une moitié du circuit se trouve dans le Northamptonshire, l'autre moitié dans le Buckinghamshire."
+      },
+      {
+        "id": 16,
+        "question": "Quelle partie de votre voiture est parfois appelée « le dentier » ?",
+        "propositions": [
+          "La boîte de vitesse",
+          "Le coffre",
+          "Le radiateur",
+          "La calandre"
+        ],
+        "réponse": "La boîte de vitesse",
+        "anecdote": "La boîte de vitesse permet d'adapter la transmission d'un mouvement entre un arbre moteur et un arbre récepteur."
+      },
+      {
+        "id": 17,
+        "question": "Quel constructeur automobile est le recordman des titres au 24 Heures du Mans ?",
+        "propositions": [
+          "BMW",
+          "Audi",
+          "Peugeot",
+          "Porsche"
+        ],
+        "réponse": "Porsche",
+        "anecdote": "La société fut fondée en 1931 par Ferdinand Porsche, puis reprise par son fils Ferry Porsche."
+      },
+      {
+        "id": 18,
+        "question": "Parmi ces quatre verbes, lequel peut être associé à l'expression « mettre le pied dans le phare » ?",
+        "propositions": [
+          "Braquer",
+          "Klaxonner",
+          "Freiner",
+          "Accélérer"
+        ],
+        "réponse": "Accélérer",
+        "anecdote": "Dans le langage courant, l'accélération s'oppose à la décélération et indique l'augmentation de la vitesse."
+      },
+      {
+        "id": 19,
+        "question": "Que signifie le sigle « Z.E. » chez le constructeur automobile français Renault ?",
+        "propositions": [
+          "Zéro Engagement",
+          "Zéro Émission",
+          "Zéro Echo",
+          "Zéro Espoir"
+        ],
+        "réponse": "Zéro Émission",
+        "anecdote": "La lutte contre le dérèglement climatique passe par un changement de comportement à l'égard de l'automobile."
+      },
+      {
+        "id": 20,
+        "question": "Quelle marque automobile a pour slogan publicitaire « Le plaisir de conduire » ?",
+        "propositions": [
+          "Renault",
+          "Kia",
+          "Mercedes-Benz",
+          "BMW"
+        ],
+        "réponse": "BMW",
+        "anecdote": "En 2014 le groupe BMW a vendu 2 117 965 véhicules automobiles (BMW, MINI, et Rolls-Royce) et 123 495 deux-roues (BMW)."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quelle voiture jaune Tintin conduit-il dans 'Tintin au Congo', deuxième album de la série ?",
+        "propositions": [
+          "Citroën Traction",
+          "Ford T",
+          "Corvette",
+          "Jeep"
+        ],
+        "réponse": "Ford T",
+        "anecdote": "Des éditions pirates de 'Tintin au Congo' ont été diffusées en réaction à son indisponibilité en librairie."
+      },
+      {
+        "id": 22,
+        "question": "Quelle marque automobile aujourd'hui disparue reste surtout connue pour ses roadsters ?",
+        "propositions": [
+          "DeLorean",
+          "Hotchkiss",
+          "Innocenti",
+          "Triumph"
+        ],
+        "réponse": "Triumph",
+        "anecdote": " La maison a été fondée à Coventry en tant que fabricant de cycles par Moritz Schulte et Siegfried Bettmann en 1890."
+      },
+      {
+        "id": 23,
+        "question": "Quel constructeur automobile fondé en 1906 a réalisé la Firebird, la GTO et la LeMans ?",
+        "propositions": [
+          "Pontiac",
+          "Oldsmobile",
+          "Mercury",
+          "AMC"
+        ],
+        "réponse": "Pontiac",
+        "anecdote": "Le nom choisi par le constructeur fait référence à Pontiac un grand chef amérindien de la tribu des Outaouais."
+      },
+      {
+        "id": 24,
+        "question": "En France, quelle somme maximale peut vous coûter l'utilisation abusive d'un avertisseur sonore ?",
+        "propositions": [
+          "95 euros",
+          "55 euros",
+          "35 euros",
+          "75 euros"
+        ],
+        "réponse": "35 euros",
+        "anecdote": "Par abus de langage, un avertisseur sonore est communément dénommé « Klaxon », bien qu'il s'agisse d'une marque."
+      },
+      {
+        "id": 25,
+        "question": "Dans quelle voiture Tintin est-il conduit au pied de la fusée dans l'album 'Objectif Lune' ?",
+        "propositions": [
+          "Une Jeep",
+          "Une Rover Mini",
+          "Une Ford T",
+          "Un Hummer H1"
+        ],
+        "réponse": "Une Jeep",
+        "anecdote": "Cet album fut adapté dans la série animée de 1962 (couplé avec sa suite) et dans la série animée de 1992."
+      },
+      {
+        "id": 26,
+        "question": "Quel pilote de rallye français est devenu champion du monde des rallyes (WRC) en 2013 ?",
+        "propositions": [
+          "Sébastien Ogier",
+          "Sébastien Loeb",
+          "Sébastien Bourdais",
+          "Sébastien Rousseaux"
+        ],
+        "réponse": "Sébastien Ogier",
+        "anecdote": "Avec 31 victoires au compteur, Sébastien Ogier est le deuxième meilleur pilote français de l'histoire du WRC."
+      },
+      {
+        "id": 27,
+        "question": "À quel groupe appartient le slogan : « Vous ne viendrez plus chez nous par hasard » ?",
+        "propositions": [
+          "Esso",
+          "Shell",
+          "Total",
+          "Elf"
+        ],
+        "réponse": "Total",
+        "anecdote": "Total SA est la première entreprise française en termes de chiffre d'affaires en 2014."
+      },
+      {
+        "id": 28,
+        "question": "À quelle couleur de voiture le personnage de bande dessinée Ric Hochet est-il fidèle ?",
+        "propositions": [
+          "Le bleu",
+          "Le rouge",
+          "Le vert",
+          "Le jaune"
+        ],
+        "réponse": "Le jaune",
+        "anecdote": "Le véritable nom de Ric Hochet est Frédéric Hochet, Ric n'étant donc pas le diminutif de Richard."
+      },
+      {
+        "id": 29,
+        "question": "Quelle entreprise était réputée pour ses voitures de luxe équipées de V8 d'origine Chrysler ?",
+        "propositions": [
+          "Facel-Vega",
+          "Delage",
+          "Matra",
+          "Delahaye"
+        ],
+        "réponse": "Facel-Vega",
+        "anecdote": "Ces voitures furent produites entre 1954 et 1964 par les Forges et Ateliers de Constructions d'Eure-et-Loir (Facel)."
+      },
+      {
+        "id": 30,
+        "question": "Akio Toyoda est le PDG de quelle grande marque automobile ?",
+        "propositions": [
+          "Hyundai",
+          "Toyota",
+          "Suzuki",
+          "Yamaha"
+        ],
+        "réponse": "Toyota",
+        "anecdote": "En janvier 2009, Akio Toyoda fut annoncé comme le successeur du président Katsuaki Watanabe."
+      }
+    ]
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Dans les méandres d'Internet (Le réseau des réseaux)",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Comment appelle-t-on une personne qui utilise Internet pour visiter des sites web ?",
+        "propositions": [
+          "Webmaster",
+          "Navigateur",
+          "Internaute",
+          "Butineur"
+        ],
+        "réponse": "Internaute",
+        "anecdote": "Il est considéré que le pourcentage d'internautes par rapport à la population est un indice de développement économique."
+      },
+      {
+        "id": 2,
+        "question": "Sur Internet, 'Google', 'Bing' et 'Yahoo' sont des exemples de moteurs de...",
+        "propositions": [
+          "Sauvegarde",
+          "Navigation",
+          "Courrier",
+          "Recherche"
+        ],
+        "réponse": "Recherche",
+        "anecdote": "Certains sites offrent un moteur comme principale fonctionnalité, on appelle alors « moteur de recherche » le site lui-même."
+      },
+      {
+        "id": 3,
+        "question": "Quel symbole typographique est toujours représenté dans les adresses e-mails ?",
+        "propositions": [
+          "Esperluette",
+          "Astérisque",
+          "Croisillon",
+          "Arobase"
+        ],
+        "réponse": "Arobase",
+        "anecdote": "Une opinion commune voudrait que le mot « arobase » provienne de la contraction du terme typographique « a rond bas »."
+      },
+      {
+        "id": 4,
+        "question": "Quelle encyclopédie collaborative est actuellement la plus utilisée sur Internet ?",
+        "propositions": [
+          "Netalya",
+          "Framasoft",
+          "Pandocréon",
+          "Wikipédia"
+        ],
+        "réponse": "Wikipédia",
+        "anecdote": "Sur Wikipédia, n'importe qui pouvant accéder au site peut modifier la quasi-totalité de ses articles, sous réserve de modération."
+      },
+      {
+        "id": 5,
+        "question": "Que sont 'Google Chrome', 'Internet Explorer' et 'Mozilla Firefox' ?",
+        "propositions": [
+          "Routeurs",
+          "Navigateurs",
+          "Encyclopédies",
+          "Moteurs"
+        ],
+        "réponse": "Navigateurs",
+        "anecdote": "Le terme « navigateur » est inspiré de Netscape Navigator, le navigateur phare principalement utilisé en 1995 et 1996."
+      },
+      {
+        "id": 6,
+        "question": "Quel logiciel est indispensable pour protéger votre ordinateur sur Internet ?",
+        "propositions": [
+          "Navigateur",
+          "Messagerie",
+          "Antivirus",
+          "Chat"
+        ],
+        "réponse": "Antivirus",
+        "anecdote": "Les antivirus peuvent balayer le contenu d'un disque dur, mais également la mémoire vive de l'ordinateur."
+      },
+      {
+        "id": 7,
+        "question": "Comment désigne-t-on un passionné d'Internet et des nouvelles technologies ?",
+        "propositions": [
+          "Hacker",
+          "No life",
+          "Butineur",
+          "Geek"
+        ],
+        "réponse": "Geek",
+        "anecdote": "Du fait de ses passions diverses et de ses connaissances pointues, le geek est parfois perçu comme trop cérébral."
+      },
+      {
+        "id": 8,
+        "question": "Quels outils permettent de « mettre en mémoire » une adresse web pour y revenir ultérieurement ?",
+        "propositions": [
+          "Onglets",
+          "Adresses",
+          "Extensions",
+          "Favoris"
+        ],
+        "réponse": "Favoris",
+        "anecdote": "On retrouve principalement les favoris dans les logiciels de traitement de texte ou pour la navigation internet."
+      },
+      {
+        "id": 9,
+        "question": "Comment appelle-t-on généralement une discussion instantanée passée sur Internet ?",
+        "propositions": [
+          "Cookie",
+          "Chat",
+          "Spam",
+          "Hoax"
+        ],
+        "réponse": "Chat",
+        "anecdote": "Contrairement au courrier électronique, ce moyen de communication permet de conduire un dialogue interactif."
+      },
+      {
+        "id": 10,
+        "question": "Quelle connexion sans fil pouvez-vous utiliser pour surfer plus facilement sur Internet ?",
+        "propositions": [
+          "RNIS",
+          "Fibre",
+          "ADSL",
+          "Wi-Fi"
+        ],
+        "réponse": "Wi-Fi",
+        "anecdote": "La portée atteint plusieurs dizaines de mètres en intérieur (généralement entre une vingtaine et une cinquantaine de mètres)."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle « box » est reliée à votre ordinateur pour vous connecter à Internet ?",
+        "propositions": [
+          "Routeur",
+          "Serveur",
+          "Wi-Fi",
+          "Modem"
+        ],
+        "réponse": "Modem",
+        "anecdote": "Techniquement, l'appareil sert à convertir les données numériques de l'ordinateur en signal modulé, dit « analogique »."
+      },
+      {
+        "id": 12,
+        "question": "Quel mot français est désormais utilisé pour traduire le mot « e-mail » ?",
+        "propositions": [
+          "Navigateur",
+          "Courriel",
+          "Enveloppe",
+          "Progiciel"
+        ],
+        "réponse": "Courriel",
+        "anecdote": "Les règles de bon usage du courrier électronique sont décrites dans un document de référence appelé « nétiquette »."
+      },
+      {
+        "id": 13,
+        "question": "Sur quel média sont enregistrés les sites web que vous visitez depuis votre ordinateur ?",
+        "propositions": [
+          "Serveur",
+          "CD-ROM",
+          "Wi-Fi",
+          "Modem"
+        ],
+        "réponse": "Serveur",
+        "anecdote": "Le nombre de sites sur Internet a augmenté rapidement en 2005 et en 2006 grâce à la popularité croissante des blogs."
+      },
+      {
+        "id": 14,
+        "question": "Que signifie le deuxième « w » du « www » utilisé dans la plupart des adresses de sites internet ?",
+        "propositions": [
+          "Web",
+          "Wide",
+          "Worse",
+          "World"
+        ],
+        "réponse": "Wide",
+        "anecdote": "Le Web n'est qu'une des applications d'Internet, distincte entre autres du courriel, de la messagerie instantanée ou du partage de fichiers."
+      },
+      {
+        "id": 15,
+        "question": "De combien de mégaoctets avez-vous besoin pour obtenir un gigaoctet ?",
+        "propositions": [
+          "1 024",
+          "49",
+          "10 000",
+          "100"
+        ],
+        "réponse": "1 024",
+        "anecdote": "Les préfixes binaires sont souvent utilisés lorsque l'on doit traiter de grandes quantités d'octets."
+      },
+      {
+        "id": 16,
+        "question": "Quel nom portait le précédent navigateur Internet de Microsoft, devenu aujourd'hui 'Microsoft Edge' ?",
+        "propositions": [
+          "Internet Explorer",
+          "Safari",
+          "Firefox",
+          "Chrome"
+        ],
+        "réponse": "Internet Explorer",
+        "anecdote": "La version 11 du navigateur 'Internet Explorer' sera toujours présente dans Windows 10 avant le passage progressif à 'Microsoft Edge'."
+      },
+      {
+        "id": 17,
+        "question": "Sur Internet, que signifie l'extension « .com » que l'on peut retrouver dans une adresse web ?",
+        "propositions": [
+          "Communication",
+          "Commémoration",
+          "Commercial",
+          "Communautaire"
+        ],
+        "réponse": "Commercial",
+        "anecdote": "Initialement administré par le ministère de la Défense américain, le domaine .com est aujourd'hui exploité par la société Verisign."
+      },
+      {
+        "id": 18,
+        "question": "Lequel de ces outils ne permet pas de visionner des pages web ?",
+        "propositions": [
+          "Mozilla Firefox",
+          "Google Chrome",
+          "Acrobat Reader",
+          "Internet Explorer"
+        ],
+        "réponse": "Acrobat Reader",
+        "anecdote": "Adobe change régulièrement le nom des produits de la famille Acrobat et cela en subdivisant sa gamme."
+      },
+      {
+        "id": 19,
+        "question": "Comment appelle-t-on un e-mail non sollicité reçu depuis Internet ?",
+        "propositions": [
+          "Hoax",
+          "Bug",
+          "Spam",
+          "Cookie"
+        ],
+        "réponse": "Spam",
+        "anecdote": "Le spam désigne en général des envois en grande quantité effectués à des fins publicitaires."
+      },
+      {
+        "id": 20,
+        "question": "Quel spécialiste de l'informatique est capable de pirater presque n'importe quel site Internet ?",
+        "propositions": [
+          "Surfeur",
+          "Cracker",
+          "Hacker",
+          "Driver"
+        ],
+        "réponse": "Hacker",
+        "anecdote": "Les hackers sont classés en plusieurs catégories en fonction de leurs objectifs, de leur compétence et de la légalité de leurs actes."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Grâce à quoi tous les ordinateurs sur Internet sont-ils plus ou moins facilement repérables ?",
+        "propositions": [
+          "Écran",
+          "Bornage",
+          "Antivirus",
+          "Adresse IP"
+        ],
+        "réponse": "Adresse IP",
+        "anecdote": "L'adresse IP est à la base du système d'acheminement (le routage) des messages sur Internet."
+      },
+      {
+        "id": 22,
+        "question": "Quelle extension ajoutée à votre navigateur Internet préféré accentue ses possibilités ?",
+        "propositions": [
+          "Plug-in",
+          "Byte",
+          "Backup",
+          "Spool"
+        ],
+        "réponse": "Plug-in",
+        "anecdote": "Certains plug-ins peuvent aussi être utilisés comme logiciel à part entière, on dit alors qu'ils sont « standalone »."
+      },
+      {
+        "id": 23,
+        "question": "Comment appelle-t-on les canulars transmis par messagerie électronique ou via Internet ?",
+        "propositions": [
+          "Bug",
+          "Hoax",
+          "Cookie",
+          "Virus"
+        ],
+        "réponse": "Hoax",
+        "anecdote": "Conçus pour apparaître crédibles et véritables, ces canulars peuvent parfois avoir un but malveillant."
+      },
+      {
+        "id": 24,
+        "question": "De plus en plus de sites enregistrent sur votre ordinateur un témoin de passage appelé...",
+        "propositions": [
+          "Modem",
+          "Cupcake",
+          "Cookie",
+          "Spam"
+        ],
+        "réponse": "Cookie",
+        "anecdote": "Existant depuis plus de 20 ans, les cookies permettent aux développeurs de sites internet de conserver des données utilisateur."
+      },
+      {
+        "id": 25,
+        "question": "En quelle année a été envoyé le tout premier courriel ou courrier électronique ?",
+        "propositions": [
+          "1971",
+          "1991",
+          "1961",
+          "1981"
+        ],
+        "réponse": "1971",
+        "anecdote": "Il faut disposer d'une adresse électronique et d'un client de messagerie permettant l'accès aux messages via un navigateur."
+      },
+      {
+        "id": 26,
+        "question": "Quelle opération informatique illicite consiste à copier l'intégralité d'un site Internet sur son ordinateur ?",
+        "propositions": [
+          "Gravure",
+          "Sauvegarde",
+          "Aspiration",
+          "Copie"
+        ],
+        "réponse": "Aspiration",
+        "anecdote": "Un site web est un ensemble de pages qui peuvent être consultées en suivant des hyperliens à l'intérieur du site lui-même."
+      },
+      {
+        "id": 27,
+        "question": "Quelle abréviation est utilisée pour désigner une adresse de site Internet ?",
+        "propositions": [
+          "KBD",
+          "URL",
+          "MP3",
+          "TCP"
+        ],
+        "réponse": "URL",
+        "anecdote": "En France, d'après le Journal officiel du 16 mars 1999, « URL » peut être traduit par adresse réticulaire ou adresse universelle."
+      },
+      {
+        "id": 28,
+        "question": "Quel anniversaire le World Wide Web a-t-il fêté en 2014 ?",
+        "propositions": [
+          "Ses 25 ans",
+          "Ses 45 ans",
+          "Ses 35 ans",
+          "Ses 15 ans"
+        ],
+        "réponse": "Ses 25 ans",
+        "anecdote": "En septembre 2014, Internet dépassait un milliard de sites en ligne pour près de trois milliards d'internautes."
+      },
+      {
+        "id": 29,
+        "question": "Quel protocole est dédié à la transmission de fichiers sur Internet ?",
+        "propositions": [
+          "TCP/IP",
+          "IPX/SPX",
+          "FTP",
+          "HTTP"
+        ],
+        "réponse": "FTP",
+        "anecdote": "Ce mécanisme de copie est souvent utilisé pour alimenter un site web hébergé chez un tiers."
+      },
+      {
+        "id": 30,
+        "question": "Quel terme désigne le code de bonne conduite sur Internet ?",
+        "propositions": [
+          "Hameçonnage ",
+          "Phishing",
+          "Reboot",
+          "Nétiquette"
+        ],
+        "réponse": "Nétiquette",
+        "anecdote": "La « nétiquette » rassemble des tentatives de formalisation d'un certain contrat social pour l'Internet."
+      }
+    ]
+  }
+}

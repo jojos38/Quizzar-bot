@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Culture générale 4 (La culture, c'est l'expression du vivant)",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Dans 'Les Bijoux de la Castafiore', quel journal annonce les noces de la diva ?",
+        "propositions": [
+          "Ici Pour Vous",
+          "Paris-Flash",
+          "Stars de France",
+          "Jours de Paris"
+        ],
+        "réponse": "Paris-Flash",
+        "anecdote": "Trois ans après le succès de 'Tintin au Tibet', Hergé semble ici être à l'apogée de son uvre sur le plan narratif."
+      },
+      {
+        "id": 2,
+        "question": "Comment se prénomme la copine de Popeye le marin ?",
+        "propositions": [
+          "Olive",
+          "Framboise",
+          "Myrtille",
+          "Mimosa"
+        ],
+        "réponse": "Olive",
+        "anecdote": "Dans le dessin animé, Olive se fait régulièrement séduire et kidnapper par Brutus avant d'être sauvée par Popeye."
+      },
+      {
+        "id": 3,
+        "question": "Quel jeu de dés, populaire au comptoir des bars, porte le nom de sa combinaison gagnante ?",
+        "propositions": [
+          "Le 325",
+          "Le 421",
+          "Le 210",
+          "Le 666"
+        ],
+        "réponse": "Le 421",
+        "anecdote": "On joue au 421 (ou à zanzibar) à l'aide de trois dés et d'un certain nombre de jetons ou fiches (souvent 11 ou 21)."
+      },
+      {
+        "id": 4,
+        "question": "Quel film est désormais célèbre pour sa scène de la « tarte aux pommes » ?",
+        "propositions": [
+          "40 jours/40 nuits",
+          "Cross roads",
+          "Midnight Kitchen",
+          "American Pie"
+        ],
+        "réponse": "American Pie",
+        "anecdote": "Quatre adolescents font le pacte de perdre leur virginité avant d'entrer en fac, ce qui amènera de nombreuses mésaventures."
+      },
+      {
+        "id": 5,
+        "question": "Combien de travaux Héraclès fut-il condamné à effectuer ?",
+        "propositions": [
+          "16",
+          "7",
+          "10",
+          "12"
+        ],
+        "réponse": "12",
+        "anecdote": "La mythologie grecque lui prête un très grand nombre d'aventures qui le voient voyager à travers le monde connu des Doriens."
+      },
+      {
+        "id": 6,
+        "question": "Que symbolisent les cinq anneaux du drapeau olympique ?",
+        "propositions": [
+          "Les 5 épreuves",
+          "Les 5 médailles",
+          "Les 5 doigts",
+          "Les 5 continents"
+        ],
+        "réponse": "Les 5 continents",
+        "anecdote": "Durant la cérémonie d'ouverture, le drapeau olympique fait son entrée dans le stade porté horizontalement par des athlètes."
+      },
+      {
+        "id": 7,
+        "question": "Quels abats prépare-t-on généralement à la mode de Caen ?",
+        "propositions": [
+          "Les tripes",
+          "Les andouillettes",
+          "Le ris de veau",
+          "Les rognons"
+        ],
+        "réponse": "Les tripes",
+        "anecdote": "Cette préparation culinaire normande est réalisée avec les quatre parties de l'estomac d'un ruminant et un pied de buf."
+      },
+      {
+        "id": 8,
+        "question": "Combien de doigts possède le gant tricoté par Thérèse dans 'Le père Noël est une ordure' ?",
+        "propositions": [
+          "Cinq",
+          "Trois",
+          "Quatre",
+          "Six"
+        ],
+        "réponse": "Trois",
+        "anecdote": "'Le père Noël est une ordure' est à l'origine (1979) une pièce de théâtre interprétée par la troupe du Splendid."
+      },
+      {
+        "id": 9,
+        "question": "Si vous faites un baby-foot à 4 par équipes de 2, combien de barres maniera chaque joueur ?",
+        "propositions": [
+          "Deux",
+          "Quatre",
+          "Une",
+          "Trois"
+        ],
+        "réponse": "Deux",
+        "anecdote": "En France, le baby-foot est principalement un jeu de café (on estime à 500 000 personnes) où on lui adjoint un monnayeur."
+      },
+      {
+        "id": 10,
+        "question": "Comment se prénomme le compagnon champignon de Mario ?",
+        "propositions": [
+          "Peach",
+          "Luigi",
+          "Toad",
+          "Toop"
+        ],
+        "réponse": "Toad",
+        "anecdote": "Les Toad des jeux vidéo Nintendo, serviteurs de la Princesse Peach, ont la forme de champignons anthropomorphiques."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Où les « lunettes » du serpent à lunettes sont-elles situées ?",
+        "propositions": [
+          "Sur la queue",
+          "Dans la bouche",
+          "Sous les yeux",
+          "Derrière la tête"
+        ],
+        "réponse": "Derrière la tête",
+        "anecdote": "Dans l'imagerie populaire, le serpent à lunettes (ou le cobra égyptien) est associé au fakir charmeur de serpents."
+      },
+      {
+        "id": 12,
+        "question": "Quel est le nom du chanteur leader du groupe Depeche Mode ?",
+        "propositions": [
+          "Andrew Fletcher",
+          "Alan Wilder",
+          "David Gahan",
+          "Martin Gore"
+        ],
+        "réponse": "David Gahan",
+        "anecdote": "Depuis 2005, enhardi par son succès en solo, le chanteur Dave Gahan participe à l'écriture de certains morceaux."
+      },
+      {
+        "id": 13,
+        "question": "Sur quel continent retrouve-t-on la Papouasie-Nouvelle-Guinée ?",
+        "propositions": [
+          "Asie",
+          "Amérique",
+          "Afrique",
+          "Océanie"
+        ],
+        "réponse": "Océanie",
+        "anecdote": "Colonisée par l'Australie, la Papouasie-Nouvelle-Guinée est indépendante au sein du Commonwealth depuis 1975."
+      },
+      {
+        "id": 14,
+        "question": "En combien de points se joue un set de badminton depuis 2007 ?",
+        "propositions": [
+          "21 points",
+          "7 points",
+          "15 points",
+          "9 points"
+        ],
+        "réponse": "21 points",
+        "anecdote": "Le badminton nécessite une excellente condition physique ainsi que de très bonnes qualités techniques et tactiques."
+      },
+      {
+        "id": 15,
+        "question": "Par quelle locution peut-on traduire la phrase swahilie « hakuna matata » ?",
+        "propositions": [
+          "La vie est un soleil",
+          "Je crois en moi",
+          "Tout est possible",
+          "Aucun souci"
+        ],
+        "réponse": "Aucun souci",
+        "anecdote": "L'expression a surtout été grandement popularisée en 1994 par le film d'animation des studios Disney 'Le Roi lion'."
+      },
+      {
+        "id": 16,
+        "question": "Quelles villes françaises sont reliées par la route nationale 7 ?",
+        "propositions": [
+          "Paris et Sète",
+          "Paris et Nice",
+          "Paris et Foix",
+          "Paris et Troyes"
+        ],
+        "réponse": "Paris et Nice",
+        "anecdote": "La route nationale 7, ou RN7, est parfois également appelée la « route des vacances » ou encore la « route Bleue »."
+      },
+      {
+        "id": 17,
+        "question": "Le jeans est un vêtement qui doit son nom à quelle ville ?",
+        "propositions": [
+          "Genève",
+          "Gênes",
+          "Jersey",
+          "Giens"
+        ],
+        "réponse": "Gênes",
+        "anecdote": "Le bleu du jeans provenait d'une teinture (« blu di genova ») correspondant à la couleur originelle des bleus de travail rivetés."
+      },
+      {
+        "id": 18,
+        "question": "Comment un quartier de mandarine est-il aussi parfois appelé ?",
+        "propositions": [
+          "Une fesse",
+          "Un bras",
+          "Une cuisse",
+          "Une jambe"
+        ],
+        "réponse": "Une cuisse",
+        "anecdote": "Une mandarine se divise généralement en une dizaine de quartiers qui peuvent aisément être séparés sans perdre de jus."
+      },
+      {
+        "id": 19,
+        "question": "Quelle était la nationalité du compositeur Piotr Ilitch Tchaïkovski ?",
+        "propositions": [
+          "Autrichienne",
+          "Roumaine",
+          "Russe",
+          "Polonaise"
+        ],
+        "réponse": "Russe",
+        "anecdote": "Tchaïkovski s'illustra particulièrement par ses onze opéras, ses huit symphonies, ses suites pour orchestre et ses ballets."
+      },
+      {
+        "id": 20,
+        "question": "Coluche avait annoncé sa candidature aux élections présidentielles de quelle année ?",
+        "propositions": [
+          "1974",
+          "1981",
+          "1995",
+          "1988"
+        ],
+        "réponse": "1981",
+        "anecdote": "Son principal slogan était le suivant : « Avant moi, la France était coupée en deux. Maintenant, elle sera pliée en quatre »."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Combien de pattes au maximum peut avoir un mille-pattes ?",
+        "propositions": [
+          "1150",
+          "950",
+          "1350",
+          "750"
+        ],
+        "réponse": "750",
+        "anecdote": "Le diplopode vit sous les pierres, dans le sol, dans le bois en décomposition et dans les endroits humides."
+      },
+      {
+        "id": 22,
+        "question": "Quel est le nom du fils de Végéta dans le manga 'Dragon Ball' ?",
+        "propositions": [
+          "Trunks",
+          "Vegeto",
+          "Son gohan",
+          "Yamcha"
+        ],
+        "réponse": "Trunks",
+        "anecdote": "Ce personnage a la particularité d'exister deux fois dans l'histoire, « Trunks du présent » et « Trunks du futur »."
+      },
+      {
+        "id": 23,
+        "question": "Quelle ville de Tunisie est réputée pour ses tapis artisanaux ?",
+        "propositions": [
+          "Bizerte",
+          "Kairouan",
+          "Sousse",
+          "Gabès"
+        ],
+        "réponse": "Kairouan",
+        "anecdote": "Kairouan est souvent désignée comme la quatrième ville sainte de l'islam et la première ville sainte du Maghreb."
+      },
+      {
+        "id": 24,
+        "question": "Quelle reine était représentée sur le tout premier timbre-poste émis ?",
+        "propositions": [
+          "Marie",
+          "Astrid",
+          "Blanche",
+          "Victoria"
+        ],
+        "réponse": "Victoria",
+        "anecdote": "La collection et l'étude des timbres postaux et fiscaux, précieux et populaire pour des collectionneurs, est appelée la philatélie."
+      },
+      {
+        "id": 25,
+        "question": "Quel est le plus grand satellite naturel de notre système solaire ?",
+        "propositions": [
+          "Titan",
+          "La Lune",
+          "Ganymède",
+          "Umbriel"
+        ],
+        "réponse": "Ganymède",
+        "anecdote": "Sur l'échelle des distances au centre de Jupiter, il s'agit du septième satellite naturel connu de la planète."
+      },
+      {
+        "id": 26,
+        "question": "Pendant la Seconde Guerre mondiale, quel général allemand surnommait-on le « Renard du désert » ?",
+        "propositions": [
+          "Walter Brehmer",
+          "Erwin Rommel",
+          "Fritz von Lossberg",
+          "Friedrich Fromm"
+        ],
+        "réponse": "Erwin Rommel",
+        "anecdote": "Rommel a reçu ce surnom, par ses compatriotes et ses adversaires, suite à sa campagne en Afrique du Nord."
+      },
+      {
+        "id": 27,
+        "question": "Quel système informatique libre, basé sur la sécurité, est représenté par un poisson globe ?",
+        "propositions": [
+          "OpenBSD",
+          "Gentoo",
+          "Debian",
+          "MacOS X"
+        ],
+        "réponse": "OpenBSD",
+        "anecdote": "Le projet OpenBSD est réputé pour son intransigeance sur la liberté du logiciel et du code source et sur la cryptographie."
+      },
+      {
+        "id": 28,
+        "question": "En 1963, un mystérieux « cerveau » organisa le hold-up du train postal reliant quelles villes ?",
+        "propositions": [
+          "Cambridge à Oxford",
+          "Manchester à York",
+          "Glasgow à Londres",
+          "Liverpool à Brighton"
+        ],
+        "réponse": "Glasgow à Londres",
+        "anecdote": "Considéré à l'époque comme le « casse du siècle », le gang de 15 personnes s'empara d'un butin de 68 millions de dollars actuels."
+      },
+      {
+        "id": 29,
+        "question": "Qui a reçu la première étoile sur le « Walk of Fame » de Los Angeles ?",
+        "propositions": [
+          "Judy Garland",
+          "Charlie Chaplin",
+          "Joanne Woodward",
+          "Tod Browning"
+        ],
+        "réponse": "Joanne Woodward",
+        "anecdote": "Le « Walk of Fame » (littéralement « Promenade de la célébrité ») est un hommage aux différents acteurs du « show business »."
+      },
+      {
+        "id": 30,
+        "question": "Comment peut-on traduire le mot « goupil » en vieux français ?",
+        "propositions": [
+          "Corbeau",
+          "Renard",
+          "Lièvre",
+          "Hérisson"
+        ],
+        "réponse": "Renard",
+        "anecdote": "Cette désignation est devenue majoritaire par l'influence de Renart le goupil, héros du 'Roman de Renart'."
+      }
+    ]
+  }
+}
