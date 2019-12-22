@@ -108,7 +108,7 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildDelete", guild => {
-   db.resetGuildSettings(guild, null);
+   db.resetGuildSettings(guild.id, null);
    console.log("Bot removed from server: " + guild.name);
 });
 
@@ -118,6 +118,45 @@ client.on('message', async function (message) {
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
     const channel = message.channel;
     const guild = message.guild;
+
+    if (messageContent.startsWith(`${prefix}jclean`)) { // jadd [ADMIN]
+        if (message.author.id == 137239068567142400) {
+            const guilds = client.guilds;
+			const dbguilds = await db.getAllServers();
+			for (var i = 0; i < dbguilds.length; i++) {
+				var dbServerID = dbguilds[i].name;
+				if (guilds.get(dbServerID)) {
+					console.log("Server " + dbServerID + " exist");
+				} else {
+					db.resetGuildSettings(dbServerID, null);
+					console.log("Deleted server " + dbServerID);
+				}
+			}
+        }
+    }
+	
+	if (messageContent.startsWith(`${prefix}jrestore`)) { // jadd [ADMIN]
+        if (message.author.id == 137239068567142400) {
+            const guilds = client.guilds;
+			const tempdbguilds = await db.getAllServers();		
+			var dbguilds = [];
+			for (var i = 0; i < tempdbguilds.length; i++) {
+				dbguilds[tempdbguilds[i].name] = true;
+			}	
+			let it = guilds.keys();
+			let result = it.next();
+			while (!result.done) {			
+				if (dbguilds[result.value]) {
+					console.log("Server " + result.value + " exist in database");
+				} else {
+					const guild = guilds.get(result.value);
+					initSettings(guild);
+					console.log("Initialized server " + guild.id);
+				}				
+				result = it.next();
+			}
+		}
+    }
 
     if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
         if (await isAllowed(message, true)) {
@@ -135,7 +174,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
         if (await isAllowed(message, true)) {
-            await db.resetGuildSettings(guild, message);
+            await db.resetGuildSettings(guild.id, message);
 			initSettings(guild);
         }
     }

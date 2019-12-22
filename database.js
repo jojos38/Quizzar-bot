@@ -187,6 +187,14 @@ module.exports = {
         });
     },
 	
+	getAllServers: function () {
+		return new Promise(async function (resolve, reject) {
+			mainDB.listCollections().toArray(function(err, collInfos) {
+				resolve(collInfos);
+			});
+		});
+    },
+	
 	setServerName: function (guild, serverName) {
         return new Promise(async function (resolve) {
             const guildID = guild.id;
