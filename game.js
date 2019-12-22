@@ -1,4 +1,4 @@
-﻿
+﻿//test
 // -------------------- SETTINGS -------------------- //
 const defaultDifficulty = 0;
 const defaultQuestionsAmount = 10;
