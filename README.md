@@ -33,7 +33,10 @@ Affiche vos statistiques
 !jtop
 Affiche le top 10 de meilleurs joueurs
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Commandes administrateurs
+
 Un 'channel autorisé' est un channel ou les commandes du bot sont autorisées
 
 !jadmin
