@@ -113,19 +113,21 @@ function getGoodAnswerPlayers(message, propositions, goodAnswer) {
 
 
 // ----------------------------------- GAME ----------------------------------- //
-async function startGame(message, difficulty, questionsAmount) {
+async function startGame(message, difficulty, qAmount) {
     const channel = message.channel;
     const guildID = message.guild.id;
     const qDelay = await db.getSetting(message.guild, "questiondelay");
     const aDelay = await db.getSetting(message.guild, "answerdelay");
+	console.log("Server: " + message.guild.name);
     console.log("Questions delay:" + qDelay);
     console.log("Answers delay: " + aDelay);
-	await sendCatch(channel, eb.getStartEmbed(difficulty, questionsAmount));	
-    for (var questionNumber = 1; questionNumber <= questionsAmount; questionNumber++) { // Ask questions
-        console.log("------------ NEW QUESTION ------------");    		
+	console.log("Questions amount: " + qAmount);
+	await sendCatch(channel, eb.getStartEmbed(difficulty, qAmount));	
+    for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
+        console.log("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");    		
 		try {
 			// It asks question and gives answser
-			await newQuestionAnswer(channel, difficulty, questionsAmount, questionNumber, qDelay, aDelay);
+			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay);
 		} catch (error) {
 			console.log(error);
 			console.log("Error: ending game...");

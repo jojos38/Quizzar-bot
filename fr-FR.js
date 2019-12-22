@@ -270,7 +270,7 @@ module.exports = {
         const proposals = qData.proposals;
         const embed = new Discord.RichEmbed({
             author: {
-                name: "Question " + qData.points + " / " + qData.qNumber + " :",
+                name: "Question " + qData.qNumber + " / " + qData.qAmount + " :",
                 icon_url: logoURL
             },
             footer: {
