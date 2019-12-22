@@ -106,9 +106,10 @@ module.exports = {
             if (result) {
                 const finalScore = (newScore + result.score) || newScore;
                 const finalWon = (wonGame + result.won) || wonGame;
-				console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
+		console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
                 guildCollection.updateOne(userToFind, { $set: { user: userID, score: finalScore, won: finalWon } });
             } else {
+		console.log("Added user " + username + " [Score: 0 => " + finalScore + ", " + "Won: 0 => " + finalWon + "]");
                 guildCollection.insertOne({ user: userID, username: username, score: newScore, won: wonGame });
             }
         });
