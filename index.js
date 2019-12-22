@@ -174,7 +174,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
         if (await isAllowed(message, true)) {
-            await db.resetGuildSettings(guild.id, message);
+            await db.resetGuildSettings(guild, message);
 			initSettings(guild);
         }
     }
