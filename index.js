@@ -11,44 +11,34 @@ const eb = require('./' + lang + '.js');
 
 
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-function isInt(value) {
-  return !isNaN(value) && 
-         parseInt(Number(value)) == value && 
-         !isNaN(parseInt(value, 10));
-}
-
 function isAllowed(message, admin) {
-    return new Promise(async function (resolve) {
-	if (!message) { resolve(false); return; }
-	if (message.author.id == 137239068567142400) { resolve(true); return; }
-        if (message.guild.member(message.author).hasPermission("MANAGE_GUILD")) {
-            resolve(true);
-            return;
-        } else {
-            if (admin) {
-                try { channel.send("Il semblerait que tu n'ais pas la permission de faire cela..."); } catch (error) { console.log(error); }
-                resolve(false);
-                return;
-            }
-        }
+	if (!message) return false;
+	if (message.author.id == 137239068567142400) return true;
+	if (message.guild.member(message.author).hasPermission("MANAGE_GUILD")) {
+		return true;
+	} else {
+		if (admin) {
+			try { channel.send("Il semblerait que tu n'ais pas la permission de faire cela..."); } catch (error) { console.log(error); }
+			return false;
+		}
+	}
 
-        const guild = message.guild;
-        const channel = message.channel;
-        db.getGuildChannels(guild).then(function (channelsTable) { // Get channels
-            for (var i = 0; i < channelsTable.length; i++) { // For each channel
-                // If message is sent from allowed channel then return
-                if (channelsTable[i].channel == channel.id) { resolve(true); return; }
-            }
-            // If we went there is that the user is not allowed since previous for loop should return
-            console.log(channelsTable);
-            var channelsString = "";
-            for (var i = 0; i < channelsTable.length; i++) { // For each channel
-                channelsString = channelsString + "\n" + eb.mention(channelsTable[i].channel, 'c');
-            }
-            sendCatch(channel, eb.getNotAllowedEmbed(channelsString));
-            resolve(false);
-        });
-    });
+	const guild = message.guild;
+	const channel = message.channel;
+	db.getGuildChannels(guild).then(function (channelsTable) { // Get channels
+		for (var i = 0; i < channelsTable.length; i++) { // For each channel
+			// If message is sent from allowed channel then return
+			if (channelsTable[i].channel == channel.id) return true;
+		}
+		// If we went there is that the user is not allowed since previous for loop should return
+		console.log(channelsTable);
+		var channelsString = "";
+		for (var i = 0; i < channelsTable.length; i++) { // For each channel
+			channelsString = channelsString + "\n" + eb.mention(channelsTable[i].channel, 'c');
+		}
+		sendCatch(channel, eb.getNotAllowedEmbed(channelsString));
+		return false;
+	});
 }
 
 function sendCatch(channel, message) {
@@ -72,6 +62,14 @@ function format(seconds){
   return pad(days) + ':' + pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
 }
 
+function initSettings(guild) {
+	db.setServerName(guild, guild.name);
+	db.setSetting(guild, "questiondelay", 15000);
+	db.setSetting(guild, "answerdelay", 5000);
+	db.setSetting(guild, "defaultquestionsamount", 10);
+	db.setSetting(guild, "defaultdifficulty", 0);
+}
+
 async function exitHandler(options, exitCode) {
     if (options.cleanup) {
 		console.log("stopping bot...");
@@ -82,14 +80,15 @@ async function exitHandler(options, exitCode) {
     if (exitCode || exitCode === 0) console.log(exitCode); process.exit();
     if (options.exit) process.exit();
 }
-// ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-
-
 process.on('exit', exitHandler.bind(null,{cleanup:true})); // do something when app is closing
 process.on('SIGINT', exitHandler.bind(null,{exit:true})); // catches ctrl+c event
 process.on('SIGUSR1', exitHandler.bind(null,{exit:true})); // catches "kill pid" (for example: nodemon restart)
 process.on('SIGUSR2', exitHandler.bind(null,{exit:true})); // catches "kill pid" (for example: nodemon restart)
 process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches uncaught exceptions
+// ----------------------------------- SOME FUNCTIONS ----------------------------------- //
+
+
+
 
 
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
@@ -103,10 +102,9 @@ client.on("channelDelete", function (channel) {
 });
 
 client.on("guildCreate", guild => {
-   var guildName = guild.name;
-   guild.owner.send('Merci d\'utiliser Quizzar ! Tapez !jhelp dans n\'importe quel channel de votre serveur pour voir la liste des commandes.');
-   db.setServerName(guild, guildName);
-   console.log("New server: " + guildName);
+	console.log("New server: " + guild.name);
+	guild.owner.send('Merci d\'utiliser Quizzar ! Tapez !jhelp dans n\'importe quel channel de votre serveur pour voir la liste des commandes.');
+	initSettings(guild);
 });
 
 client.on("guildDelete", guild => {
@@ -120,15 +118,6 @@ client.on('message', async function (message) {
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
     const channel = message.channel;
     const guild = message.guild;
-
-    /*if (messageContent.startsWith(`${prefix}jtest`)) { // jadd [ADMIN]
-        if (await isAllowed(message, true)) {
-			var servers = client.guilds;
-			for (let server of servers.values()) {
-			  db.setServerName(guild, server.name);
-			}
-        }
-    }*/
 
     if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
         if (await isAllowed(message, true)) {
@@ -146,7 +135,8 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
         if (await isAllowed(message, true)) {
-            db.resetGuildSettings(guild, message);
+            await db.resetGuildSettings(guild, message);
+			initSettings(guild);
         }
     }
 
@@ -247,15 +237,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jp`) || messageContent.startsWith(`${prefix}jstart`)) { // jplay
         if (await isAllowed(message, false)) {
-            // -1 = number not specified
-            // -2 = number not in range
-            var difficulty = null;
-            var questionsAmount = null;
-            if (args[1] < 0 || args[1] > 3 || (!isInt(args[1])) && args[1] != null) difficulty = -2;
-            else difficulty = args[1] || -1;
-            if ((args[2] < 1 || args[2] > 100 || (!isInt(args[2])) && args[2] != null) && args[2] != 0) questionsAmount = -2;
-            else questionsAmount = args[2] || -1;
-            game.preStart(message, difficulty, questionsAmount, db);
+            game.preStart(message, args);
         }
     }
 
@@ -283,11 +265,11 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jscore`)) { // score
+    /*else if (messageContent.startsWith(`${prefix}jscore`)) { // score
         if (await isAllowed(message, false)) {
             game.showScore(guild, channel);
         }
-    }
+    }*/
 })
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
 

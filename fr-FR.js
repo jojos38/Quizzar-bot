@@ -216,10 +216,10 @@ module.exports = {
         });
         return embed;
     },
-    getAlreadyRunningEmbed: function (channel) {
+    getAlreadyRunningEmbed: function (channelID) {
         const embed = new Discord.RichEmbed({
             title: "Une autre partie est déjà en cours",
-            description: this.mention(channel.id, 'c'),
+            description: this.mention(channelID, 'c'),
             color: red
         });
         return embed;
@@ -267,26 +267,26 @@ module.exports = {
     },
     getQuestionEmbed: function (qData, timeleft, embedColor) {
         // 0:thème --- 1:difficulté --- 2:question --- 3:propositions --- 4:réponse --- 5:anecdote --- 6:points --- 7:num.ques --- 8:tot.ques
-        const propositions = qData[3];
+        const proposals = qData.proposals;
         const embed = new Discord.RichEmbed({
             author: {
-                name: "Question " + qData[7] + " / " + qData[8] + " :",
+                name: "Question " + qData.points + " / " + qData.qNumber + " :",
                 icon_url: logoURL
             },
             footer: {
                 text: "Temps restant :⠀" + timeleft + "s",
             },
-            description: "Thème : " + qData[0] + " (" + qData[1] + ")```yaml\n" + qData[2] + "```",
+            description: "Thème : " + qData.theme + " (" + qData.difficulty + ")```yaml\n" + qData.question + "```",
             color: embedColor,
             fields: [
                 {
                     name: "\u200B",
-                    value: "Réponse A :```- " + propositions[0] + "``` Réponse C :```- " + propositions[2] + "```",
+                    value: "Réponse A :```- " + proposals[0] + "``` Réponse C :```- " + proposals[2] + "```",
                     inline: true
                 },
                 {
                     name: "\u200B",
-                    value: "Réponse B :```- " + propositions[1] + "``` Réponse D :```- " + propositions[3] + "```",
+                    value: "Réponse B :```- " + proposals[1] + "``` Réponse D :```- " + proposals[3] + "```",
                     inline: true
                 }
             ]
