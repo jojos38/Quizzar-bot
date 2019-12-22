@@ -109,7 +109,7 @@ module.exports = {
 		console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
                 guildCollection.updateOne(userToFind, { $set: { user: userID, score: finalScore, won: finalWon } });
             } else {
-		console.log("Added user " + username + " [Score: 0 => " + finalScore + ", " + "Won: 0 => " + finalWon + "]");
+		console.log("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
                 guildCollection.insertOne({ user: userID, username: username, score: newScore, won: wonGame });
             }
         });
