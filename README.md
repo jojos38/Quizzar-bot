@@ -8,7 +8,10 @@ Le bot possède un système de statistiques, les joueurs peuvent comparer leur s
 - Le bot n'en est encore qu'à ses débuts, il se peut qu'il y ai des bugs plus ou moins importants.
 - Je ne peux pas garantir la longévitée du bot dans le temps !
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Commandes utilisateurs
+
 !jplay [difficulté] [nombre de questions] ou !jp ou !jstart
 Démarre une partie
 Note : Si le nombre de questions spécifié est 0 alors la partie sera (quasi-)infinie si l'utilisateur possède les droits admin
