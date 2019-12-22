@@ -106,6 +106,7 @@ module.exports = {
             if (result) {
                 const finalScore = (newScore + result.score) || newScore;
                 const finalWon = (wonGame + result.won) || wonGame;
+				console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
                 guildCollection.updateOne(userToFind, { $set: { user: userID, score: finalScore, won: finalWon } });
             } else {
                 guildCollection.insertOne({ user: userID, username: username, score: newScore, won: wonGame });
