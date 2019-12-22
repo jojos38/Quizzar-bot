@@ -293,9 +293,9 @@ module.exports = {
         });
         return embed;
     },
-    getAnswerEmbed: function (answerLetter, answer, anectode, playersString) {
+    getAnswerEmbed: function (answerLetter, answer, anectode, playersString, color) {
         const embed = new Discord.RichEmbed({
-            color: orange,
+            color: color,
             title: "La bonne réponse était la réponse " + answerLetter + " : " + answer,
             description: "```" + anectode + "```\n" + playersString,
         });

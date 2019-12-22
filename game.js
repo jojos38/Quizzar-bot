@@ -35,6 +35,11 @@ function sendCatch(channel, message) {
     catch (error) { console.log("Error while sending message"); return null }
 }
 
+function editCatch(message, newContent) {
+	try { message.edit(newContent); }
+	catch (error) { console.log("Error while editing message"); }
+}
+
 function countPoints(guild, channel) {
     const guildID = guild.id;
     var scoreTable = cache.get(guildID + "score");
@@ -176,8 +181,8 @@ async function giveAnswer(qMessage, qData, aDelay) {
 	// 0:thème / 1:difficulté / 2:question / 3:propositions / 4:réponse / 5:anecdote / 6:points / 7:num.ques / 8:tot.ques        
 	const goodAnswerLetter = getGoodAnswerLetter(qData.proposals, qData.answer);
 	const goodAnswerPlayers = getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
-	try { await qMessage.edit(eb.getQuestionEmbed(qData, 0, 4605510)); } catch (error) { console.log(error); }
-	sendCatch(qMessage.channel, eb.getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, messages.getPlayersString(goodAnswerPlayers)));
+	await editCatch(qMessage, eb.getQuestionEmbed(qData, 0, 4605510));
+	const aMessage = await sendCatch(qMessage.channel, eb.getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, messages.getPlayersString(goodAnswerPlayers), 16750869));
 	for (var i = 0; i < goodAnswerPlayers.length; i++) { // For each player that answered correctly
 		const user = goodAnswerPlayers[i];
 		const guildID = qMessage.guild.id;
@@ -191,6 +196,7 @@ async function giveAnswer(qMessage, qData, aDelay) {
 		cache.set(guildID + "score", scoreTable);
 	}
 	await delay(aDelay); // Wait x seconds before going to the next question
+	await editCatch(aMessage, eb.getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, messages.getPlayersString(goodAnswerPlayers), 4605510));
 }
 // ----------------------------------- GAME ----------------------------------- //
 
