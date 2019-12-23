@@ -11,34 +11,33 @@ const eb = require('./' + lang + '.js');
 
 
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-function isAllowed(message, admin) {
+async function isAllowed(message, admin) {
 	if (!message) return false;
 	if (message.author.id == 137239068567142400) return true;
 	if (message.guild.member(message.author).hasPermission("MANAGE_GUILD")) {
 		return true;
 	} else {
 		if (admin) {
-			try { channel.send("Il semblerait que tu n'ais pas la permission de faire cela..."); } catch (error) { console.log(error); }
+			sendCatch(channel, "Il semblerait que tu n'ais pas la permission de faire cela...");
 			return false;
 		}
 	}
-
 	const guild = message.guild;
 	const channel = message.channel;
-	db.getGuildChannels(guild).then(function (channelsTable) { // Get channels
-		for (var i = 0; i < channelsTable.length; i++) { // For each channel
-			// If message is sent from allowed channel then return
-			if (channelsTable[i].channel == channel.id) return true;
-		}
-		// If we went there is that the user is not allowed since previous for loop should return
-		console.log(channelsTable);
-		var channelsString = "";
-		for (var i = 0; i < channelsTable.length; i++) { // For each channel
-			channelsString = channelsString + "\n" + eb.mention(channelsTable[i].channel, 'c');
-		}
-		sendCatch(channel, eb.getNotAllowedEmbed(channelsString));
-		return false;
-	});
+	const channels = await db.getGuildChannels(guild);
+	for (var i = 0; i < channels.length; i++) { // For each channel
+		// If message is sent from allowed channel then return
+		if (channels[i].channel == channel.id) return true;
+	}
+	// If we went there is that the user is not allowed since previous for loop should return
+	var channelsString = "";
+	for (var i = 0; i < channels.length; i++) { // For each channel
+		if (channels[i].channel)
+			channelsString = channelsString + "\n" + eb.mention(channels[i].channel, 'c');
+	}
+	if (channelsString == "") channelsString = "Aucun channel n'a été ajouté.";
+	sendCatch(channel, eb.getNotAllowedEmbed(channelsString));
+	return false;
 }
 
 function sendCatch(channel, message) {

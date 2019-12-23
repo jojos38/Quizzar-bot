@@ -211,8 +211,8 @@ module.exports = {
                 icon_url: logoURL
             },
             color: red,
-            title: "Vous ne pouvez pas effectuer de commandes quizz dans ce channel, si vous êtes administrateur utilisez !jadd pour ajouter ce channel.",
-            description: "Jetez un coup d'oeil ici : " + channelsString
+            title: "Vous ne pouvez pas effectuer de commandes quizz dans ce channel.",
+            description: "Si vous êtes administrateur utilisez !jadd pour ajouter ce channel.\nJetez un coup d'oeil ici : " + channelsString
         });
         return embed;
     },
