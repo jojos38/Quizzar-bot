@@ -136,7 +136,13 @@ module.exports = {
                 if (statsTable[i].user != null) {
                     var user = statsTable[i];
                     if (userNumber > 10) break;
-                    usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ score : " + user.score + " ] - [ victoires : " + user.won + " ] - **" + user.username + "**";
+					var nick;
+					if (guild.members.get(user.user)) {
+						nick = guild.members.get(user.user).nickname || guild.members.get(user.user).user.username;
+					} else {
+						nick = user.username;
+					}
+					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ score : " + user.score + " ] - [ victoires : " + user.won + " ] - **" + nick + "**";
                     userNumber++;
                 }
             }
