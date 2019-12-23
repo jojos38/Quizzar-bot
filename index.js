@@ -107,7 +107,7 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildDelete", guild => {
-   db.resetGuildSettings(guild.id, null);
+   db.resetGuildSettings(guild, null);
    console.log("Bot removed from server: " + guild.name);
 });
 
