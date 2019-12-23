@@ -11,9 +11,11 @@ function mention(userID) {
 // p1 et p2 ont répondu
 // p1, p2 et p3 ont répondu
 
-module.exports = {
 
-    getPlayersString: function (players) {
+   
+
+module.exports = {
+    getPlayersString: function(players) {
         var playersString = "";
         const playersNumber = players.length;
         if (playersNumber == 0) { // If no player answered
@@ -37,50 +39,50 @@ module.exports = {
         }
     },
 
-    getScoreString: function (guild, scoreTable) {   
-        if (scoreTable.size == 0) return { 0: "Il semblerait qu'il n'y ait aucun gagnant", 1: "" };
-		// Sort the score in descending order (10, 7, 6, 2, 1...)
-        scoreTable[Symbol.iterator] = function* () {
-            yield* [...this.entries()].sort((b, a) => a[1] - b[1]);
-        }
-		// Put everything in a table with index
-		var i = 0;
-		var newScoreTable = [];
-		for (let [id, points] of scoreTable) {
-			newScoreTable[i] = {id:id, points:points};
-			i++
+	getScoreString: function(guild, scoreTable) {   
+	if (scoreTable.size == 0) return { 0: "Il semblerait qu'il n'y ait aucun gagnant", 1: "" };
+	var sorted = Array.from(scoreTable.entries());
+	var len = sorted.length;
+	for (var i = len - 1; i >= 0; i--){
+		for (var j = 1; j <= i; j++){
+			if (sorted[j-1][1] > sorted[j][1]){
+				var temp = sorted[j-1][1];
+				sorted[j-1][1] = sorted[j][1];
+				sorted[j][1] = temp;
+			}
 		}
-		
-        var others = "";
-        var winner = "";
-        var userNumber = 1;
-        for (var i = 0; i < newScoreTable.length; i++) {
-
-            const id = newScoreTable[i].id;
-            const points = newScoreTable[i].points;
-			var nextPoints;
-			if (newScoreTable[i+1]) nextPoints = newScoreTable[i+1].points;
-			
-            if (userNumber == 1 && points != nextPoints && i == 0) { // If next one doesn't have same amount of points and first loop then only 1 winner
-                winner = "Le gagnant de la partie est " + mention(id) + " avec un total de " + points + " points !";
-                if (newScoreTable.length > 1) db.updateUserStats(guild, { id: id, username: "" }, 0, 1); // If more than 1 player in the game
-            }
-			else if (userNumber == 1 && points == nextPoints) { // If winner and next one is also winner
-                if (winner) winner = winner + ", " + mention(id);
-                else winner = mention(id);
-                if (newScoreTable.length > 1) db.updateUserStats(guild, { id: id, username: "" }, 0, 1); // If more than 1 player in the game
-            }
-			else if (userNumber == 1 && points != nextPoints) { // If winner and next win if not winner
-                winner = "Les gagnants de la partie sont " + winner + " et " + mention(id) + " avec un total de " + points + " points !";
-                if (newScoreTable.length > 1) db.updateUserStats(guild, { id: id, username: "" }, 0, 1); // If more than 1 player in the game
-            }
-            if (i < 20 && userNumber != 1) { // If less than 10 users and is not the winner
-                others = others + "\n" + "[" + userNumber + "] - " + mention(id) + " (" + points + " points)";
-            }
-            if(points != nextPoints) {
-                userNumber++;
-            }
-        }
-        return { 0: winner, 1: others };
-    }
+	}
+	const length = sorted.length - 1;
+	var totalWinners = 0;
+	for (var i = length; i >= 0; i--) {
+		totalWinners++;
+		if (!sorted[i-1]) break;
+		if (sorted[i][1] != sorted[i-1][1]) break;
+	}
+	var others = "";
+	var winner = "Les gagnants de la partie sont ";
+	if (totalWinners == 1)
+		winner = "Le gagnant de la partie est " + mention(sorted[length][0]) + " avec un total de " + sorted[length][1] + " points !";
+	else if (totalWinners == 2)
+		winner = winner + mention(sorted[length][0]) + " et " + mention(sorted[length-1][0]) + " avec un total de " + sorted[length][1] + " points !";
+	else {
+		for (var i = length; i > length - totalWinners + 1; i--) {
+			if (i != length - totalWinners + 2) winner = winner + mention(sorted[i][0]) + ", ";
+			else winner = winner + mention(sorted[i][0]);
+		}
+		winner = winner + " et " + mention(sorted[length-totalWinners+1][0]) + " avec un total de " + sorted[length][1] + " points !";
+	}
+	var user = totalWinners + 1;
+	for (var i = length - totalWinners; i >= 0; i--) {
+		others = others + "\n" + "[" + user + "] " + mention(sorted[i][0]) + " (" + sorted[i][1] + " points)"; 
+		if (sorted[i-1]) if (sorted[i][1] != sorted[i-1][1]) user++;
+		if (length - i - totalWinners == 9) break;
+	}
+	if (sorted.length > 1) {
+		for (var i = length; i > length - totalWinners; i--) {
+			//db.updateUserStats(guild, { id: sorted[i][0], username: "" }, 0, 1); // If more than 1 player in the game
+		}
+	}
+	return { 0: winner, 1: others };
+}
 }
