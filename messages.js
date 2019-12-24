@@ -46,9 +46,9 @@ module.exports = {
 	for (var i = len - 1; i >= 0; i--){
 		for (var j = 1; j <= i; j++){
 			if (sorted[j-1][1] > sorted[j][1]){
-				var temp = sorted[j-1][1];
-				sorted[j-1][1] = sorted[j][1];
-				sorted[j][1] = temp;
+				var temp = sorted[j-1];
+				sorted[j-1] = sorted[j];
+				sorted[j] = temp;
 			}
 		}
 	}
