@@ -133,7 +133,7 @@ module.exports = {
             var userNumber = 1;
             var usersString = "";
             for (var i = 0; i < statsTable.length; i++) {
-                if (statsTable[i].user != null) {
+                if (statsTable[i].id != null) {
                     var user = statsTable[i];
                     if (userNumber > 10) break;
 					var nick;
