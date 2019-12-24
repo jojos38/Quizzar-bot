@@ -127,8 +127,11 @@ client.on('message', async function (message) {
 				if (guilds.get(dbServerID)) {
 					console.log("Server " + dbServerID + " exist");
 				} else {
-					db.resetGuildSettings(dbServerID, null);
-					console.log("Deleted server " + dbServerID);
+					var guild = client.guilds.get(result.value);
+					if (guild) {
+						db.resetGuildSettings(guild, null);
+						console.log("Deleted server " + dbServerID);
+					}
 				}
 			}
         }
