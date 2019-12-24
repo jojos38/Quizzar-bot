@@ -107,7 +107,7 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildDelete", guild => {
-   db.resetGuildSettings(guild, null);
+   db.resetGuildSettings(guild.id, guild.name, null);
    console.log("Bot removed from server: " + guild.name);
 });
 
@@ -127,11 +127,8 @@ client.on('message', async function (message) {
 				if (guilds.get(dbServerID)) {
 					console.log("Server " + dbServerID + " exist");
 				} else {
-					var guild = client.guilds.get(result.value);
-					if (guild) {
-						db.resetGuildSettings(guild, null);
-						console.log("Deleted server " + dbServerID);
-					}
+					db.resetGuildSettings(dbServerID, dbServerID, null);
+					console.log("Deleted server " + dbServerID);
 				}
 			}
         }
@@ -176,7 +173,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
         if (await isAllowed(message, true)) {
-            await db.resetGuildSettings(guild, message);
+            await db.resetGuildSettings(guild.id, guild.name, message);
 			initSettings(guild);
         }
     }

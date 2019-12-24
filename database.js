@@ -40,14 +40,13 @@ module.exports = {
 
 
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
-    resetGuildSettings: function (guild, message) {
-        const guildID = guild.id;
+    resetGuildSettings: function (guildID, guildName, message) {
         const guildCollection = mainDB.collection(guildID);
         if (guildCollection) {
             guildCollection.drop(function (err, result) {
                 if (!err) {
                     if (message) sendCatch(message.channel, "Paramètres réinitialisés");
-                    console.log("Deleted collection from server " + guild.name);
+                    console.log("Deleted collection from server " + guildName);
                 } else {
                     if (message) sendCatch(message.channel, "Une erreur est survenue lors de la suppression des paramètres: aucun paramètre existant.");
                     console.log(err);
