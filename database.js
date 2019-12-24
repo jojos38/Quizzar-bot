@@ -101,16 +101,16 @@ module.exports = {
         const username = user.username;
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
-        const userToFind = { user: userID };
+        const userToFind = { id: userID };
         guildCollection.findOne(userToFind, function (err, result) {
             if (result) {
                 const finalScore = (newScore + result.score) || newScore;
                 const finalWon = (wonGame + result.won) || wonGame;
-		console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
-                guildCollection.updateOne(userToFind, { $set: { user: userID, score: finalScore, won: finalWon } });
+				console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
+                guildCollection.updateOne(userToFind, { $set: { id: userID, score: finalScore, won: finalWon } });
             } else {
-		console.log("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
-                guildCollection.insertOne({ user: userID, username: username, score: newScore, won: wonGame });
+				console.log("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
+                guildCollection.insertOne({ id: userID, username: username, score: newScore, won: wonGame });
             }
         });
     },
@@ -120,7 +120,7 @@ module.exports = {
             const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
             const userID = message.author.id;
-            guildCollection.findOne({ user: userID }, function (err, userStats) {
+            guildCollection.findOne({ id: userID }, function (err, userStats) {
                 resolve(userStats);
             });
         });
@@ -129,7 +129,7 @@ module.exports = {
     getTop: function (guild, message) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
-        guildCollection.find({}, { projection: { _id: 0, user: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
+        guildCollection.find({}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
             var userNumber = 1;
             var usersString = "";
             for (var i = 0; i < statsTable.length; i++) {
@@ -137,8 +137,8 @@ module.exports = {
                     var user = statsTable[i];
                     if (userNumber > 10) break;
 					var nick;
-					if (guild.members.get(user.user)) {
-						nick = guild.members.get(user.user).nickname || guild.members.get(user.user).user.username;
+					if (guild.members.get(user.id)) {
+						nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
 					} else {
 						nick = user.username;
 					}
