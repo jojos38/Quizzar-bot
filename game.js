@@ -136,7 +136,7 @@ async function startGame(message, difficulty, qAmount) {
 		} catch (error) {
 			console.log(error);
 			console.log("Error: ending game...");
-			sendCatch(message.channel, "Error hapenned, game stopped.");
+			sendCatch(message.channel, "Error hapenned, game stopped. This error might be caused by missing permissions.");
 			cache.set(guildID + "running", 1);
 		}
 		if (cache.get(guildID + "running") == 1) { // 1 = Waiting for stop
