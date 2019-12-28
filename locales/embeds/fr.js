@@ -85,7 +85,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot crée par jojos38",
-			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.",
+			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/E8xrPh4",
 			fields: [
 			  {
 				name: "Serveurs",
