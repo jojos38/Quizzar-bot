@@ -1,8 +1,10 @@
 
 // -------------------- SOME VARIABLES -------------------- //
+const { prefix, token, topggtoken } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token } = require('./config.json');
+const DBL = require("dblapi.js");
+const dbl = new DBL(topggtoken, client);
 const game = require('./game.js');
 const tools = require('./tools.js');
 const db = require('./database.js');
@@ -81,6 +83,14 @@ client.once('ready', async function () {
     logger.info('Bot ready');
     client.user.setActivity("use !jhelp for help");	
 });
+
+dbl.on('posted', () => {
+	logger.info('Server count posted');
+})
+
+dbl.on('error', e => {
+	logger.error(`Error while posting server count ${e}`);
+})
 
 client.on("channelDelete", function (channel) {
     db.removeGuildChannel(channel.guild, channel.id);
