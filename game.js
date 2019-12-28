@@ -197,9 +197,7 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 		qData['qNumber'] = qNumber;
 		qData['qAmount'] = qAmount;
 	}
-				
 	if (!qData) throw ("No question found");
-				
 	logger.info("Answer: " + qData.answer);
 	const qMessage = await tools.sendCatch(channel, eb[lang].getQuestionEmbed(qData, qDelay / 1000, colors[qData.points]));
 	if (!qMessage) throw new Error("Error: can't send question message");
@@ -211,7 +209,7 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 }
 
 async function giveAnswer(qMessage, qData, aDelay, lang) {
-	// 0:thème / 1:difficulté / 2:question / 3:propositions / 4:réponse / 5:anecdote / 6:points / 7:num.ques / 8:tot.ques        
+	// 0:thème / 1:difficulté / 2:question / 3:propositions / 4:réponse / 5:anecdote / 6:points / 7:num.ques / 8:tot.ques
 	const goodAnswerLetter = getGoodAnswerLetter(qData.proposals, qData.answer);
 	const goodAnswerPlayers = getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
 	await tools.editCatch(qMessage, eb[lang].getQuestionEmbed(qData, 0, 4605510));
@@ -252,13 +250,13 @@ module.exports = {
             tools.sendCatch(channel, eb[lang].getWrongPlayerStopEmbed());
         }
     },
-	
+
 	stopAll: function (client) {
 		return new Promise(async function (resolve, reject) {
-			cache.set("stopscheduled", 1);		
+			cache.set("stopscheduled", 1);
 			var guilds = client.guilds;
 			for(var i = 3; i != -1; i--) {
-				for (let guild of guilds.values()) {			
+				for (let guild of guilds.values()) {
 					const guildID = guild.id;
 					if (cache.get(guildID + "running") >= 1) {
 						const channelID = cache.get(guildID + "channel");
@@ -266,11 +264,11 @@ module.exports = {
 						if (i != 0) tools.sendCatch(channel, "**Une maintenance est prévue dans " + i + " minutes**");
 						else tools.sendCatch(channel, "Bot en maintenance...");
 					}
-				}			
+				}
 				logger.warn("Bot stopping in " + i + " minutes...");
 				if (i == 0) {await delay(5000); process.exit();}
-				await delay(60000);		
-			}	
+				await delay(60000);
+			}
 		});
     },
 
@@ -279,8 +277,8 @@ module.exports = {
         const guildID = guild.id;
         const channel = message.channel;
 		var questionsAmount;
-		var difficulty;	
-		
+		var difficulty;
+
 		if (cache.get("stopscheduled") == 1) { // If no stop scheduled
 			tools.sendCatch(channel, "Une maintenance est prévue, merci de réessayer un peu plus tard.");
 			return;
@@ -296,16 +294,16 @@ module.exports = {
             return;
 		}
 		else { // Mean it's null
-			difficulty = args[1] || await db.getSetting(guild, "defaultdifficulty");
+			difficulty = args[1] || await db.getSetting(guild, "defaultdifficulty") || 0;
 		}
-		
+
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
 		if ((args[2] < 1 || args[2] > 100 || !tools.isInt(args[2]) && args[2] != null) && args[2] != 0) {
 			tools.sendCatch(channel, eb[lang].getBadQuesEmbed());
             return;
 		}
 		else { // Mean it's null
-			questionsAmount = args[2] || await db.getSetting(guild, "defaultquestionsamount");
+			questionsAmount = args[2] || await db.getSetting(guild, "defaultquestionsamount") || 10;
 			if (questionsAmount == 0) {
 				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
 			}
@@ -316,7 +314,7 @@ module.exports = {
         cache.set(guildID + "player", message.author.id);
         cache.set(guildID + "channel", channel.id);
         cache.set(guildID + "score", new Map());
-		
+
         startGame(message, difficulty, questionsAmount, lang);
     }
 }

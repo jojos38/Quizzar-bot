@@ -30,8 +30,10 @@ async function isAllowed(message, admin, lang) {
 	const guild = message.guild;
 	const channel = message.channel;
 	const channels = await db.getGuildChannels(guild);
+	const author = message.member || message.guild.member(message.author);
 	if (message.author.id == 137239068567142400) return true;
-	if (message.guild.member(message.author).hasPermission("MANAGE_GUILD")) {
+	if (!author) return false;
+	if (message.member.hasPermission("MANAGE_GUILD")) {
 		return true;
 	} else {
 		if (admin) {
@@ -130,25 +132,25 @@ client.on('message', async function (message) {
 			}
         }
     }
-	
+
 	if (messageContent.startsWith(`${prefix}jrestore`)) { // jadd [ADMIN]
         if (message.author.id == 137239068567142400) {
             const guilds = client.guilds;
-			const tempdbguilds = await db.getAllServers();		
+			const tempdbguilds = await db.getAllServers();
 			var dbguilds = [];
 			for (var i = 0; i < tempdbguilds.length; i++) {
 				dbguilds[tempdbguilds[i].name] = true;
-			}	
+			}
 			let it = guilds.keys();
 			let result = it.next();
-			while (!result.done) {			
+			while (!result.done) {
 				if (dbguilds[result.value]) {
 					logger.debug("Server " + result.value + " exist in database");
 				} else {
 					const guild = guilds.get(result.value);
 					initSettings(guild);
 					logger.debug("Initialized server " + guild.id);
-				}				
+				}
 				result = it.next();
 			}
 		}
