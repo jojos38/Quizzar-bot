@@ -103,43 +103,41 @@ function getRandomQuestionAPI(difficulty) {
 function getGoodAnswerLetter(proposals, goodAnswer) {
     for (var i = 0; i < proposals.length; i++) { // For each answer
         if (proposals[i] == goodAnswer) { // If good answer
-			logger.debug(reactionsTable[i]);
             return reactionsTable[i];
         }
     }
     return 'Err';
 }
 
-function getGoodAnswerPlayers(message, proposals, goodAnswer) {
-	console.log(message.reactions.get(reaction).users);
-    try {
-        var badAnswerUsers = new Map();
-        var goodAnswerUsers = new Map();
-        for (var i = 0; i < proposals.length; i++) { // For each proposition
-            const reaction = reactionsTable[i]; // Get reaction
-            if (proposals[i] == goodAnswer) { // If good answer
-                goodAnswerUsers = message.reactions.get(reaction).users; // Get users that reacted with [reaction]
-            } else { // Else if wrong answer
-                const badUsers = message.reactions.get(reaction).users; // Get all users that reacted with [reaction]
-                const iterator = badUsers.keys();
-                for (let userID of iterator) { // For each user that reacted with [reaction]
-                    const user = badUsers.get(userID); // Get user
-                    badAnswerUsers.set(userID, user); // Add him to the bad answer table
-                }
-            }
-        }
-        var userNumber = 0;
-        var wonPlayers = [];
-        const goodIterator = goodAnswerUsers.keys();
-        for (let goodUserID of goodIterator) { // For each user that answered correctly
-            const goodUser = goodAnswerUsers.get(goodUserID); // Get user
-            if (!badAnswerUsers.has(goodUserID)) { // If he is not in bad users list
-                wonPlayers[userNumber] = goodUser;
-                userNumber++;
-            }
-        }
-        return wonPlayers;
-    } catch (error) { return []; }
+async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
+	try {
+		var badAnswerUsers = new Map();
+		var goodAnswerUsers = new Map();
+		for (var i = 0; i < proposals.length; i++) { // For each proposition
+			const reaction = reactionsTable[i]; // Get reaction
+			if (proposals[i] == goodAnswer) { // If good answer
+				goodAnswerUsers = await message.reactions.get(reaction).fetchUsers(); // Get users that reacted with [reaction]
+			} else { // Else if wrong answer
+				const badUsers = await message.reactions.get(reaction).fetchUsers(); // Get all users that reacted with [reaction]
+				const iterator = badUsers.keys();
+				for (let userID of iterator) { // For each user that reacted with [reaction]
+					const user = badUsers.get(userID); // Get user
+					badAnswerUsers.set(userID, user); // Add him to the bad answer table
+				}
+			}
+		}
+		var userNumber = 0;
+		var wonPlayers = [];
+		const goodIterator = goodAnswerUsers.keys();
+		for (let goodUserID of goodIterator) { // For each user that answered correctly
+			const goodUser = goodAnswerUsers.get(goodUserID); // Get user
+			if (!badAnswerUsers.has(goodUserID)) { // If he is not in bad users list
+				wonPlayers[userNumber] = goodUser;
+				userNumber++;
+			}
+		}
+		return wonPlayers;
+	} catch (error) { return []; }
 }
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
 
@@ -216,9 +214,10 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 async function giveAnswer(qMessage, qData, aDelay, lang) {
 	// 0:thème / 1:difficulté / 2:question / 3:propositions / 4:réponse / 5:anecdote / 6:points / 7:num.ques / 8:tot.ques
 	const goodAnswerLetter = getGoodAnswerLetter(qData.proposals, qData.answer);
-	const goodAnswerPlayers = getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
+	const goodAnswerPlayers = await getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
 	await tools.editCatch(qMessage, eb[lang].getQuestionEmbed(qData, 0, 4605510));
-	const aMessage = await tools.sendCatch(qMessage.channel, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, messages.getPlayersString(goodAnswerPlayers, lang), 16750869));
+	const playersString = messages.getPlayersString(goodAnswerPlayers, lang);
+	const aMessage = await tools.sendCatch(qMessage.channel, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 16750869));
 	for (var i = 0; i < goodAnswerPlayers.length; i++) { // For each player that answered correctly
 		const user = goodAnswerPlayers[i];
 		const guildID = qMessage.guild.id;
@@ -232,7 +231,7 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 		cache.set(guildID + "score", scoreTable);
 	}
 	await delay(aDelay); // Wait x seconds before going to the next question
-	await tools.editCatch(aMessage, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, messages.getPlayersString(goodAnswerPlayers, lang), 4605510));
+	await tools.editCatch(aMessage, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 4605510));
 }
 // ----------------------------------- GAME ----------------------------------- //
 
