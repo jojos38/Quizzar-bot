@@ -31,5 +31,7 @@
 	"channelNotInList": "This channel is not in authorized list.",
 	"channelDeleted": "Channel deleted successfully.",
 	"channelDeletedError": "Error hapenned while deleting the channel.",
-	"error": "Error hapenned, game stopped. This error might be caused by missing permissions or by API malfunction.\nIf you are sure that the permissions are set correctly please try again later or join the support server to get help."
+	"error": "Error hapenned, game stopped. This error might be caused by missing permissions or by API malfunction.\nIf you are sure that the permissions are set correctly please try again later or join the support server to get help.",
+	"score": "score",
+	"victory": "victories"
 }

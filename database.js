@@ -136,7 +136,7 @@ module.exports = {
 					} else {
 						nick = user.username;
 					}
-					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ score : " + user.score + " ] - [ victoires : " + user.won + " ] - **" + nick + "**";
+					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ " + tools.getString("score", lang) + " : " + user.score + " ] - [ " + tools.getString("victory", lang) + " : " + user.won + " ] - **" + nick + "**";
                     userNumber++;
                 }
             }

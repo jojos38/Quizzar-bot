@@ -30,5 +30,8 @@
 	"resettedError": "Une erreur est survenue lors de la suppression des paramètres: aucun paramètre existant.",
 	"channelNotInList": "Ce salon n'est pas dans la liste des channels autorisés.",
 	"channelDeleted": "Le salon a été supprimé avec succés.",
-	"channelDeletedError": "Une erreur est survenue lors de la suppression du salon."
+	"channelDeletedError": "Une erreur est survenue lors de la suppression du salon.",
+	"error": "Une erreur est survenue, la partie a été arrêtée. Cette erreur peut être due à de mauvaises permissions.\nSi vous êtes sûr que les permissions sont correctes vous pouvez rejoindre le serveur de support.",
+	"score": "score",
+	"victory": "victoires"
 }
