@@ -25,6 +25,10 @@ module.exports = {
                 icon_url: logoURL
             },
             fields: [
+				{
+                    name: "**!jlang** [language]",
+                    value: " - **NEW** Change the language of the bot (Languages available: french / english)"
+                },	
                 {
                     name: "**!jplay** [difficulty] [questions amount] or !jp or !jstart",
                     value: " - Start a game\n**Note :** If the questions number is 0 then the game is (almost) infinite"

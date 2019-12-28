@@ -25,6 +25,10 @@ module.exports = {
                 icon_url: logoURL
             },
             fields: [
+			    {
+                    name: "**!jlang** [langue]",
+                    value: " - **NOUVEAU** Change la langue du bot (langues disponibles: french / english)"
+                },		
                 {
                     name: "**!jplay** [difficulté] [nombre de questions] ou !jp ou !jstart",
                     value: " - Démarre une partie\n**Note :** Si le nombre de questions spécifié est 0 alors la partie sera (quasi-)infinie"
