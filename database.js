@@ -3,17 +3,12 @@
 var MongoClient = require('mongodb').MongoClient
 const config = require('./config.json');
 const { database, username, password, ip, port } = require('./dbconfig.json');
-const eb = require('./' + config.lang + '.js');
+const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/embeds/fr.js')};
+const tools = require('./tools.js');
+const logger = require('./logger.js');
 var client;
 var mainDB;
 // -------------------- SOME VARIABLES -------------------- //
-
-
-
-function sendCatch(channel, message) {
-    try { channel.send(message); }
-    catch (error) { console.log(error); }
-}
 
 
 
@@ -26,7 +21,7 @@ module.exports = {
                 if (err) throw err;
                 client = tempClient;
                 mainDB = client.db(database);
-                console.log("Database ready");
+                logger.info("Database ready");
                 resolve();
             });
         });
@@ -40,56 +35,56 @@ module.exports = {
 
 
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
-    resetGuildSettings: function (guildID, guildName, message) {
+    resetGuildSettings: function (guildID, guildName, message, lang) {
         const guildCollection = mainDB.collection(guildID);
         if (guildCollection) {
             guildCollection.drop(function (err, result) {
                 if (!err) {
-                    if (message) sendCatch(message.channel, "Paramètres réinitialisés");
-                    console.log("Deleted collection from server " + guildName);
+                    if (message) tools.sendCatch(message.channel, tools.getString("resetted", lang));
+                    logger.info("Deleted collection from server " + guildName);
                 } else {
-                    if (message) sendCatch(message.channel, "Une erreur est survenue lors de la suppression des paramètres: aucun paramètre existant.");
-                    console.log(err);
+                    if (message) tools.sendCatch(message.channel, tools.getString("resettedError", lang));
+                    logger.error(err);
                 }
             });
         }
     },
 
-    addGuildChannel: function (guild, channelID, message) {
+    addGuildChannel: function (guild, channelID, message, lang) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
         guildCollection.findOne({ channel: channelID }, function (err, result) { // Try to find the channel to add
             if (result) { // If it already exist
-                sendCatch(message.channel, "Ce salon est déjà dans la liste des salons autorisés.");
+                tools.sendCatch(message.channel, tools.getString("alreadyAuthorized", lang));
                 return; // Return if channel already exist
             }
             guildCollection.insertOne({ channel: channelID }, function (err, item) { // Insert channel:4891657867278524898
                 if (!err) {
-                    sendCatch(message.channel, "Le salon a été ajouté avec succés");
-                    console.log("Document { channel:" + channelID + " } inserted successfully");
+                    tools.sendCatch(message.channel, tools.getString("channelAdded", lang));
+                    logger.info("Document { channel:" + channelID + " } inserted successfully");
                 } else {
-                    sendCatch(message.channel, "Une erreur est survenue lors de l'ajout du salon.");
-                    console.log(err);
+                    tools.sendCatch(message.channel, tools.getString("channelAddedError", lang));
+                    logger.error(err);
                 }
             });
         });
     },
 
-    removeGuildChannel: function (guild, channelID, message) {
+    removeGuildChannel: function (guild, channelID, message, lang) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
         guildCollection.findOne({ channel: channelID }, function (err, result) { // Try to find the channel to add
             if (!result) { // If it already exist
-                if (message) sendCatch(message.channel, "Ce salon n'est pas dans la liste des channels autorisés.");
+                if (message) tools.sendCatch(message.channel, tools.getString("channelNotInList", lang));
                 return;
             }
             guildCollection.deleteOne({ channel: channelID }, function (err, item) { // Delete channel:4891654898
                 if (!err) {
-                    if (message) sendCatch(message.channel, "Le salon a été supprimé avec succés");
-                    console.log("Document { channel:" + channelID + " } deleted successfully");
+                    if (message) tools.sendCatch(message.channel, tools.getString("channelDeleted", lang));
+                    logger.info("Document { channel:" + channelID + " } deleted successfully");
                 } else {
-                    if (message) sendCatch(message.channel, "Une erreur est survenue lors de la suppression du salon.");
-                    console.log(err);
+                    if (message) tools.sendCatch(message.channel, tools.getString("channelDeletedError", lang));
+                    logger.error(err);
                 }
             });
         });
@@ -105,10 +100,10 @@ module.exports = {
             if (result) {
                 const finalScore = (newScore + result.score) || newScore;
                 const finalWon = (wonGame + result.won) || wonGame;
-				console.log("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
+				logger.info("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
                 guildCollection.updateOne(userToFind, { $set: { id: userID, score: finalScore, won: finalWon } });
             } else {
-				console.log("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
+				logger.info("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
                 guildCollection.insertOne({ id: userID, username: username, score: newScore, won: wonGame });
             }
         });
@@ -125,7 +120,7 @@ module.exports = {
         });
     },
 
-    getTop: function (guild, message) {
+    getTop: function (guild, message, lang) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
         guildCollection.find({}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
@@ -146,9 +141,9 @@ module.exports = {
                 }
             }
             if (statsTable.length == 0) {
-                usersString = "Aucune donnée de statistiques";
+                usersString = tools.getString("noStats", lang);
             }
-            try { message.channel.send(eb.getTopEmbed(usersString)) } catch (error) { console.log(error); }
+            tools.sendCatch(message.channel, eb[lang].getTopEmbed(usersString));
         });
     },
 
