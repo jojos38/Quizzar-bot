@@ -101,9 +101,9 @@ function getRandomQuestionAPI(difficulty) {
 }
 
 function getGoodAnswerLetter(proposals, goodAnswer) {
-	logger.info(goodAnswer);
     for (var i = 0; i < proposals.length; i++) { // For each answer
         if (proposals[i] == goodAnswer) { // If good answer
+			logger.debug(reactionsTable[i]);
             return reactionsTable[i];
         }
     }
@@ -111,6 +111,7 @@ function getGoodAnswerLetter(proposals, goodAnswer) {
 }
 
 function getGoodAnswerPlayers(message, proposals, goodAnswer) {
+	console.log(message.reactions.get(reaction).users);
     try {
         var badAnswerUsers = new Map();
         var goodAnswerUsers = new Map();
