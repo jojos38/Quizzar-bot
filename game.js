@@ -77,21 +77,23 @@ function getRandomQuestionAPI(difficulty) {
 			if (err) { reject(err); return; }
 			if (!json.results[0]) { reject("Error"); return; }
 			const result = json.results[0];
-			const proposals = [
-				entities.decode(result.correct_answer),
+			const answer = entities.decode(result.correct_answer);
+			var proposals = [
+				answer,
 				entities.decode(result.incorrect_answers[0]),
 				entities.decode(result.incorrect_answers[1]),
 				entities.decode(result.incorrect_answers[2])
 			];
+			proposals = tools.shuffle(proposals);
 			const qData = {
 				theme: result.category,
 				difficulty: result.difficulty,
 				question: entities.decode(result.question),
 				proposals: proposals,
-				answer: result.correct_answer,
+				answer: answer,
 				anecdote: "",
 				points: difficulty
-			};	
+			};
 			resolve(qData);
 			return;
 		});
@@ -151,9 +153,9 @@ async function startGame(message, difficulty, qAmount, lang) {
     logger.info("Questions delay:" + qDelay);
     logger.info("Answers delay: " + aDelay);
 	logger.info("Questions amount: " + qAmount);
-	await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));	
+	await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));
     for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
-        logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");    		
+        logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
 		try {
 			// It asks question and gives answser
 			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang);
@@ -197,7 +199,9 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 		qData['qNumber'] = qNumber;
 		qData['qAmount'] = qAmount;
 	}
+
 	if (!qData) throw ("No question found");
+
 	logger.info("Answer: " + qData.answer);
 	const qMessage = await tools.sendCatch(channel, eb[lang].getQuestionEmbed(qData, qDelay / 1000, colors[qData.points]));
 	if (!qMessage) throw new Error("Error: can't send question message");
@@ -250,7 +254,7 @@ module.exports = {
             tools.sendCatch(channel, eb[lang].getWrongPlayerStopEmbed());
         }
     },
-
+	
 	stopAll: function (client) {
 		return new Promise(async function (resolve, reject) {
 			cache.set("stopscheduled", 1);
@@ -278,7 +282,7 @@ module.exports = {
         const channel = message.channel;
 		var questionsAmount;
 		var difficulty;
-
+		
 		if (cache.get("stopscheduled") == 1) { // If no stop scheduled
 			tools.sendCatch(channel, "Une maintenance est prévue, merci de réessayer un peu plus tard.");
 			return;
@@ -296,7 +300,7 @@ module.exports = {
 		else { // Mean it's null
 			difficulty = args[1] || await db.getSetting(guild, "defaultdifficulty") || 0;
 		}
-
+		
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
 		if ((args[2] < 1 || args[2] > 100 || !tools.isInt(args[2]) && args[2] != null) && args[2] != 0) {
 			tools.sendCatch(channel, eb[lang].getBadQuesEmbed());
