@@ -146,8 +146,8 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 async function startGame(message, difficulty, qAmount, lang) {
     const channel = message.channel;
     const guildID = message.guild.id;
-    const qDelay = await db.getSetting(message.guild, "questiondelay");
-    const aDelay = await db.getSetting(message.guild, "answerdelay");
+    const qDelay = await db.getSetting(guildID, "questiondelay");
+    const aDelay = await db.getSetting(guildID, "answerdelay");
 	logger.info("Server: " + message.guild.name);
     logger.info("Questions delay:" + qDelay);
     logger.info("Answers delay: " + aDelay);
@@ -223,7 +223,7 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 		const guildID = qMessage.guild.id;
 		const userID = user.id;
 		// DATABASE
-		db.updateUserStats(qMessage.guild, user, qData.points, 0); // Set user points number
+		db.updateUserStats(qMessage.guild.id, user.id, user.username, qData.points, 0); // Set user points number
 		// CACHE
 		var scoreTable = cache.get(guildID + "score");
 		const userScore = scoreTable.get(userID) || 0;
@@ -298,7 +298,7 @@ module.exports = {
             return;
 		}
 		else { // Mean it's null
-			difficulty = args[1] || await db.getSetting(guild, "defaultdifficulty") || 0;
+			difficulty = args[1] || await db.getSetting(guild.id, "defaultdifficulty") || 0;
 		}
 		
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
@@ -307,7 +307,7 @@ module.exports = {
             return;
 		}
 		else { // Mean it's null
-			questionsAmount = args[2] || await db.getSetting(guild, "defaultquestionsamount") || 10;
+			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultquestionsamount") || 10;
 			if (questionsAmount == 0) {
 				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
 			}
