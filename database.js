@@ -79,15 +79,15 @@ module.exports = {
         const guildCollection = mainDB.collection(channel.guild.id);
         guildCollection.findOne({ channel: channelID }, function (err, result) { // Try to find the channel to add
             if (!result) { // If channel doesn't exist
-                tools.sendCatch(channel, tools.getString("channelNotInList", lang));
+                if (!channel.deleted) tools.sendCatch(channel, tools.getString("channelNotInList", lang));
                 return;
             }
             guildCollection.deleteOne({ channel: channelID }, function (err, item) { // Delete channel:4891654898
                 if (!err) {
-                    tools.sendCatch(channel, tools.getString("channelDeleted", lang));
+                    if (!channel.deleted) tools.sendCatch(channel, tools.getString("channelDeleted", lang));
                     logger.info("Document { channel:" + channelID + " } deleted successfully");
                 } else {
-                    tools.sendCatch(channel, tools.getString("channelDeletedError", lang));
+                    if (!channel.deleted) tools.sendCatch(channel, tools.getString("channelDeletedError", lang));
                     logger.error(err);
                 }
             });
