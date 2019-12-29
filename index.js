@@ -27,14 +27,13 @@ function channelsString(channels, lang) {
 
 async function isAllowed(message, admin, lang) {
 	if (!message) return false;
-	const member = message.member || message.guild.member(message.author);
-	if (!member) return false;
-	
-	// Owner perms
+	const guild = message.guild;
+	const channel = message.channel;
+	const channels = await db.getGuildChannels(guild);
+	const author = message.member || message.guild.member(message.author);
 	if (message.author.id == 137239068567142400) return true;
-
-	// Admin perms
-	if (member.hasPermission("MANAGE_GUILD")) {
+	if (!author) return false;
+	if (message.member.hasPermission("MANAGE_GUILD")) {
 		return true;
 	} else {
 		if (admin) {
@@ -42,30 +41,22 @@ async function isAllowed(message, admin, lang) {
 			return false;
 		}
 	}
-	
-	// Channel perms
-	const channels = await db.getGuildChannels(message.guild.id);
-	const channelID = message.channel.id;
 	for (var i = 0; i < channels.length; i++) { // For each channel
 		// If message is sent from allowed channel then return
-		if (channels[i].channel == channelID) return true;
+		if (channels[i].channel == channel.id) return true;
 	}
-	
 	// If we went there is that the user is not allowed since previous for loop should return
-	tools.sendCatch(message.channel, eb[lang].getNotAllowedEmbed(channelsString(channels, lang)));
+	tools.sendCatch(channel, eb[lang].getNotAllowedEmbed(channelsString(channels, lang)));
 	return false;
 }
 
 function initSettings(guild) {
-	var guildID = guild.id;
-	var guildName = guild.name;
-	db.setServerName(guildID, guildName);
-	db.setSetting(guildID, "questiondelay", 15000);
-	db.setSetting(guildID, "answerdelay", 5000);
-	db.setSetting(guildID, "defaultquestionsamount", 10);
-	db.setSetting(guildID, "defaultdifficulty", 0);
-	db.setSetting(guildID, "lang", "en");
-	logger.info("Initialized server " + guildName);
+	db.setServerName(guild, guild.name);
+	db.setSetting(guild, "questiondelay", 15000);
+	db.setSetting(guild, "answerdelay", 5000);
+	db.setSetting(guild, "defaultquestionsamount", 10);
+	db.setSetting(guild, "defaultdifficulty", 0);
+	db.setSetting(guild, "lang", "en");
 }
 
 async function exitHandler(options, exitCode) {
@@ -104,7 +95,7 @@ dbl.on('error', e => {
 })
 
 client.on("channelDelete", function (channel) {
-    db.removeGuildChannel(channel, "en");
+    db.removeGuildChannel(channel.guild, channel.id);
 });
 
 client.on("guildCreate", guild => {
@@ -124,63 +115,71 @@ client.on('message', async function (message) {
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
     const channel = message.channel;
     const guild = message.guild;
-	const lang = await db.getSetting(guild.id, "lang");
+	const lang = await db.getSetting(guild, "lang");
 
-    if (messageContent.startsWith(`${prefix}jclean`)) { // jclean [OWNER]
+    if (messageContent.startsWith(`${prefix}jclean`)) { // jadd [ADMIN]
         if (message.author.id == 137239068567142400) {
             const guilds = client.guilds;
 			const dbguilds = await db.getAllServers();
-			for (var entry of dbguilds) {
-				var dbGuildID = entry.name;
-				if (guilds.get(dbGuildID))
-					logger.debug("Server " + dbGuildID + " exist");
-				else
-					db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
+			for (var i = 0; i < dbguilds.length; i++) {
+				var dbServerID = dbguilds[i].name;
+				if (guilds.get(dbServerID)) {
+					logger.debug("Server " + dbServerID + " exist");
+				} else {
+					db.resetGuildSettings(dbServerID, dbServerID, null, null);
+					logger.debug("Deleted server " + dbServerID);
+				}
 			}
         }
     }
 
-	if (messageContent.startsWith(`${prefix}jrestore`)) { // jrestore [OWNER]
+	if (messageContent.startsWith(`${prefix}jrestore`)) { // jadd [ADMIN]
         if (message.author.id == 137239068567142400) {
             const guilds = client.guilds;
 			const tempdbguilds = await db.getAllServers();
 			var dbguilds = [];
-			for (var entry of tempdbguilds) {
-				dbguilds[entry.name] = true;
+			for (var i = 0; i < tempdbguilds.length; i++) {
+				dbguilds[tempdbguilds[i].name] = true;
 			}
-			for (var id of guilds.keys()) {
-					if (dbguilds[id]) {
-					logger.debug("Server " + id + " exist in database");
+			let it = guilds.keys();
+			let result = it.next();
+			while (!result.done) {
+				if (dbguilds[result.value]) {
+					logger.debug("Server " + result.value + " exist in database");
 				} else {
-					const tempGuild = guilds.get(id);
-					initSettings(tempGuild);
+					const guild = guilds.get(result.value);
+					initSettings(guild);
+					logger.debug("Initialized server " + guild.id);
 				}
+				result = it.next();
 			}
 		}
     }
 
     if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
         if (await isAllowed(message, true, lang)) {
-            db.addGuildChannel(channel, lang);
+            const channelID = channel.id;
+            db.addGuildChannel(guild, channelID, message, lang);
         }
     }
 
     else if (messageContent.startsWith(`${prefix}jremove`)) { // jremove [ADMIN]
         if (await isAllowed(message, true, lang)) {
-            db.removeGuildChannel(channel, lang);
+            const channelID = channel.id;
+            db.removeGuildChannel(guild, channelID, message, lang);
         }
     }
 
     else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
         if (await isAllowed(message, true, lang)) {
-            await db.resetGuildSettings(guild.id, guild.name, channel, lang);
+            await db.resetGuildSettings(guild.id, guild.name, message, lang);
 			initSettings(guild);
         }
     }
 
     else if (messageContent.startsWith(`${prefix}jchannels`)) { // jremove [ADMIN]
         if (await isAllowed(message, true, lang)) {
-            const channels = await db.getGuildChannels(guild.id)
+            const channels = await db.getGuildChannels(guild)
 			tools.sendCatch(channel, channelsString(channels, lang));
         }
     }
@@ -194,7 +193,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jdelayq`)) { // jdelayquestion [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 1800000 && args[1] >= 2500 && tools.isInt(args[1])) {
-                db.setSetting(guild.id, "questiondelay", args[1]);
+                db.setSetting(guild, "questiondelay", args[1]);
                 tools.sendCatch(channel, tools.getString("questionDelaySet", lang, {delay:args[1]}));
             } else {
                 tools.sendCatch(channel, tools.getString("questionDelayError", lang));
@@ -205,7 +204,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jdelaya`)) { // jdelayanswer [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 50000 && args[1] >= 500 && tools.isInt(args[1])) {
-                db.setSetting(guild.id, "answerdelay", args[1]);
+                db.setSetting(guild, "answerdelay", args[1]);
 				tools.sendCatch(channel, tools.getString("answerDelaySet", lang, {delay:args[1]}));
             } else {
                 tools.sendCatch(channel, tools.getString("answerDelayError", lang));
@@ -216,7 +215,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jdefd`)) { // jdefaultdifficulty [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 3 && args[1] >= 0 && tools.isInt(args[1])) {
-                db.setSetting(guild.id, "defaultdifficulty", args[1]);
+                db.setSetting(guild, "defaultdifficulty", args[1]);
 				tools.sendCatch(channel, tools.getString("difficultySet", lang, {difficulty:args[1]}));
             } else {
                 tools.sendCatch(channel, tools.getString("difficultyError", lang));
@@ -227,7 +226,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jdefq`)) { // jdefaultquestions [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 100 && args[1] >= 1 && tools.isInt(args[1])) {
-                db.setSetting(guild.id, "defaultquestionsamount", args[1]);
+                db.setSetting(guild, "defaultquestionsamount", args[1]);
 				tools.sendCatch(channel, tools.getString("questionsAmountSet", lang, {amount:args[1]}));
             } else {
                 tools.sendCatch(channel, tools.getString("questionsAmountError", lang));
@@ -240,7 +239,7 @@ client.on('message', async function (message) {
 			if (!args[1]) return;
 			const tempLang = args[1].substring(0, 2);
             if (tempLang == "fr" || tempLang == "en") {
-                db.setSetting(guild.id, "lang", tempLang);
+                db.setSetting(guild, "lang", tempLang);
 				tools.sendCatch(channel, tools.getString("langSet", lang, {lang:tempLang}));
             } else {
 				tools.sendCatch(channel, tools.getString("langError", lang, {lang:tempLang, langs:tools.getLocales()}));
@@ -294,18 +293,19 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jstats`)) { // jstats
         if (await isAllowed(message, false, lang)) {
-            const userStats = await db.getUserStats(guild.id, message.author.id);
-			if (userStats) {
-				tools.sendCatch(channel, eb[lang].getUserStatsEmbed(userStats));
-			} else {
-				tools.sendCatch(channel, eb[lang].getNoStatsEmbed());
-			}
+            db.getUserStats(guild, message).then(function (userStats) {
+                if (userStats) {
+                    tools.sendCatch(channel, eb[lang].getUserStatsEmbed(userStats));
+                } else {
+                    tools.sendCatch(channel, eb[lang].getNoStatsEmbed());
+                }
+            });
         }
     }
 
     else if (messageContent.startsWith(`${prefix}jtop`)) { // jtop
         if (await isAllowed(message, false, lang)) {
-            db.getTop(guild, channel, lang);
+            db.getTop(guild, message, lang);
         }
     }
 })
