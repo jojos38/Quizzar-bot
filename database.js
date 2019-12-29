@@ -15,9 +15,9 @@ var mainDB;
 module.exports = {
     // ------------------------------------- INIT AND CLOSE ------------------------------------- //
     init: function () {
-        return new Promise(async function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
             const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database + '?authSource=admin';
-            MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 }, async function (err, tempClient) {
+            MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 }, function (err, tempClient) {
                 if (err) throw err;
                 client = tempClient;
                 mainDB = client.db(database);
@@ -26,130 +26,124 @@ module.exports = {
             });
         });
     },
-
+	
     close: function () {
         client.close();
+		logger.info("Database closed");
     },
     // ------------------------------------- INIT AND CLOSE ------------------------------------- //
 
 
 
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
-    resetGuildSettings: function (guildID, guildName, message, lang) {
-        const guildCollection = mainDB.collection(guildID);
-        if (guildCollection) {
-            guildCollection.drop(function (err, result) {
-                if (!err) {
-                    if (message) tools.sendCatch(message.channel, tools.getString("resetted", lang));
-                    logger.info("Deleted collection from server " + guildName);
-                } else {
-                    if (message) tools.sendCatch(message.channel, tools.getString("resettedError", lang));
-                    logger.error(err);
-                }
-            });
-        }
+    resetGuildSettings: function (guildID, guildName, channel, lang) {
+		return new Promise(function (resolve, reject) {
+			const guildCollection = mainDB.collection(guildID);
+			if (guildCollection) {
+				guildCollection.drop(function (err, result) {
+					if (!err) {
+						if (channel) tools.sendCatch(channel, tools.getString("resetted", lang));
+						logger.info("Deleted collection from server " + guildName);
+						resolve();
+					} else {
+						if (channel) tools.sendCatch(channel, tools.getString("resettedError", lang));
+						reject(err);
+					}
+				});
+			}
+		});
     },
 
-    addGuildChannel: function (guild, channelID, message, lang) {
-        const guildID = guild.id;
-        const guildCollection = mainDB.collection(guildID);
+    addGuildChannel: function (channel, lang) {
+		const channelID = channel.id;
+        const guildCollection = mainDB.collection(channel.guild.id);
         guildCollection.findOne({ channel: channelID }, function (err, result) { // Try to find the channel to add
             if (result) { // If it already exist
-                tools.sendCatch(message.channel, tools.getString("alreadyAuthorized", lang));
+                tools.sendCatch(channel, tools.getString("alreadyAuthorized", lang));
                 return; // Return if channel already exist
             }
             guildCollection.insertOne({ channel: channelID }, function (err, item) { // Insert channel:4891657867278524898
                 if (!err) {
-                    tools.sendCatch(message.channel, tools.getString("channelAdded", lang));
+                    tools.sendCatch(channel, tools.getString("channelAdded", lang));
                     logger.info("Document { channel:" + channelID + " } inserted successfully");
                 } else {
-                    tools.sendCatch(message.channel, tools.getString("channelAddedError", lang));
+                    tools.sendCatch(channel, tools.getString("channelAddedError", lang));
                     logger.error(err);
                 }
             });
         });
     },
 
-    removeGuildChannel: function (guild, channelID, message, lang) {
-        const guildID = guild.id;
-        const guildCollection = mainDB.collection(guildID);
+    removeGuildChannel: function (channel, lang) {
+        const channelID = channel.id;
+        const guildCollection = mainDB.collection(channel.guild.id);
         guildCollection.findOne({ channel: channelID }, function (err, result) { // Try to find the channel to add
-            if (!result) { // If it already exist
-                if (message) tools.sendCatch(message.channel, tools.getString("channelNotInList", lang));
+            if (!result) { // If channel doesn't exist
+                tools.sendCatch(channel, tools.getString("channelNotInList", lang));
                 return;
             }
             guildCollection.deleteOne({ channel: channelID }, function (err, item) { // Delete channel:4891654898
                 if (!err) {
-                    if (message) tools.sendCatch(message.channel, tools.getString("channelDeleted", lang));
+                    tools.sendCatch(channel, tools.getString("channelDeleted", lang));
                     logger.info("Document { channel:" + channelID + " } deleted successfully");
                 } else {
-                    if (message) tools.sendCatch(message.channel, tools.getString("channelDeletedError", lang));
+                    tools.sendCatch(channel, tools.getString("channelDeletedError", lang));
                     logger.error(err);
                 }
             });
         });
     },
 
-    updateUserStats: function (guild, user, newScore, wonGame) {
-        const userID = user.id;
-        const username = user.username;
-        const guildID = guild.id;
+    updateUserStats: function (guildID, userID, username, addedScore, addedWon) {
         const guildCollection = mainDB.collection(guildID);
         const userToFind = { id: userID };
         guildCollection.findOne(userToFind, function (err, result) {
             if (result) {
-                const finalScore = (newScore + result.score) || newScore;
-                const finalWon = (wonGame + result.won) || wonGame;
+                const finalScore = (addedScore + result.score) || addedScore;
+                const finalWon = (addedWon + result.won) || addedWon;
 				logger.info("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
                 guildCollection.updateOne(userToFind, { $set: { id: userID, score: finalScore, won: finalWon } });
             } else {
-				logger.info("Added user " + username + " [Score: 0 => " + newScore + ", " + "Won: 0 => " + wonGame + "]");
-                guildCollection.insertOne({ id: userID, username: username, score: newScore, won: wonGame });
+				logger.info("Added user " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
+                guildCollection.insertOne({ id: userID, username: username, score: addedScore, won: addedWon });
             }
         });
     },
 
-    getUserStats: function (guild, message) {
+    getUserStats: function (guildID, userID) {
         return new Promise(async function (resolve, reject) {
-            const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
-            const userID = message.author.id;
             guildCollection.findOne({ id: userID }, function (err, userStats) {
                 resolve(userStats);
             });
         });
     },
 
-    getTop: function (guild, message, lang) {
+    getTop: function (guild, channel, lang) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
         guildCollection.find({}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
             var userNumber = 1;
-            var usersString = "";
-            for (var i = 0; i < statsTable.length; i++) {
-                if (statsTable[i].id != null) {
-                    var user = statsTable[i];
+            var usersString = "";	
+			for (user in statsTable) {
+				if (user.id != null) {
                     if (userNumber > 10) break;
 					var nick;
-					if (guild.members.get(user.id)) {
-						nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
-					} else {
-						nick = user.username;
-					}
+					if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+					else nick = user.username;
 					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ " + tools.getString("score", lang) + " : " + user.score + " ] - [ " + tools.getString("victory", lang) + " : " + user.won + " ] - **" + nick + "**";
                     userNumber++;
                 }
-            }
+			}
             if (statsTable.length == 0) {
                 usersString = tools.getString("noStats", lang);
             }
-            tools.sendCatch(message.channel, eb[lang].getTopEmbed(usersString));
+            tools.sendCatch(channel, eb[lang].getTopEmbed(usersString));
         });
     },
 
-    getGuildChannels: function (guild) {
+    getGuildChannels: function (guildID) {
         return new Promise(function (resolve, reject) {
-            const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
             guildCollection.find({}, { projection: { _id: 0, channel: 1 } }).toArray(function (err, result) {
                 if (err) throw err;
@@ -158,9 +152,8 @@ module.exports = {
         });
     },
 
-    setSetting: function (guild, settingName, value) {
+    setSetting: function (guildID, settingName, value) {
         return new Promise(async function (resolve) {
-            const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
             const settingToFind = { setting: settingName };
             guildCollection.findOne(settingToFind, function (err, result) {
@@ -175,9 +168,8 @@ module.exports = {
         });
     },
 
-    getSetting: function (guild, settingName) {
+    getSetting: function (guildID, settingName) {
         return new Promise(async function (resolve, reject) {
-            const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
             guildCollection.findOne({ setting: settingName }, function (err, setting) {
                 if (setting) {
@@ -197,9 +189,8 @@ module.exports = {
 		});
     },
 	
-	setServerName: function (guild, serverName) {
+	setServerName: function (guildID, serverName) {
         return new Promise(async function (resolve) {
-            const guildID = guild.id;
             const guildCollection = mainDB.collection(guildID);
             const nameToFind = { name: serverName };
             guildCollection.findOne(nameToFind, function (err, result) {
