@@ -271,9 +271,9 @@ client.on('message', async function (message) {
         if (await isAllowed(message, false, lang)) {
             var servers = client.guilds;
 			var users = 0;
-			for (var key of servers.keys()) {
-				users += servers.get(key).members.size;
-			}		
+			client.guilds.forEach(g => {
+			  users += g.memberCount;
+			})	
 			var uptime = process.uptime();
             tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers.size, tools.format(uptime)));
         }
