@@ -30,15 +30,15 @@ async function isAllowed(message, admin, lang) {
 	if (!member) return false;
 	
 	// Owner perms
-	//if (message.author.id == 137239068567142400) return true;
+	if (message.author.id == 137239068567142400) return true;
 
 	// Admin perms
 	if (member.hasPermission("MANAGE_GUILD")) {
-		//return true;
+		return true;
 	} else {
 		if (admin) {
 			tools.sendCatch(channel, tools.getString("noPermission", lang));
-			//return false;
+			return false;
 		}
 	}
 	
