@@ -1,7 +1,7 @@
 {
     "langSet":"Langage défini sur {{lang}}",
 	"langError": "Le langage {{lang}} n'existe pas.\nListe des langages existants: {{langs}}",
-	"noPermission": "Il semblerait que tu n'ais pas la permission de faire cela.",
+	"noPermission": "Il semblerait que tu n'aies pas la permission de faire cela.",
 	"noChannel": "Aucun channel n'a été ajouté.",
 	"thanks": "Merci d'utiliser Quizzar ! Tapez !jhelp dans n'importe quel channel de votre serveur pour voir la liste des commandes.",
 	"questionDelaySet": "Le délai pour répondre à une question a été défini sur {{delay}} ms",
