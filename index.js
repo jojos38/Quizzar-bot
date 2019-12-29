@@ -37,7 +37,7 @@ async function isAllowed(message, admin, lang) {
 		return true;
 	} else {
 		if (admin) {
-			tools.sendCatch(channel, tools.getString("noPermission", lang));
+			tools.sendCatch(message.channel, tools.getString("noPermission", lang));
 			return false;
 		}
 	}

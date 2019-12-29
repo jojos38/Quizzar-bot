@@ -62,17 +62,17 @@ module.exports = {
 	
 	sendCatch: async function(channel, message) {
 		try { return await channel.send(message); }
-		catch (error) { logger.error(error); }
+		catch (error) { logger.error("Error while sending message"); logger.error(error); return null; }
 	},
 	
 	editCatch: async function(message, newContent) {
 		try { await message.edit(newContent); }
-		catch (error) { logger.error("Error while editing message"); }
+		catch (error) { logger.error("Error while editing message"); logger.error(error); }
 	},
 	
 	reactCatch: async function(message, reaction) {
 		try { await message.react(reaction); return true;}
-		catch (error) { logger.error("Error while reaction to message"); return false;}
+		catch (error) { logger.error("Error while reacting to message"); logger.error(error); return false;}
 	}
 	
 }
