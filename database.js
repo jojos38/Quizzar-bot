@@ -122,19 +122,17 @@ module.exports = {
     getTop: function (guild, channel, lang) {
         const guildID = guild.id;
         const guildCollection = mainDB.collection(guildID);
-        guildCollection.find({}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
-            var userNumber = 1;
+        guildCollection.find({username: {$exists: true}}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
+			var userNumber = 1;
             var usersString = "";	
-			statsTable.forEach(user => {
-				if (user.id != null) {
-                    if (userNumber > 10) return;
-					var nick;
-					if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
-					else nick = user.username;
-					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ " + tools.getString("score", lang) + " : " + user.score + " ] - [ " + tools.getString("victory", lang) + " : " + user.won + " ] - **" + nick + "**";
-                    userNumber++;
-                }
-			});
+			for (var i = 0; i < statsTable.length; i++) {
+				if (i > 10) break;
+				var user = statsTable[i];
+				var nick;
+				if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+				else nick = user.username;
+				usersString = usersString + "\n" + "**[ " + i + " ]** - [ " + tools.getString("score", lang) + " : " + user.score + " ] - [ " + tools.getString("victory", lang) + " : " + user.won + " ] - **" + nick + "**";
+			}
             if (statsTable.length == 0) {
                 usersString = tools.getString("noStats", lang);
             }
@@ -145,7 +143,7 @@ module.exports = {
     getGuildChannels: function (guildID) {
         return new Promise(function (resolve, reject) {
             const guildCollection = mainDB.collection(guildID);
-            guildCollection.find({}, { projection: { _id: 0, channel: 1 } }).toArray(function (err, result) {
+            guildCollection.find({channel: {$exists: true}}, { projection: { _id: 0, channel: 1 } }).toArray(function (err, result) {
                 if (err) throw err;
                 resolve(result);
             });

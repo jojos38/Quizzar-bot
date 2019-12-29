@@ -18,8 +18,7 @@ const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/em
 function channelsString(channels, lang) {
 	var channelsString = "";
 	for (var i = 0; i < channels.length; i++) { // For each channel
-		if (channels[i].channel)
-			channelsString = channelsString + "\n" + tools.mention(channels[i].channel, 'c');
+		channelsString = channelsString + "\n" + tools.mention(channels[i].channel, 'c');
 	}
 	if (channelsString == "") channelsString = tools.getString("noChannel", lang);
 	return channelsString;
@@ -31,15 +30,15 @@ async function isAllowed(message, admin, lang) {
 	if (!member) return false;
 	
 	// Owner perms
-	if (message.author.id == 137239068567142400) return true;
+	//if (message.author.id == 137239068567142400) return true;
 
 	// Admin perms
 	if (member.hasPermission("MANAGE_GUILD")) {
-		return true;
+		//return true;
 	} else {
 		if (admin) {
 			tools.sendCatch(channel, tools.getString("noPermission", lang));
-			return false;
+			//return false;
 		}
 	}
 	
