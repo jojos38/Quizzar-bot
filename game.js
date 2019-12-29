@@ -148,11 +148,13 @@ async function startGame(message, difficulty, qAmount, lang) {
     const guildID = message.guild.id;
     const qDelay = await db.getSetting(guildID, "questiondelay");
     const aDelay = await db.getSetting(guildID, "answerdelay");
-	logger.info("Server: " + message.guild.name);
-    logger.info("Questions delay:" + qDelay);
+    logger.info("-------------- NEW GAME --------------");
+    logger.info("Server: " + message.guild.name);
+    logger.info("Questions delay: " + qDelay);
     logger.info("Answers delay: " + aDelay);
-	logger.info("Questions amount: " + qAmount);
-	await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));
+    logger.info("Questions amount: " + qAmount);
+    logger.info("Language: " + lang);
+    await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));
     for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
 		try {
