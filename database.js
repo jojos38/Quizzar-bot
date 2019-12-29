@@ -125,16 +125,16 @@ module.exports = {
         guildCollection.find({}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } }).sort({ score: -1 }).toArray(function (err, statsTable) {
             var userNumber = 1;
             var usersString = "";	
-			for (user in statsTable) {
+			statsTable.forEach(user => {
 				if (user.id != null) {
-                    if (userNumber > 10) break;
+                    if (userNumber > 10) return;
 					var nick;
 					if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
 					else nick = user.username;
 					usersString = usersString + "\n" + "**[ " + userNumber + " ]** - [ " + tools.getString("score", lang) + " : " + user.score + " ] - [ " + tools.getString("victory", lang) + " : " + user.won + " ] - **" + nick + "**";
                     userNumber++;
                 }
-			}
+			});
             if (statsTable.length == 0) {
                 usersString = tools.getString("noStats", lang);
             }
