@@ -269,11 +269,13 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
         if (await isAllowed(message, false, lang)) {
-            var users = client.users.size;
-            var servers = client.guilds.size;
+            var servers = client.guilds;
+			var users = 0;
+			for (var key of servers.keys()) {
+				users += servers.get(key).members.size;
+			}		
 			var uptime = process.uptime();
-			
-            tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers, tools.format(uptime)));
+            tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers.size, tools.format(uptime)));
         }
     }
 
