@@ -131,7 +131,7 @@ module.exports = {
 				var nick;
 				if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
 				else nick = user.username;
-				usersString = usersString + "\n" + "**[ " + i + " ]** [ " + tools.getString("score", lang) + ": " + user.score + " ] [ " + tools.getString("victory", lang) + ": " + user.won + " ] **" + nick + "**";
+				usersString = usersString + "\n" + "**[ " + i + " ]** [" + tools.getString("score", lang) + ": " + user.score + "] [" + tools.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 			}
             if (statsTable.length == 0) {
                 usersString = tools.getString("noStats", lang);
