@@ -277,7 +277,7 @@ client.on('message', async function (message) {
 				if (templang == "en") en++;
 				var members = g[1].memberCount;
 				users += members;
-				logger.debug("[" + g[0] + "] " + g[1].name + " (" + members + " users) (" + templang + ")");
+				logger.debug("[" + g[0] + "] (" + templang + ") (" + members + "u) " + g[1].name);
 			}
 			var ratioEN = (en / servers.size * 100).toFixed(2);
 			var ratioFR = (100-ratioEN).toFixed(2);
