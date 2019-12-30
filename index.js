@@ -279,10 +279,11 @@ client.on('message', async function (message) {
 				users += members;
 				logger.debug("[" + g[0] + "] " + g[1].name + " (" + members + " users) (" + templang + ")");
 			}
-			var ratio = en / servers.size * 100;
+			var ratioEN = (en / servers.size * 100).toFixed(2);
+			var ratioFR = (100-ratioEN).toFixed(2);
 			logger.debug("Total users: " + users);
 			logger.debug("Total servers: " + servers.size);
-			logger.debug("English:" + ratio + "% (" + en + ") French:" + (100-ratio) + "% (" + (servers.size-en) + ")"); 
+			logger.debug("English:" + ratioEN + "% (" + en + ") French:" + ratioFR + "% (" + (servers.size-en) + ")"); 
         }
     }
 	
