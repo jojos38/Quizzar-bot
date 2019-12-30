@@ -149,7 +149,7 @@ async function startGame(message, difficulty, qAmount, lang) {
     const qDelay = await db.getSetting(guildID, "questiondelay");
     const aDelay = await db.getSetting(guildID, "answerdelay");
     logger.info("-------------- NEW GAME --------------");
-    logger.info("Server: " + message.guild.name);
+    logger.info("Server: " + message.guild.name + " (" + message.guild.memberCount + " users)");
     logger.info("Questions delay: " + qDelay);
     logger.info("Answers delay: " + aDelay);
     logger.info("Questions amount: " + qAmount);
