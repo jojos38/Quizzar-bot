@@ -234,7 +234,7 @@ client.on('message', async function (message) {
         }
     }
 	
-	else if (messageContent.startsWith(`${prefix}jlang`)) { // jdefaultquestions [ADMIN]
+	else if (messageContent.startsWith(`${prefix}jlang`)) { // jlang [ADMIN]
         if (await isAllowed(message, true, lang)) {
 			if (!args[1]) return;
 			const tempLang = args[1].substring(0, 2);
@@ -267,7 +267,26 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
+    else if (messageContent.startsWith(`${prefix}jls`)) { // jls [OWNER]
+        if (message.author.id == 137239068567142400) {
+            var servers = client.guilds;
+			var users = 0;
+			var en = 0;
+			for (var g of servers) {
+				var templang = await db.getSetting(g[0], "lang");
+				if (templang == "en") en++;
+				var members = g[1].memberCount;
+				users += members;
+				logger.debug("[" + g[0] + "] " + g[1].name + " (" + members + " users) (" + templang + ")");
+			}
+			var ratio = en / servers.size * 100;
+			logger.debug("Total users: " + users);
+			logger.debug("Total servers: " + servers.size);
+			logger.debug("English:" + ratio + "% (" + en + ") French:" + (100-ratio) + "% (" + (servers.size-en) + ")"); 
+        }
+    }
+	
+	else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
         if (await isAllowed(message, false, lang)) {
             var servers = client.guilds;
 			var users = 0;
