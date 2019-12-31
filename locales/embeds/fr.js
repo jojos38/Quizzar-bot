@@ -28,7 +28,7 @@ module.exports = {
 			    {
                     name: "**!jlang** [langue]",
                     value: " - **NOUVEAU** Change la langue du bot (langues disponibles: french / english)"
-                },		
+                },
                 {
                     name: "**!jplay** [difficulté] [nombre de questions] ou !jp ou !jstart",
                     value: " - Démarre une partie\n**Note :** Si le nombre de questions spécifié est 0 alors la partie sera (quasi-)infinie"
@@ -75,8 +75,8 @@ module.exports = {
         const embedTable = { 0: embed1, 1: embed2 };
         return embedTable;
     },
-	
-	
+
+
     getInfoEmbed: function (users, servers, uptime) {
         const embed = new Discord.RichEmbed({
 			author: {
@@ -85,7 +85,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot crée par jojos38",
-			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/E8xrPh4",
+			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/DXpb9DN",
 			fields: [
 			  {
 				name: "Serveurs",
@@ -106,8 +106,8 @@ module.exports = {
         });
         return embed;
     },
-	
-	
+
+
     getDifEmbed: function () {
         const embed = new Discord.RichEmbed({
             color: orange,
