@@ -123,6 +123,7 @@ client.on('message', async function (message) {
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
     const channel = message.channel;
     const guild = message.guild;
+	if (!guild) return;
 	const lang = await db.getSetting(guild.id, "lang");
 
     if (messageContent.startsWith(`${prefix}jclean`)) { // jclean [OWNER]
