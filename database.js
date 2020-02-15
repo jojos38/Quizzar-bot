@@ -97,6 +97,8 @@ module.exports = {
     updateUserStats: function (guildID, userID, username, addedScore, addedWon) {
         const guildCollection = mainDB.collection(guildID);
         const userToFind = { id: userID };
+		if (!tools.isInt(addedScore)) { logger.warn("Error hapenned, score or won is not a valid number"); }
+		
         guildCollection.findOne(userToFind, function (err, result) {
             if (result) {
                 const finalScore = (addedScore + result.score) || addedScore;

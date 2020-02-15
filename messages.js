@@ -31,13 +31,14 @@ module.exports = {
         }
     },
 
-	getScoreString: function(guild, scoreTable, lang) {   
+	getScoreString: function(guild, scoreTable, lang) {
+		if (!scoreTable) return {0: "Error", 1: "Error"};
 		if (scoreTable.size == 0) return { 0: tools.getString("noWinner", lang), 1: "" };
 		var sorted = Array.from(scoreTable.entries());
-		var len = sorted.len;
-		for (var i = len - 1; i >= 0; i--){
+		var len = sorted.length;
+		for (var i = len - 1; i >= 0; i--) {
 			for (var j = 1; j <= i; j++){
-				if (sorted[j-1][1] > sorted[j][1]){
+				if (sorted[j-1][1] > sorted[j][1]) {
 					var temp = sorted[j-1];
 					sorted[j-1] = sorted[j];
 					sorted[j] = temp;
@@ -51,6 +52,7 @@ module.exports = {
 			if (!sorted[i-1]) break;
 			if (sorted[i][1] != sorted[i-1][1]) break;
 		}
+
 		var others = "";
 		var winner = tools.getString("winners", lang)
 		if (winners == 1)
@@ -72,7 +74,7 @@ module.exports = {
 		}
 		if (sorted.length > 1) {
 			for (var i = len; i > len - winners; i--) {
-				db.updateUserStats(guild.id, sorted[i][0], "", 0, 1); // If more than 1 player in the game
+				//db.updateUserStats(guild.id, sorted[i][0], "", 0, 1); // If more than 1 player in the game
 			}
 		}
 		return { 0: winner, 1: others };
