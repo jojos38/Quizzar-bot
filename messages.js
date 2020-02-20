@@ -74,7 +74,7 @@ module.exports = {
 		}
 		if (sorted.length > 1) {
 			for (var i = len; i > len - winners; i--) {
-				db.updateUserStats(guild.id, sorted[i][0], "", 0, 1); // If more than 1 player in the game
+				//db.updateUserStats(guild.id, sorted[i][0], "", 0, 1); // If more than 1 player in the game
 			}
 		}
 		return { 0: winner, 1: others };

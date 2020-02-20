@@ -33,10 +33,5 @@
 	"channelDeletedError": "Une erreur est survenue lors de la suppression du salon.",
 	"error": "Une erreur est survenue, la partie a été arrêtée. Cette erreur peut être due à de mauvaises permissions.\nSi vous êtes sûr que les permissions sont correctes vous pouvez rejoindre le serveur de support.",
 	"score": "score",
-	"victory": "victoires",
-	"noGameRunning": "Aucune partie n'est en cours ce channel, utilisez la commande dans le channel ou la partie est en cours",
-	"useAgain": "Vous pouvez utiliser le bot à nouveau",
-	"maintenanceScheduled": "**Une maintenance est prévue dans {{minutes}} minutes.**",
-	"tryAgainLater": "Une maintenance est prévue, s'il vous plait reessayez un peu plus tard.",
-	"maintenance": "**Le bot est en maintenance...**"
+	"victory": "victoires"
 }
