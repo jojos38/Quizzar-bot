@@ -108,7 +108,8 @@ client.on("channelDelete", function (channel) {
 
 client.on("guildCreate", guild => {
 	logger.info("New server: " + guild.name);
-	//guild.owner.send(tools.getString("thanks", "en"));
+	try { guild.owner.send(tools.getString("thanks", "en")); }
+	catch (error) { logger.error("Error while sending a PM to the user"); logger.error(error); }
 	initSettings(guild);
 });
 
