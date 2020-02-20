@@ -242,6 +242,20 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 
 // ----------------------------------- PRESTART / STOP ----------------------------------- //
 module.exports = {
+	unstuck: function (message, lang) {
+        const guildID = message.guild.id;
+        const channel = message.channel;
+        if (cache.get(guildID + "player") == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
+			if (cache.get(guildID + "running") == 0) { // If no game already running
+				tools.sendCatch(channel, tools.getString("noGameRunning", lang));
+				return;
+			}
+			cache.set(guildID + "running", 0); // 0 = Stop the game now
+			logger.info("Game aborted");
+			tools.sendCatch(channel, tools.getString("useAgain", lang));
+		}
+    },
+	
     stop: function (message, reason, lang) {
         const guildID = message.guild.id;
         const channel = message.channel;
@@ -265,11 +279,12 @@ module.exports = {
 			for(var i = 3; i != -1; i--) {
 				for (let guild of guilds.values()) {
 					const guildID = guild.id;
+					const lang = await db.getSetting(guild.id, "lang");
 					if (cache.get(guildID + "running") >= 1) {
 						const channelID = cache.get(guildID + "channel");
 						const channel = client.channels.get(channelID);
-						if (i != 0) tools.sendCatch(channel, "**Une maintenance est prévue dans " + i + " minutes**");
-						else tools.sendCatch(channel, "Bot en maintenance...");
+						if (i != 0) tools.sendCatch(channel, tools.getString("maintenanceScheduled", lang, {minutes:i}));
+						else tools.sendCatch(channel, tools.getString("maintenance", lang));
 					}
 				}
 				logger.warn("Bot stopping in " + i + " minutes...");
@@ -287,7 +302,7 @@ module.exports = {
 		var difficulty;
 		
 		if (cache.get("stopscheduled") == 1) { // If no stop scheduled
-			tools.sendCatch(channel, "Une maintenance est prévue, merci de réessayer un peu plus tard.");
+			tools.sendCatch(channel, tools.getString("tryAgainLater", lang));
 			return;
 		}
 		if (cache.get(guildID + "running") >= 1) { // If no game already running

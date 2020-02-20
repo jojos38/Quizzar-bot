@@ -159,6 +159,12 @@ client.on('message', async function (message) {
 		}
     }
 
+    if (messageContent.startsWith(`${prefix}jstuck`)) { // jadd [ADMIN]
+        if (await isAllowed(message, true, lang)) {
+            game.unstuck(message, lang);
+        }
+    }
+
     if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
         if (await isAllowed(message, true, lang)) {
             db.addGuildChannel(channel, lang);
