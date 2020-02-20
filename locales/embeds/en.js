@@ -28,7 +28,7 @@ module.exports = {
 				{
                     name: "**!jlang** [language]",
                     value: " - **NEW** Change the language of the bot (languages available: french / english)"
-                },
+                },	
                 {
                     name: "**!jplay** [difficulty] [questions amount] or !jp or !jstart",
                     value: " - Start a game\n**Note :** If the questions number is 0 then the game is (almost) infinite"
@@ -75,8 +75,8 @@ module.exports = {
         const embedTable = { 0: embed1, 1: embed2 };
         return embedTable;
     },
-
-
+	
+	
     getInfoEmbed: function (users, servers, uptime) {
         const embed = new Discord.RichEmbed({
 			author: {
@@ -85,7 +85,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot made by jojos38",
-			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/DXpb9DN",
+			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/E8xrPh4",
 			fields: [
 			  {
 				name: "Servers",
@@ -106,8 +106,8 @@ module.exports = {
         });
         return embed;
     },
-
-
+	
+	
     getDifEmbed: function () {
         const embed = new Discord.RichEmbed({
             color: orange,
@@ -159,8 +159,11 @@ module.exports = {
                 {
                     name: "!jdefquestions",
                     value: "Define default number of questions when it's not specified (between 1 and 100)"
+                },
+				{
+                    name: "!jstuck",
+                    value: "If the bot is stuck use this command (This command can cause unexpected results, don't us it if not needed!)"
                 }
-
             ]
         });
         return embed;
