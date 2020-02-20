@@ -108,7 +108,7 @@ client.on("channelDelete", function (channel) {
 
 client.on("guildCreate", guild => {
 	logger.info("New server: " + guild.name);
-	guild.owner.send(tools.getString("thanks", "en"));
+	//guild.owner.send(tools.getString("thanks", "en"));
 	initSettings(guild);
 });
 
