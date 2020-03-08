@@ -158,6 +158,12 @@ async function startGame(message, difficulty, qAmount, lang) {
     await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));
     for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
+		
+		// Update the cache	
+		cache.set(guildID + "running", cache.get(guildID + "running"));
+		cache.set(guildID + "player", cache.get(guildID + "player"));
+		cache.set(guildID + "score", cache.get(guildID + "score"));
+		
 		try {
 			// It asks question and gives answser
 			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang);
