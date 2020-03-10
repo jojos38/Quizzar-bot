@@ -163,6 +163,7 @@ async function startGame(message, difficulty, qAmount, lang) {
 		cache.set(guildID + "running", cache.get(guildID + "running"));
 		cache.set(guildID + "player", cache.get(guildID + "player"));
 		cache.set(guildID + "score", cache.get(guildID + "score"));
+		cache.set(guildID + "channel", cache.get(guildID + "channel"));
 		
 		try {
 			// It asks question and gives answser
@@ -236,7 +237,8 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 		// CACHE
 		var scoreTable = cache.get(guildID + "score");
 		const userScore = scoreTable.get(userID) || 0;
-		scoreTable.set(userID, userScore + qData.points);
+		var newScore = Number(userScore) + Number(qData.points);
+		scoreTable.set(userID, newScore);
 		cache.set(guildID + "score", scoreTable);
 	}
 	await delay(aDelay); // Wait x seconds before going to the next question
