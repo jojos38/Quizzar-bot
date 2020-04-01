@@ -85,7 +85,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot made by jojos38",
-			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/E8xrPh4",
+			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/DXpb9DN",
 			fields: [
 			  {
 				name: "Servers",
