@@ -114,8 +114,10 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildDelete", guild => {
-   db.resetGuildSettings(guild.id, guild.name, null, null);
-   logger.info("Bot removed from server: " + guild.name);
+   if (guild) {
+   	db.resetGuildSettings(guild.id, guild.name, null, null);
+   	logger.info("Bot removed from server: " + guild.name);
+   }
 });
 
 client.on('message', async function (message) {
