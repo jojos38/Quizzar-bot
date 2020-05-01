@@ -64,7 +64,7 @@ module.exports = {
 				if (i != len - winners + 2) winner = winner + tools.mention(sorted[i][0], 'u') + ", ";
 				else winner = winner + tools.mention(sorted[i][0], 'u');
 			}		
-			winner = winner + tools.getString("oneWinner", lang, {player:tools.mention(sorted[len-winners+1][0], 'u'), points:sorted[len][1]});
+			winner = winner + tools.getString("mutlipleWinners", lang, {player:tools.mention(sorted[len-winners+1][0], 'u'), points:sorted[len][1]});
 		}
 		var user = winners + 1;
 		for (var i = len - winners; i >= 0; i--) {
