@@ -27,7 +27,7 @@ module.exports = {
             fields: [
 				{
                     name: "**!jlang** [language]",
-                    value: " - **NEW** Change the language of the bot (languages available: french / english)"
+                    value: " - Change the language of the bot (languages available: french / english)"
                 },	
                 {
                     name: "**!jplay** [difficulty] [questions amount] or !jp or !jstart",
