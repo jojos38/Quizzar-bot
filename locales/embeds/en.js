@@ -42,7 +42,7 @@ module.exports = {
                     value: " - Show all difficulties"
                 },
                 {
-                    name: "**!jhelp** ou !jh",
+                    name: "**!jhelp** or !jh",
                     value: " - Show help"
                 },
                 {
