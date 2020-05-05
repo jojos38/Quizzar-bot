@@ -75,7 +75,7 @@ function getRandomQuestionAPI(difficulty) {
 		}
 		request({url: 'https://opentdb.com/api.php?amount=1&difficulty=' + difficultyString + '&type=multiple', json: true}, function(err, res, json) {
 			if (err) { reject(err); return; }
-			if (!json.results[0]) { reject("Error"); return; }
+			if (!json.results) { reject(null); return; }
 			const result = json.results[0];
 			const answer = entities.decode(result.correct_answer);
 			var proposals = [
@@ -205,6 +205,7 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 		};
 	} else {
 		qData = await getRandomQuestionAPI(difficulty);
+		if (!qData) tools.sendCatch(channel, "An error happenned, skipping question...");
 		qData['qNumber'] = qNumber;
 		qData['qAmount'] = qAmount;
 	}
