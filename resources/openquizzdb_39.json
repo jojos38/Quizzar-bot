@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Instruments de musique",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "De quel instrument de musique joue Lisa Simpson, créée par le dessinateur Matt Groening ?",
+        "propositions": [
+          "Du piano",
+          "De la trompette",
+          "Du saxophone",
+          "De la flûte"
+        ],
+        "réponse": "Du saxophone",
+        "anecdote": "Les Simpson forment une famille américaine typique de classe moyenne qui vit dans la ville de Springfield."
+      },
+      {
+        "id": 2,
+        "question": "Quel instrument de musique à cordes pincées, voisin de la guitare, est utilisé en Inde ?",
+        "propositions": [
+          "Le glingi",
+          "La cithare",
+          "Le sitar",
+          "Le théorbe"
+        ],
+        "réponse": "Le sitar",
+        "anecdote": "On en joue assis en tailleur par terre : l'instrument, calé sous le coude droit, repose par terre (parfois sur le pied)."
+      },
+      {
+        "id": 3,
+        "question": "Pour quel instrument Mozart a-t-il composé le plus grand nombre de concerto ?",
+        "propositions": [
+          "Le piano",
+          "Le violon",
+          "Le violoncelle",
+          "La clarinette"
+        ],
+        "réponse": "Le piano",
+        "anecdote": "Mort à trente-cinq ans, Mozart laissa une uvre importante qui embrasse tous les genres musicaux de son époque."
+      },
+      {
+        "id": 4,
+        "question": "Combien de cordes possède un violon,  occupant une place importante en musique classique ?",
+        "propositions": [
+          "5 cordes",
+          "3 cordes",
+          "4 cordes",
+          "6 cordes"
+        ],
+        "réponse": "4 cordes",
+        "anecdote": "Les luthiers comme Antonio Stradivari sont les artisans qui créent et entretiennent les instruments à cordes."
+      },
+      {
+        "id": 5,
+        "question": "Quel instrument de musique à cordes pincées est souvent utilisé dans la musique country ?",
+        "propositions": [
+          "Le ranjo",
+          "Le banjo",
+          "Le panjo",
+          "Le danjo"
+        ],
+        "réponse": "Le banjo",
+        "anecdote": "Accompagnateur dans le style « New Orleans », le banjo est également utilisé comme soliste dans la musique irlandaise."
+      },
+      {
+        "id": 6,
+        "question": "En quelle matière est faite la mèche présente sur un archet de violon ?",
+        "propositions": [
+          "En coton",
+          "En mohair",
+          "En angora",
+          "En crin"
+        ],
+        "réponse": "En crin",
+        "anecdote": "La mèche est constituée de crins de cheval prélevés sur la queue de l'étalon car ceux de jument sont abîmés par l'urine."
+      },
+      {
+        "id": 7,
+        "question": "De quel instrument de musique à vent et à anche libre joue un harmoniciste ?",
+        "propositions": [
+          "Xylophone",
+          "Harmonica",
+          "Harmonium",
+          "Accordéon"
+        ],
+        "réponse": "Harmonica",
+        "anecdote": "Malgré la connaissance réduite du public, il semblerait que l'harmonica soit en quantité l'instrument le plus vendu au monde."
+      },
+      {
+        "id": 8,
+        "question": "Combien de cordes au minimum compte-t-on sur une guitare basse, avec un diapason de 34 pouces ?",
+        "propositions": [
+          "Quatre",
+          "Trois",
+          "Cinq",
+          "Six"
+        ],
+        "réponse": "Quatre",
+        "anecdote": "Depuis les années 1950, la guitare basse a remplacé la contrebasse dans la musique rock."
+      },
+      {
+        "id": 9,
+        "question": "De quel instrument John Lennon jouait-il au sein des Beatles avec plus de 200 chansons ?",
+        "propositions": [
+          "Du saxophone",
+          "Du clavier",
+          "De la batterie",
+          "De la guitare"
+        ],
+        "réponse": "De la guitare",
+        "anecdote": "Lennon forme avec McCartney l'un des tandems d'auteurs-compositeurs les plus influents et prolifiques de l'histoire du rock."
+      },
+      {
+        "id": 10,
+        "question": "Instrument de la famille des violons, dans quelle position joue-t-on du violoncelle ?",
+        "propositions": [
+          "Debout",
+          "Assise",
+          "Couchée",
+          "À genoux"
+        ],
+        "réponse": "Assise",
+        "anecdote": "Le violoncelle se joue assis, tenu entre les jambes et repose désormais sur une pique escamotable."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quelle clef, proche du la du diapason, est utilisée par le violoniste ?",
+        "propositions": [
+          "La clef de sol",
+          "La clef de fa",
+          "La clef de ré",
+          "La clef de do"
+        ],
+        "réponse": "La clef de sol",
+        "anecdote": "En solfège, une clé est un signe graphique placé au début de la portée qui indique la hauteur des notes associées à chaque ligne."
+      },
+      {
+        "id": 12,
+        "question": "Quel instrument fut popularisé par Lionel Hampton à la fin des années 1930 ?",
+        "propositions": [
+          "Le vibraphone",
+          "Le saxophone",
+          "Le métallophone",
+          "Le xylophone"
+        ],
+        "réponse": "Le vibraphone",
+        "anecdote": "Surnommé « Le lion », Lionel Hampton a été le premier géant du jazz à donner ses lettres de noblesse au vibraphone."
+      },
+      {
+        "id": 13,
+        "question": "Sur quel instrument à percussion frappe-t-on avec une baguette à tampon ?",
+        "propositions": [
+          "Un bong",
+          "Un gang",
+          "Un bang",
+          "Un gong"
+        ],
+        "réponse": "Un gong",
+        "anecdote": "L'instrument en lui-même provient vraisemblablement des percussions en bronze de Chine."
+      },
+      {
+        "id": 14,
+        "question": "De quel instrument Ginger Baker était-il tenu pour un virtuose ?",
+        "propositions": [
+          "La trompette",
+          "La batterie",
+          "La guitare",
+          "Le violon"
+        ],
+        "réponse": "La batterie",
+        "anecdote": "Depuis 1986, Ginger Baker a sorti plusieurs albums de jazz fusion et a tourné avec des groupes de styles variés."
+      },
+      {
+        "id": 15,
+        "question": "Quel instrument de musique assez répandu en Grèce est joué avec un plectre ?",
+        "propositions": [
+          "Le baglama",
+          "Le rebetiko",
+          "Le trypes",
+          "Le bouzouki"
+        ],
+        "réponse": "Le bouzouki",
+        "anecdote": "Le bouzouki est souvent considéré comme l'instrument « national » de la Grèce depuis le milieu du XXe siècle."
+      },
+      {
+        "id": 16,
+        "question": "La balalaïka est un instrument de musique à cordes pincées russe, mais de quelle forme ?",
+        "propositions": [
+          "Rectangulaire",
+          "Carrée",
+          "Triangulaire",
+          "Ronde"
+        ],
+        "réponse": "Triangulaire",
+        "anecdote": "La balalaïka se joue le plus souvent au doigt et parfois avec un plectre et se décline en plusieurs tailles."
+      },
+      {
+        "id": 17,
+        "question": "Quel instrument de musique est le plus aigu dans un orchestre symphonique ?",
+        "propositions": [
+          "Le tuba",
+          "Le piccolo",
+          "Le hautbois",
+          "Le trombone"
+        ],
+        "réponse": "Le piccolo",
+        "anecdote": "Le piccolo était surtout utilisé pour doubler la grande flûte à l'octave supérieure, pour augmenter l'éclat orchestral."
+      },
+      {
+        "id": 18,
+        "question": "Dans quel pays joue-t-on du sitar et du vînâ, sorte de cithare sur bâton avec deux résonateurs ?",
+        "propositions": [
+          "Au Brésil",
+          "En Inde",
+          "Au Maroc",
+          "En Espagne"
+        ],
+        "réponse": "En Inde",
+        "anecdote": "La rudra vinâ est le plus ancien des instruments à cordes frettées indiens : on la nomme aussi bîn."
+      },
+      {
+        "id": 19,
+        "question": "Quel instrument de musique figure sur les étiquettes de la brasserie irlandaise Guinness ?",
+        "propositions": [
+          "Une flûte",
+          "Une harpe",
+          "Un saxophone",
+          "Un violon"
+        ],
+        "réponse": "Une harpe",
+        "anecdote": "La Guinness est un stout, une bière noire coiffée d'une mousse blanche, connue mondialement pour sa saveur et son aspect."
+      },
+      {
+        "id": 20,
+        "question": "Combien de pistons une trompette compte-t-elle, en réponse au vu de rendre chromatique ?",
+        "propositions": [
+          "Cinq",
+          "Quatre",
+          "Deux",
+          "Trois"
+        ],
+        "réponse": "Trois",
+        "anecdote": "La trompette à pistons est celle qui est la plus utilisée aujourd'hui dans la plupart des pays."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Combien y a-t-il de cordes sur une harpe de concert, obtenant ainsi une tessiture de 6 octaves ?",
+        "propositions": [
+          "67",
+          "37",
+          "47",
+          "57"
+        ],
+        "réponse": "47",
+        "anecdote": "La harpe de concert a la particularité d'avoir des cordes perpendiculaires à la caisse de résonance."
+      },
+      {
+        "id": 22,
+        "question": "Quelle est la fréquence du diapason, constitué de deux lames parallèles soudées en forme de U ?",
+        "propositions": [
+          "450 hertz",
+          "430 hertz",
+          "460 hertz",
+          "440 hertz"
+        ],
+        "réponse": "440 hertz",
+        "anecdote": "En musique, le diapason est un outil de musicien donnant la hauteur d'une note-repère conventionnelle."
+      },
+      {
+        "id": 23,
+        "question": "Quelle partie du violon le violoniste bloque-t-il entre son cou et son épaule ?",
+        "propositions": [
+          "Le reposoir",
+          "La mentonnière",
+          "La mâchoire",
+          "Le dépauloire"
+        ],
+        "réponse": "La mentonnière",
+        "anecdote": "Un violon se compose de trois parties distinctes : la caisse de résonance, le manche et les cordes."
+      },
+      {
+        "id": 24,
+        "question": "De quel mollusque peut-on utiliser le  coquillage comme instrument de musique à vent ?",
+        "propositions": [
+          "Le dizi",
+          "Le piri",
+          "Le sifflet",
+          "La conque"
+        ],
+        "réponse": "La conque",
+        "anecdote": "Prenant la conque en main, l'instrumentiste en produit le son selon le même principe que la trompe ou la corne."
+      },
+      {
+        "id": 25,
+        "question": "Quelle est la tonalité la plus fréquente des bourdons de la cornemuse écossaise ?",
+        "propositions": [
+          "Le sol",
+          "Le si bémol",
+          "Le do",
+          "Le mi bémol"
+        ],
+        "réponse": "Le si bémol",
+        "anecdote": "Les anches doubles sont aussi utilisées par le basson, la chalémie, le hautbois, la bombarde, ou encore le cor anglais."
+      },
+      {
+        "id": 26,
+        "question": "De combien de pièces de bois, collées ou assemblées, un violon est-il composé ?",
+        "propositions": [
+          "31 pièces",
+          "51 pièces",
+          "71 pièces",
+          "91 pièces"
+        ],
+        "réponse": "71 pièces",
+        "anecdote": "Dans les formations de musique classique, le violon est l'instrument le plus petit et de tessiture la plus aiguë parmi sa famille."
+      },
+      {
+        "id": 27,
+        "question": "Quel instrument de musique est aussi connu sous le nom de « trompette tsigane » ?",
+        "propositions": [
+          "La crécelle",
+          "La guimbarde",
+          "La bandurria",
+          "La harpe"
+        ],
+        "réponse": "La guimbarde",
+        "anecdote": "Composée de deux éléments, la guimbarde est l'un des instruments de musique les plus anciens du monde."
+      },
+      {
+        "id": 28,
+        "question": "Quelle petite flûte traversière était autrefois utilisée dans les fanfares militaires ?",
+        "propositions": [
+          "La gasba",
+          "Le sodina",
+          "Le kaval",
+          "Le fifre"
+        ],
+        "réponse": "Le fifre",
+        "anecdote": "Le fifre, de petite longueur et fabriqué en bois, comporte six ou sept trous de jeu et parfois une clé."
+      },
+      {
+        "id": 29,
+        "question": "Quel marteau léger est utilisé pour frapper différents instruments à percussion ?",
+        "propositions": [
+          "La tricoise",
+          "La mailloche",
+          "Le brochoir",
+          "Le dérivoir"
+        ],
+        "réponse": "La mailloche",
+        "anecdote": "Différentes variétés de mailloches (aussi parfois appelées « cigognes ») permettent d'obtenir des sons différents."
+      },
+      {
+        "id": 30,
+        "question": "Quel instrument de musique traditionnel à cordes est devenu celui des geisha ?",
+        "propositions": [
+          "Le taiko",
+          "Le shamisen",
+          "Le shakuhachi",
+          "Le koto"
+        ],
+        "réponse": "Le shamisen",
+        "anecdote": "Le shamisen se joue agenouillé sur un zabuton en pinçant les cordes à l'aide d'un large plectre en ivoire."
+      }
+    ]
+  }
+}

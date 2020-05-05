@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (https://www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Desserts et pâtisseries (Aussi bon que chez le pâtissier)",
+  "difficulté": 3,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Quel fromage italien rentre dans la composition du tiramisu ?",
+        "propositions": [
+          "Mascarpone",
+          "Gorgonzola",
+          "Ricotta",
+          "Grana padano"
+        ],
+        "réponse": "Mascarpone",
+        "anecdote": "Les ingrédients sont préparés séparément et superposés en couches indépendantes."
+      },
+      {
+        "id": 2,
+        "question": "De quel fruit est composée la tarte Tatin, inventée de manière accidentelle ?",
+        "propositions": [
+          "Pommes",
+          "Cerises",
+          "Poires",
+          "Prunes"
+        ],
+        "réponse": "Pommes",
+        "anecdote": "Les pommes sont caramélisées au sucre et au beurre avant la cuisson de la tarte."
+      },
+      {
+        "id": 3,
+        "question": "Quel gâteau décore-t-on traditionnellement de sapins et de petits personnages ?",
+        "propositions": [
+          "Galette des Rois",
+          "Palet de dame",
+          "Forêt noire",
+          "Bûche de Noël"
+        ],
+        "réponse": "Bûche de Noël",
+        "anecdote": "Cette coutume répandue dans toute l'Europe est attestée depuis le Moyen Âge et héritée de divers rites païens."
+      },
+      {
+        "id": 4,
+        "question": "Dans quel pays mange-t-on de manière régulière du « plum pudding » ?",
+        "propositions": [
+          "Grèce",
+          "Chine",
+          "Angleterre",
+          "Portugal"
+        ],
+        "réponse": "Angleterre",
+        "anecdote": "Le plum pudding est un pudding lourd, cuit à la vapeur avec des fruits secs."
+      },
+      {
+        "id": 5,
+        "question": "Quel synonyme de dessert glacé à base de crème fraîche et d'ufs est « excellent » ?",
+        "propositions": [
+          "Extra",
+          "Super",
+          "Parfait",
+          "Génial"
+        ],
+        "réponse": "Parfait",
+        "anecdote": "Un parfait est un dessert glacé sans cuisson à base de crème fraîche et d'ufs."
+      },
+      {
+        "id": 6,
+        "question": "Pour réaliser quel gâteau faut-il mélanger ufs, beurre, farine et sucre en quantités égales ?",
+        "propositions": [
+          "Brownie",
+          "Vacherin",
+          "Muffin",
+          "Quatre-quarts"
+        ],
+        "réponse": "Quatre-quarts",
+        "anecdote": "Chaque ingrédient du quatre-quarts représente donc un quart du gâteau, d'où son nom."
+      },
+      {
+        "id": 7,
+        "question": "Quel entremets de génoise, fourré de crème au beurre, est parfumé au café ?",
+        "propositions": [
+          "Religieuse",
+          "Moka",
+          "Bavarois",
+          "Diplomate"
+        ],
+        "réponse": "Moka",
+        "anecdote": "La génoise, inventée vers le début du XVIIIe siècle, est un biscuit à pâte battue qui entre la composition de nombreux entremets."
+      },
+      {
+        "id": 8,
+        "question": "Quel dessert découpe-t-on traditionnellement à la fin du repas de mariage ?",
+        "propositions": [
+          "Diplomate",
+          "Pièce montée",
+          "Financier",
+          "Ambassadeur"
+        ],
+        "réponse": "Pièce montée",
+        "anecdote": "Une figurine représentant deux mariés est généralement placée au sommet du dessert."
+      },
+      {
+        "id": 9,
+        "question": "Quels petits fruits rouges entrent dans la préparation du clafoutis ?",
+        "propositions": [
+          "Framboises",
+          "Cerises",
+          "Groseilles",
+          "Fraises"
+        ],
+        "réponse": "Cerises",
+        "anecdote": "Les ingrédients principaux sont, outre les cerises, le sucre, la farine, le lait et les ufs."
+      },
+      {
+        "id": 10,
+        "question": "Traditionnellement, quel alcool utilise-t-on pour fabriquer un baba ?",
+        "propositions": [
+          "Vodka",
+          "Cognac",
+          "Rhum",
+          "Whisky"
+        ],
+        "réponse": "Rhum",
+        "anecdote": "Le baba au rhum est un gâteau préparé pour les principales fêtes religieuses (Noël ou Pâques), depuis des temps immémoriaux."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Quel parfum vient compléter la vanille et le chocolat dans le banana split traditionnel ?",
+        "propositions": [
+          "Praliné",
+          "Café",
+          "Fraise",
+          "Pistache"
+        ],
+        "réponse": "Fraise",
+        "anecdote": "En Belgique, le banana split traditionnel est composé de trois boules vanille."
+      },
+      {
+        "id": 12,
+        "question": "Quel dessert italien porte un nom qui peut être traduit par « crème cuite » ?",
+        "propositions": [
+          "Panforte",
+          "Tiramisu",
+          "Panna cotta",
+          "Amatriciana"
+        ],
+        "réponse": "Panna cotta",
+        "anecdote": "La panna cotta est fabriquée à partir de crème, de lait et de sucre auxquels on ajoute de la gélatine."
+      },
+      {
+        "id": 13,
+        "question": "Quel alcool ajoute-t-on à un sorbet au citron pour en faire un « colonel » ?",
+        "propositions": [
+          "Rhum",
+          "Cognac",
+          "Vodka",
+          "Whisky"
+        ],
+        "réponse": "Vodka",
+        "anecdote": "Dans vos coupes, déposez deux boules de sorbet au citron, arrosez de vodka puis  dégustez."
+      },
+      {
+        "id": 14,
+        "question": "Quel plat de présentation permet de proposer des gâteaux sur un ou plusieurs étages ?",
+        "propositions": [
+          "Valet",
+          "Dévoué",
+          "Serviteur",
+          "Majordome"
+        ],
+        "réponse": "Serviteur",
+        "anecdote": "La taille d'un plat conditionne la bonne répartition de la nourriture qui s'y trouve."
+      },
+      {
+        "id": 15,
+        "question": "Quelle viennoiserie légère à pâte levée désigne familièrement un ventre rebondi ?",
+        "propositions": [
+          "Brioche",
+          "Beignet",
+          "Baba",
+          "Bavarois"
+        ],
+        "réponse": "Brioche",
+        "anecdote": "Cette viennoiserie à pâte levée et assez aérée contient du beurre et des ufs."
+      },
+      {
+        "id": 16,
+        "question": "Quelle crème est traditionnellement utilisée pour préparer une île flottante ?",
+        "propositions": [
+          "Crème fraîche",
+          "Crème anglaise",
+          "Crème de marrons",
+          "Crème fouettée"
+        ],
+        "réponse": "Crème anglaise",
+        "anecdote": "Les ufs à la neige sont quant à eux composés de blancs d'ufs sucrés, fouettés, pochés ou cuits au bain-marie."
+      },
+      {
+        "id": 17,
+        "question": "Quelle crème pâtissière garnit communément la galette des Rois ?",
+        "propositions": [
+          "Meringue",
+          "Crème fouettée",
+          "Frangipane",
+          "Gélatine"
+        ],
+        "réponse": "Frangipane",
+        "anecdote": "L'emploi de la fève dans la galette des Rois remonte aux Grecs, qui se servaient de fèves pour l'élection de leurs magistrats."
+      },
+      {
+        "id": 18,
+        "question": "Quel fruit compose la garniture la plus classique du Strudel autrichien ?",
+        "propositions": [
+          "Pomme",
+          "Poire",
+          "Pêche",
+          "Banane"
+        ],
+        "réponse": "Pomme",
+        "anecdote": "Les contrées francophones le connaissent également sous le nom de « chausson » ou parfois de « roulés »."
+      },
+      {
+        "id": 19,
+        "question": "Quel célèbre gâteau breton est né dans la région de Douarnenez ?",
+        "propositions": [
+          "Diplomate",
+          "Kouign-amann",
+          "Tortillon",
+          "Pogne"
+        ],
+        "réponse": "Kouign-amann",
+        "anecdote": "Sa préparation est réputée délicate, comme en témoigne ce dicton : « Le fait qui veut, le réussit qui peut »."
+      },
+      {
+        "id": 20,
+        "question": "Quelle pâtisserie alsacienne en forme de huit est saupoudrée de sel et de cumin ?",
+        "propositions": [
+          "Clafoutis",
+          "Mille-feuilles",
+          "Bretzel",
+          "Tourte"
+        ],
+        "réponse": "Bretzel",
+        "anecdote": "Le bretzel est une sorte de brioche ou de pain poché dans une solution de bicarbonate de soude."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Dans quelle région de France mange-t-on les treize desserts de Noël ?",
+        "propositions": [
+          "Alsace",
+          "Provence",
+          "Auvergne",
+          "Bretagne"
+        ],
+        "réponse": "Provence",
+        "anecdote": "Les desserts peuvent être bus avec du vin cuit ou du vin muscat, tandis qu'à la fin apparaissent toutes les liqueurs maisons."
+      },
+      {
+        "id": 22,
+        "question": "En pâtisserie, quelle « noix » entre dans la préparation du congolais ?",
+        "propositions": [
+          "Noix de cajou",
+          "Noix de pécan",
+          "Noix de muscade",
+          "Noix de coco"
+        ],
+        "réponse": "Noix de coco",
+        "anecdote": "Le congolais est un petit gâteau granuleux et moelleux à la forme arrondie."
+      },
+      {
+        "id": 23,
+        "question": "Qui a dit : Un dessert sans fromage est une belle à qui il manque un oeil ?",
+        "propositions": [
+          "La Rochefoucauld",
+          "Montaigne",
+          "Brillat-Savarin",
+          "La Bruyère"
+        ],
+        "réponse": "Brillat-Savarin",
+        "anecdote": "Brillat-Savarin est un hédoniste et un épicurien, au sens proprement philosophique du terme."
+      },
+      {
+        "id": 24,
+        "question": "Quelle pâtisserie attribue-t-on au confiseur italien Gasparini ?",
+        "propositions": [
+          "Meringue",
+          "Madeleine",
+          "Sacristain",
+          "Macaron"
+        ],
+        "réponse": "Meringue",
+        "anecdote": "Des variantes existent en changeant les quantités et le type de sucre, mais surtout dans la façon de l'incorporer à la masse."
+      },
+      {
+        "id": 25,
+        "question": "En pâtisserie, quel éclair voit son dessus glacé au fondant ou au caramel ?",
+        "propositions": [
+          "Chou allongé",
+          "Concorde",
+          "Petite duchesse",
+          "Bâton de Jacob"
+        ],
+        "réponse": "Bâton de Jacob",
+        "anecdote": "Le plus commun est composé de pâte à choux enveloppant une crème pâtissière."
+      },
+      {
+        "id": 26,
+        "question": "Quelle ville de Lorraine est célèbre pour ses madeleines ?",
+        "propositions": [
+          "Épinal",
+          "Metz",
+          "Commercy",
+          "Verdun"
+        ],
+        "réponse": "Commercy",
+        "anecdote": "Symbole de convivialité, les madeleines y sont fabriquées depuis le XVIIIe siècle."
+      },
+      {
+        "id": 27,
+        "question": "Quelle tarte élaborée à partir de petites prunes jaunes est une spécialité lorraine ?",
+        "propositions": [
+          "Diplomate",
+          "Sabayon",
+          "Forêt noire",
+          "Tarte aux mirabelles"
+        ],
+        "réponse": "Tarte aux mirabelles",
+        "anecdote": "La tarte aux mirabelles se prépare aussi bien avec une pâte brisée que feuilletée, des fruits frais ou congelés."
+      },
+      {
+        "id": 28,
+        "question": "Quel beignet soufflé évoque une religieuse plutôt flatulente ?",
+        "propositions": [
+          "Feu de dieu",
+          "Vent de messe",
+          "Gaz de mère",
+          "Pet de nonne"
+        ],
+        "réponse": "Pet de nonne",
+        "anecdote": "Les pets de nonnes, saupoudrés de sucre et de cannelle, sont notamment une spécialité de Franche-Comté."
+      },
+      {
+        "id": 29,
+        "question": "Quel dessert doit son nom à une opérette de Jacques Offenbach ?",
+        "propositions": [
+          "Poire Belle-Hélène",
+          "Fraise Melba",
+          "Crème Chiboust",
+          "Tarte de Vic"
+        ],
+        "réponse": "Poire Belle-Hélène",
+        "anecdote": "Ce dessert à base de poires pochées dans un sirop est nappé de chocolat chaud accompagné d'une glace à la vanille."
+      },
+      {
+        "id": 30,
+        "question": "De quelle ville de France proviennent les cannelés en forme de petits cylindres striés ?",
+        "propositions": [
+          "Strasbourg",
+          "Rennes",
+          "Nancy",
+          "Bordeaux"
+        ],
+        "réponse": "Bordeaux",
+        "anecdote": "La légende veut que les cannelés soient nés lors du débarquement des bateaux de farine sur les quais de Bordeaux."
+      }
+    ]
+  }
+}

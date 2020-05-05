@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Monuments du monde",
+  "difficulté": 4,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Dans quel pays se trouve la Liberté éclairant le monde, ou Statue de la Liberté ?",
+        "propositions": [
+          "Canada",
+          "France",
+          "États-Unis",
+          "Royaume-Uni"
+        ],
+        "réponse": "États-Unis",
+        "anecdote": "Cette statue est située sur l'île de Liberty Island au sud de Manhattan, à l'embouchure de l'Hudson et à proximité d'Ellis Island."
+      },
+      {
+        "id": 2,
+        "question": "Dans quel État européen se situe la Sagrada Familia, consacrée par Benoît XVI en 2010 ?",
+        "propositions": [
+          "En Italie",
+          "En Espagne",
+          "Au Portugal",
+          "À Chypre"
+        ],
+        "réponse": "En Espagne",
+        "anecdote": "Cest l'un des exemples les plus connus du modernisme catalan et un monument emblématique de la ville de Barcelone."
+      },
+      {
+        "id": 3,
+        "question": "Dans quel pays peut-on voir les pyramides de Gizeh, classées depuis 1979 ?",
+        "propositions": [
+          "En Afrique du Sud",
+          "En Égypte",
+          "Au Maroc",
+          "En Tunisie"
+        ],
+        "réponse": "En Égypte",
+        "anecdote": "Les trois plus grandes et plus célèbres des pyramides d'Égypte sont celles de Khéops, Khéphren et Mykérinos."
+      },
+      {
+        "id": 4,
+        "question": "Dans quel pays peut-on contempler la tour Eiffel, haute de 324 mètres ?",
+        "propositions": [
+          "Italie",
+          "France",
+          "Royaume-Uni",
+          "États-Unis"
+        ],
+        "réponse": "France",
+        "anecdote": "Construite par Gustave Eiffel, ce monument est devenu le symbole de la capitale française et un site touristique de premier plan."
+      },
+      {
+        "id": 5,
+        "question": "Dans quel pays européen peut-on regarder le Colisée, à l'origine amphithéâtre Flavien ?",
+        "propositions": [
+          "En Espagne",
+          "Au Portugal",
+          "En Italie",
+          "En Grèce"
+        ],
+        "réponse": "En Italie",
+        "anecdote": "Cet immense amphithéâtre ovoïde est le plus grand jamais construit dans l'empire romain."
+      },
+      {
+        "id": 6,
+        "question": "Dans quelle ville peut-on entendre sonner Big Ben, grande cloche de plus de 13 tonnes ?",
+        "propositions": [
+          "New York",
+          "Pékin",
+          "Paris",
+          "Londres"
+        ],
+        "réponse": "Londres",
+        "anecdote": "Big Ben se trouve au sommet de l'Elizabeth Tower, la tour horloge du Palais de Westminster, qui est le siège du parlement britannique."
+      },
+      {
+        "id": 7,
+        "question": "Dans quel pays retrouve-t-on la plus grande muraille du monde jamais construite ?",
+        "propositions": [
+          "En Inde",
+          "En France",
+          "En Chine",
+          "En Afrique du Sud"
+        ],
+        "réponse": "En Chine",
+        "anecdote": "Depuis 1987, la Grande Muraille est classée au patrimoine mondial de l'UNESCO sous le numéro 438."
+      },
+      {
+        "id": 8,
+        "question": "Quel musée parisien, indissociable de sa pyramide, est connu dans le monde entier ?",
+        "propositions": [
+          "Musée de Cluny",
+          "Musée du Louvre",
+          "Musée Rodin",
+          "Musée Picasso"
+        ],
+        "réponse": "Musée du Louvre",
+        "anecdote": "Le Louvre est le musée le plus visité au monde ainsi que le site culturel payant le plus visité de France."
+      },
+      {
+        "id": 9,
+        "question": "Dans quel pays se dresse le Machu Pichu, perché sur un promontoire rocheux ?",
+        "propositions": [
+          "En Bolivie",
+          "Au Cambodge",
+          "Au Pérou",
+          "Au Chili"
+        ],
+        "réponse": "Au Pérou",
+        "anecdote": "Machu Picchu, ville sacrée oubliée durant des siècles, est considérée comme une uvre maîtresse de larchitecture inca."
+      },
+      {
+        "id": 10,
+        "question": "Quel mur représente le lieu le plus sacré de la religion juive ?",
+        "propositions": [
+          "Des sables",
+          "Des Noms",
+          "Des Lamentations",
+          "De la honte"
+        ],
+        "réponse": "Des Lamentations",
+        "anecdote": "Le Mur des Lamentations est révéré par les juifs pour sa proximité avec le Saint des Saints, situé sur le mont du Temple."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Qui a cassé le nez du Sphinx qui se dresse devant les grandes pyramides du plateau de Gizeh ?",
+        "propositions": [
+          "Louis XV",
+          "Henri IV",
+          "Charles IX",
+          "Napoléon"
+        ],
+        "réponse": "Napoléon",
+        "anecdote": "La suprématie des Blancs a conduit Napoléon à détruire le nez du Sphinx parce qu'il rappelait trop la majesté de l'homme noir."
+      },
+      {
+        "id": 12,
+        "question": "Sur quelles îles se trouvent les Moaï, gigantesques ancêtres divinisés de pierre ?",
+        "propositions": [
+          "Îles de Pâques",
+          "Îles Cook",
+          "Îles de Noël",
+          "Îles Galapagos"
+        ],
+        "réponse": "Îles de Pâques",
+        "anecdote": "La majorité de ces monolithes est sculptée dans du tuf issu principalement de la carrière de Rano Raraku."
+      },
+      {
+        "id": 13,
+        "question": "Dans quel pays peut-on assister à un concert dans l'opéra de Sydney ?",
+        "propositions": [
+          "En Australie",
+          "Dans les Samoa",
+          "En Antarctique",
+          "En Nouvelle-Zélande"
+        ],
+        "réponse": "En Australie",
+        "anecdote": "L'opéra est aujourd'hui une attraction touristique majeure de la ville bien que les visiteurs ne puissent assister aux représentations."
+      },
+      {
+        "id": 14,
+        "question": "Aux États-Unis, quel célèbre bâtiment possède une forme de plan particulière ?",
+        "propositions": [
+          "Pickfair",
+          "Graceland",
+          "Kirkbride",
+          "Le Pentagone"
+        ],
+        "réponse": "Le Pentagone",
+        "anecdote": "Cet immeuble de cinq étages, inauguré le 15 janvier 1943 est le plus vaste immeuble de bureaux du monde."
+      },
+      {
+        "id": 15,
+        "question": "Quel grand monument métallique est représentatif de la ville de Bruxelles ?",
+        "propositions": [
+          "Tour et Taxis",
+          "Luizenmolen",
+          "Voortrekker",
+          "Atomium"
+        ],
+        "réponse": "Atomium",
+        "anecdote": "L'Atomium représente la maille conventionnelle du cristal de fer (structure cubique centrée) agrandie 165 milliards de fois."
+      },
+      {
+        "id": 16,
+        "question": "Dans laquelle de ces villes retrouve-t-on une réplique à échelle réduite de la tour Eiffel ?",
+        "propositions": [
+          "Hong Kong",
+          "Las Vegas",
+          "Chicago",
+          "Moscou"
+        ],
+        "réponse": "Las Vegas",
+        "anecdote": "La réplique de 165 mètres se situe en face de l'hôtel-casino Paris Las Vegas sur le Las Vegas Strip."
+      },
+      {
+        "id": 17,
+        "question": "Quel pont-aqueduc romain comportant trois étages enjambe le Gardon ?",
+        "propositions": [
+          "Le pont Napoléon",
+          "Le pont du Gard",
+          "Le pont Caquot",
+          "Le pont de Seyssel"
+        ],
+        "réponse": "Le pont du Gard",
+        "anecdote": "Le pont assurait dans sa fonction première la continuité de l'aqueduc romain qui conduisait l'eau d'Uzès à Nîmes."
+      },
+      {
+        "id": 18,
+        "question": "Dans quel pays se trouve Angkor Vat, sur le site archéologique d'Angkor ?",
+        "propositions": [
+          "En Thaïlande",
+          "Au Vietnam",
+          "En Thaïlande",
+          "Au Cambodge"
+        ],
+        "réponse": "Au Cambodge",
+        "anecdote": "Les ruines d'Angkor sont situées dans les forêts au nord du Tonlé Sap, en bordure de la ville de Siem Reap."
+      },
+      {
+        "id": 19,
+        "question": "Dans quelle ville française peut-on retrouver une tour surnommée 'Le Crayon' ?",
+        "propositions": [
+          "Lyon",
+          "Bordeaux",
+          "Toulouse",
+          "Limoges"
+        ],
+        "réponse": "Lyon",
+        "anecdote": "La Tour Part-Dieu est un gratte-ciel de bureaux situé dans le quartier de la Part-Dieu à Lyon, en France."
+      },
+      {
+        "id": 20,
+        "question": "Quels temples creusés dans la falaise ont été construits par le pharaon Ramsès II ?",
+        "propositions": [
+          "Abou Simbel",
+          "Mallawi",
+          "Esna",
+          "Péluse"
+        ],
+        "réponse": "Abou Simbel",
+        "anecdote": "Les temples ont été construits au nord du lac Nasser sur le Nil, à environ soixante-dix kilomètres de la deuxième cataracte du Nil."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Quel pays renferme la Tour de Belém, inscrite au patrimoine mondial de l'UNESCO ?",
+        "propositions": [
+          "Le Portugal",
+          "LÉgypte",
+          "Israël",
+          "L'Espagne"
+        ],
+        "réponse": "Le Portugal",
+        "anecdote": "La Tour de Belém a été construite sur les bords du Tage dans la freguesia de Santa Maria de Belém entre 1515 et 1521."
+      },
+      {
+        "id": 22,
+        "question": "Dans quel pays africain se situe le Voortrekker Monument, rendant hommage aux pionniers boers ?",
+        "propositions": [
+          "En Égypte",
+          "Au Mali",
+          "En Afrique du Sud",
+          "Au Ghana"
+        ],
+        "réponse": "En Afrique du Sud",
+        "anecdote": "Symbole du nationalisme afrikaner, le monument se dresse depuis 1949 sur une colline à l'entrée sud de la capitale sud-africaine."
+      },
+      {
+        "id": 23,
+        "question": "Dans quel État sud-américain peut-on admirer une célèbre statue de Carlos Pellegrini ?",
+        "propositions": [
+          "En Bolivie",
+          "En Colombie",
+          "En Argentine",
+          "Au Brésil"
+        ],
+        "réponse": "En Argentine",
+        "anecdote": "Durant sa période présidentielle, il réussit à assainir les finances de l'état et créa la Banque de la Nation Argentine."
+      },
+      {
+        "id": 24,
+        "question": "Combien d'étages possède la tour de Pise, sur la Piazza dei Miracoli ?",
+        "propositions": [
+          "Huit",
+          "Dix",
+          "Treize",
+          "Cinq"
+        ],
+        "réponse": "Huit",
+        "anecdote": "Sa célébrité vient notamment de son inclinaison caractéristique, qui est actuellement d'un angle de 3° 59' vers le sud."
+      },
+      {
+        "id": 25,
+        "question": "Depuis 1934, qu'est devenue la basilique Sainte-Sophie de Constantinople ?",
+        "propositions": [
+          "Une église",
+          "Une mosquée",
+          "Un hôtel",
+          "Un musée"
+        ],
+        "réponse": "Un musée",
+        "anecdote": "La basilique est dédiée au Christ, « Sagesse de Dieu », selon la tradition théologique chrétienne."
+      },
+      {
+        "id": 26,
+        "question": "Combien de noms de savants sont gravés sur la base du premier étage de la Tour Eiffel ?",
+        "propositions": [
+          "72",
+          "87",
+          "55",
+          "64"
+        ],
+        "réponse": "72",
+        "anecdote": "Gustave Eiffel a fait graver soixante-douze noms de scientifiques, ingénieurs ou industriels qui ont honoré la France de 1789 à 1889."
+      },
+      {
+        "id": 27,
+        "question": "Quel est le style du Parthénon de l'Acropole à Athènes, réalisé en marbre du Pentélique ?",
+        "propositions": [
+          "Éolique",
+          "Dorique",
+          "Corinthien",
+          "Ionique"
+        ],
+        "réponse": "Dorique",
+        "anecdote": "Le Parthénon était consacré à la déesse Athéna Parthenos, protectrice de la cité et déesse de la guerre et de la sagesse."
+      },
+      {
+        "id": 28,
+        "question": "Quelle est la longueur du célèbre pont de pierre de Bordeaux ?",
+        "propositions": [
+          "339 mètres",
+          "487 mètres",
+          "560 mètres",
+          "621 mètres"
+        ],
+        "réponse": "487 mètres",
+        "anecdote": "Le pont est construit en pierre et en brique, avec la particularité de comporter des espaces vides intérieurs."
+      },
+      {
+        "id": 29,
+        "question": "Quelle gare classée a été mise en avant dans une publicité de la marque Chanel ?",
+        "propositions": [
+          "Gare de Limoges",
+          "Gare de Toulouse",
+          "Gare de Bordeaux",
+          "Gare de Lyon"
+        ],
+        "réponse": "Gare de Limoges",
+        "anecdote": "L'esthétique du bâtiment actuel emprunte autant à un Art nouveau tardif qu'à l'Art déco et au néoclassicisme."
+      },
+      {
+        "id": 30,
+        "question": "Où pouvez-vous visiter le palais Jacques-Cur, chef-duvre de l'architecture gothique tardive ?",
+        "propositions": [
+          "Blois",
+          "Bourges",
+          "Besançon",
+          "Bordeaux"
+        ],
+        "réponse": "Bourges",
+        "anecdote": "Cet édifice naît de la volonté du riche marchand Jacques Cur de bâtir une « grand' maison » dans sa ville natale."
+      }
+    ]
+  }
+}

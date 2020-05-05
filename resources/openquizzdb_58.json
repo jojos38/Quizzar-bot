@@ -1,0 +1,374 @@
+{
+  "fournisseur": "OpenQuizzDB - Fournisseur de contenu libre (www.openquizzdb.org)",
+  "rédacteur": "Philippe Bresoux",
+  "thème": "Les cheveux",
+  "difficulté": 2,
+  "quizz": {
+    "débutant": [
+      {
+        "id": 1,
+        "question": "Chez qui faut-il se rendre pour se faire couper les cheveux ?",
+        "propositions": [
+          "Un barbier",
+          "Un liftier",
+          "Un toiletteur",
+          "Un coiffeur"
+        ],
+        "réponse": "Un coiffeur",
+        "anecdote": "Le coiffeur travaille dans un salon de coiffure ou intervient à domicile afin de couper et entretenir les cheveux de ses clients."
+      },
+      {
+        "id": 2,
+        "question": "Comment se présentent naturellement les cheveux des africains ?",
+        "propositions": [
+          "Lisses",
+          "Crépus",
+          "Frisés",
+          "Fourchus"
+        ],
+        "réponse": "Crépus",
+        "anecdote": "Un follicule elliptique et pas du tout perpendiculaire à la surface (comme couché sous la peau) produira un cheveu crépu."
+      },
+      {
+        "id": 3,
+        "question": "Quel insecte parasite de l'homme peut-on retrouver dans nos cheveux ?",
+        "propositions": [
+          "La mite",
+          "La punaise",
+          "Le pou",
+          "La teigne"
+        ],
+        "réponse": "Le pou",
+        "anecdote": "Pour les zoologistes, les quelque 500 espèces décrites d'anoploures sont aussi collectivement des « poux », dans un sens plus large."
+      },
+      {
+        "id": 4,
+        "question": "Lequel de ces termes n'est généralement pas associé aux cheveux ?",
+        "propositions": [
+          "Ridés",
+          "Crêpés",
+          "Bouclés",
+          "Tressés"
+        ],
+        "réponse": "Ridés",
+        "anecdote": "Selon certains scientifiques, les différents types de chevelures résulteraient d'une adaptation aux climats régionaux."
+      },
+      {
+        "id": 5,
+        "question": "Quelle coiffure de faux cheveux peut être portée sur la tête ?",
+        "propositions": [
+          "Une perruque",
+          "Une calotte",
+          "Une toque",
+          "Une mitre"
+        ],
+        "réponse": "Une perruque",
+        "anecdote": "Une « perruque à fenêtre » est une perruque où sont aménagées des ouvertures pour laisser passer les vrais cheveux."
+      },
+      {
+        "id": 6,
+        "question": "En combien de parties peut-on « couper les cheveux » dans une célèbre expression ?",
+        "propositions": [
+          "En huit",
+          "En quatre",
+          "En six",
+          "En deux"
+        ],
+        "réponse": "En quatre",
+        "anecdote": "Parmi les expressions liées aux cheveux, on parle de « couper un cheveu en quatre » lorsque l'on a le souci du détail."
+      },
+      {
+        "id": 7,
+        "question": "Lorsque vous vous faites du soucis, vous risquez de vous faire des cheveux...",
+        "propositions": [
+          "Blancs",
+          "Verts",
+          "Rouges",
+          "Jaunes"
+        ],
+        "réponse": "Blancs",
+        "anecdote": "La toute première coupe de cheveux était chez certaines ethnies l'occasion de fêtes et rituels complexes."
+      },
+      {
+        "id": 8,
+        "question": "Quel élément décoratif est généralement utilisé sur les sapins de Noël ?",
+        "propositions": [
+          "Cheveux d'anges",
+          "Cheveux de rennes",
+          "Cheveux d'ânes",
+          "Cheveux de lions"
+        ],
+        "réponse": "Cheveux d'anges",
+        "anecdote": "La crèche de Noël, souvent associée, n'est pas un accessoire du sapin, elle est simplement concomitante."
+      },
+      {
+        "id": 9,
+        "question": "Comment appelle-t-on l'art d'arranger les cheveux, éventuellement de modifier leur aspect extérieur ?",
+        "propositions": [
+          "Le peeling",
+          "La coiffure",
+          "Le nail art",
+          "La manucure"
+        ],
+        "réponse": "La coiffure",
+        "anecdote": "Un rapide descriptif des coiffures permet de cerner leur richesse ainsi que leur fonction sociale."
+      },
+      {
+        "id": 10,
+        "question": "Quelle était la coupe de cheveux des premiers rockers ?",
+        "propositions": [
+          "La poire",
+          "La pomme",
+          "La pêche",
+          "La banane"
+        ],
+        "réponse": "La banane",
+        "anecdote": "Une mèche gardée longue sur le dessus de la tête, roulée et maintenue par de la gomina, dessine une protubérance cylindrique."
+      }
+    ],
+    "confirmé": [
+      {
+        "id": 11,
+        "question": "Comment appelle-t-on la partie non visible et vivante du cheveu ?",
+        "propositions": [
+          "La tige",
+          "La pointe",
+          "La racine",
+          "Le follicule"
+        ],
+        "réponse": "La racine",
+        "anecdote": "Chez la femme, la durée du cycle de croissance est de quatre à sept ans, contre deux à quatre chez l'homme."
+      },
+      {
+        "id": 12,
+        "question": "De quelle protéine synthétisée nos cheveux sont-ils composés ?",
+        "propositions": [
+          "Collagène",
+          "Plakine",
+          "Spongine",
+          "Kératine"
+        ],
+        "réponse": "Kératine",
+        "anecdote": "Le cheveu est composé à 95% de cette kératine qui le protège contre les UV, l'eau de mer et d'autres facteurs agressifs."
+      },
+      {
+        "id": 13,
+        "question": "Quelles parcelles de la couche cornée du cuir chevelu sont généralement blanches ?",
+        "propositions": [
+          "Les urticaires",
+          "Les pellicules",
+          "Les urticaires",
+          "Le prurit"
+        ],
+        "réponse": "Les pellicules",
+        "anecdote": "Les pellicules sont des squames de peau, et plus précisément des cellules superficielles du cuir chevelu ayant desquamé."
+      },
+      {
+        "id": 14,
+        "question": "Combien de cheveux environ pouvons-nous avoir au maximum sur la tête ?",
+        "propositions": [
+          "120 000",
+          "90 000",
+          "150 000",
+          "60 000"
+        ],
+        "réponse": "150 000",
+        "anecdote": "Les chevelures claires comptent bien souvent plus de cheveux que les chevelures noires ou rousses"
+      },
+      {
+        "id": 15,
+        "question": "Laquelle de ces chevelures compte généralement plus de cheveux que les autres ?",
+        "propositions": [
+          "Rousse",
+          "Claire",
+          "Brune",
+          "Noire"
+        ],
+        "réponse": "Claire",
+        "anecdote": "Selon une théorie pas encore fermement établie, au moins deux paires de gènes contrôleraient la couleur de cheveux humains."
+      },
+      {
+        "id": 16,
+        "question": "Combien un individu perd-il de cheveux par jour en moyenne ?",
+        "propositions": [
+          "200",
+          "50",
+          "100",
+          "150"
+        ],
+        "réponse": "50",
+        "anecdote": "Les cheveux ne poussent pas continuellement mais selon un rythme cyclique et périodique qui peut varier selon l'individu."
+      },
+      {
+        "id": 17,
+        "question": "Quelle partie du cheveu est considérée comme biologiquement morte ?",
+        "propositions": [
+          "Le follicule",
+          "La racine",
+          "La pointe",
+          "La tige"
+        ],
+        "réponse": "La tige",
+        "anecdote": "Un cheveu ne tombe que 2 à 3 mois après la mort de la cellule qui le produit (spontanée ou pathologique)."
+      },
+      {
+        "id": 18,
+        "question": "Les cheveux qui tombent repoussent environ combien de fois dans une vie ?",
+        "propositions": [
+          "15",
+          "25",
+          "45",
+          "35"
+        ],
+        "réponse": "25",
+        "anecdote": "Lorsqu'un nombre supérieur à 125 cheveux par jour est perdu (au lieu de 5 à 100 en moyenne), il y a un problème."
+      },
+      {
+        "id": 19,
+        "question": "Complétez cette expression liée aux cheveux : « Comme un cheveu sur... »",
+        "propositions": [
+          "La soupe",
+          "La paille",
+          "La boue",
+          "La neige"
+        ],
+        "réponse": "La soupe",
+        "anecdote": "Si la soupe désigne de la nourriture, le « cheveu qui arrive dessus » ne connote pas ici quelque chose de sale, mais plutôt d'inopportun."
+      },
+      {
+        "id": 20,
+        "question": "Où avez-vous un cheveu si vous zozotez et rencontrez donc une gêne ?",
+        "propositions": [
+          "Sur la langue",
+          "Sur le front",
+          "Sous les pieds",
+          "Dans la main"
+        ],
+        "réponse": "Sur la langue",
+        "anecdote": "Désignant un trouble de l'articulation, l'époque précise de l'apparition de cette expression est inconnue."
+      }
+    ],
+    "expert": [
+      {
+        "id": 21,
+        "question": "Par combien de cycles différents la croissance du cheveu s'effectue-t-elle ?",
+        "propositions": [
+          "2",
+          "4",
+          "3",
+          "5"
+        ],
+        "réponse": "4",
+        "anecdote": "Les premiers cycles commencent dès le cinquième mois et demi de la vie ftale et se poursuivent toute la vie."
+      },
+      {
+        "id": 22,
+        "question": "Quel personnage biblique cachait sa force sous la longueur de ses cheveux ?",
+        "propositions": [
+          "Thola",
+          "Samson",
+          "Samgar",
+          "Eli"
+        ],
+        "réponse": "Samson",
+        "anecdote": "Selon le récit biblique, Samson doit sa force cachée sous la longueur de ses cheveux à la promesse de Dieu faite à sa mère."
+      },
+      {
+        "id": 23,
+        "question": "Quelle pratique guerrière consiste à arracher le cuir chevelu de son adversaire ?",
+        "propositions": [
+          "Le canthus",
+          "La dissection",
+          "Le scalp",
+          "La vivisection"
+        ],
+        "réponse": "Le scalp",
+        "anecdote": "Le scalp est ainsi souvent conservé comme trophée de guerre pour témoigner du nombre d'adversaires vaincus."
+      },
+      {
+        "id": 24,
+        "question": "Comment appelle-t-on une longue mèche de cheveux située au milieu de la nuque ?",
+        "propositions": [
+          "Queue de castor",
+          "Queue de charrue",
+          "Queue de serpent",
+          "Queue de rat"
+        ],
+        "réponse": "Queue de rat",
+        "anecdote": "Les queues de rat portées par les femmes sont souvent fines et longues et commencent au niveau de la nuque."
+      },
+      {
+        "id": 25,
+        "question": "Quelle est la partie la plus longue du cycle pilaire, durant de deux à cinq ans ?",
+        "propositions": [
+          "Anxiogène",
+          "Anagène",
+          "Télogène",
+          "Catagène"
+        ],
+        "réponse": "Anagène",
+        "anecdote": "Les phases de croissance (phase anagène), de régression (phase catagène) et de repos (phase télogène) se succèdent."
+      },
+      {
+        "id": 26,
+        "question": "Durant quelle phase de repos le cheveu cesse-t-il dévoluer ?",
+        "propositions": [
+          "Catagène",
+          "Anagène",
+          "Télogène",
+          "Patogène"
+        ],
+        "réponse": "Catagène",
+        "anecdote": "La phase catagène dure environ trois semaines, ce qui est considérablement peu par rapport à la phase précédente."
+      },
+      {
+        "id": 27,
+        "question": "En dermatologie, quel terme désigne l'accélération de la chute des cheveux ou des poils ?",
+        "propositions": [
+          "Alopécie",
+          "Hirsutisme",
+          "Piébaldisme",
+          "Monilethrix"
+        ],
+        "réponse": "Alopécie",
+        "anecdote": "De l'Antiquité à nos jours, les hommes ont recouru à divers subterfuges pour camoufler leur crâne dégarni."
+      },
+      {
+        "id": 28,
+        "question": "Quelle est la longueur moyenne de nos cheveux mis bout à bout en une vie ?",
+        "propositions": [
+          "400 km",
+          "600 km",
+          "1 000 km",
+          "800 km"
+        ],
+        "réponse": "1 000 km",
+        "anecdote": "La vitesse de croissance des cheveux varie selon l'âge et les saisons mais également avec une composante héréditaire."
+      },
+      {
+        "id": 29,
+        "question": "Quel terme relate le blanchissement des cheveux qui survient au cours de l'existence ?",
+        "propositions": [
+          "Sarcopénie",
+          "Canitie",
+          "Ostéopénie",
+          "Gériatrie"
+        ],
+        "réponse": "Canitie",
+        "anecdote": "Il existe des canities totales ou partielles précoces, pouvant survenir dès ladolescence, et des canities dorigine pathologique."
+      },
+      {
+        "id": 30,
+        "question": "Quelles roches volcaniques sont issues d'une gouttelette de lave très fluide ?",
+        "propositions": [
+          "Cheveux de Pélé",
+          "Cheveux de Limu",
+          "Cheveux de Sider",
+          "Cheveux de Ponce"
+        ],
+        "réponse": "Cheveux de Pélé",
+        "anecdote": "Ce type d'obsidienne tire son nom de Pélé, la déesse hawaïenne du feu et des volcans."
+      }
+    ]
+  }
+}
