@@ -1,5 +1,7 @@
 
 // -------------------- SOME VARIABLES -------------------- //
+const activityMessage = "!jhelp";
+//const activityMessage = "Open Trivia API is down / English language is not available sorry for the issue";
 const { prefix, token, topggtoken } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -91,7 +93,7 @@ process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches u
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
 client.once('ready', async function () {
     logger.info('Bot ready');
-    client.user.setActivity("use !jhelp for help");	
+    client.user.setActivity(activityMessage);	
 });
 
 dbl.on('posted', () => {
