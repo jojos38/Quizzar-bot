@@ -267,9 +267,14 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}jh`)) { // jhelp
         if (await isAllowed(message, false, lang)) {
-            const embeds = eb[lang].getHelpEmbed(); // Get commands and rules embeds
-            await tools.sendCatch(channel, embeds[0]);
-            await tools.sendCatch(channel, embeds[1]);
+			const embeds = eb[lang];
+			if (!embeds) {
+				logger.error("Error happened on help command, wrong language: " + lang);
+				tools.sendCatch(channel, "An error happened, if the error persist, you can get help on the support server.");
+			}
+            const helpEmbed = embeds.getHelpEmbed(); // Get commands and rules embeds
+            await tools.sendCatch(channel, helpEmbed[0]);
+            await tools.sendCatch(channel, helpEmbed[1]);
         }
     }
 
