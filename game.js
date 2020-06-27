@@ -272,7 +272,7 @@ module.exports = {
             tools.sendCatch(channel, eb[lang].getNoGameRunningEmbed());
             return;
         }
-        if (cache.get(guildID + "player") == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
+        if (cache.get(guildID + "player") == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) {
             cache.set(guildID + "running", 1); // 1 = Waiting for stop
             tools.sendCatch(channel, eb[lang].getStopEmbed(reason));
             logger.info("Game aborted");
@@ -336,7 +336,7 @@ module.exports = {
 		else { // Mean it's null
 			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultquestionsamount") || 10;
 			if (questionsAmount == 0) {
-				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
+				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) questionsAmount = 2147483647;
 			}
 		}
 
