@@ -60,7 +60,7 @@ async function isAllowed(message, admin, lang) {
 function initSettings(guild) {
 	var guildID = guild.id;
 	var guildName = guild.name;
-	db.setServerName(guildID, guildName);
+	db.setSetting(guildID, "name", guildName);
 	db.setSetting(guildID, "questiondelay", 15000);
 	db.setSetting(guildID, "answerdelay", 5000);
 	db.setSetting(guildID, "defaultquestionsamount", 10);
@@ -338,7 +338,7 @@ client.on('message', async function (message) {
 				if (dbguilds[id]) { // If the guild exists in the database
 					logger.debug("Server " + id + " name updated");
 					const tempGuild = guilds.get(id);
-					db.setServerName(tempGuild.id, tempGuild.name);
+					db.setSetting(guildID, "name", guildName);
 				}
 			}
 		}

@@ -189,21 +189,5 @@ module.exports = {
 			});
 		});
     },
-	
-	setServerName: function (guildID, serverName) {
-        return new Promise(async function (resolve) {
-            const guildCollection = mainDB.collection(guildID);
-            const nameToFind = { name: serverName };
-            guildCollection.findOne(nameToFind, function (err, result) {
-                if (result) {
-                    guildCollection.updateOne(nameToFind, { $set: { name: serverName } });
-                    resolve();
-                } else {
-                    guildCollection.insertOne({ name: serverName });
-                    resolve();
-                }
-            });
-        });
-	}
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
 }
