@@ -43,7 +43,7 @@ async function isAllowed(message, admin, lang) {
 			return false;
 		}
 	}
-	
+
 	// Channel perms
 	const channels = await db.getGuildChannels(message.guild.id);
 	const channelID = message.channel.id;
@@ -51,7 +51,7 @@ async function isAllowed(message, admin, lang) {
 		// If message is sent from allowed channel then return
 		if (channels[i].channel == channelID) return true;
 	}
-	
+
 	// If we went there is that the user is not allowed since previous for loop should return
 	tools.sendCatch(message.channel, eb[lang].getNotAllowedEmbed(channelsString(channels, lang)));
 	return false;
@@ -131,46 +131,73 @@ client.on('message', async function (message) {
 	if (!guild) return;
 	const lang = await db.getSetting(guild.id, "lang");
 
-    if (messageContent.startsWith(`${prefix}jclean`)) { // jclean [OWNER]
-        if (message.author.id == 137239068567142400) {
-            const guilds = client.guilds;
-			const dbguilds = await db.getAllServers();
-			for (var entry of dbguilds) {
-				var dbGuildID = entry.name;
-				if (guilds.get(dbGuildID))
-					logger.debug("Server " + dbGuildID + " exist");
-				else
-					db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
+    if (messageContent.startsWith(`${prefix}jh`)) { // jhelp
+        if (await isAllowed(message, false, lang)) {
+			const embeds = eb[lang];
+			if (!embeds) {
+				logger.error("Error happened on help command, wrong language: " + lang);
+				tools.sendCatch(channel, "An error happened, if the error persist, you can get help on the support server.");
+			}
+            const helpEmbed = embeds.getHelpEmbed(); // Get commands and rules embeds
+            await tools.sendCatch(channel, helpEmbed[0]);
+            await tools.sendCatch(channel, helpEmbed[1]);
+        }
+    }
+
+    else if (messageContent.startsWith(`${prefix}jdif`)) { // jdif
+        if (await isAllowed(message, false, lang)) {
+            tools.sendCatch(channel, eb[lang].getDifEmbed());
+        }
+    }
+
+	else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
+        if (await isAllowed(message, false, lang)) {
+            var servers = client.guilds;
+			var users = 0;
+			client.guilds.forEach(g => {
+			  users += g.memberCount;
+			})	
+			var uptime = process.uptime();
+            tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers.size, tools.format(uptime)));
+        }
+    }
+
+    else if (messageContent.startsWith(`${prefix}jp`) || messageContent.startsWith(`${prefix}jstart`)) { // jplay
+        if (await isAllowed(message, false, lang)) {
+            game.preStart(message, args, lang);
+        }
+    }
+
+    else if (messageContent.startsWith(`${prefix}jstop`)) { // jstop
+        if (await isAllowed(message, false, lang)) {
+            game.stop(message, tools.getString("stoppedBy", lang, {player:eb[lang].mention(message.author.id, 'u')}), lang);
+        }
+    }
+
+    else if (messageContent.startsWith(`${prefix}jstats`)) { // jstats
+        if (await isAllowed(message, false, lang)) {
+            const userStats = await db.getUserStats(guild.id, message.author.id);
+			if (userStats) {
+				tools.sendCatch(channel, eb[lang].getUserStatsEmbed(userStats));
+			} else {
+				tools.sendCatch(channel, eb[lang].getNoStatsEmbed());
 			}
         }
     }
 
-	if (messageContent.startsWith(`${prefix}jrestore`)) { // jrestore [OWNER]
-        if (message.author.id == 137239068567142400) {
-            const guilds = client.guilds;
-			const tempdbguilds = await db.getAllServers();
-			var dbguilds = [];
-			for (var entry of tempdbguilds) {
-				dbguilds[entry.name] = true;
-			}
-			for (var id of guilds.keys()) {
-					if (dbguilds[id]) {
-					logger.debug("Server " + id + " exist in database");
-				} else {
-					const tempGuild = guilds.get(id);
-					initSettings(tempGuild);
-				}
-			}
-		}
+    else if (messageContent.startsWith(`${prefix}jtop`)) { // jtop
+        if (await isAllowed(message, false, lang)) {
+            db.getTop(guild, channel, lang);
+        }
     }
 
-    if (messageContent.startsWith(`${prefix}jstuck`)) { // jadd [ADMIN]
+   	else if (messageContent.startsWith(`${prefix}jstuck`)) { // jstuck [ADMIN]
         if (await isAllowed(message, true, lang)) {
             game.unstuck(message, lang);
         }
     }
 
-    if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
+    else if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
         if (await isAllowed(message, true, lang)) {
             db.addGuildChannel(channel, lang);
         }
@@ -245,7 +272,7 @@ client.on('message', async function (message) {
             }
         }
     }
-	
+
 	else if (messageContent.startsWith(`${prefix}jlang`)) { // jlang [ADMIN]
         if (await isAllowed(message, true, lang)) {
 			if (!args[1]) return;
@@ -262,25 +289,6 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jadmin`)) { // jadmin [ADMIN]
         if (await isAllowed(message, true, lang)) {
             tools.sendCatch(channel, eb[lang].getAdminHelpEmbed());
-        }
-    }
-
-    else if (messageContent.startsWith(`${prefix}jh`)) { // jhelp
-        if (await isAllowed(message, false, lang)) {
-			const embeds = eb[lang];
-			if (!embeds) {
-				logger.error("Error happened on help command, wrong language: " + lang);
-				tools.sendCatch(channel, "An error happened, if the error persist, you can get help on the support server.");
-			}
-            const helpEmbed = embeds.getHelpEmbed(); // Get commands and rules embeds
-            await tools.sendCatch(channel, helpEmbed[0]);
-            await tools.sendCatch(channel, helpEmbed[1]);
-        }
-    }
-
-    else if (messageContent.startsWith(`${prefix}jdif`)) { // jdif
-        if (await isAllowed(message, false, lang)) {
-            tools.sendCatch(channel, eb[lang].getDifEmbed());
         }
     }
 
@@ -303,46 +311,56 @@ client.on('message', async function (message) {
 			logger.debug("English:" + ratioEN + "% (" + en + ") French:" + ratioFR + "% (" + (servers.size-en) + ")"); 
         }
     }
-	
-	else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
-        if (await isAllowed(message, false, lang)) {
-            var servers = client.guilds;
-			var users = 0;
-			client.guilds.forEach(g => {
-			  users += g.memberCount;
-			})	
-			var uptime = process.uptime();
-            tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers.size, tools.format(uptime)));
-        }
-    }
 
-    else if (messageContent.startsWith(`${prefix}jp`) || messageContent.startsWith(`${prefix}jstart`)) { // jplay
-        if (await isAllowed(message, false, lang)) {
-            game.preStart(message, args, lang);
-        }
-    }
-
-    else if (messageContent.startsWith(`${prefix}jstop`)) { // jstop
-        if (await isAllowed(message, false, lang)) {
-            game.stop(message, tools.getString("stoppedBy", lang, {player:eb[lang].mention(message.author.id, 'u')}), lang);
-        }
-    }
-
-    else if (messageContent.startsWith(`${prefix}jstats`)) { // jstats
-        if (await isAllowed(message, false, lang)) {
-            const userStats = await db.getUserStats(guild.id, message.author.id);
-			if (userStats) {
-				tools.sendCatch(channel, eb[lang].getUserStatsEmbed(userStats));
-			} else {
-				tools.sendCatch(channel, eb[lang].getNoStatsEmbed());
+	else if (messageContent.startsWith(`${prefix}jclean`)) { // jclean [OWNER]
+        if (message.author.id == 137239068567142400) {
+            const guilds = client.guilds;
+			const dbguilds = await db.getAllServers();
+			for (var entry of dbguilds) {
+				var dbGuildID = entry.name;
+				if (guilds.get(dbGuildID))
+					logger.debug("Server " + dbGuildID + " exist");
+				else
+					db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
 			}
         }
     }
-
-    else if (messageContent.startsWith(`${prefix}jtop`)) { // jtop
-        if (await isAllowed(message, false, lang)) {
-            db.getTop(guild, channel, lang);
-        }
+	
+	else if (messageContent.startsWith(`${prefix}jupdate`)) { // jrestore [OWNER]
+        if (message.author.id == 137239068567142400) {
+            const guilds = client.guilds;
+			const tempdbguilds = await db.getAllServers();
+			var dbguilds = [];
+			for (var entry of tempdbguilds) {
+				dbguilds[entry.name] = true;
+			}
+			for (var id of guilds.keys()) {
+				if (dbguilds[id]) { // If the guild exists in the database
+					logger.debug("Server " + id + " name updated");
+					const tempGuild = guilds.get(id);
+					db.setServerName(tempGuild.id, tempGuild.name);
+				}
+			}
+		}
+    }
+	
+	else if (messageContent.startsWith(`${prefix}jrestore`)) { // jrestore [OWNER]
+        if (message.author.id == 137239068567142400) {
+            const guilds = client.guilds;
+			const tempdbguilds = await db.getAllServers();
+			var dbguilds = [];
+			for (var entry of tempdbguilds) {
+				dbguilds[entry.name] = true;
+			}
+			for (var id of guilds.keys()) {
+					if (dbguilds[id]) {
+					logger.debug("Server " + id + " exist in database");
+				} else {
+					const tempGuild = guilds.get(id);
+					initSettings(tempGuild);
+				}
+			}
+		}
     }
 })
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
