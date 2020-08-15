@@ -134,7 +134,7 @@ module.exports = {
 				var nick;
 				if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
 				else nick = user.username;
-				usersString = usersString + "\n" + "**[ " + i + " ]** [" + tools.getString("score", lang) + ": " + user.score + "] [" + tools.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+				usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + tools.getString("score", lang) + ": " + user.score + "] [" + tools.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 			}
             if (statsTable.length == 0) {
                 usersString = tools.getString("noStats", lang);
@@ -189,21 +189,5 @@ module.exports = {
 			});
 		});
     },
-	
-	setServerName: function (guildID, serverName) {
-        return new Promise(async function (resolve) {
-            const guildCollection = mainDB.collection(guildID);
-            const nameToFind = { name: serverName };
-            guildCollection.findOne(nameToFind, function (err, result) {
-                if (result) {
-                    guildCollection.updateOne(nameToFind, { $set: { name: serverName } });
-                    resolve();
-                } else {
-                    guildCollection.insertOne({ name: serverName });
-                    resolve();
-                }
-            });
-        });
-	}
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
 }
