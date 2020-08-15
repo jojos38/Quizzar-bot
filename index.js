@@ -338,6 +338,8 @@ client.on('message', async function (message) {
 				if (dbguilds[id]) { // If the guild exists in the database
 					logger.debug("Server " + id + " name updated");
 					const tempGuild = guilds.get(id);
+					var guildID = tempGuild.id;
+					var guildName = tempGuild.name;
 					db.setSetting(guildID, "name", guildName);
 				}
 			}
