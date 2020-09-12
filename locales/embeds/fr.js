@@ -70,7 +70,7 @@ module.exports = {
                 icon_url: logoURL
             },
             color: orange,
-            description: "- Vous ne pouvez choisir qu'une seule réponse, le bonne réponse sera donnée à la fin du temps impartit\n- Pour répondre à une question cliquez sur la réaction associée à la réponse\n- Une question facile donne **1** points\n- Une question intermédiaire donne **2** points\n- Une question difficile donne **3** points\n- Une partie gagnée donne **1** point de victoire\n **Note:** Pour qu'un point de victoire soit compté il faut que vous gagniez une partie avec au minimum deux participants"
+            description: "- Vous ne pouvez choisir qu'une seule réponse, la bonne réponse sera donnée à la fin du temps impartit\n- Pour répondre à une question cliquez sur la réaction associée à la réponse\n- Une question facile donne **1** points\n- Une question intermédiaire donne **2** points\n- Une question difficile donne **3** points\n- Une partie gagnée donne **1** point de victoire\n **Note:** Pour qu'un point de victoire soit compté il faut que vous gagniez une partie avec au minimum deux participants"
         });
         const embedTable = { 0: embed1, 1: embed2 };
         return embedTable;
