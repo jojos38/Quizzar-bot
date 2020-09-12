@@ -30,7 +30,7 @@ async function isAllowed(message, admin, lang) {
 	if (!message) return false;
 	const member = message.member || message.guild.member(message.author);
 	if (!member) return false;
-	
+
 	// Owner perms
 	if (message.author.id == 137239068567142400) return true;
 
@@ -156,7 +156,7 @@ client.on('message', async function (message) {
 			var users = 0;
 			client.guilds.forEach(g => {
 			  users += g.memberCount;
-			})	
+			})
 			var uptime = process.uptime();
             tools.sendCatch(channel, eb[lang].getInfoEmbed(users, servers.size, tools.format(uptime)));
         }
@@ -325,7 +325,7 @@ client.on('message', async function (message) {
 			}
         }
     }
-	
+
 	else if (messageContent.startsWith(`${prefix}jupdate`)) { // jrestore [OWNER]
         if (message.author.id == 137239068567142400) {
             const guilds = client.guilds;
@@ -345,7 +345,7 @@ client.on('message', async function (message) {
 			}
 		}
     }
-	
+
 	else if (messageContent.startsWith(`${prefix}jrestore`)) { // jrestore [OWNER]
         if (message.author.id == 137239068567142400) {
             const guilds = client.guilds;
@@ -364,10 +364,12 @@ client.on('message', async function (message) {
 			}
 		}
     }
-	
-	else if (messageContent.startsWith(`${prefix}status`)) { // jrestore [OWNER]
+
+	else if (messageContent.startsWith(`${prefix}jstatus`)) { // jstatus [OWNER]
         if (message.author.id == 137239068567142400) {
-			client.user.setActivity(messageContent.replace(`${prefix}status `, ""));
+			var newStatus = messageContent.replace(`${prefix}jstatus `, "");
+			logger.info("Status changed to: " + newStatus);
+			client.user.setActivity(newStatus);
 		}
     }
 })
