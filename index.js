@@ -93,7 +93,7 @@ process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches u
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
 client.once('ready', async function () {
     logger.info('Bot ready');
-    client.user.setActivity(activityMessage);	
+    client.user.setActivity(activityMessage);
 });
 
 dbl.on('posted', () => {
@@ -362,6 +362,12 @@ client.on('message', async function (message) {
 					initSettings(tempGuild);
 				}
 			}
+		}
+    }
+	
+	else if (messageContent.startsWith(`${prefix}status`)) { // jrestore [OWNER]
+        if (message.author.id == 137239068567142400) {
+			client.user.setActivity(messageContent.replace(`${prefix}status `, ""));
 		}
     }
 })
