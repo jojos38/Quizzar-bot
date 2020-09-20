@@ -389,7 +389,7 @@ client.on('message', async function (message) {
 
 	else if (messageContent.startsWith(`${prefix}status`)) { // status [OWNER]
         if (message.author.id == ownerID) {
-			var newStatus = messageContent.replace(`${prefix}jstatus `, "");
+			var newStatus = messageContent.replace(`${prefix}status `, "");
 			logger.info("Status changed to: " + newStatus);
 			client.user.setActivity(newStatus);
 		}
