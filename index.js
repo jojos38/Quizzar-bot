@@ -17,11 +17,14 @@ const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/em
 
 
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-function channelsString(channels, lang) {
+// Return a string of all the channels the bot is allowed to use
+function getChannelsString(channels, lang) {
 	var channelsString = "";
-	for (var i = 0; i < channels.length; i++) { // For each channel
+	// Loop trough each channe and add them to a string
+	for (var i = 0; i < channels.length; i++) {
 		channelsString = channelsString + "\n" + tools.mention(channels[i].channel, 'c');
 	}
+	// If the string is empty, mean there was no channel
 	if (channelsString == "") channelsString = tools.getString("noChannel", lang);
 	return channelsString;
 }
@@ -219,7 +222,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}jchannels`)) { // jremove [ADMIN]
         if (await isAllowed(message, true, lang)) {
             const channels = await db.getGuildChannels(guild.id)
-			tools.sendCatch(channel, channelsString(channels, lang));
+			tools.sendCatch(channel, getChannelsString(channels, lang));
         }
     }
 

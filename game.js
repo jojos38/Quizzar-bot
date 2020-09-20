@@ -143,6 +143,13 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 
 
 // ----------------------------------- GAME ----------------------------------- //
+// We first do a for loop that asks for all the questions and give the answers
+// it also add the points of the user to the database each time, this way in
+// case of crash, the points are kept. Not forgeting to update the cache to avoid
+// it from being cleared automatically.
+// Then we exit the loop when the game ends and we calculate the total points
+// + the winner. The game as ended we can clear the cache.
+
 async function startGame(message, difficulty, qAmount, lang) {
     const channel = message.channel;
     const guildID = message.guild.id;
@@ -159,20 +166,21 @@ async function startGame(message, difficulty, qAmount, lang) {
     for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
 		
-		// Update the cache	
+		// Update the cache	to avoid it from clearing the values on a game
+		// that would last for a too period
 		cache.set(guildID + "running", cache.get(guildID + "running"));
 		cache.set(guildID + "player", cache.get(guildID + "player"));
 		cache.set(guildID + "score", cache.get(guildID + "score"));
 		cache.set(guildID + "channel", cache.get(guildID + "channel"));
 		
 		try {
-			// It asks question and gives answser
+			// It asks one question and gives the answser + points calculation
 			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang);
 		} catch (error) {
 			logger.error(error);
 			logger.error("Error: ending game...");
 			tools.sendCatch(message.channel, tools.getString("error", lang));
-			cache.set(guildID + "running", 1);
+			cache.set(guildID + "running", 1); // Stop the game asap
 		}
 		if (cache.get(guildID + "running") == 1) { // 1 = Waiting for stop
             tools.sendCatch(message.channel, eb[lang].getGameStoppedEmbed());
@@ -189,7 +197,7 @@ async function startGame(message, difficulty, qAmount, lang) {
 
 async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang) {
 	var qData;
-	if (lang == "fr") {
+	if (lang == "fr") { // This sucks, should be improved
 		const file = getRandomFile();
 		const qRaw = getRandomQuestion(file, difficulty);
 		qData = {
@@ -203,7 +211,7 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 			qNumber: qNumber,
 			qAmount: qAmount
 		};
-	} else {
+	} else { // And this sucks even more
 		qData = await getRandomQuestionAPI(difficulty);
 		if (!qData) tools.sendCatch(channel, "An error happenned, skipping question...");
 		qData['qNumber'] = qNumber;
