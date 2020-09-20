@@ -3,9 +3,9 @@
 var MongoClient = require('mongodb').MongoClient
 const config = require('./config.json');
 const { database, username, password, ip, port } = require('./dbconfig.json');
-const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/embeds/fr.js')};
 const tools = require('./tools.js');
 const logger = require('./logger.js');
+const eb = tools.embeds;
 var client;
 var mainDB;
 // -------------------- SOME VARIABLES -------------------- //

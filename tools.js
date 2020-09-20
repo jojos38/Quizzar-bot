@@ -11,10 +11,23 @@ i18n.configure({
 
 
 
+function getEmbeds() {
+	const eb = {};
+	const langs = i18n.getLocales();
+	langs.forEach(language => {
+		eb[language] = require('./locales/embeds/' + language + '.js');
+	});
+	return eb;
+}
+
+
+
 module.exports = {
 	getLocales: function() {
 		return i18n.getLocales();
 	},
+
+	embeds: getEmbeds(),
 	
 	shuffle: function(a) {
 		var j, x, i;

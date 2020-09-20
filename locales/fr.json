@@ -36,7 +36,9 @@
 	"victory": "victoires",
 	"noGameRunning": "Aucune partie n'est en cours ce channel, utilisez la commande dans le channel ou la partie est en cours",
 	"useAgain": "Vous pouvez utiliser le bot à nouveau",
-	"maintenanceScheduled": "**Une maintenance est prévue dans {{minutes}} minutes.**",
+	"maintenanceScheduled": "**Attention: une maintenance est prévue, le bot s'arrêtera dans {{minutes}} minutes.**",
 	"tryAgainLater": "Une maintenance est prévue, s'il vous plait reessayez un peu plus tard.",
-	"maintenance": "**Le bot est en maintenance...**"
+	"maintenance": "**Bot en maintenance.**",
+	"prefixSet": "Prefix défini avec succés",
+	"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement."
 }

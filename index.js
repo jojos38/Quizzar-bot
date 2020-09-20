@@ -1,8 +1,15 @@
 
+// -------------------- SETTINGS -------------------- //
+const defaultLanguage = "en";
+const defaultPrefix = "!j"
+const ownerID = 137239068567142400;
+// -------------------- SETTINGS -------------------- //
+
+
+
 // -------------------- SOME VARIABLES -------------------- //
 const activityMessage = "!jhelp";
-//const activityMessage = "Open Trivia API is down / English language is not available sorry for the issue";
-const { prefix, token, topggtoken } = require('./config.json');
+const { token, topggtoken } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const DBL = require("dblapi.js");
@@ -11,7 +18,7 @@ const game = require('./game.js');
 const tools = require('./tools.js');
 const db = require('./database.js');
 const logger = require('./logger.js');
-const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/embeds/fr.js')};
+const eb = tools.embeds;
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -35,7 +42,7 @@ async function isAllowed(message, admin, lang) {
 	if (!member) return false;
 
 	// Owner perms
-	if (message.author.id == 137239068567142400) return true;
+	if (message.author.id == ownerID) return true;
 
 	// Admin perms
 	if (member.hasPermission("MANAGE_GUILD")) {
@@ -68,7 +75,8 @@ function initSettings(guild) {
 	db.setSetting(guildID, "answerdelay", 5000);
 	db.setSetting(guildID, "defaultquestionsamount", 10);
 	db.setSetting(guildID, "defaultdifficulty", 0);
-	db.setSetting(guildID, "lang", "en");
+	db.setSetting(guildID, "lang", defaultLanguage);
+	db.setSetting(guildID, "prefix", defaultPrefix);
 	logger.info("Initialized server " + guildName);
 }
 
@@ -79,7 +87,7 @@ async function exitHandler(options, exitCode) {
 		logger.info("closing database...");
 		await db.close();
 	}
-    if (exitCode || exitCode === 0) logger.info(exitCode); process.exit();
+    if (exitCode || exitCode === 0) logger.info("Exit code: " + exitCode); process.exit();
     if (options.exit) process.exit();
 }
 process.on('exit', exitHandler.bind(null,{cleanup:true})); // do something when app is closing
@@ -108,12 +116,12 @@ dbl.on('error', e => {
 })
 
 client.on("channelDelete", function (channel) {
-    db.removeGuildChannel(channel, "en");
+    db.removeGuildChannel(channel, defaultLanguage);
 });
 
 client.on("guildCreate", guild => {
 	logger.info("New server: " + guild.name);
-	try { guild.owner.send(tools.getString("thanks", "en")); }
+	try { guild.owner.send(tools.getString("thanks", defaultLanguage)); }
 	catch (error) { logger.error("Error while sending a PM to the user"); logger.error(error); }
 	initSettings(guild);
 });
@@ -126,15 +134,17 @@ client.on("guildDelete", guild => {
 });
 
 client.on('message', async function (message) {
-    if (!message.content.startsWith(`${prefix}j`)) return; // If message doesn't start with !j then return
+	const guild = message.guild;
+	if (!guild) return;
+	const prefix = await db.getSetting(guild.id, "prefix") || defaultPrefix;
+
+    if (!message.content.startsWith(`${prefix}`)) return; // If message doesn't start with !j then return
     const messageContent = message.content.toLowerCase(); // Get message to lower case
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
     const channel = message.channel;
-    const guild = message.guild;
-	if (!guild) return;
-	const lang = await db.getSetting(guild.id, "lang");
+	const lang = await db.getSetting(guild.id, "lang") || defaultLanguage;
 
-    if (messageContent.startsWith(`${prefix}jh`)) { // jhelp
+    if (messageContent.startsWith(`${prefix}h`)) { // help
         if (await isAllowed(message, false, lang)) {
 			const embeds = eb[lang];
 			if (!embeds) {
@@ -147,13 +157,13 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jdif`)) { // jdif
+    else if (messageContent.startsWith(`${prefix}dif`)) { // dif
         if (await isAllowed(message, false, lang)) {
             tools.sendCatch(channel, eb[lang].getDifEmbed());
         }
     }
 
-	else if (messageContent.startsWith(`${prefix}jinfo`)) { // jinfo
+	else if (messageContent.startsWith(`${prefix}info`)) { // info
         if (await isAllowed(message, false, lang)) {
             var servers = client.guilds;
 			var users = 0;
@@ -165,19 +175,19 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jp`) || messageContent.startsWith(`${prefix}jstart`)) { // jplay
+    else if (messageContent.startsWith(`${prefix}pl`) || messageContent.startsWith(`${prefix}start`)) { // play
         if (await isAllowed(message, false, lang)) {
             game.preStart(message, args, lang);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jstop`)) { // jstop
+    else if (messageContent.startsWith(`${prefix}stop`)) { // stop
         if (await isAllowed(message, false, lang)) {
             game.stop(message, tools.getString("stoppedBy", lang, {player:eb[lang].mention(message.author.id, 'u')}), lang);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jstats`)) { // jstats
+    else if (messageContent.startsWith(`${prefix}stats`)) { // stats
         if (await isAllowed(message, false, lang)) {
             const userStats = await db.getUserStats(guild.id, message.author.id);
 			if (userStats) {
@@ -188,51 +198,62 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jtop`)) { // jtop
+    else if (messageContent.startsWith(`${prefix}top`)) { // top
         if (await isAllowed(message, false, lang)) {
             db.getTop(guild, channel, lang);
         }
     }
 
-   	else if (messageContent.startsWith(`${prefix}jstuck`)) { // jstuck [ADMIN]
+   	else if (messageContent.startsWith(`${prefix}stuck`)) { // stuck [ADMIN]
         if (await isAllowed(message, true, lang)) {
             game.unstuck(message, lang);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jadd`)) { // jadd [ADMIN]
+    else if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
         if (await isAllowed(message, true, lang)) {
             db.addGuildChannel(channel, lang);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jremove`)) { // jremove [ADMIN]
+    else if (messageContent.startsWith(`${prefix}remove`)) { // remove [ADMIN]
         if (await isAllowed(message, true, lang)) {
             db.removeGuildChannel(channel, lang);
         }
     }
-
-    else if (messageContent.startsWith(`${prefix}jreset`)) { // jremove [ADMIN]
+	
+    else if (messageContent.startsWith(`${prefix}prefix`)) { // remove [ADMIN]
+        if (await isAllowed(message, true, lang)) {
+			// If not empty, less than 4 characters and ASCII only
+            if ((args[1] || "").length < 4 && args[1] && /^[\x00-\x7F]*$/.test(args[1])) {
+                db.setSetting(guild.id, "prefix", args[1]);
+				tools.sendCatch(channel, tools.getString("prefixSet", lang, {delay:args[1]}));
+            } else {
+                tools.sendCatch(channel, tools.getString("prefixError", lang));
+            }
+        }
+    }
+    else if (messageContent.startsWith(`${prefix}reset`)) { // remove [ADMIN]
         if (await isAllowed(message, true, lang)) {
             await db.resetGuildSettings(guild.id, guild.name, channel, lang);
 			initSettings(guild);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jchannels`)) { // jremove [ADMIN]
+    else if (messageContent.startsWith(`${prefix}channels`)) { // remove [ADMIN]
         if (await isAllowed(message, true, lang)) {
             const channels = await db.getGuildChannels(guild.id)
 			tools.sendCatch(channel, getChannelsString(channels, lang));
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jkill`)) { // jkill [ADMIN]
-        if (message.author.id == 137239068567142400) {
+    else if (messageContent.startsWith(`${prefix}kill`)) { // kill [ADMIN]
+        if (message.author.id == ownerID) {
             exitHandler({cleanup:true}, null);
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jdelayq`)) { // jdelayquestion [ADMIN]
+    else if (messageContent.startsWith(`${prefix}delayq`)) { // delayquestion [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 1800000 && args[1] >= 2500 && tools.isInt(args[1])) {
                 db.setSetting(guild.id, "questiondelay", args[1]);
@@ -243,7 +264,7 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jdelaya`)) { // jdelayanswer [ADMIN]
+    else if (messageContent.startsWith(`${prefix}delaya`)) { // delayanswer [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 50000 && args[1] >= 500 && tools.isInt(args[1])) {
                 db.setSetting(guild.id, "answerdelay", args[1]);
@@ -254,7 +275,7 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jdefd`)) { // jdefaultdifficulty [ADMIN]
+    else if (messageContent.startsWith(`${prefix}defd`)) { // defaultdifficulty [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 3 && args[1] >= 0 && tools.isInt(args[1])) {
                 db.setSetting(guild.id, "defaultdifficulty", args[1]);
@@ -265,7 +286,7 @@ client.on('message', async function (message) {
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jdefq`)) { // jdefaultquestions [ADMIN]
+    else if (messageContent.startsWith(`${prefix}defq`)) { // defaultquestions [ADMIN]
         if (await isAllowed(message, true, lang)) {
             if (args[1] <= 100 && args[1] >= 1 && tools.isInt(args[1])) {
                 db.setSetting(guild.id, "defaultquestionsamount", args[1]);
@@ -276,27 +297,27 @@ client.on('message', async function (message) {
         }
     }
 
-	else if (messageContent.startsWith(`${prefix}jlang`)) { // jlang [ADMIN]
+	else if (messageContent.startsWith(`${prefix}lang`)) { // lang [ADMIN]
         if (await isAllowed(message, true, lang)) {
-			if (!args[1]) return;
-			const tempLang = args[1].substring(0, 2);
-            if (tempLang == "fr" || tempLang == "en") {
-                db.setSetting(guild.id, "lang", tempLang);
-				tools.sendCatch(channel, tools.getString("langSet", lang, {lang:tempLang}));
+			const langs = tools.getLocales();
+			const commandLang = (args[1] || "").substring(0, 2);
+            if (langs.includes(commandLang)) {
+                db.setSetting(guild.id, "lang", commandLang);
+				tools.sendCatch(channel, tools.getString("langSet", lang, {lang:commandLang}));
             } else {
-				tools.sendCatch(channel, tools.getString("langError", lang, {lang:tempLang, langs:tools.getLocales()}));
+				tools.sendCatch(channel, tools.getString("langError", lang, {lang:commandLang, langs:langs}));
             }
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jadmin`)) { // jadmin [ADMIN]
+    else if (messageContent.startsWith(`${prefix}admin`)) { // admin [ADMIN]
         if (await isAllowed(message, true, lang)) {
             tools.sendCatch(channel, eb[lang].getAdminHelpEmbed());
         }
     }
 
-    else if (messageContent.startsWith(`${prefix}jls`)) { // jls [OWNER]
-        if (message.author.id == 137239068567142400) {
+    else if (messageContent.startsWith(`${prefix}ls`)) { // ls [OWNER]
+        if (message.author.id == ownerID) {
             var servers = client.guilds;
 			var users = 0;
 			var en = 0;
@@ -315,22 +336,21 @@ client.on('message', async function (message) {
         }
     }
 
-	else if (messageContent.startsWith(`${prefix}jclean`)) { // jclean [OWNER]
-        if (message.author.id == 137239068567142400) {
+	else if (messageContent.startsWith(`${prefix}clean`)) { // clean [OWNER]
+        if (message.author.id == ownerID) {
             const guilds = client.guilds;
 			const dbguilds = await db.getAllServers();
 			for (var entry of dbguilds) {
 				var dbGuildID = entry.name;
-				if (guilds.get(dbGuildID))
-					logger.debug("Server " + dbGuildID + " exist");
-				else
+				if (!guilds.get(dbGuildID))
 					db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
 			}
+			logger.info("Command clean OK");
         }
     }
 
-	else if (messageContent.startsWith(`${prefix}jupdate`)) { // jrestore [OWNER]
-        if (message.author.id == 137239068567142400) {
+	else if (messageContent.startsWith(`${prefix}update`)) { // restore [OWNER]
+        if (message.author.id == ownerID) {
             const guilds = client.guilds;
 			const tempdbguilds = await db.getAllServers();
 			var dbguilds = [];
@@ -339,18 +359,18 @@ client.on('message', async function (message) {
 			}
 			for (var id of guilds.keys()) {
 				if (dbguilds[id]) { // If the guild exists in the database
-					logger.debug("Server " + id + " name updated");
 					const tempGuild = guilds.get(id);
 					var guildID = tempGuild.id;
 					var guildName = tempGuild.name;
 					db.setSetting(guildID, "name", guildName);
 				}
 			}
+			logger.info("Command update OK");
 		}
     }
 
-	else if (messageContent.startsWith(`${prefix}jrestore`)) { // jrestore [OWNER]
-        if (message.author.id == 137239068567142400) {
+	else if (messageContent.startsWith(`${prefix}restore`)) { // restore [OWNER]
+        if (message.author.id == ownerID) {
             const guilds = client.guilds;
 			const tempdbguilds = await db.getAllServers();
 			var dbguilds = [];
@@ -358,18 +378,17 @@ client.on('message', async function (message) {
 				dbguilds[entry.name] = true;
 			}
 			for (var id of guilds.keys()) {
-					if (dbguilds[id]) {
-					logger.debug("Server " + id + " exist in database");
-				} else {
+				if (!dbguilds[id]) {
 					const tempGuild = guilds.get(id);
 					initSettings(tempGuild);
 				}
 			}
+			logger.info("Command restore OK");
 		}
     }
 
-	else if (messageContent.startsWith(`${prefix}jstatus`)) { // jstatus [OWNER]
-        if (message.author.id == 137239068567142400) {
+	else if (messageContent.startsWith(`${prefix}status`)) { // status [OWNER]
+        if (message.author.id == ownerID) {
 			var newStatus = messageContent.replace(`${prefix}jstatus `, "");
 			logger.info("Status changed to: " + newStatus);
 			client.user.setActivity(newStatus);
@@ -383,6 +402,7 @@ client.on('message', async function (message) {
 // ------- START ------- //
 async function start() {
     await db.init();
+	logger.info("Loaded languages: " + tools.getLocales());
     client.login(token);
 }
 start();

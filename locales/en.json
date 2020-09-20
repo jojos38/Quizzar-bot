@@ -36,7 +36,9 @@
 	"victory": "victories",
 	"noGameRunning": "No game are running in this channel, use this command in the broken channel",
 	"useAgain": "You may now use the bot again",
-	"maintenanceScheduled": "**A maintenance is scheduled in {{minutes}} minutes.**",
+	"maintenanceScheduled": "**Warning: a maintenance is scheduled, the bot will stop in {{minutes}} minutes.**",
 	"tryAgainLater": "A maintenance is scheduled, please try again a bit later.",
-	"maintenance": "**Bot is under maintenance...**"
+	"maintenance": "**Bot under maintenance.**",
+	"prefixSet": "Prefix set successfully",
+	"prefixError": "Error hapenned: The prefix must be between 1 and 3 characters and must be ASCII only."
 }

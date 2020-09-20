@@ -10,16 +10,16 @@ const config = require('./config.json');
 const messages = require('./messages.js');
 const NodeCache = require("node-cache");
 const tools = require('./tools.js');
-const request = require('request');
 const db = require('./database.js');
 const logger = require('./logger.js');
-const entities = require('html-entities').Html5Entities;
-const eb = {"en": require('./locales/embeds/en.js'), "fr": require('./locales/embeds/fr.js')};
-const fs = require('fs');
-const files = fs.readdirSync('./resources/') // Get all files in resource folder
+const eb = tools.embeds;
 const cacheTTL = 60 * 60 * 4; // 4 hour
 const cache = new NodeCache({ stdTTL: cacheTTL, checkperiod: 60 * 5 });
 const colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
+const langsTools = {}
+tools.getLocales().forEach(language => {
+	langsTools[language] = require('./locales/questions/' + language + '.js');
+});
 // ------------------------------ SOME VARIABLES ------------------------------ //
 
 
@@ -30,74 +30,24 @@ async function delay(ms) {
     return await new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function delayChecking(guildID, ms) {
+	return new Promise(async function (resolve, reject) {
+		// This way if the game is force stopped it will leave the current question
+		var waitingTime = ms / (15000 + (ms/100*10)) * 1000 // The higher the question delay, the lower the checking
+		for (var i = 0; i < ms; i += waitingTime) {
+			if (cache.get(guildID + "running") == 1) break; // 1 = Waiting for stop
+			await delay(waitingTime);
+		}
+		resolve();
+	});
+}
+
 function countPoints(guild, channel, lang) {
     const guildID = guild.id;
     var scoreTable = cache.get(guildID + "score");
     winners = messages.getScoreString(guild, scoreTable, lang);
     // db.updateUserStats(guild, winnerID, 0, 1); <- INSIDE getScoreString function
     tools.sendCatch(channel, eb[lang].getGameEndedEmbed(winners));
-}
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
-function getRandomFile() {
-    const filesNumber = files.length; // Get files number
-    const randomFile = files[getRandomInt(filesNumber)]; // Pick one randomly
-	logger.info("File: " + randomFile);
-    return require('./resources/' + randomFile);
-}
-
-function getRandomQuestion(file, difficulty) {
-    var difficultyString = "";
-    difficulty = parseInt(difficulty);
-    if (difficulty == 0) difficulty = 1 + getRandomInt(3); // Get random difficulty between 1 and 3 if it's 0
-    switch (difficulty) {
-        case 1: difficultyString = "débutant"; break;
-        case 2: difficultyString = "confirmé"; break;
-        case 3: difficultyString = "expert"; break;
-		default: difficultyString = "débutant"; break; // Should not happen
-    }
-    const questionCategory = file.quizz[difficultyString];
-    const question = questionCategory[getRandomInt(questionCategory.length)];
-    return { 0: question, 1: difficultyString, 2: difficulty };
-}
-
-function getRandomQuestionAPI(difficulty) {
-	return new Promise(async function (resolve, reject) {
-		if (difficulty == 0) difficulty = 1 + getRandomInt(3); // Get random difficulty between 1 and 3 if it's 0
-		switch (difficulty) {
-			case 1: difficultyString = "easy"; break;
-			case 2: difficultyString = "medium"; break;
-			case 3: difficultyString = "hard"; break;
-			default: difficultyString = "easy"; break; // Should not happen
-		}
-		request({url: 'https://opentdb.com/api.php?amount=1&difficulty=' + difficultyString + '&type=multiple', json: true}, function(err, res, json) {
-			if (err) { reject(err); return; }
-			if (!json.results) { reject(null); return; }
-			const result = json.results[0];
-			const answer = entities.decode(result.correct_answer);
-			var proposals = [
-				answer,
-				entities.decode(result.incorrect_answers[0]),
-				entities.decode(result.incorrect_answers[1]),
-				entities.decode(result.incorrect_answers[2])
-			];
-			proposals = tools.shuffle(proposals);
-			const qData = {
-				theme: result.category,
-				difficulty: result.difficulty,
-				question: entities.decode(result.question),
-				proposals: proposals,
-				answer: answer,
-				anecdote: "",
-				points: difficulty
-			};
-			resolve(qData);
-			return;
-		});
-	});
 }
 
 function getGoodAnswerLetter(proposals, goodAnswer) {
@@ -142,6 +92,7 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
 
 
+
 // ----------------------------------- GAME ----------------------------------- //
 // We first do a for loop that asks for all the questions and give the answers
 // it also add the points of the user to the database each time, this way in
@@ -149,12 +100,13 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 // it from being cleared automatically.
 // Then we exit the loop when the game ends and we calculate the total points
 // + the winner. The game as ended we can clear the cache.
-
 async function startGame(message, difficulty, qAmount, lang) {
-    const channel = message.channel;
+	const channel = message.channel;
     const guildID = message.guild.id;
-    const qDelay = await db.getSetting(guildID, "questiondelay");
-    const aDelay = await db.getSetting(guildID, "answerdelay");
+	
+	var qDelay = await db.getSetting(guildID, "questiondelay");
+	var aDelay = await db.getSetting(guildID, "answerdelay");
+	
     logger.info("-------------- NEW GAME --------------");
 	logger.info("Server ID: " + message.guild.id);
     logger.info("Server: " + message.guild.name + " (" + message.guild.memberCount + " users)");
@@ -163,8 +115,15 @@ async function startGame(message, difficulty, qAmount, lang) {
     logger.info("Questions amount: " + qAmount);
     logger.info("Language: " + lang);
     await tools.sendCatch(channel, eb[lang].getStartEmbed(difficulty, qAmount));
-    for (var qNumber = 1; qNumber <= qAmount; qNumber++) { // Ask questions
+	
+	// ASK QUESTIONS
+    for (var qNumber = 1; qNumber <= qAmount; qNumber++) {
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
+		
+		// This way users can update a setting while the game has already started!
+		qDelay = await db.getSetting(guildID, "questiondelay");
+		aDelay = await db.getSetting(guildID, "answerdelay");
+		lang = await db.getSetting(guildID, "lang") || defaultLanguage;
 		
 		// Update the cache	to avoid it from clearing the values on a game
 		// that would last for a too period
@@ -175,7 +134,7 @@ async function startGame(message, difficulty, qAmount, lang) {
 		
 		try {
 			// It asks one question and gives the answser + points calculation
-			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang);
+			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang, guildID);
 		} catch (error) {
 			logger.error(error);
 			logger.error("Error: ending game...");
@@ -195,29 +154,12 @@ async function startGame(message, difficulty, qAmount, lang) {
     logger.info("Cache cleared");
 }
 
-async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang) {
-	var qData;
-	if (lang == "fr") { // This sucks, should be improved
-		const file = getRandomFile();
-		const qRaw = getRandomQuestion(file, difficulty);
-		qData = {
-			theme: file.thème,
-			difficulty: qRaw[1],
-			question: qRaw[0].question,
-			proposals: qRaw[0].propositions,
-			answer: qRaw[0].réponse,
-			anecdote: qRaw[0].anecdote,
-			points: qRaw[2],
-			qNumber: qNumber,
-			qAmount: qAmount
-		};
-	} else { // And this sucks even more
-		qData = await getRandomQuestionAPI(difficulty);
-		if (!qData) tools.sendCatch(channel, "An error happenned, skipping question...");
-		qData['qNumber'] = qNumber;
-		qData['qAmount'] = qAmount;
-	}
 
+
+async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang, guildID) {
+	var qData = await langsTools[lang].getRandomQuestion(difficulty);
+	qData["qNumber"] = qNumber;
+	qData["qAmount"] = qAmount;
 	if (!qData) throw ("No question found");
 
 	logger.info("Answer: " + qData.answer);
@@ -226,12 +168,14 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 	for (var i = 0; i < reactionsTable.length; i++) {
 		if (!await tools.reactCatch(qMessage, reactionsTable[i])) break;
 	}
-	await delay(qDelay); // Wait x seconds before giving answer
-	await giveAnswer(qMessage, qData, aDelay, lang);
+	
+	await delayChecking(guildID, qDelay); // Wait for qDelay so people have time to answer
+	await giveAnswer(qMessage, qData, aDelay, lang, guildID);
 }
 
-async function giveAnswer(qMessage, qData, aDelay, lang) {
-	// 0:thème / 1:difficulté / 2:question / 3:propositions / 4:réponse / 5:anecdote / 6:points / 7:num.ques / 8:tot.ques
+
+
+async function giveAnswer(qMessage, qData, aDelay, lang, guildID) {
 	const goodAnswerLetter = getGoodAnswerLetter(qData.proposals, qData.answer);
 	const goodAnswerPlayers = await getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
 	await tools.editCatch(qMessage, eb[lang].getQuestionEmbed(qData, 0, 4605510));
@@ -239,7 +183,6 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 	const aMessage = await tools.sendCatch(qMessage.channel, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 16750869));
 	for (var i = 0; i < goodAnswerPlayers.length; i++) { // For each player that answered correctly
 		const user = goodAnswerPlayers[i];
-		const guildID = qMessage.guild.id;
 		const userID = user.id;
 		// DATABASE
 		db.updateUserStats(qMessage.guild.id, user.id, user.username, qData.points, 0); // Set user points number
@@ -250,7 +193,7 @@ async function giveAnswer(qMessage, qData, aDelay, lang) {
 		scoreTable.set(userID, newScore);
 		cache.set(guildID + "score", scoreTable);
 	}
-	await delay(aDelay); // Wait x seconds before going to the next question
+	await delayChecking(guildID, aDelay); // Wait for aDelay so people have time to answer
 	await tools.editCatch(aMessage, eb[lang].getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 4605510));
 }
 // ----------------------------------- GAME ----------------------------------- //
@@ -272,7 +215,9 @@ module.exports = {
 			tools.sendCatch(channel, tools.getString("useAgain", lang));
 		}
     },
-	
+
+
+
     stop: function (message, reason, lang) {
         const guildID = message.guild.id;
         const channel = message.channel;
@@ -288,12 +233,14 @@ module.exports = {
             tools.sendCatch(channel, eb[lang].getWrongPlayerStopEmbed());
         }
     },
-	
+
+
+
 	stopAll: function (client) {
 		return new Promise(async function (resolve, reject) {
-			cache.set("stopscheduled", 1);
+			cache.set("stopscheduled", 1); // Prevent people from starting a game
 			var guilds = client.guilds;
-			for(var i = 3; i != -1; i--) {
+			for(var i = 1; i != -1; i--) {
 				for (let guild of guilds.values()) {
 					const guildID = guild.id;
 					const lang = await db.getSetting(guild.id, "lang");
@@ -311,13 +258,15 @@ module.exports = {
 		});
     },
 
+
+
     preStart: async function (message, args, lang) {
         const guild = message.guild;
         const guildID = guild.id;
         const channel = message.channel;
 		var questionsAmount;
 		var difficulty;
-		
+
 		if (cache.get("stopscheduled") == 1) { // If no stop scheduled
 			tools.sendCatch(channel, tools.getString("tryAgainLater", lang));
 			return;
@@ -335,7 +284,7 @@ module.exports = {
 		else { // Mean it's null
 			difficulty = args[1] || await db.getSetting(guild.id, "defaultdifficulty") || 0;
 		}
-		
+
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
 		if ((args[2] < 1 || args[2] > 100 || !tools.isInt(args[2]) && args[2] != null) && args[2] != 0) {
 			tools.sendCatch(channel, eb[lang].getBadQuesEmbed());
@@ -344,7 +293,7 @@ module.exports = {
 		else { // Mean it's null
 			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultquestionsamount") || 10;
 			if (questionsAmount == 0) {
-				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) questionsAmount = 2147483647;
+				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
 			}
 		}
 

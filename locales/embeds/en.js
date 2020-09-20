@@ -128,6 +128,10 @@ module.exports = {
                 icon_url: logoURL
             },
             fields: [
+				{
+					name: "**NEW** !jprefix",
+					value: "Change the bot prefix"
+				},
                 {
                     name: "!jadd",
                     value: "Add the current channel in the authorized channels"
@@ -310,7 +314,7 @@ module.exports = {
     },
     getStopEmbed: function (reason) {
         const embed = new Discord.RichEmbed({
-            title: "Game will stop at the end of the current question",
+            title: "Game will stop",
             description: reason,
             color: orange,
         });

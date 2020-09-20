@@ -128,6 +128,10 @@ module.exports = {
                 icon_url: logoURL
             },
             fields: [
+				{
+					name: "**NEW** !jprefix",
+					value: "Changer le préfix du bot"
+				},
                 {
                     name: "!jadd",
                     value: "Ajoute le channel où est lancé la commande dans la liste des channel autorisés\n**Note** : Si aucun channel n'est spécifié, tous les channels seront autorisés"
@@ -310,7 +314,7 @@ module.exports = {
     },
     getStopEmbed: function (reason) {
         const embed = new Discord.RichEmbed({
-            title: "La partie s'arrêtera à la fin de la question en cours",
+            title: "La partie va s'arrêter",
             description: reason,
             color: orange,
         });
