@@ -63,7 +63,7 @@ async function isAllowed(message, admin, lang) {
 	}
 
 	// If we went there is that the user is not allowed since previous for loop should return
-	tools.sendCatch(message.channel, eb[lang].getNotAllowedEmbed(channelsString(channels, lang)));
+	tools.sendCatch(message.channel, eb[lang].getNotAllowedEmbed(getChannelsString(channels, lang)));
 	return false;
 }
 
