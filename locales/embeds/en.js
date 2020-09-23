@@ -30,7 +30,7 @@ module.exports = {
                     value: " - Change the language of the bot (languages available: french / english)"
                 },	
                 {
-                    name: "**!jplay** [difficulty] [questions amount] or !jp or !jstart",
+                    name: "**!jplay** [difficulty] [questions amount] or !jstart",
                     value: " - Start a game\n**Note :** If the questions number is 0 then the game is (almost) infinite"
                 },
                 {
