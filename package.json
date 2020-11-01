@@ -14,6 +14,10 @@
   ],
   "author": "jojos38",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jojos38/quizzar-bot"
+  },
   "dependencies": {
     "@discordjs/uws": "^10.149.0",
     "dblapi.js": "^2.4.1",
