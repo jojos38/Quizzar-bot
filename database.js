@@ -47,7 +47,7 @@ module.exports = {
 						resolve();
 					} else {
 						if (channel) tools.sendCatch(channel, tools.getString("resettedError", lang));
-						reject(err);
+						logger.error(err);
 					}
 				});
 			}

@@ -17,6 +17,7 @@ const cacheTTL = 60 * 60 * 4; // 4 hour
 const cache = new NodeCache({ stdTTL: cacheTTL, checkperiod: 60 * 5 });
 const colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
 const langsTools = {}
+const defaultLanguage = "en";
 tools.getLocales().forEach(language => {
 	langsTools[language] = require('./locales/questions/' + language + '.js');
 });
