@@ -9,16 +9,15 @@ const ownerID = 137239068567142400;
 
 // -------------------- SOME VARIABLES -------------------- //
 const activityMessage = "!jhelp";
-const { token, topggtoken } = require('./config.json');
+global.config = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const DBL = require("dblapi.js");
-const dbl = new DBL(topggtoken, client);
 const game = require('./game.js');
 const tools = require('./tools.js');
 const db = require('./database.js');
 const logger = require('./logger.js');
 const eb = tools.embeds;
+const apiManager = require('./api-manager.js');
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -106,14 +105,6 @@ client.once('ready', async function () {
     logger.info('Bot ready');
     client.user.setActivity(activityMessage);
 });
-
-dbl.on('posted', () => {
-	logger.info('Server count posted');
-})
-
-dbl.on('error', e => {
-	logger.error(`Error while posting server count ${e}`);
-})
 
 client.on("channelDelete", function (channel) {
     db.removeGuildChannel(channel, defaultLanguage);
@@ -403,7 +394,8 @@ client.on('message', async function (message) {
 async function start() {
     await db.init();
 	logger.info("Loaded languages: " + tools.getLocales());
-    client.login(token);
+    await client.login(config.token);
+	apiManager.init(client);
 }
 start();
 // ------- START ------- //
