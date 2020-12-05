@@ -1,6 +1,7 @@
 const logger = require('./logger.js');
 
 function post(hostname, path, data, token) {
+	if (!token) { logger.error("Error: no token provided for " + hostname); return; }
 	const https = require('https');
 	data = JSON.stringify(data);
 	const options = {
