@@ -15,18 +15,22 @@ function date() {
 
 module.exports = {
 	error: function(print) {
-		process.stdout.write(date() + " " + colorize("31", 'ERRO ') + print + "\n");
+		process.stdout.write(date() + " " + colorize("31", '[ERRO] ') + print + "\n");
 	},
-	
+
 	debug: function(print) {
-		process.stdout.write(date() + " " + colorize("35", 'DBUG ') + print + "\n");
+		process.stdout.write(date() + " " + colorize("35", '[DBUG] ') + print + "\n");
 	},
-	
+
 	warn: function(print) {
-		process.stdout.write(date() + " " + colorize("33", 'WARN ') + print + "\n");
+		process.stdout.write(date() + " " + colorize("33", '[WARN] ') + print + "\n");
 	},
-	
+
 	info: function(print) {
-		process.stdout.write(date() + " " + colorize("36", 'INFO ') + print + "\n");
+		process.stdout.write(date() + " " + colorize("36", '[INFO] ') + print + "\n");
+	},
+
+	success: function(print) {
+		process.stdout.write(date() + " " + colorize("92", '[ OK ] ') + print + "\n");
 	}
 }

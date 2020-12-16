@@ -17,7 +17,7 @@ module.exports = {
     },
 
     // ------------- COMMANDS ------------- //
-    getHelpEmbed: function () {
+    getHelpEmbed: function (prefix) {
         const embed1 = new Discord.RichEmbed({
             color: orange,
             author: {
@@ -26,39 +26,39 @@ module.exports = {
             },
             fields: [
 				{
-                    name: "**!jlang** [language]",
+                    name: prefix + "lang [language]",
                     value: " - Change the language of the bot (languages available: french / english)"
                 },	
                 {
-                    name: "**!jplay** [difficulty] [questions amount] or !jstart",
+                    name: prefix + "play [difficulty] [questions amount] or " + prefix + "start",
                     value: " - Start a game\n**Note :** If the questions number is 0 then the game is (almost) infinite"
                 },
                 {
-                    name: "**!jstop**",
+                    name: prefix + "stop",
                     value: " - Stop the current game\n**Note :** The 'manage messages' permission allows you to stop any game"
                 },
                 {
-                    name: "**!jdiff**",
+                    name: prefix + "diff",
                     value: " - Show all difficulties"
                 },
                 {
-                    name: "**!jhelp** or !jh",
+                    name: prefix + "help or " + prefix + "h",
                     value: " - Show help"
                 },
                 {
-                    name: "**!jinfo**",
+                    name: prefix + "info",
                     value: " - Show informations about the bot"
                 },
                 {
-                    name: "**!jstats**",
+                    name: prefix + "stats",
                     value: " - Show your stats"
                 },
                 {
-                    name: "**!jtop**",
+                    name: prefix + "top",
                     value: " - Show top 10 best players"
                 },
                 {
-                    name: "**!jadmin**",
+                    name: prefix + "admin",
                     value: " - Show admin commands\n**Note :** Require 'manage server' permission"
                 }
             ]
@@ -119,7 +119,7 @@ module.exports = {
         });
         return embed;
     },
-    getAdminHelpEmbed: function () {
+    getAdminHelpEmbed: function (prefix) {
         const embed = new Discord.RichEmbed({
             description: "An authorized channel is a channel where bot commands are allowed.",
             color: orange,
@@ -129,43 +129,43 @@ module.exports = {
             },
             fields: [
 				{
-					name: "**NEW** !jprefix",
+					name: prefix + "prefix",
 					value: "Change the bot prefix"
 				},
                 {
-                    name: "!jadd",
+                    name: prefix + "add",
                     value: "Add the current channel in the authorized channels"
                 },
                 {
-                    name: "!jremove",
+                    name: prefix + "remove",
                     value: "Remove the current channel from the authorized channels"
                 },
                 {
-                    name: "!jreset",
+                    name: prefix + "reset",
                     value: "Delete all bot data from the server (Authorized channels etc...)\n**Warning :** This command also delete all players stats!"
                 },
                 {
-                    name: "!jchannels",
+                    name: prefix + "channels",
                     value: "Show all authorized channels"
                 },
                 {
-                    name: "!jdelayquestion",
+                    name: prefix + "delayquestion",
                     value: "Define the delay to answer a question **(in millisecondes) (between 2500 and 1800000)**"
                 },
                 {
-                    name: "!jdelayanswer",
+                    name: prefix + "delayanswer",
                     value: "Define the answer display time before continuing **(in millisecondes) (between 500 and 50000)**"
                 },
                 {
-                    name: "!jdefdifficulty",
+                    name: prefix + "defdifficulty",
                     value: "Define default difficulty when it's not specified (between 0 and 3)"
                 },
                 {
-                    name: "!jdefquestions",
+                    name: prefix + "defquestions",
                     value: "Define default number of questions when it's not specified (between 1 and 100)"
                 },
 				{
-                    name: "!jstuck",
+                    name: prefix + "stuck",
                     value: "If the bot is stuck use this command (This command can cause unexpected results, don't us it if not needed!)"
                 }
             ]

@@ -17,7 +17,7 @@ module.exports = {
     },
 
     // ------------- COMMANDS ------------- //
-    getHelpEmbed: function () {
+    getHelpEmbed: function (prefix) {
         const embed1 = new Discord.RichEmbed({
             color: orange,
             author: {
@@ -26,39 +26,39 @@ module.exports = {
             },
             fields: [
 			    {
-                    name: "**!jlang** [langue]",
+                    name: prefix + "lang [langue]",
                     value: " - Change la langue du bot (langues disponibles: french / english)"
                 },		
                 {
-                    name: "**!jplay** [difficulté] [nombre de questions] ou !jstart",
+                    name: prefix + "play [difficulté] [nombre de questions] ou " + prefix + "start",
                     value: " - Démarre une partie\n**Note :** Si le nombre de questions spécifié est 0 alors la partie sera (quasi-)infinie"
                 },
                 {
-                    name: "**!jstop**",
+                    name: prefix + "stop",
                     value: " - Arrête la partie en cours\n**Note :** La permission 'gérer les messages' permet d'arrêter n'importe quelle partie"
                 },
                 {
-                    name: "**!jdiff**",
+                    name: prefix + "diff",
                     value: " - Affiche la liste des difficultés disponibles"
                 },
                 {
-                    name: "**!jhelp** ou !jh",
+                    name: prefix + "help ou " + prefix + "h",
                     value: " - Affiche l\'aide"
                 },
                 {
-                    name: "**!jinfo**",
+                    name: prefix + "info",
                     value: " - Affiche les crédits"
                 },
                 {
-                    name: "**!jstats**",
+                    name: prefix + "stats",
                     value: " - Affiche vos statistiques"
                 },
                 {
-                    name: "**!jtop**",
+                    name: prefix + "top",
                     value: " - Affiche le top 10 de meilleurs joueurs"
                 },
                 {
-                    name: "**!jadmin**",
+                    name: prefix + "admin",
                     value: " - Affiche la liste des commandes administrateur\n**Note :** Nécessite la permission de gérer le serveur"
                 }
             ]
@@ -119,7 +119,7 @@ module.exports = {
         });
         return embed;
     },
-    getAdminHelpEmbed: function () {
+    getAdminHelpEmbed: function (prefix) {
         const embed = new Discord.RichEmbed({
             description: "Un 'channel autorisé' est un channel ou les commandes du bot sont autorisées",
             color: orange,
@@ -129,43 +129,43 @@ module.exports = {
             },
             fields: [
 				{
-					name: "**NEW** !jprefix",
+					name: prefix + "prefix",
 					value: "Changer le préfix du bot"
 				},
                 {
-                    name: "!jadd",
+                    name: prefix + "add",
                     value: "Ajoute le channel où est lancé la commande dans la liste des channel autorisés\n**Note** : Si aucun channel n'est spécifié, tous les channels seront autorisés"
                 },
                 {
-                    name: "!jremove",
+                    name: prefix + "remove",
                     value: "Retire le channel où est lancé la commande de la liste des channels autorisés"
                 },
                 {
-                    name: "!jreset",
+                    name: prefix + "reset",
                     value: "Supprime toutes les données de configuration du serveur (la liste des channels autorisés etc...)\n**Attention :** Cette commande supprime également toutes les statistiques des utilisateurs !"
                 },
                 {
-                    name: "!jchannels",
+                    name: prefix + "channels",
                     value: "Affiche la liste des channels autorisés"
                 },
                 {
-                    name: "!jdelayquestion",
+                    name: prefix + "delayquestion",
                     value: "Défini le délai pour répondre à une question **(en millisecondes) (entre 2500 et 1800000)**"
                 },
                 {
-                    name: "!jdelayanswer",
+                    name: prefix + "delayanswer",
                     value: "Défini le délai d'affichage de la réponse avant de continuer **(en millisecondes) (entre 500 et 50000)**"
                 },
                 {
-                    name: "!jdefdifficulty",
+                    name: prefix + "defdifficulty",
                     value: "Défini la difficulté par défaut lorsque qu'aucun paramètre n'est choisi (entre 0 et 3)"
                 },
                 {
-                    name: "!jdefquestions",
+                    name: prefix + "defquestions",
                     value: "Défini le nombre de questions par défaut lorsque qu'aucun paramètre n'est choisi (entre 1 et 2147483647)"
                 },
 				{
-                    name: "!jstuck",
+                    name: prefix + "stuck",
                     value: "Si le bot est bloqué utilisez cette commande (Cette commande peut causer des problèmes, ne l'utilisez qu'en cas de nécessité !)"
                 }
             ]

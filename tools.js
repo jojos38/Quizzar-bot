@@ -1,34 +1,11 @@
 
 // -------------------- SOME VARIABLES -------------------- //
-const i18n = require("i18n");
 const logger = require('./logger.js');
-i18n.configure({
-    //locales:['en', 'fr'],
-    directory: __dirname + '/locales',
-	extension: '.json',
-});
 // -------------------- SOME VARIABLES -------------------- //
 
 
 
-function getEmbeds() {
-	const eb = {};
-	const langs = i18n.getLocales();
-	langs.forEach(language => {
-		eb[language] = require('./locales/embeds/' + language + '.js');
-	});
-	return eb;
-}
-
-
-
 module.exports = {
-	getLocales: function() {
-		return i18n.getLocales();
-	},
-
-	embeds: getEmbeds(),
-	
 	shuffle: function(a) {
 		var j, x, i;
 		for (i = a.length - 1; i > 0; i--) {
@@ -50,13 +27,6 @@ module.exports = {
 	
 	isInt: function(value) {
 		return !isNaN(value) && parseInt(Number(value)) == value && !isNaN(parseInt(value, 10));
-	},
-	
-	getString: function(name, lang, variables) {
-		if (variables)
-			return i18n.__({phrase:name, locale:lang}, variables).replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-		else
-			return i18n.__({phrase:name, locale:lang});
 	},
 	
 	format: function(seconds) {
@@ -87,5 +57,4 @@ module.exports = {
 		try { await message.react(reaction); return true;}
 		catch (error) { logger.error("Error while reacting to message"); logger.error(error); return false;}
 	}
-	
 }
