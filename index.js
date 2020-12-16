@@ -1,7 +1,7 @@
-
 // -------------------- SETTINGS -------------------- //
 const OWNER_ID = 137239068567142400;
 const ACTIVITY_MESSAGE = "!jhelp";
+var logMessages = false;
 // -------------------- SETTINGS -------------------- //
 
 
@@ -119,20 +119,23 @@ client.on("guildDelete", guild => {
 });
 
 client.on('message', async function (message) {
+
+	if (logMessages) logger.debug("Message received");
+
 	// Check if the message is not a PM
 	const guild = message.guild;
 	if (!guild) return;
-	
+
 	// Check if the message is not from a bot
 	if(message.author.bot) return;
-	
+
 	// Get guilds settings
 	const prefix = await db.getSetting(guild.id, "prefix") || DEFAULT_PREFIX;
 	const lang = await db.getSetting(guild.id, "lang") || DEFAULT_LANGUAGE;
 
 	// Check if the message starts with the prefix
     if (!message.content.startsWith(`${prefix}`)) return; // If message doesn't start with !j then return
-	
+
 	// Variables
     const messageContent = message.content.toLowerCase(); // Get message to lower case
     const args = messageContent.slice(prefix.length).trim().split(/ +/g); // Get message arguments
@@ -208,7 +211,7 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}remove`)) { // remove [ADMIN]
 		db.removeGuildChannel(channel, lang);
     }
-	
+
     else if (messageContent.startsWith(`${prefix}prefix`)) { // remove [ADMIN]
 		// If not empty, less than 4 characters and ASCII only
 		if ((args[1] || "").length < 4 && args[1] && /^[\x00-\x7F]*$/.test(args[1])) {
@@ -290,6 +293,23 @@ client.on('message', async function (message) {
 
     if (messageContent.startsWith(`${prefix}kill`)) { // kill [ADMIN]
 		exitHandler({cleanup:true}, null);
+    }
+
+    else if (messageContent.startsWith(`${prefix}reload`)) { // reload [OWNER]
+		lm.reloadLanguages();
+    }
+
+    // This function is NOT USED TO LOG THE CONTENT OF THE MESSAGES
+    // But only when a message is received
+    else if (messageContent.startsWith(`${prefix}log`)) { // logmessages [OWNER]
+		if (args[1] == "true" || args[1] == "false") {
+			var finalValue = args[1] == "true";
+			logMessages = finalValue;
+			logger.info("Message received logging set to " + logMessages);
+		} else {
+			logger.info("Wrong value");
+		}
+		return;
     }
 
     else if (messageContent.startsWith(`${prefix}ls`)) { // ls [OWNER]
@@ -376,8 +396,8 @@ async function start() {
 	await db.init();
 	await lm.reloadLanguages(); // Load languages
 	logger.info("Connecting to Discord...");
-    await client.login(config.token);
-	// apiManager.init(client);
+        await client.login(config.token);
+	apiManager.init(client);
 }
 start();
 // ------- START ------- //
