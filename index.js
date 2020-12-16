@@ -101,12 +101,12 @@ client.once('ready', async function () {
 });
 
 client.on("channelDelete", function (channel) {
-    db.removeGuildChannel(channel, defaultLanguage);
+    db.removeGuildChannel(channel, "en");
 });
 
 client.on("guildCreate", guild => {
 	logger.info("New server: " + guild.name);
-	try { guild.owner.send(lm.getString("thanks", defaultLanguage)); }
+	try { guild.owner.send(lm.getString("thanks", "en")); }
 	catch (error) { logger.error("Error while sending a PM to the user"); logger.error(error); }
 	initSettings(guild);
 });
