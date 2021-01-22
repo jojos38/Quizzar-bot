@@ -16,6 +16,7 @@ const game = require('./game.js');
 const tools = require('./tools.js');
 const logger = require('./logger.js');
 const apiManager = require('./api-manager.js');
+var isBotReady = false;
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -96,8 +97,13 @@ process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches u
 
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
 client.once('ready', async function () {
+    isBotReady = true;
     logger.info('Bot ready');
     client.user.setActivity(ACTIVITY_MESSAGE);
+});
+
+client.on("disconnect", () => {
+    logger.error("Connection to Discord's servers lost!");
 });
 
 client.on("channelDelete", function (channel) {
@@ -392,10 +398,18 @@ client.on('message', async function (message) {
 
 
 // ------- START ------- //
+function checkConnected() {
+    if (!isBotReady) {
+        logger.error("Bot wasn't ready in time... Rebooting...");
+        process.exit(1);
+    }
+}
+
 async function start() {
 	await db.init();
 	await lm.reloadLanguages(); // Load languages
 	logger.info("Connecting to Discord...");
+	setTimeout(checkConnected, 300000);
         await client.login(config.token);
 	apiManager.init(client);
 }

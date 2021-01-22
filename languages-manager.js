@@ -31,11 +31,11 @@ async function loadRequests() {
 			requests[language] = require(path);
 		}
 		catch (error) {
-			logger.error("Error while loading detection file for language " + language);
+			logger.error("Error while loading questions file for language " + language);
 			logger.error(error);
 		}
 	}
-	logger.success("Loaded detection languages: " + locales);
+	logger.success("Loaded questions languages: " + locales);
 	return requests;
 }
 
