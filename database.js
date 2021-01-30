@@ -241,8 +241,6 @@ module.exports = {
 				if (tempList[user.id]) tempList[user.id].score += user.score;
 				else tempList[user.id] = user;
 			}
-			// We sort the list by score
-			usersList = usersList.sort((a, b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0));
 		}
 		// We add all the users to an array list
 		for (let user in tempList) usersList.push(tempList[user]);
