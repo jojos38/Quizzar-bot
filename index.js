@@ -58,6 +58,7 @@ async function isAllowed(message, lang) {
 }
 
 async function isModeratorAllowed(message) {
+	if (message.author.id == OWNER_ID) return true;
 	// Checking
 	if (!message) return false;
 	const member = message.member || message.guild.member(message.author);
@@ -201,7 +202,7 @@ client.on('message', async function (message) {
 
 	// #################################################### MODERATOR COMMANDS #################################################### //
 	// If moderator allowed to send the command
-	if (!await isModeratorAllowed(message)) { tools.sendCatch(message.channel, lm.getString("noPermission", lang)); return; }
+	if (!await isModeratorAllowed(message)) { return; }
 	// #################################################### MODERATOR COMMANDS #################################################### //
 
 

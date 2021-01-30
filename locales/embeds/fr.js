@@ -18,7 +18,8 @@ module.exports = {
 
     // ------------- COMMANDS ------------- //
     getHelpEmbed: function (prefix) {
-        const embed1 = new Discord.RichEmbed({
+	prefix = prefix || "!j";
+	const embed1 = new Discord.RichEmbed({
             color: orange,
             author: {
                 name: "Voici la liste des commandes disponibles :",
@@ -124,6 +125,7 @@ module.exports = {
         return embed;
     },
     getAdminHelpEmbed: function (prefix) {
+	prefix = prefix || "!j";
         const embed = new Discord.RichEmbed({
             description: "Un 'channel autorisé' est un channel ou les commandes du bot sont autorisées",
             color: orange,
