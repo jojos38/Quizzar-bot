@@ -213,17 +213,17 @@ module.exports = {
 		}
 		return null;
     },
-	
+
 	getAllServers: async function () {
 		var result = (await listCatch(mainDB)).toArray();
 		if (!result) logger.error("Error while getting all servers from mainDB");
 		return result || [];
     },
-	
+
 	getAllUsers: async function () {
-		
+
 		if (Date.now() - lastUsersChecking.time < 120000) return lastUsersChecking.list;
-		
+
 		var tempList = [];
 		var usersList = [];
 		// First we get all servers and we loop trough them
@@ -238,7 +238,8 @@ module.exports = {
 				// We push to the list only if the score is higher (a user might be in multiple servers, we take the highest score)
 				// tempList is used as temperary list to prevent having to compare objects because
 				// .sort on a key value array list doesn't seem to work
-				tempList[user.id] = (usersList[user.id] ? (usersList[user.id].score < user.score ? user : usersList[user.id]) : user);
+				if (tempList[user.id]) tempList[user.id].score += user.score;
+				else tempList[user.id] = user;
 				usersList.push(tempList[user.id]);
 			}
 			// We sort the list by score

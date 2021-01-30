@@ -26,7 +26,11 @@ module.exports = {
                 icon_url: logoURL
             },
             fields: [
-			    {
+		{
+		    name: prefix + "globaltop",
+		    value: "**nouveau** - Affiche le top global (tout serveur confondu)"
+		},
+		{
                     name: prefix + "lang [langue]",
                     value: " - Change la langue du bot (langues disponibles: french / english)"
                 },
