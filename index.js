@@ -198,6 +198,20 @@ client.on('message', async function (message) {
 		db.getTop(guild, channel, lang);
     }
 
+    else if (messageContent.startsWith(`${prefix}globaltop`)) { // top
+		var usersString = "";
+		const users = await db.getAllUsers();
+		for (var i = 0; i < users.length; i++) {
+			if (i > 10) break;
+			var user = users[i];
+			var nick = "";
+			if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+			else nick = user.username;
+			usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+		}
+		if (users.length == 0) usersString = lm.getString("noStats", lang);
+		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(usersString));
+    }
 
 
 	// #################################################### MODERATOR COMMANDS #################################################### //
@@ -411,7 +425,7 @@ async function start() {
 	await lm.reloadLanguages(); // Load languages
 	logger.info("Connecting to Discord...");
 	setTimeout(checkConnected, 300000);
-        await client.login(config.token);
+	await client.login(config.token);
 	apiManager.init(client);
 }
 start();

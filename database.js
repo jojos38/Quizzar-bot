@@ -8,6 +8,7 @@ const logger = require('./logger.js');
 const eb = tools.embeds;
 var client;
 var mainDB;
+var lastUsersChecking = {};
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -217,6 +218,34 @@ module.exports = {
 		var result = (await listCatch(mainDB)).toArray();
 		if (!result) logger.error("Error while getting all servers from mainDB");
 		return result || [];
+    },
+	
+	getAllUsers: async function () {
+		
+		if (Date.now() - lastUsersChecking.time < 120000) return lastUsersChecking.list;
+		
+		var tempList = [];
+		var usersList = [];
+		// First we get all servers and we loop trough them
+		var servers = await db.getAllServers();
+		for(let guild of servers) {
+			let guildID = guild.name;
+			let guildCollection = mainDB.collection(guildID);
+			// We get all the users of each servers
+			var users = await findCatch(guildCollection, {username: {$exists: true}}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } });
+			users = await users.toArray();
+			for (let user of users) {
+				// We push to the list only if the score is higher (a user might be in multiple servers, we take the highest score)
+				// tempList is used as temperary list to prevent having to compare objects because
+				// .sort on a key value array list doesn't seem to work
+				tempList[user.id] = (usersList[user.id] ? (usersList[user.id].score < user.score ? user : usersList[user.id]) : user);
+				usersList.push(tempList[user.id]);
+			}
+			// We sort the list by score
+			usersList = usersList.sort((a, b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0));
+		}
+		lastUsersChecking = {time: Date.now(), list: usersList};
+		return usersList;
     }
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
 }
