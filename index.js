@@ -234,7 +234,7 @@ client.on('message', async function (message) {
 			}
 		}
 		if (users.length == 0 || position == -1) usersString = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(usersString));
+		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(users.length, usersString));
     }
 
 

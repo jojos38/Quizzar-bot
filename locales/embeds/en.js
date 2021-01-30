@@ -191,10 +191,10 @@ module.exports = {
         });
         return embed;
     },
-    getTopEmbed: function (topString) {
+    getTopEmbed: function (totalUsers, topString) {
         const embed = new Discord.RichEmbed({
             author: {
-                name: "Top :",
+                name: "Top (" + totalUsers + " users) :",
                 icon_url: logoURL
             },
             color: orange,

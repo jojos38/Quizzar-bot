@@ -178,7 +178,7 @@ module.exports = {
 			usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 		}
 		if (result.length == 0) usersString = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(usersString));
+		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(result.length, usersString));
     },
 
     setSetting: async function (guildID, settingName, value) {
