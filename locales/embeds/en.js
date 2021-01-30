@@ -26,8 +26,8 @@ module.exports = {
             },
             fields: [
                 {
-                    name: prefix + "globaltop",
-                    value: "**new** - Show the global top (all servers included)"
+                    name: prefix + "globaltop [user]",
+                    value: "**new** - Show the global top or the position of a user (have to be tagged)"
                 },
 		{
                     name: prefix + "lang [language]",

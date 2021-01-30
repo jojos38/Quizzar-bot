@@ -201,15 +201,39 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}globaltop`)) { // top
 		var usersString = "";
 		const users = await db.getAllUsers();
-		for (var i = 0; i < users.length; i++) {
-			if (i > 10) break;
-			var user = users[i];
-			var nick = "";
-			if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
-			else nick = user.username;
-			usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+		// If there is a user ID
+		if (args[1]) {
+			var position = -1;
+			// Get the ID from the message
+			var userID = args[1].replace(/[\\<>@#&!]/g, "");
+			// Get the user position in the list
+			for (var i = 0; i < users.length; i++) {
+				var user = users[i];
+				if (user.id == userID) position = i;
+			}
+			if (position != -1) {
+				// Show the 5 above and before users
+				if (position + 5 > users.length) position = users.length - 5;
+				if (position - 5 < 0) position = 5;
+				for (var i = position - 5; i < position + 5; i++) {
+					var user = users[i];
+					var nick = "";
+					if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+					else nick = user.username;
+					usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+				}
+			}
+		} else {
+			for (var i = 0; i < users.length; i++) {
+				if (i >= 10) break;
+				var user = users[i];
+				var nick = "";
+				if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+				else nick = user.username;
+				usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+			}
 		}
-		if (users.length == 0) usersString = lm.getString("noStats", lang);
+		if (users.length == 0 || position == -1) usersString = lm.getString("noStats", lang);
 		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(usersString));
     }
 
