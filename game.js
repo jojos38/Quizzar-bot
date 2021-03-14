@@ -59,9 +59,9 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 		for (var i = 0; i < proposals.length; i++) { // For each proposition
 			const reaction = reactionsTable[i]; // Get reaction
 			if (proposals[i] == goodAnswer) { // If good answer
-				goodAnswerUsers = await message.reactions.get(reaction).fetchUsers(); // Get users that reacted with [reaction]
+				goodAnswerUsers = await message.reactions.cache.get(reaction).users.cache; // Get users that reacted with [reaction]
 			} else { // Else if wrong answer
-				const badUsers = await message.reactions.get(reaction).fetchUsers(); // Get all users that reacted with [reaction]
+				const badUsers = await message.reactions.cache.get(reaction).users.cache; // Get all users that reacted with [reaction]
 				const iterator = badUsers.keys();
 				for (let userID of iterator) { // For each user that reacted with [reaction]
 					const user = badUsers.get(userID); // Get user
