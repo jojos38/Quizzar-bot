@@ -173,7 +173,7 @@ module.exports = {
 			if (i > 10) break;
 			var user = result[i];
 			var nick;
-			if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+			if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
 			else nick = user.username;
 			usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 		}

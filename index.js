@@ -219,7 +219,7 @@ client.on('message', async function (message) {
 				for (var i = position - 5; i < position + 5; i++) {
 					var user = users[i];
 					var nick = "";
-					if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+					if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
 					else nick = user.username;
 					usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 				}
@@ -229,7 +229,7 @@ client.on('message', async function (message) {
 				if (i >= 10) break;
 				var user = users[i];
 				var nick = "";
-				if (guild.members.get(user.id)) nick = guild.members.get(user.id).nickname || guild.members.get(user.id).user.username;
+				if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
 				else nick = user.username;
 				usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 			}
@@ -381,7 +381,7 @@ client.on('message', async function (message) {
 		const dbguilds = await db.getAllServers();
 		for (var entry of dbguilds) {
 			var dbGuildID = entry.name;
-			if (!guilds.get(dbGuildID) && dbGuildID.match(/^[0-9]{18}$/)) {
+			if (!guilds.cache.get(dbGuildID) && dbGuildID.match(/^[0-9]{18}$/)) {
 				db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
 				logger.info("Deleted settings for guild " + dbGuildID);
 			}
@@ -397,9 +397,9 @@ client.on('message', async function (message) {
 			if (entry.name.match(/^[0-9]{18}$/))
 				dbguilds[entry.name] = true;
 		}
-		for (var id of guilds.keys()) {
+		for (var id of guilds.cache.keys()) {
 			if (dbguilds[id]) { // If the guild exists in the database
-				const tempGuild = guilds.get(id);
+				const tempGuild = guilds.cache.get(id);
 				var guildID = tempGuild.id;
 				var guildName = tempGuild.name;
 				db.setSetting(guildID, "name", guildName);
@@ -415,9 +415,9 @@ client.on('message', async function (message) {
 		for (var entry of tempdbguilds) {
 			dbguilds[entry.name] = true;
 		}
-		for (var id of guilds.keys()) {
+		for (var id of guilds.cache.keys()) {
 			if (!dbguilds[id]) {
-				const tempGuild = guilds.get(id);
+				const tempGuild = guilds.cache.get(id);
 				initSettings(tempGuild);
 				logger.info("Initialized settings for guild " + id);
 			}
