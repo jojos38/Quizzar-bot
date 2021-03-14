@@ -359,7 +359,7 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}ls`)) { // ls [OWNER]
-		var servers = client.guilds;
+		var servers = client.guilds.cache;
 		var users = 0;
 		var en = 0;
 		for (var g of servers) {
