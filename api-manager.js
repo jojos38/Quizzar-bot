@@ -25,10 +25,10 @@ function post(hostname, path, data, token) {
 }
 
 function queryAndSend(client) {
-	var guilds = client.guilds;
+	var guilds = client.guilds.cache;
 	var userCount = 0;
 	var guildCount = 0;
-	client.guilds.forEach(g => {
+	guilds.forEach(g => {
 		userCount += g.memberCount;
 		guildCount++;
 	})
