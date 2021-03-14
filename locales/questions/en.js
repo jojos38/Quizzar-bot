@@ -1,7 +1,7 @@
 
 // ----------- SOME VARIABLES ----------- //
 const request = require('request');
-const entities = require('html-entities').Html5Entities;
+const entities = require('html-entities');
 const tools = require('../../tools.js');
 // ----------- SOME VARIABLES ----------- //
 

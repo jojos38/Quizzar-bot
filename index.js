@@ -168,13 +168,14 @@ client.on('message', async function (message) {
     }
 
 	else if (messageContent.startsWith(`${prefix}info`)) { // info
-		var servers = client.guilds;
+		var guilds = client.guilds.cache;
 		var users = 0;
-		client.guilds.forEach(g => {
+		guilds.forEach(g => {
 		  users += g.memberCount;
 		})
 		var uptime = process.uptime();
-		tools.sendCatch(channel, lm.getEb(lang).getInfoEmbed(users, servers.size, tools.format(uptime)));
+		tools.sendCatch(channel, lm.getEb(lang).getInfoEmbed(users, guilds.size, tools.format(uptime)));
+		return;
     }
 
     else if (messageContent.startsWith(`${prefix}pl`) || messageContent.startsWith(`${prefix}start`)) { // play

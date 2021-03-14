@@ -19,7 +19,7 @@ module.exports = {
     // ------------- COMMANDS ------------- //
     getHelpEmbed: function (prefix) {
 	prefix = prefix || "!j";
-	const embed1 = new Discord.RichEmbed({
+	const embed1 = new Discord.MessageEmbed({
             color: orange,
             author: {
                 name: "Voici la liste des commandes disponibles :",
@@ -73,7 +73,7 @@ module.exports = {
             ]
         });
 
-        const embed2 = new Discord.RichEmbed({
+        const embed2 = new Discord.MessageEmbed({
             author: {
                 name: "Et voici les règles :",
                 icon_url: logoURL
@@ -87,7 +87,7 @@ module.exports = {
 
 
     getInfoEmbed: function (users, servers, uptime) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
 			author: {
 				name: "Crédits :",
 				icon_url: logoURL
@@ -118,7 +118,7 @@ module.exports = {
 
 
     getDifEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             color: orange,
             description: "0 : Toutes les difficultés mélangées\n1 : Facile\n2 : Confirmé\n3 : Expert",
             author: {
@@ -130,7 +130,7 @@ module.exports = {
     },
     getAdminHelpEmbed: function (prefix) {
 	prefix = prefix || "!j";
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             description: "Un 'channel autorisé' est un channel ou les commandes du bot sont autorisées",
             color: orange,
             author: {
@@ -183,7 +183,7 @@ module.exports = {
         return embed;
     },
     getUserStatsEmbed: function (userStats) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             author: {
                 name: "Statistiques :",
                 icon_url: logoURL
@@ -194,7 +194,7 @@ module.exports = {
         return embed;
     },
     getTopEmbed: function (totalUsers, topString) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             author: {
                 name: "Top (" + totalUsers + " utilisateurs) :",
                 icon_url: logoURL
@@ -205,7 +205,7 @@ module.exports = {
         return embed;
     },
     getNoStatsEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             author: {
                 name: "Statistiques :",
                 icon_url: logoURL
@@ -219,14 +219,14 @@ module.exports = {
 
     // ------------- COMMANDS ERRORS ------------- //
     getBadDifEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "La difficultée doit être comprise entre 0 et 3",
             color: red,
         });
         return embed;
     },
     getNotAllowedEmbed: function (channelsString) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             author: {
                 name: "Mince",
                 icon_url: logoURL
@@ -238,7 +238,7 @@ module.exports = {
         return embed;
     },
     getAlreadyRunningEmbed: function (channelID) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Une autre partie est déjà en cours",
             description: this.mention(channelID, 'c'),
             color: red
@@ -246,21 +246,21 @@ module.exports = {
         return embed;
     },
     getBadQuesEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Le nombre de questions doit se situer entre 1 et 100",
             color: red,
         });
         return embed;
     },
     getWrongPlayerStopEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Seul le joueur qui a démarré la partie peut l'arrêter",
             color: red
         });
         return embed;
     },
     getWrongChannelEmbed: function (channel) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Aucune partie n'est en cours dans ce channel",
             description: "Allez jeter un coup d'oeil ici : " + channel,
             color: red
@@ -268,7 +268,7 @@ module.exports = {
         return embed;
     },
     getNoGameRunningEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Aucune partie n'est en cours",
             description: "Utilisez !jplay pour démarrer une partie",
             color: red
@@ -279,7 +279,7 @@ module.exports = {
 
     // -------------------------------- GAME -------------------------------- //
     getStartEmbed: function (difficulty, questionsAmount) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Démarrage de la partie",
             description: "Difficultée : " + difficulty + "\nNombre de questions : " + questionsAmount,
             color: orange,
@@ -289,7 +289,7 @@ module.exports = {
     getQuestionEmbed: function (qData, timeleft, embedColor) {
         // 0:thème --- 1:difficulté --- 2:question --- 3:propositions --- 4:réponse --- 5:anecdote --- 6:points --- 7:num.ques --- 8:tot.ques
         const proposals = qData.proposals;
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             author: {
                 name: "Question " + qData.qNumber + " / " + qData.qAmount + " :",
                 icon_url: logoURL
@@ -315,7 +315,7 @@ module.exports = {
         return embed;
     },
     getAnswerEmbed: function (answerLetter, answer, anectode, playersString, color) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             color: color,
             title: "La bonne réponse était la réponse " + answerLetter + " : " + answer,
             description: "```" + anectode + "```\n" + playersString,
@@ -323,7 +323,7 @@ module.exports = {
         return embed;
     },
     getStopEmbed: function (reason) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "La partie va s'arrêter",
             description: reason,
             color: orange,
@@ -331,7 +331,7 @@ module.exports = {
         return embed;
     },
     getGameStoppedEmbed: function () {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Partie terminée !",
             description: "La partie en cours a été arrêtée manuellement",
             color: orange
@@ -339,7 +339,7 @@ module.exports = {
         return embed;
     },
     getGameEndedEmbed: function (players) {
-        const embed = new Discord.RichEmbed({
+        const embed = new Discord.MessageEmbed({
             title: "Gagnants :",
             color: orange,
             description: players[0] + "\n" + players[1] + "\nVous aimez Quizzar ? Votez sur https://top.gg/bot/586183772136013824\nMon autre bot https://top.gg/bot/772446137499385866"
