@@ -57,6 +57,12 @@ function queryAndSend(client) {
 		{guildCount: guildCount},
 		config.botsondiscord
 	);
+	post(
+                'discord.boats',
+                '/api/bot/' + config.id,
+                {server_count: guildCount},
+                config.discordboats
+        );
 }
 
 module.exports = {
