@@ -7,15 +7,16 @@ var logMessages = false;
 
 
 // -------------------- SOME VARIABLES -------------------- //
+const Discord = require('discord.js');
 global.config = require('./config.json');
 global.db = require('./database.js');
 global.lm = require('./languages-manager.js');
-const Discord = require('discord.js');
-const client = new Discord.Client();
+global.client = new Discord.Client();
 const game = require('./game.js');
 const tools = require('./tools.js');
 const logger = require('./logger.js');
 const apiManager = require('./api-manager.js');
+const fs = require('fs');
 var isBotReady = false;
 // -------------------- SOME VARIABLES -------------------- //
 
@@ -101,6 +102,20 @@ client.once('ready', async function () {
     isBotReady = true;
     logger.info('Bot ready');
     client.user.setActivity(ACTIVITY_MESSAGE);
+	
+	// Create cache directory
+	if (!fs.existsSync("cache")){
+		fs.mkdirSync("cache");
+	} else {
+		fs.readdir("./cache", function (err, files) {
+			if (err) logger.error(err);
+			for (file of files) {
+				let filePath = 'cache/' + file;
+				let gameData = fs.readFileSync(filePath);
+				game.restoreGame(gameData);
+			}
+		});
+	}
 });
 
 client.on("disconnect", () => {

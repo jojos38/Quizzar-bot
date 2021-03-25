@@ -40,5 +40,6 @@
 	"tryAgainLater": "Une maintenance est prévue, s'il vous plait reessayez un peu plus tard.",
 	"maintenance": "**Bot en maintenance.**",
 	"prefixSet": "Prefix défini avec succés",
-	"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement."
+	"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement.",
+	"gameRestored": "Il semblerait que le bot ai redémarré durant votre partie ! Cette dernière a été réstaurée."
 }

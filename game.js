@@ -13,6 +13,7 @@ const logger = require('./logger.js');
 const cacheTTL = 60 * 60 * 4; // 4 hour
 const cache = new NodeCache({ stdTTL: cacheTTL, checkperiod: 60 * 5 });
 const colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
+const fs = require('fs');
 // ------------------------------ SOME VARIABLES ------------------------------ //
 
 
@@ -28,16 +29,38 @@ function delayChecking(guildID, ms) {
 		// This way if the game is force stopped it will leave the current question
 		var waitingTime = ms / (15000 + (ms/100*10)) * 1000 // The higher the question delay, the lower the checking
 		for (var i = 0; i < ms; i += waitingTime) {
-			if (cache.get(guildID + "running") == 1) break; // 1 = Waiting for stop
+			let guildCache = cache.get(guildID) || {};
+			if (guildCache.running == 1) break; // 1 = Waiting for stop
 			await delay(waitingTime);
 		}
 		resolve();
 	});
 }
 
+function replacer(key, value) {
+  if(value instanceof Map) {
+    return {
+      dataType: 'Map',
+      value: Array.from(value.entries()), // or with spread: value: [...value]
+    };
+  } else {
+    return value;
+  }
+}
+
+function reviver(key, value) {
+  if(typeof value === 'object' && value !== null) {
+    if (value.dataType === 'Map') {
+      return new Map(value.value);
+    }
+  }
+  return value;
+}
+
 function countPoints(guild, channel, lang) {
     const guildID = guild.id;
-    var scoreTable = cache.get(guildID + "score");
+	const guildCache = cache.get(guildID) || {};
+    var scoreTable = guildCache.score;
     winners = messages.getScoreString(guild, scoreTable, lang);
     // db.updateUserStats(guild, winnerID, 0, 1); <- INSIDE getScoreString function
     tools.sendCatch(channel, lm.getEb(lang).getGameEndedEmbed(winners));
@@ -93,16 +116,16 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 // it from being cleared automatically.
 // Then we exit the loop when the game ends and we calculate the total points
 // + the winner. The game as ended we can clear the cache.
-async function startGame(message, difficulty, qAmount, lang) {
-	const channel = message.channel;
-    const guildID = message.guild.id;
+async function startGame(guild, channel, difficulty, qAmount, lang, qNumberRestore) {
+    const guildID = guild.id;
+	const dataSavePath = "cache/" + guildID + '.json';
 	
 	var qDelay = await db.getSetting(guildID, "questiondelay");
 	var aDelay = await db.getSetting(guildID, "answerdelay");
 	
     logger.info("-------------- NEW GAME --------------");
-	logger.info("Server ID: " + message.guild.id);
-    logger.info("Server: " + message.guild.name + " (" + message.guild.memberCount + " users)");
+	logger.info("Server ID: " + guild.id);
+    logger.info("Server: " + guild.name + " (" + guild.memberCount + " users)");
     logger.info("Questions delay: " + qDelay);
     logger.info("Answers delay: " + aDelay);
     logger.info("Questions amount: " + qAmount);
@@ -110,40 +133,50 @@ async function startGame(message, difficulty, qAmount, lang) {
     await tools.sendCatch(channel, lm.getEb(lang).getStartEmbed(difficulty, qAmount));
 	
 	// ASK QUESTIONS
-    for (var qNumber = 1; qNumber <= qAmount; qNumber++) {
+    for (var qNumber = qNumberRestore || 1; qNumber <= qAmount; qNumber++) {
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
 		
 		// This way users can update a setting while the game has already started!
 		qDelay = await db.getSetting(guildID, "questiondelay");
 		aDelay = await db.getSetting(guildID, "answerdelay");
 		lang = await db.getSetting(guildID, "lang");
-		
-		// Update the cache	to avoid it from clearing the values on a game
-		// that would last for a too period
-		cache.set(guildID + "running", cache.get(guildID + "running"));
-		cache.set(guildID + "player", cache.get(guildID + "player"));
-		cache.set(guildID + "score", cache.get(guildID + "score"));
-		cache.set(guildID + "channel", cache.get(guildID + "channel"));
-		
+
+		if ((cache.get(guildID) || {}).running == 1) { // 1 = Waiting for stop
+            tools.sendCatch(channel, lm.getEb(lang).getGameStoppedEmbed());
+            break;
+        }
+
 		try {
 			// It asks one question and gives the answser + points calculation
 			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang, guildID);
 		} catch (error) {
 			logger.error(error);
 			logger.error("Error: ending game...");
-			tools.sendCatch(message.channel, lm.getString("error", lang));
-			cache.set(guildID + "running", 1); // Stop the game asap
+			tools.sendCatch(channel, lm.getString("error", lang));
+			var guildCache = cache.get(guildID);
+			guildCache.running = 1;
+			cache.set(guildID, guildCache); // Stop the game asap
 		}
-		if (cache.get(guildID + "running") == 1) { // 1 = Waiting for stop
-            tools.sendCatch(message.channel, lm.getEb(lang).getGameStoppedEmbed());
-            break;
-        }
+
+		var guildCache = cache.get(guildID);
+		if (fs.existsSync(dataSavePath)) {
+			let gameSaveData = JSON.parse(fs.readFileSync(dataSavePath), reviver);
+			gameSaveData.cache = guildCache;
+			gameSaveData.data.qNumber = qNumber + 1;
+			fs.writeFileSync(dataSavePath, JSON.stringify(gameSaveData, replacer));
+			logger.info("Updated game state json");
+		} else {
+			logger.warn("Game state json not found");
+		}
     }
-    await countPoints(message.guild, channel, lang);
-    cache.del(guildID + "player");
-    cache.del(guildID + "channel");
-    cache.del(guildID + "score");
-	cache.set(guildID + "running", 0);
+	if (fs.existsSync(dataSavePath)) fs.unlinkSync(dataSavePath); // Remove the save file
+    await countPoints(guild, channel, lang);
+    var guildCache = cache.get(guildID);
+	delete guildCache.player;
+	delete guildCache.channel;
+	delete guildCache.score;
+	guildCache.running = 0;
+	cache.set(guildID, guildCache);
     logger.info("Cache cleared");
 }
 
@@ -180,11 +213,11 @@ async function giveAnswer(qMessage, qData, aDelay, lang, guildID) {
 		// DATABASE
 		db.updateUserStats(qMessage.guild.id, user.id, user.username, qData.points, 0); // Set user points number
 		// CACHE
-		var scoreTable = cache.get(guildID + "score");
-		const userScore = scoreTable.get(userID) || 0;
+		var guildCache = cache.get(guildID);
+		const userScore = guildCache.score.get(userID) || 0;
 		var newScore = Number(userScore) + Number(qData.points);
-		scoreTable.set(userID, newScore);
-		cache.set(guildID + "score", scoreTable);
+		guildCache.score.set(userID, newScore);
+		cache.set(guildID, guildCache);
 	}
 	await delayChecking(guildID, aDelay); // Wait for aDelay so people have time to answer
 	await tools.editCatch(aMessage, lm.getEb(lang).getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 4605510));
@@ -197,13 +230,15 @@ async function giveAnswer(qMessage, qData, aDelay, lang, guildID) {
 module.exports = {
 	unstuck: function (message, lang) {
         const guildID = message.guild.id;
+		const guildCache = cache.get(guildID);
         const channel = message.channel;
-        if (cache.get(guildID + "player") == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
-			if (cache.get(guildID + "running") == 0) { // If no game already running
+        if (guildCache.player == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
+			if (guildCache.running == 0) { // If no game already running
 				tools.sendCatch(channel, lm.getString("noGameRunning", lang));
 				return;
 			}
-			cache.set(guildID + "running", 0); // 0 = Stop the game now
+			guildCache.running = 0;
+			cache.set(guildID, guildCache); // 0 = Stop the game now
 			logger.info("Game aborted");
 			tools.sendCatch(channel, lm.getString("useAgain", lang));
 		}
@@ -213,13 +248,15 @@ module.exports = {
 
     stop: function (message, reason, lang) {
         const guildID = message.guild.id;
+		const guildCache = cache.get(guildID);
         const channel = message.channel;
-        if (!cache.get(guildID + "running") >= 1) { // If no game running (2 = Game running)
+        if (guildCache.running < 2) { // If no game running (2 = Game running)
             tools.sendCatch(channel, lm.getEb(lang).getNoGameRunningEmbed());
             return;
         }
-        if (cache.get(guildID + "player") == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) {
-            cache.set(guildID + "running", 1); // 1 = Waiting for stop
+        if (guildCache.player == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) {
+            guildCache.running = 1;
+			cache.set(guildID, guildCache); // 1 = Waiting for stop
             tools.sendCatch(channel, lm.getEb(lang).getStopEmbed(reason));
             logger.info("Game aborted");
         } else {
@@ -237,8 +274,9 @@ module.exports = {
 				for (let guild of guilds.values()) {
 					const guildID = guild.id;
 					const lang = await db.getSetting(guild.id, "lang");
-					if (cache.get(guildID + "running") >= 1) {
-						const channelID = cache.get(guildID + "channel");
+					const guildCache = cache.get(guildID);
+					if (guildCache.running >= 1) {
+						const channelID = guildCache.channel;
 						const channel = client.channels.get(channelID);
 						if (i != 0) tools.sendCatch(channel, lm.getString("maintenanceScheduled", lang, {minutes:i}));
 						else tools.sendCatch(channel, lm.getString("maintenance", lang));
@@ -251,11 +289,37 @@ module.exports = {
 		});
     },
 
+	
+	
+	restoreGame: function(rawdata) {
+		const data = JSON.parse(rawdata, reviver);
 
+		const gameData = data.data;
+		const cacheData = data.cache;
+		const guildID = gameData.guildID;
+
+		logger.info("Restoring game for guild " + guildID);
+
+		const guild = client.guilds.cache.get(guildID);
+		const channel = guild.channels.cache.get(cacheData.channel);
+		
+		if (guild && channel) {
+			cache.set(guildID, cacheData);
+			tools.sendCatch(channel, lm.getString("gameRestored", gameData.lang));
+			startGame(guild, channel, gameData.difficulty, gameData.qAmount, gameData.lang, gameData.qNumber);
+			logger.success("Restoring game for guild " + guildID + " succeed");
+		}
+		else {
+			logger.warn("Restoring failed");
+		}
+	},
+	
+	
 
     preStart: async function (message, args, lang) {
         const guild = message.guild;
         const guildID = guild.id;
+		const guildCache = cache.get(guildID) || {};
         const channel = message.channel;
 		var questionsAmount;
 		var difficulty;
@@ -264,8 +328,8 @@ module.exports = {
 			tools.sendCatch(channel, lm.getString("tryAgainLater", lang));
 			return;
 		}
-		if (cache.get(guildID + "running") >= 1) { // If no game already running
-            tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(cache.get(guildID + "channel")));
+		if (guildCache.running >= 1) { // If no game already running
+            tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(guildCache.channel));
             return;
         }
 
@@ -291,12 +355,28 @@ module.exports = {
 		}
 
         // 0 = Stopped / 1 = Waiting for stop / 2 = Game running
-        cache.set(guildID + "running", 2);
-        cache.set(guildID + "player", message.author.id);
-        cache.set(guildID + "channel", channel.id);
-        cache.set(guildID + "score", new Map());
+		gameCacheData = {
+			runing: 2,
+			player: message.author.id,
+			channel: channel.id,
+			score: new Map()
+		};
+		cache.set(guildID, gameCacheData);
+		
+		dataSave = {
+			data: {
+				guildID: guildID,
+				qAmount: questionsAmount,
+				difficulty: difficulty,
+				lang: lang
+			},
+			cache: gameCacheData
+		}
 
-        startGame(message, difficulty, questionsAmount, lang);
+		fs.writeFileSync("cache/" + guildID + '.json', JSON.stringify(dataSave, replacer));
+		logger.info("Saved game state in json");
+
+        startGame(guild, channel, difficulty, questionsAmount, lang);
     }
 }
 // ----------------------------------- PRESTART / STOP ----------------------------------- //
