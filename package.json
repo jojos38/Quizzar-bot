@@ -19,11 +19,14 @@
     "url": "https://github.com/jojos38/quizzar-bot"
   },
   "dependencies": {
+    "bufferutil": "^4.0.3",
     "discord.js": "^12.5.1",
+    "erlpack": "github:discord/erlpack",
     "html-entities": "^2.1.0",
     "i18n": "^0.13.2",
     "mongodb": "^3.6.4",
     "node-cache": "^5.1.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "utf-8-validate": "^5.0.4"
   }
 }

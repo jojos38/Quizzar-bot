@@ -1,6 +1,8 @@
 // -------------------- SETTINGS -------------------- //
 const OWNER_ID = 137239068567142400;
 const ACTIVITY_MESSAGE = "!jhelp";
+const DEFAULT_PREFIX = "!j";
+const DEFAULT_LANGUAGE = "en";
 var logMessages = false;
 // -------------------- SETTINGS -------------------- //
 
