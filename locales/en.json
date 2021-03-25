@@ -40,5 +40,6 @@
 	"tryAgainLater": "A maintenance is scheduled, please try again a bit later.",
 	"maintenance": "**Bot under maintenance.**",
 	"prefixSet": "Prefix set successfully",
-	"prefixError": "Error hapenned: The prefix must be between 1 and 3 characters and must be ASCII only."
+	"prefixError": "Error hapenned: The prefix must be between 1 and 3 characters and must be ASCII only.",
+	"gameRestored": "It seems that the bot rebooted during your game, it was restored."
 }
