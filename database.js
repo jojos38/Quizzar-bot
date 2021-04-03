@@ -8,7 +8,6 @@ const logger = require('./logger.js');
 const eb = tools.embeds;
 var client;
 var mainDB;
-var secDB;
 var col = {};
 // -------------------- SOME VARIABLES -------------------- //
 
@@ -67,7 +66,6 @@ module.exports = {
 			var err, tempClient = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 });
 			client = tempClient;
 			mainDB = client.db(database);
-			secDB = client.db('quizzar');
 			col.users = mainDB.collection('users');
 			col.channels = mainDB.collection('channels');
 			col.settings = mainDB.collection('settings');
@@ -85,11 +83,11 @@ module.exports = {
 		logger.success("Database closed");
     },
     // ------------------------------------- INIT AND CLOSE ------------------------------------- //
-	
 
 
 
-    // ------------------------------------- SOME FUNCTIONS ------------------------------------- //	
+
+    // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
 	resetGuildSettings: async function (guildID, guildName, channel, lang) {
 		await deleteCatch(col.channels, { guildID: guildID });
 		logger.info("Channels deleted for " + guildName);
