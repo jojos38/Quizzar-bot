@@ -300,7 +300,10 @@ module.exports = {
 
 		logger.info("Restoring game for guild " + guildID);
 
+		if (!cacheData || !gameData) { logger.warn("Cache data not found, restore failed"); return; }
+
 		const guild = client.guilds.cache.get(guildID);
+		if (!guild) { logger.warn("Guild not found, restore failed"); return; }
 		const channel = guild.channels.cache.get(cacheData.channel);
 		
 		if (guild && channel) {

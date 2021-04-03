@@ -94,7 +94,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot crée par jojos38",
-			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/DXpb9DN\nPatreon: https://www.patreon.com/jojos38\nTipeee: https://fr.tipeee.com/jojos38s-quizzar-bot\nMon autre bot: https://top.gg/bot/772446137499385866",
+			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/DXpb9DN\nDonate: https://paypal.me/wanzera\nMon autre bot: https://top.gg/bot/772446137499385866",
 			fields: [
 			  {
 				name: "Serveurs",
@@ -342,7 +342,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed({
             title: "Gagnants :",
             color: orange,
-            description: players[0] + "\n" + players[1] + "\nVous aimez Quizzar ? Votez sur https://top.gg/bot/586183772136013824\nMon autre bot https://top.gg/bot/772446137499385866"
+            description: players[0] + "\n" + players[1] + "\nVous aimez Quizzar ? Soutenez moi sur https://paypal.me/wanzera\nMon autre bot https://top.gg/bot/772446137499385866"
         });
         return embed;
     },

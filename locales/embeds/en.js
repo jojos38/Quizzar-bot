@@ -93,7 +93,7 @@ module.exports = {
 			},
             color: orange,
             title: "Bot made by jojos38",
-			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/DXpb9DN\nPatreon: https://www.patreon.com/jojos38\nTipeee: https://fr.tipeee.com/jojos38s-quizzar-bot\nMy other bot: https://top.gg/bot/772446137499385866",
+			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/DXpb9DN\nDonate: https://paypal.me/wanzera \nMy other bot: https://top.gg/bot/772446137499385866",
 			fields: [
 			  {
 				name: "Servers",
@@ -340,7 +340,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed({
             title: "Winners :",
             color: orange,
-            description: players[0] + "\n" + players[1] + "\nLike the bot? Vote on https://top.gg/bot/586183772136013824\nMy other bot https://top.gg/bot/772446137499385866"
+            description: players[0] + "\n" + players[1] + "\nLike the bot? Help me at https://paypal.me/wanzera\nMy other bot https://top.gg/bot/772446137499385866"
         });
         return embed;
     },

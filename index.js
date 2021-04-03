@@ -466,7 +466,7 @@ async function start() {
 	await db.init();
 	await lm.reloadLanguages(); // Load languages
 	logger.info("Connecting to Discord...");
-	setTimeout(checkConnected, 300000);
+	setTimeout(checkConnected, 9000000);
 	await client.login(config.token);
 	apiManager.init(client);
 }
