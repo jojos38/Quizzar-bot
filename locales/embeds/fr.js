@@ -182,14 +182,23 @@ module.exports = {
         });
         return embed;
     },
-    getUserStatsEmbed: function (userStats) {
+    getUserStatsEmbed: function (stats) {
         const embed = new Discord.MessageEmbed({
             author: {
-                name: "Statistiques :",
+                name: "Stats :",
                 icon_url: logoURL
             },
             color: orange,
-            description: "Parties gagnées : " + userStats.won + "\nScore total : " + userStats.score
+			fields: [
+			  {
+				name: "Stats globales",
+				value: "Score: " + (stats.global.score || 0) + "\n" + "Won : " + (stats.global.won || 0)
+			  },
+			  {
+				name: "Stats du serveur",
+				value: "Score: " + (stats.guild.score || 0) + "\n" + "Won : " + (stats.guild.won || 0)
+			  }
+			]
         });
         return embed;
     },

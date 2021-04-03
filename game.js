@@ -119,10 +119,10 @@ async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
 async function startGame(guild, channel, difficulty, qAmount, lang, qNumberRestore) {
     const guildID = guild.id;
 	const dataSavePath = "cache/" + guildID + '.json';
-	
-	var qDelay = await db.getSetting(guildID, "questiondelay");
-	var aDelay = await db.getSetting(guildID, "answerdelay");
-	
+
+	var qDelay = await db.getSetting(guildID, "questionDelay");
+	var aDelay = await db.getSetting(guildID, "answerDelay");
+
     logger.info("-------------- NEW GAME --------------");
 	logger.info("Server ID: " + guild.id);
     logger.info("Server: " + guild.name + " (" + guild.memberCount + " users)");
@@ -131,14 +131,14 @@ async function startGame(guild, channel, difficulty, qAmount, lang, qNumberResto
     logger.info("Questions amount: " + qAmount);
     logger.info("Language: " + lang);
     await tools.sendCatch(channel, lm.getEb(lang).getStartEmbed(difficulty, qAmount));
-	
+
 	// ASK QUESTIONS
     for (var qNumber = qNumberRestore || 1; qNumber <= qAmount; qNumber++) {
         logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
-		
+
 		// This way users can update a setting while the game has already started!
-		qDelay = await db.getSetting(guildID, "questiondelay");
-		aDelay = await db.getSetting(guildID, "answerdelay");
+		qDelay = await db.getSetting(guildID, "questionDelay");
+		aDelay = await db.getSetting(guildID, "answerDelay");
 		lang = await db.getSetting(guildID, "lang");
 
 		if ((cache.get(guildID) || {}).running == 1) { // 1 = Waiting for stop
@@ -194,7 +194,7 @@ async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, 
 	for (var i = 0; i < reactionsTable.length; i++) {
 		if (!await tools.reactCatch(qMessage, reactionsTable[i])) break;
 	}
-	
+
 	await delayChecking(guildID, qDelay); // Wait for qDelay so people have time to answer
 	await giveAnswer(qMessage, qData, aDelay, lang, guildID);
 }
@@ -228,10 +228,11 @@ async function giveAnswer(qMessage, qData, aDelay, lang, guildID) {
 
 // ----------------------------------- PRESTART / STOP ----------------------------------- //
 module.exports = {
-	unstuck: function (message, lang) {
+	unstuck: async function (message, lang) {
         const guildID = message.guild.id;
 		const guildCache = cache.get(guildID);
         const channel = message.channel;
+		if (!guildCache) { await tools.sendCatch(channel, lm.getString("noGameRunning", lang)); return; }
         if (guildCache.player == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
 			if (guildCache.running == 0) { // If no game already running
 				tools.sendCatch(channel, lm.getString("noGameRunning", lang));
@@ -266,9 +267,9 @@ module.exports = {
 
 
 
-	stopAll: function (client) {
+	stopAll: function () {
 		return new Promise(async function (resolve, reject) {
-			cache.set("stopscheduled", 1); // Prevent people from starting a game
+			cache.set("stopScheduled", 1); // Prevent people from starting a game
 			var guilds = client.guilds;
 			for(var i = 1; i != -1; i--) {
 				for (let guild of guilds.values()) {
@@ -289,9 +290,9 @@ module.exports = {
 		});
     },
 
-	
-	
-	restoreGame: function(rawdata) {
+
+
+	restoreGame: async function(rawdata) {
 		const data = JSON.parse(rawdata, reviver);
 
 		const gameData = data.data;
@@ -299,13 +300,11 @@ module.exports = {
 		const guildID = gameData.guildID;
 
 		logger.info("Restoring game for guild " + guildID);
-
 		if (!cacheData || !gameData) { logger.warn("Cache data not found, restore failed"); return; }
 
-		const guild = client.guilds.cache.get(guildID);
-		if (!guild) { logger.warn("Guild not found, restore failed"); return; }
-		const channel = guild.channels.cache.get(cacheData.channel);
-		
+		const guild = await client.guilds.fetch(guildID);
+		const channel = await guild.channels.cache.get(cacheData.channel);
+
 		if (guild && channel) {
 			cache.set(guildID, cacheData);
 			tools.sendCatch(channel, lm.getString("gameRestored", gameData.lang));
@@ -316,8 +315,8 @@ module.exports = {
 			logger.warn("Restoring failed");
 		}
 	},
-	
-	
+
+
 
     preStart: async function (message, args, lang) {
         const guild = message.guild;
@@ -327,7 +326,7 @@ module.exports = {
 		var questionsAmount;
 		var difficulty;
 
-		if (cache.get("stopscheduled") == 1) { // If no stop scheduled
+		if (cache.get("stopScheduled") == 1) { // If no stop scheduled
 			tools.sendCatch(channel, lm.getString("tryAgainLater", lang));
 			return;
 		}
@@ -342,7 +341,7 @@ module.exports = {
             return;
 		}
 		else { // Mean it's null
-			difficulty = args[1] || await db.getSetting(guild.id, "defaultdifficulty") || 0;
+			difficulty = args[1] || await db.getSetting(guild.id, "defaultDifficulty") || 0;
 		}
 
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
@@ -351,7 +350,7 @@ module.exports = {
             return;
 		}
 		else { // Mean it's null
-			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultquestionsamount") || 10;
+			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultQuestionsAmount") || 10;
 			if (questionsAmount == 0) {
 				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
 			}

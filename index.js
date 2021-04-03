@@ -30,18 +30,17 @@ function getChannelsString(channels, lang) {
 	var channelsString = "";
 	// Loop trough each channe and add them to a string
 	for (var i = 0; i < channels.length; i++) {
-		channelsString = channelsString + "\n" + tools.mention(channels[i].channel, 'c');
+		channelsString = channelsString + "\n" + tools.mention(channels[i].channelID, 'c');
 	}
 	// If the string is empty, mean there was no channel
 	if (channelsString == "") channelsString = lm.getString("noChannel", lang);
 	return channelsString;
 }
 
-async function channelAllowed(guildID, message) {
+async function channelAllowed(guildID, channelID) {
 	const channels = await db.getGuildChannels(guildID);
-	const channelID = message.channel.id;
 	for (var i = 0; i < channels.length; i++) // For each channel
-		if (channels[i].channel == channelID) return true; // If message is sent from allowed channel then return
+		if (channels[i].channelID == channelID) return true; // If message is sent from allowed channel then return
 	return false;
 }
 
@@ -53,7 +52,7 @@ async function isAllowed(message, lang) {
 	if (isModeratorAllowed(message)) return true;
 
 	// Channel perm
-	if (channelAllowed(message.guild.id)) return true;
+	if (channelAllowed(message.guild.id, message.channel.id)) return true;
 
 	// If we went there is that the user is not allowed since previous for loop should return
 	tools.sendCatch(message.channel, lm.getEb(lang).getNotAllowedEmbed(getChannelsString(channels, lang)));
@@ -71,17 +70,10 @@ async function isModeratorAllowed(message) {
 	return member.hasPermission("MANAGE_GUILD");
 }
 
-function initSettings(guild) {
-	var guildID = guild.id;
-	var guildName = guild.name;
-	db.setSetting(guildID, "name", guildName);
-	logger.info("Initialized server " + guildName);
-}
-
 async function exitHandler(options, exitCode) {
     if (options.cleanup) {
 		logger.info("stopping bot...");
-		await game.stopAll(client);
+		await game.stopAll();
 		logger.info("closing database...");
 		await db.close();
 	}
@@ -132,7 +124,6 @@ client.on("guildCreate", guild => {
 	logger.info("New server: " + guild.name);
 	try { guild.owner.send(lm.getString("thanks", "en")); }
 	catch (error) { logger.error("Error while sending a PM to the user"); logger.error(error); }
-	initSettings(guild);
 });
 
 client.on("guildDelete", guild => {
@@ -205,11 +196,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}stats`)) { // stats
 		const userStats = await db.getUserStats(guild.id, message.author.id);
-		if (userStats) {
-			tools.sendCatch(channel, lm.getEb(lang).getUserStatsEmbed(userStats));
-		} else {
-			tools.sendCatch(channel, lm.getEb(lang).getNoStatsEmbed());
-		}
+		tools.sendCatch(channel, lm.getEb(lang).getUserStatsEmbed(userStats));
     }
 
     else if (messageContent.startsWith(`${prefix}top`)) { // top
@@ -227,7 +214,7 @@ client.on('message', async function (message) {
 			// Get the user position in the list
 			for (var i = 0; i < users.length; i++) {
 				var user = users[i];
-				if (user.id == userID) position = i;
+				if (user.userID == userID) position = i;
 			}
 			if (position != -1) {
 				// Show the 5 above and before users
@@ -236,7 +223,7 @@ client.on('message', async function (message) {
 				for (var i = position - 5; i < position + 5; i++) {
 					var user = users[i];
 					var nick = "";
-					if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
+					if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
 					else nick = user.username;
 					usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 				}
@@ -246,7 +233,7 @@ client.on('message', async function (message) {
 				if (i >= 10) break;
 				var user = users[i];
 				var nick = "";
-				if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
+				if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
 				else nick = user.username;
 				usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 			}
@@ -268,7 +255,7 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
-		db.addGuildChannel(channel, lang);
+		db.addGuildChannel(guild.id, channel, lang);
     }
 
     else if (messageContent.startsWith(`${prefix}remove`)) { // remove [ADMIN]
@@ -286,7 +273,7 @@ client.on('message', async function (message) {
     }
     else if (messageContent.startsWith(`${prefix}reset`)) { // remove [ADMIN]
 		await db.resetGuildSettings(guild.id, guild.name, channel, lang);
-		initSettings(guild);
+		logger.success("Initialized server " + guild.name);
     }
 
     else if (messageContent.startsWith(`${prefix}channels`)) { // remove [ADMIN]
@@ -296,7 +283,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}delayq`)) { // delayquestion [ADMIN]
 		if (args[1] <= 1800000 && args[1] >= 2500 && tools.isInt(args[1])) {
-			db.setSetting(guild.id, "questiondelay", args[1]);
+			db.setSetting(guild.id, "questionDelay", Number(args[1]));
 			tools.sendCatch(channel, lm.getString("questionDelaySet", lang, {delay:args[1]}));
 		} else {
 			tools.sendCatch(channel, lm.getString("questionDelayError", lang));
@@ -305,7 +292,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}delaya`)) { // delayanswer [ADMIN]
 		if (args[1] <= 50000 && args[1] >= 500 && tools.isInt(args[1])) {
-			db.setSetting(guild.id, "answerdelay", args[1]);
+			db.setSetting(guild.id, "answerDelay", Number(args[1]));
 			tools.sendCatch(channel, lm.getString("answerDelaySet", lang, {delay:args[1]}));
 		} else {
 			tools.sendCatch(channel, lm.getString("answerDelayError", lang));
@@ -314,7 +301,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}defd`)) { // defaultdifficulty [ADMIN]
 		if (args[1] <= 3 && args[1] >= 0 && tools.isInt(args[1])) {
-			db.setSetting(guild.id, "defaultdifficulty", args[1]);
+			db.setSetting(guild.id, "defaultDifficulty", Number(args[1]));
 			tools.sendCatch(channel, lm.getString("difficultySet", lang, {difficulty:args[1]}));
 		} else {
 			tools.sendCatch(channel, lm.getString("difficultyError", lang));
@@ -323,7 +310,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}defq`)) { // defaultquestions [ADMIN]
 		if (args[1] <= 100 && args[1] >= 1 && tools.isInt(args[1])) {
-			db.setSetting(guild.id, "defaultquestionsamount", args[1]);
+			db.setSetting(guild.id, "defaultQuestionsAmount", Number(args[1]));
 			tools.sendCatch(channel, lm.getString("questionsAmountSet", lang, {amount:args[1]}));
 		} else {
 			tools.sendCatch(channel, lm.getString("questionsAmountError", lang));
@@ -342,7 +329,7 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}admin`)) { // admin [ADMIN]
-		tools.sendCatch(channel, lm.getEb(lang).getAdminHelpEmbed());
+		tools.sendCatch(channel, lm.getEb(lang).getAdminHelpEmbed(prefix));
     }
 
 
