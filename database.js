@@ -8,7 +8,8 @@ const logger = require('./logger.js');
 const eb = tools.embeds;
 var client;
 var mainDB;
-var lastUsersChecking = {};
+var secDB;
+var col = {};
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -17,11 +18,6 @@ var lastUsersChecking = {};
 function removeSmallest(arr) {
   var min = Math.min.apply(null, arr);
   return arr.filter((e) => {return e != min});
-}
-
-async function dropCatch(collection) {
-	try { return await collection.drop(); }
-	catch (err) { logger.error(err); return null; }
 }
 
 async function findOneCatch(collection, toFind) {
@@ -41,6 +37,11 @@ async function insertOneCatch(collection, toInsert) {
 
 async function deleteOneCatch(collection, toDelete) {
 	try { return await collection.deleteOne(toDelete); }
+	catch (err) { logger.error(err);  return null; }
+}
+
+async function deleteCatch(collection, toDelete) {
+	try { return await collection.deleteMany(toDelete); }
 	catch (err) { logger.error(err);  return null; }
 }
 
@@ -66,6 +67,12 @@ module.exports = {
 			var err, tempClient = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 });
 			client = tempClient;
 			mainDB = client.db(database);
+			secDB = client.db('quizzar');
+			col.users = mainDB.collection('users');
+			col.channels = mainDB.collection('channels');
+			col.settings = mainDB.collection('settings');
+			col.usersGuild = mainDB.collection('users_guild');
+			col.defaultSettings = mainDB.collection('default_settings');
 			logger.success("Database ready");
 		} catch (err) {
 			logger.error(err);
@@ -82,46 +89,42 @@ module.exports = {
 
 
 
-    // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
-    resetGuildSettings: async function (guildID, guildName, channel, lang) {
-		const guildCollection = mainDB.collection(guildID);
-		var result = await dropCatch(guildCollection);
-		if (result) {
-			if (channel) tools.sendCatch(channel, lm.getString("resetted", lang));
-			logger.info("Deleted collection from server " + guildName);
-		} else {
-			tools.sendCatch(channel, lm.getString("error", lang));
-			logger.error("Error while deleting collection from server " + guildName);
-		}
+    // ------------------------------------- SOME FUNCTIONS ------------------------------------- //	
+	resetGuildSettings: async function (guildID, guildName, channel, lang) {
+		await deleteCatch(col.channels, { guildID: guildID });
+		logger.info("Channels deleted for " + guildName);
+		await deleteCatch(col.usersGuild, { guildID: guildID });
+		logger.info("Users deleted for " + guildName);
+		await deleteCatch(col.settings, { guildID: guildID });
+		logger.info("Settings deleted for " + guildName);
+		if (channel && lang) await tools.sendCatch(channel, lm.getString("resetted", lang));
     },
 
-    addGuildChannel: async function (channel, lang) {
+    addGuildChannel: async function (guildID, channel, lang) {
 		const channelID = channel.id;
-        const guildCollection = mainDB.collection(channel.guild.id);
-        var result = await findOneCatch(guildCollection, { channel: channelID });
+        var result = await findOneCatch(col.channels, { guildID: guildID, channelID: channelID });
 		if (result) { // If it already exist
-			await tools.sendCatch(channel, lm.getString("alreadyAuthorized", lang));
+			if (lang) await tools.sendCatch(channel, lm.getString("alreadyAuthorized", lang));
 			return; // Return if channel already exist
 		}
-        var result = await insertOneCatch(guildCollection, { channel: channelID, lang: "auto" });
+        var result = await insertOneCatch(col.channels, { guildID: guildID, channelID: channelID });
 		if (result) {
-			await tools.sendCatch(channel, lm.getString("channelAdded", lang));
-			logger.info("Channel " + channelID + " inserted successfully in guild " + channel.guild.id);
+			if (lang) await tools.sendCatch(channel, lm.getString("channelAdded", lang));
+			logger.info("Channel " + channelID + " inserted successfully in guild " + guildID);
 		} else {
-			tools.sendCatch(channel, lm.getString("error", lang));
-			logger.error("Error while inserting channel " + channelID + " in guild " + channel.guild.id);
+			if (lang) await tools.sendCatch(channel, lm.getString("error", lang));
+			logger.error("Error while inserting channel " + channelID + " in guild " + guildID);
 		}
     },
 
     removeGuildChannel: async function (channel, lang) {
         const channelID = channel.id;
-        const guildCollection = mainDB.collection(channel.guild.id);
-        var result = await findOneCatch(guildCollection, { channel: channelID });
+        var result = await findOneCatch(col.channels, { channelID: channelID });
 		if (!result) { // If channel doesn't exist
 			if (!channel.deleted) tools.sendCatch(channel, lm.getString("channelNotInList", lang));
 			return;
 		}
-        var result = await deleteOneCatch(guildCollection, { channel: channelID });
+        var result = await deleteOneCatch(col.channels, { guildID: channel.guild.id, channelID: channelID });
         if (result) {
 			if (!channel.deleted) await tools.sendCatch(channel, lm.getString("channelDeleted", lang));
 			logger.info("Channel " + channelID + " deleted successfully");
@@ -132,48 +135,56 @@ module.exports = {
     },
 
     getGuildChannels: async function (guildID) {
-		const guildCollection = mainDB.collection(guildID);
-		var result = (await findCatch(guildCollection, {channel: {$exists: true}}, { projection: { _id: 0} })).toArray();
+		var result = await (await findCatch(col.channels, { guildID: guildID }, { projection: { _id: 0} })).toArray();
 		if (!result) logger.error("Error while getting guild channels for guild " + guildID);
 		return result || []
     },
 
     updateUserStats: async function (guildID, userID, username, addedScore, addedWon) {
-        const guildCollection = mainDB.collection(guildID);
-        const userToFind = { id: userID };
+        const userToFind = { userID: userID };
 		addedScore = Number(addedScore)
-		if (!tools.isInt(addedScore)) { logger.warn("Error hapenned, score or won is not a valid number"); }
-        var result = await findOneCatch(guildCollection, userToFind);
+		addedWon = Number(addedWon);
+		if (!tools.isInt(addedScore) || !tools.isInt(addedWon)) { logger.warn("Error hapenned, score or won is not a valid number"); return; }
+        var result = await findOneCatch(col.users, userToFind);
 		if (result) {
 			const finalScore = (addedScore + result.score) || addedScore;
 			const finalWon = (addedWon + result.won) || addedWon;
 			logger.info("Updated user " + username + " [Score: " + result.score + " => " + finalScore + ", " + "Won: " + result.won + " => " + finalWon + "]");
-			await updateOneCatch(guildCollection, userToFind, { $set: { id: userID, score: finalScore, won: finalWon } });
+			await updateOneCatch(col.users, userToFind, { $set: { username: username, score: finalScore, won: finalWon } });
 		} else {
 			logger.info("Added user " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
-			await insertOneCatch(guildCollection, { id: userID, username: username, score: addedScore, won: addedWon });
+			await insertOneCatch(col.users, { userID: userID, username: username, score: addedScore, won: addedWon });
+		}
+		
+		var resultGuild = await findOneCatch(col.usersGuild, { guildID: guildID, userID: userID });
+		if (resultGuild) {
+			const finalScore = (addedScore + resultGuild.score) || addedScore;
+			const finalWon = (addedWon + resultGuild.won) || addedWon;
+			logger.info("Updated user guild score " + username + " [Score: " + resultGuild.score + " => " + finalScore + ", " + "Won: " + resultGuild.won + " => " + finalWon + "]");
+			await updateOneCatch(col.usersGuild, { guildID: guildID, userID: userID }, { $set: { username: username, score: finalScore, won: finalWon } });
+		} else {
+			logger.info("Added user guild score " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
+			await insertOneCatch(col.usersGuild, { guildID: guildID, userID: userID, username: username, score: addedScore, won: addedWon });
 		}
     },
 
     getUserStats: async function (guildID, userID) {
-		const guildCollection = mainDB.collection(guildID);
-		var result = await findOneCatch(guildCollection, { id: userID });
-		if (!result) logger.info("No stats found for user " + userID);
-		return result;
+		var guildScore = await findOneCatch(col.usersGuild, { guildID: guildID, userID: userID });
+		var globalScore = await findOneCatch(col.users, { userID: userID });
+		return { global: globalScore || {}, guild: guildScore || {} };
     },
 
     getTop: async function (guild, channel, lang) {
         const guildID = guild.id;
-        const guildCollection = mainDB.collection(guildID);
-        var result = await findCatch(guildCollection, {username: {$exists: true}}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } });
+        var result = await findCatch(col.usersGuild, { guildID: guildID });
 		result = await result.sort({ score: -1 }).toArray();
-		if (!result) logger.error("Error while getting top for guild " + guildID);
+		if (!result) { logger.error("Error while getting top for guild " + guildID); return; }
 		var usersString = "";
 		for (var i = 0; i < result.length; i++) {
 			if (i > 10) break;
 			var user = result[i];
 			var nick;
-			if (guild.members.cache.get(user.id)) nick = guild.members.cache.get(user.id).nickname || guild.members.cache.get(user.id).user.username;
+			if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
 			else nick = user.username;
 			usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
 		}
@@ -182,30 +193,26 @@ module.exports = {
     },
 
     setSetting: async function (guildID, settingName, value) {
-		const guildCollection = mainDB.collection(guildID);
-		const settingToFind = { setting: settingName };
-		var result = await findOneCatch(guildCollection, settingToFind);
+		const settingToFind = { guildID: guildID, setting: settingName };
+		var result = await findOneCatch(col.settings, settingToFind);
 		if (result) {
-			var result = await updateOneCatch(guildCollection, settingToFind, { $set: { value: value } });
+			var result = await updateOneCatch(col.settings, settingToFind, { $set: { value: value } });
 			if (result) logger.info("Setting " + settingName + " successfully updated to " + value);
 			else logger.error("Error while updating " + settingName + " to " + value);
 		} else {
-			var result = await insertOneCatch(guildCollection, { setting: settingName, value: value });
+			var result = await insertOneCatch(col.settings, { guildID: guildID, setting: settingName, value: value });
 			if (result) logger.info("Setting " + settingName + " successfully inserted as " + value);
 			else logger.error("Error while inserting " + settingName + " as " + value);
 		}
     },
 
     getSetting: async function (guildID, settingName) {
-		const guildCollection = mainDB.collection(guildID);
-		const settingToFind = { setting: settingName }
-		var result = await findOneCatch(guildCollection, settingToFind);
+		var result = await findOneCatch(col.settings, { guildID: guildID, setting: settingName });
 		if (result) return result.value;
 		else {
-			const globalCollection = mainDB.collection("Global");
-			var result = await findOneCatch(globalCollection, settingToFind);
+			var result = await findOneCatch(col.defaultSettings, { setting: settingName });
 			if (result) {
-				var ok = await insertOneCatch(guildCollection, { setting: settingName, value: result.value });
+				var ok = await insertOneCatch(col.settings, { guildID: guildID, setting: settingName, value: result.value });
 				if (ok) logger.info("Setting " + settingName + " was missing in " + guildID + " and was added");
 				else logger.error("Error while adding missing setting " + settingName + " in " + guildID);
 				return result.value;
@@ -214,40 +221,14 @@ module.exports = {
 		return null;
     },
 
-	getAllServers: async function () {
-		var result = (await listCatch(mainDB)).toArray();
-		if (!result) logger.error("Error while getting all servers from mainDB");
-		return result || [];
-    },
-
 	getAllUsers: async function () {
-
-		if (Date.now() - lastUsersChecking.time < 120000) return lastUsersChecking.list;
-
 		var tempList = [];
 		var usersList = [];
-		// First we get all servers and we loop trough them
-		var servers = await db.getAllServers();
-		for(let guild of servers) {
-			let guildID = guild.name;
-			let guildCollection = mainDB.collection(guildID);
-			// We get all the users of each servers
-			var users = await findCatch(guildCollection, {username: {$exists: true}}, { projection: { _id: 0, id: 1, score: 1, won: 1, username: 1 } });
-			users = await users.toArray();
-			for (let user of users) {
-				// We push to the list only if the score is higher (a user might be in multiple servers, we take the highest score)
-				// tempList is used as temperary list to prevent having to compare objects because
-				// .sort on a key value array list doesn't seem to work
-				if (tempList[user.id]) tempList[user.id].score += user.score;
-				else tempList[user.id] = user;
-			}
-		}
-		// We add all the users to an array list
-		for (let user in tempList) usersList.push(tempList[user]);
+		// First we get all users
+		var users = await findCatch(col.users, null, { projection: { _id: 0 } });
 		// We sort the list by score
-		usersList = usersList.sort((a, b) => (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0));
-		lastUsersChecking = {time: Date.now(), list: usersList};
-		return usersList;
+		users = await users.sort({ score: -1 }).toArray();
+		return users;
     }
     // ------------------------------------- SOME FUNCTIONS ------------------------------------- //
 }
