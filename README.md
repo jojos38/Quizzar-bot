@@ -6,10 +6,10 @@
 Questions are asked one by one, there is 4 possible answers, only one is correct. There is a lot of different themes available so that you never get bored.\
 To answer a question, you just need to click on the reaction corresponding to your answer.
 -----
-::: info
+
 - The manage channels permission is optional, if you don't want the bot to be able to see hidden channels, disable it.
 - Type !jhelp to start using the bot
-:::
+
 -----
 
 # French
