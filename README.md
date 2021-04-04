@@ -18,8 +18,6 @@ Les questions sont posées une par une, il y a 4 réponses possible par question
 Pour répondre à une question il suffit de cliquer sur la réaction qui correspond à la réponse souhaitée.
 Le bot possède un système de statistiques, les joueurs peuvent comparer leur scores, leur statistiques et une commande permet de voir le top 10 des meilleurs joueurs du serveur.
 -----
-::: info
 - La permission de gérer les salons est facultative ! Si vous ne souhaitez pas que le bot puisse voir les salons cachés, désactivez la.
 - Tapez !jhelp pour commencer à utiliser le bot.
-:::
 -----
