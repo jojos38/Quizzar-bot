@@ -1,7 +1,6 @@
 
 // -------------------- SOME VARIABLES -------------------- //
-const db = require('./database.js');
-const tools = require('./tools.js');
+const tools = require('tools.js');
 // -------------------- SOME VARIABLES -------------------- //
 
 

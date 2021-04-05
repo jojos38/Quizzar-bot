@@ -200,14 +200,40 @@ module.exports = {
         });
         return embed;
     },
-    getTopEmbed: function (totalUsers, topString) {
-        const embed = new Discord.MessageEmbed({
+    getTopEmbed: function (totalUsers, users) {
+		let descUsers;
+		let descScore;
+		let descPosition;
+		let i = 1;
+		for (user of users) {
+			descPosition = descPosition ? descPosition + "\n" + i : i;
+			descUsers = descUsers ? descUsers + "\n" + user.position : user.position;
+			descScore = descScore ? descScore + "\n" + user.won + " - " + user.score : user.won + " - " + user.score;
+			i++;
+		}
+		const embed = new Discord.MessageEmbed({
             author: {
                 name: "Top (" + totalUsers + " users) :",
                 icon_url: logoURL
             },
-            color: orange,
-            description: topString
+			fields: [
+				{
+					name: "#",
+					value: descPosition,
+					inline: true
+				},
+				{
+					name: "User",
+					value: descUsers,
+					inline: true
+				},
+				{
+					name: "Won / Score",
+					value: descScore,
+					inline: true
+				}
+			],
+            color: orange
         });
         return embed;
     },

@@ -1,4 +1,5 @@
 // -------------------- SETTINGS -------------------- //
+require('app-module-path').addPath(__dirname);
 const OWNER_ID = 137239068567142400;
 const ACTIVITY_MESSAGE = "!jhelp";
 const DEFAULT_PREFIX = "!j";
@@ -10,16 +11,18 @@ var logMessages = false;
 
 // -------------------- SOME VARIABLES -------------------- //
 const Discord = require('discord.js');
-global.config = require('./config.json');
-global.db = require('./database.js');
-global.lm = require('./languages-manager.js');
+const Database = require('database-manager.js');
+global.config = require('config.json');
+global.lm = require('languages-manager.js');
 global.client = new Discord.Client();
-const game = require('./game.js');
-const tools = require('./tools.js');
-const logger = require('./logger.js');
-const apiManager = require('./api-manager.js');
+const db = new Database();
+const GameManager = require('games-manager.js');
+const gameManager = new GameManager();
+const tools = require('tools.js');
+const logger = require('logger.js');
+const apiManager = require('api-manager.js');
 const fs = require('fs');
-var isBotReady = false;
+let isBotReady = false;
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -35,6 +38,14 @@ function getChannelsString(channels, lang) {
 	// If the string is empty, mean there was no channel
 	if (channelsString == "") channelsString = lm.getString("noChannel", lang);
 	return channelsString;
+}
+
+function getUserNickname(guild, user) {
+	let nick;
+	if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
+	else nick = user.username;
+	if (nick == "") nick = "_";
+	return nick;
 }
 
 async function channelAllowed(guildID, channelID) {
@@ -80,6 +91,7 @@ async function exitHandler(options, exitCode) {
     if (exitCode || exitCode === 0) logger.info("Exit code: " + exitCode); process.exit();
     if (options.exit) process.exit();
 }
+
 process.on('exit', exitHandler.bind(null,{cleanup:true})); // do something when app is closing
 process.on('SIGINT', exitHandler.bind(null,{exit:true})); // catches ctrl+c event
 process.on('SIGUSR1', exitHandler.bind(null,{exit:true})); // catches "kill pid" (for example: nodemon restart)
@@ -96,7 +108,7 @@ client.once('ready', async function () {
     isBotReady = true;
     logger.info('Bot ready');
     client.user.setActivity(ACTIVITY_MESSAGE);
-	
+
 	// Create cache directory
 	if (!fs.existsSync("cache")){
 		fs.mkdirSync("cache");
@@ -106,7 +118,7 @@ client.once('ready', async function () {
 			for (file of files) {
 				let filePath = 'cache/' + file;
 				let gameData = fs.readFileSync(filePath);
-				game.restoreGame(gameData);
+				// game.restoreGame(gameData);
 			}
 		});
 	}
@@ -127,10 +139,10 @@ client.on("guildCreate", guild => {
 });
 
 client.on("guildDelete", guild => {
-   if (guild) {
-   	db.resetGuildSettings(guild.id, guild.name, null, null);
-   	logger.info("Bot removed from server: " + guild.name);
-   }
+	if (guild) {
+		db.resetGuildSettings(guild.id);
+		logger.info("Bot removed from server: " + guild.name);
+	}
 });
 
 client.on('message', async function (message) {
@@ -187,7 +199,11 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}pl`) || messageContent.startsWith(`${prefix}start`)) { // play
-		game.preStart(message, args, lang);
+		if (!gameManager.running(channel.id)) {
+			gameManager.startClassicGame(message.author.id, guild, channel, args, lang, db);
+		}
+		else
+			tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(channel.id));
     }
 
     else if (messageContent.startsWith(`${prefix}stop`)) { // stop
@@ -195,51 +211,59 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}stats`)) { // stats
-		const userStats = await db.getUserStats(guild.id, message.author.id);
+		let userStats = await db.getUserStats(guild.id, message.author.id);
 		tools.sendCatch(channel, lm.getEb(lang).getUserStatsEmbed(userStats));
     }
 
     else if (messageContent.startsWith(`${prefix}top`)) { // top
-		db.getTop(guild, channel, lang);
+		let usersEb = [];
+		let guildUsers = await db.getTop(guild.id);
+		let totalUsers = guildUsers.length;
+
+		if (!guildUsers) { logger.error("Error while getting top for guild " + guildID); return; }
+
+		for (let i = 0; i < totalUsers; i++) {
+			let user = guildUsers[i];
+			usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
+			if (i >= 10) break;
+		}
+		if (totalUsers == 0) usersString = lm.getString("noStats", lang);
+		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(totalUsers, usersEb));
     }
 
     else if (messageContent.startsWith(`${prefix}globaltop`)) { // top
-		var usersString = "";
+		let usersEb = [];
 		const users = await db.getAllUsers();
+		let totalUsers = users.length;
 		// If there is a user ID
 		if (args[1]) {
-			var position = -1;
+			let position = -1;
+			
 			// Get the ID from the message
-			var userID = args[1].replace(/[\\<>@#&!]/g, "");
+			let userID = args[1].replace(/[\\<>@#&!]/g, "");
 			// Get the user position in the list
-			for (var i = 0; i < users.length; i++) {
-				var user = users[i];
+			for (let i = 0; i < totalUsers; i++) {
+				let user = users[i];
 				if (user.userID == userID) position = i;
 			}
 			if (position != -1) {
 				// Show the 5 above and before users
-				if (position + 5 > users.length) position = users.length - 5;
+				if (position + 5 > totalUsers) position = totalUsers - 5;
 				if (position - 5 < 0) position = 5;
-				for (var i = position - 5; i < position + 5; i++) {
-					var user = users[i];
-					var nick = "";
-					if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
-					else nick = user.username;
-					usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+				for (let i = position - 5; i < position + 5; i++) {
+					let user = users[i];
+					usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
 				}
 			}
 		} else {
-			for (var i = 0; i < users.length; i++) {
+			for (let i = 0; i < totalUsers; i++) {
 				if (i >= 10) break;
-				var user = users[i];
-				var nick = "";
-				if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
-				else nick = user.username;
-				usersString = usersString + "\n" + "**[ " + (i+1) + " ]** [" + lm.getString("score", lang) + ": " + user.score + "] [" + lm.getString("victory", lang) + ": " + user.won + "] **" + nick + "**";
+				let user = users[i];
+				usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
 			}
 		}
-		if (users.length == 0 || position == -1) usersString = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(users.length, usersString));
+		if (totalUsers == 0) usersEb = lm.getString("noStats", lang);
+		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(totalUsers, usersEb));
     }
 
 
@@ -255,11 +279,15 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
-		db.addGuildChannel(guild.id, channel, lang);
+		let result = await db.addGuildChannel(guild.id, channel.id);
+		if (result) tools.sendCatch(channel, lm.getString("alreadyAuthorized", lang));
+		else tools.sendCatch(channel, lm.getString("channelAdded", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}remove`)) { // remove [ADMIN]
-		db.removeGuildChannel(channel, lang);
+		let result = await db.removeGuildChannel(channel.id);
+		if (result) tools.sendCatch(channel, lm.getString("channelDeleted", lang));
+		else tools.sendCatch(channel, lm.getString("channelNotInList", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}prefix`)) { // remove [ADMIN]
@@ -272,8 +300,8 @@ client.on('message', async function (message) {
 		}
     }
     else if (messageContent.startsWith(`${prefix}reset`)) { // remove [ADMIN]
-		await db.resetGuildSettings(guild.id, guild.name, channel, lang);
-		logger.success("Initialized server " + guild.name);
+		await db.resetGuildSettings(guild.id);
+		await tools.sendCatch(channel, lm.getString("resetted", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}channels`)) { // remove [ADMIN]
@@ -363,80 +391,29 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}ls`)) { // ls [OWNER]
-		var servers = client.guilds.cache;
+		var guilds = client.guilds.cache;
 		var users = 0;
 		var en = 0;
-		for (var g of servers) {
+		for (var g of guilds) {
 			var templang = await db.getSetting(g[0], "lang");
 			if (templang == "en") en++;
 			var members = g[1].memberCount;
 			users += members;
 			logger.debug("[" + g[0] + "] (" + templang + ") (" + members + " users) " + g[1].name);
 		}
-		var ratioEN = (en / servers.size * 100).toFixed(2);
+		var ratioEN = (en / guilds.size * 100).toFixed(2);
 		var ratioFR = (100-ratioEN).toFixed(2);
 		logger.debug("Total users: " + users);
-		logger.debug("Total servers: " + servers.size);
-		logger.debug("English:" + ratioEN + "% (" + en + ") French:" + ratioFR + "% (" + (servers.size-en) + ")");
-    }
-
-	else if (messageContent.startsWith(`${prefix}clean`)) { // clean [OWNER]
-		const guilds = client.guilds;
-		const dbguilds = await db.getAllServers();
-		for (var entry of dbguilds) {
-			var dbGuildID = entry.name;
-			if (!guilds.cache.get(dbGuildID) && dbGuildID.match(/^[0-9]{18}$/)) {
-				db.resetGuildSettings(dbGuildID, dbGuildID, null, null);
-				logger.info("Deleted settings for guild " + dbGuildID);
-			}
-		}
-		logger.success("Command clean OK");
-    }
-
-	else if (messageContent.startsWith(`${prefix}update`)) { // restore [OWNER]
-		const guilds = client.guilds;
-		const tempdbguilds = await db.getAllServers();
-		var dbguilds = [];
-		for (var entry of tempdbguilds) {
-			if (entry.name.match(/^[0-9]{18}$/))
-				dbguilds[entry.name] = true;
-		}
-		for (var id of guilds.cache.keys()) {
-			if (dbguilds[id]) { // If the guild exists in the database
-				const tempGuild = guilds.cache.get(id);
-				var guildID = tempGuild.id;
-				var guildName = tempGuild.name;
-				db.setSetting(guildID, "name", guildName);
-			}
-		}
-		logger.success("Command update OK");
-    }
-
-	else if (messageContent.startsWith(`${prefix}restore`)) { // restore [OWNER]
-		const guilds = client.guilds;
-		const tempdbguilds = await db.getAllServers();
-		var dbguilds = [];
-		for (var entry of tempdbguilds) {
-			dbguilds[entry.name] = true;
-		}
-		for (var id of guilds.cache.keys()) {
-			if (!dbguilds[id]) {
-				const tempGuild = guilds.cache.get(id);
-				initSettings(tempGuild);
-				logger.info("Initialized settings for guild " + id);
-			}
-		}
-		logger.success("Command restore OK");
+		logger.debug("Total servers: " + guilds.size);
+		logger.debug("English:" + ratioEN + "% (" + en + ") French:" + ratioFR + "% (" + (guilds.size-en) + ")");
     }
 
 	else if (messageContent.startsWith(`${prefix}status`)) { // status [OWNER]
-        if (message.author.id == OWNER_ID) {
-			var newStatus = messageContent.replace(`${prefix}status `, "");
-			logger.info("Status changed to: " + newStatus);
-			client.user.setActivity(newStatus);
-		}
+		var newStatus = messageContent.replace(`${prefix}status `, "");
+		client.user.setActivity(newStatus);
+		logger.info("Status changed to: " + newStatus);
     }
-})
+});
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
 
 

@@ -19,6 +19,7 @@
     "url": "https://github.com/jojos38/quizzar-bot"
   },
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "bufferutil": "^4.0.3",
     "discord.js": "^12.5.1",
     "erlpack": "github:discord/erlpack",
