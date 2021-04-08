@@ -16,7 +16,6 @@ const fs = require('fs');
 
 
 
-// ----------------------------------- SOME FUNCTIONS ----------------------------------- //
 class ClassicGame extends Game {
 	static type = "classic";
 	
@@ -240,73 +239,5 @@ class ClassicGame extends Game {
         this.#startGame();
     }
 }
-// ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-
-
-
-// ----------------------------------- GAME ----------------------------------- //
-
-
-
-
-
-
-
-
-async function giveAnswer(qMessage, qData) {
-	
-	
-	let goodAnswerUsers = await qMessage.reactions.cache.get(reactionsTable[qData.answer]).users.fetch(); // Get users that reacted with [reaction]
-	
-	console.log(goodAnswerUsers);
-	
-	await tools.editCatch(qMessage, lm.getEb(lang).getQuestionEmbed(qData, 0, 4605510));
-	const playersString = messages.getPlayersString(goodAnswerPlayers, lang);
-	const aMessage = await tools.sendCatch(qMessage.channel, lm.getEb(lang).getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 16750869));
-	for (var i = 0; i < goodAnswerPlayers.length; i++) { // For each player that answered correctly
-		const user = goodAnswerPlayers[i];
-		const userID = user.id;
-		// DATABASE
-		db.updateUserStats(qMessage.guild.id, user.id, user.username, qData.points, 0); // Set user points number
-		// CACHE
-		var guildCache = cache.get(guildID);
-		const userScore = guildCache.score.get(userID) || 0;
-		var newScore = Number(userScore) + Number(qData.points);
-		guildCache.score.set(userID, newScore);
-		cache.set(guildID, guildCache);
-	}
-	await delayChecking(guildID, aDelay); // Wait for aDelay so people have time to answer
-	await tools.editCatch(aMessage, lm.getEb(lang).getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 4605510));
-}
-// ----------------------------------- GAME ----------------------------------- //
-
-
-
-// ----------------------------------- PRESTART / STOP ----------------------------------- //
-module.exports = {
-	unstuck: async function (message, lang) {
-        const guildID = message.guild.id;
-		const guildCache = cache.get(guildID);
-        const channel = message.channel;
-		if (!guildCache) { await tools.sendCatch(channel, lm.getString("noGameRunning", lang)); return; }
-        if (guildCache.player == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) {
-			if (guildCache.running == 0) { // If no game already running
-				tools.sendCatch(channel, lm.getString("noGameRunning", lang));
-				return;
-			}
-			guildCache.running = 0;
-			cache.set(guildID, guildCache); // 0 = Stop the game now
-			logger.info("Game aborted");
-			tools.sendCatch(channel, lm.getString("useAgain", lang));
-		}
-    },
-
-
-
-
-
-
-}
 
 module.exports = ClassicGame;
-// ----------------------------------- PRESTART / STOP ----------------------------------- //
