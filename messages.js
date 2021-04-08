@@ -16,7 +16,7 @@ module.exports = {
 		}
 		
 		let i = 0;
-        for (const [userID, username] of goodAnswerPlayers.entries()) { // For each player that answered correctly
+        for (const [userID, username] of players.entries()) { // For each player that answered correctly
 			if (i == 0) { // If first player of the loop
 				playersString = tools.mention(userID, 'u'); // Mention it
 			} else if (i + 1 < playersNumber) { // If there is a next player
