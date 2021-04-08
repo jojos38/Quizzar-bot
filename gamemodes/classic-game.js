@@ -172,6 +172,8 @@ class ClassicGame extends Game {
 		logger.info("Questions amount: " + this.#qTotal);
 		logger.info("Language: " + this._lang);
 		await tools.sendCatch(this._channel, lm.getEb(this._lang).getStartEmbed(this.#difficulty, this.#qTotal));
+		if (!this._guild.me.hasPermission("MANAGE_MESSAGES") && !this._guild.me.permissionsIn(this._channel).has("MANAGE_MESSAGES"))
+			await tools.sendCatch(this._channel, lm.getString("missingPerm", this._lang));
 
 		logger.info("-------------- NEW GAME --------------");
 		// ASK QUESTIONS

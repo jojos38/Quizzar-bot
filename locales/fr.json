@@ -41,5 +41,6 @@
 	"maintenance": "**Bot en maintenance.**",
 	"prefixSet": "Prefix défini avec succés",
 	"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement.",
-	"gameRestored": "Il semblerait que le bot ai redémarré durant votre partie ! Cette dernière a été réstaurée."
+	"gameRestored": "Il semblerait que le bot ai redémarré durant votre partie ! Cette dernière a été réstaurée.",
+	"missingPerm": "Il me manque la permission de gérer les messages ! Je ne pourrais pas supprimer les réactions."
 }
