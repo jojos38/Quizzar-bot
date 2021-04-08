@@ -84,7 +84,6 @@ async function isModeratorAllowed(message) {
 async function exitHandler(options, exitCode) {
     if (options.cleanup) {
 		logger.info("stopping bot...");
-		await game.stopAll();
 		logger.info("closing database...");
 		await db.close();
 	}
@@ -118,7 +117,7 @@ client.once('ready', async function () {
 			for (file of files) {
 				let filePath = 'cache/' + file;
 				let gameData = fs.readFileSync(filePath);
-				// game.restoreGame(gameData);
+				let game = gameManager.restoreClassicGame(db, file.split('.').slice(0, -1).join('.'), gameData);
 			}
 		});
 	}
@@ -157,8 +156,7 @@ client.on('message', async function (message) {
 	if(message.author.bot) return;
 
 	// Get guilds settings
-	const prefix = await db.getSetting(guild.id, "prefix") || DEFAULT_PREFIX;
-	const lang = await db.getSetting(guild.id, "lang") || DEFAULT_LANGUAGE;
+	const {lang, prefix} = await db.getSettings(guild.id, ["prefix", "lang"])
 
 	// Check if the message starts with the prefix
     if (!message.content.startsWith(`${prefix}`)) return; // If message doesn't start with !j then return
@@ -200,14 +198,14 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}pl`) || messageContent.startsWith(`${prefix}start`)) { // play
 		if (!gameManager.running(channel.id)) {
-			gameManager.startClassicGame(message.author.id, guild, channel, args, lang, db);
+			let game = gameManager.startClassicGame(db, guild, channel, message.author.id, lang, args);
 		}
 		else
 			tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(channel.id));
     }
 
     else if (messageContent.startsWith(`${prefix}stop`)) { // stop
-		game.stop(message, lm.getString("stoppedBy", lang, {player:lm.getEb(lang).mention(message.author.id, 'u')}), lang);
+		gameManager.stopGame(channel, message.guild.member(message.author), lm.getString("stoppedBy", lang, {player:lm.getEb(lang).mention(message.author.id, 'u')}), lang);
     }
 
     else if (messageContent.startsWith(`${prefix}stats`)) { // stats

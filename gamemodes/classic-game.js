@@ -1,7 +1,6 @@
 
 // -------------------- SETTINGS -------------------- //
 const reactionsTable = ['🇦', '🇧', '🇨', '🇩'];
-const colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
 // -------------------- SETTINGS -------------------- //
 
 
@@ -17,244 +16,248 @@ const fs = require('fs');
 
 
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-async function delay(ms) {
-    // return await for better async stack trace support in case of errors.
-    return await new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function replacer(key, value) {
-  if(value instanceof Map) {
-    return {
-      dataType: 'Map',
-      value: Array.from(value.entries()), // or with spread: value: [...value]
-    };
-  } else {
-    return value;
-  }
-}
-
-function reviver(key, value) {
-  if(typeof value === 'object' && value !== null) {
-    if (value.dataType === 'Map') {
-      return new Map(value.value);
-    }
-  }
-  return value;
-}
-
 class ClassicGame extends Game {
 	static type = "classic";
-
+	
 	#db;
-	#lang;
-	#guild;
-	#userID;
+	#qTotal;
+	#aDelay;
+	#qDelay;
+	#scores;
+	#qNumber;
 	#difficulty;
+	#dataSavePath;
 	#questionsAmount;
-	#score = new Map();
 
-	constructor(manager, userID, guild, channel, lang, db) {
-		super(manager, channel);
+	constructor(manager, db, guild, channel, userID, lang) {
+		super(manager, userID, guild, channel, lang);
+		if (channel) this.#dataSavePath = "cache/" + channel.id + ".json";
+		this.#qNumber = 1;
+		this.#scores = {};
 		this.#db = db;
-		this.#userID = userID;
-		this.#guild = guild;
-		this.#lang = lang;
 	}
 
-	delayChecking(guildID, ms) {
-		return new Promise(async function (resolve, reject) {
-			// This way if the game is force stopped it will leave the current question
-			var waitingTime = ms / (15000 + (ms/100*10)) * 1000 // The higher the question delay, the lower the checking
-			for (var i = 0; i < ms; i += waitingTime) {
-				let guildCache = cache.get(guildID) || {};
-				if (guildCache.running == 1) break; // 1 = Waiting for stop
-				await delay(waitingTime);
+	#saveGameState() {
+		let gameSaveData = {
+			difficulty: this.#difficulty,
+			channelID: this._channel.id,
+			guildID: this._guild.id,
+			qNumber: this.#qNumber,
+			qTotal: this.#qTotal,
+			scores: this.#scores,
+			userID: this._userID,
+			lang: this._lang
+		}
+		fs.writeFileSync(this.#dataSavePath, JSON.stringify(gameSaveData, this._replacer));
+		logger.info("Updated game state json");
+	}
+	
+	async restoreGameState(rawdata) {
+		const data = JSON.parse(rawdata, this._reviver);
+		const guildID = data.guildID;
+		const channelID = data.channelID;
+
+		logger.info("Restoring game for guild " + guildID);
+		const guild = await client.guilds.fetch(guildID);
+		const channel = await guild.channels.cache.get(channelID);
+
+		if (guild && channel) {
+			tools.sendCatch(channel, lm.getString("gameRestored", data.lang));
+			this.#dataSavePath = "cache/" + channel.id + ".json";
+			this.#difficulty = data.difficulty;
+			this.#qNumber = data.qNumber;
+			this.#scores = data.scores;
+			this.#qTotal = data.qTotal;
+			this._channel = channel;
+			this._guild = guild;
+			this._lang = data.lang;
+			this.#startGame();
+			logger.success("Restoring game for guild " + guildID + " succeed");
+		}
+		else {
+			logger.warn("Restoring failed");
+			this._terminate(channelID);
+		}
+	}
+	
+	#deleteGameState() {
+		if (fs.existsSync(this.#dataSavePath)) fs.unlinkSync(this.#dataSavePath); // Remove the save file
+	}
+	
+	async #getGoodAnswerPlayers(message, goodAnswer) {
+		try {
+			var badAnswerUsers = new Map();
+			var goodAnswerUsers = new Map();
+			for (var i = 0; i < reactionsTable.length; i++) { // For each proposition
+				const reaction = reactionsTable[i]; // Get reaction
+				if (reaction == goodAnswer) { // If good answer
+					goodAnswerUsers = await message.reactions.cache.get(reaction).users.fetch(); // Get users that reacted with [reaction]
+				} else { // Else if wrong answer
+					const badUsers = await message.reactions.cache.get(reaction).users.fetch(); // Get all users that reacted with [reaction]
+					const iterator = badUsers.keys();
+					for (let userID of iterator) { // For each user that reacted with [reaction]
+						const user = badUsers.get(userID); // Get user
+						badAnswerUsers.set(userID, user); // Add him to the bad answer table
+					}
+				}
 			}
-			resolve();
+			var userNumber = 0;
+			var wonPlayers = new Map();
+			const goodIterator = goodAnswerUsers.keys();
+			for (let goodUserID of goodIterator) { // For each user that answered correctly
+				const goodUser = goodAnswerUsers.get(goodUserID); // Get user
+				if (badAnswerUsers.has(goodUserID) == false) { // If he is not in bad users list
+					wonPlayers.set(goodUser.id, goodUser.username);
+					userNumber++;
+				}
+			}
+			return wonPlayers;
+		} catch (error) { return []; }
+	}
+	
+	async #newQuestionAnswer() {
+		const qData = await this.#db.getRandomQuestion(this._lang, this.#difficulty);
+		const goodAnswerText = qData.proposals[qData.answer];
+		const goodAnswerReaction = reactionsTable[qData.answer];
+		const goodAnswerUsers = new Map();
+		logger.info("Answer: " + qData.proposals[qData.answer]);
+		
+		const qMessage = await tools.sendCatch(this._channel, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, this.#qDelay / 1000, Game._colors[qData.difficulty]));
+		if (!qMessage) throw new Error("Can't send question message");
+		
+		const filter = (reaction, user) => { return reactionsTable.includes(reaction.emoji.name); };	
+		let collector = qMessage.createReactionCollector(filter, { time: this.#qDelay });
+		collector.on('collect', (reaction, collector) => {
+			for (let user of reaction.users.cache) {
+				const userID = user[0];
+				if (userID != reaction.client.user.id) {
+					if (reaction.emoji.name == goodAnswerReaction) goodAnswerUsers.set(userID, user[1].username);
+					else delete goodAnswerUsers.delete(userID);
+					reaction.users.remove(userID);
+				}
+			}
+
 		});
+		
+		for (let i = 0; i < reactionsTable.length; i++) if (!await tools.reactCatch(qMessage, reactionsTable[i])) break;
+
+		await this._delayChecking(this.#qDelay); // Wait for qDelay so people have time to answer
+		collector.stop();
+
+		const doubleCheck = await this.#getGoodAnswerPlayers(qMessage, goodAnswerReaction);
+		doubleCheck.forEach((value, key) => goodAnswerUsers.set(key, value));
+
+		await tools.editCatch(qMessage, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, 0, 4605510));
+		const playersString = messages.getPlayersString(goodAnswerUsers, this._lang);
+		const aMessage = await tools.sendCatch(qMessage.channel, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 16750869));
+		for (const [userID, username] of goodAnswerUsers.entries()) { // For each player that answered correctly
+			this.#db.updateUserStats(this._guild.id, userID, username, qData.difficulty, 0); // Set user points number
+			this.#scores[userID] = (this.#scores[userID] || 0) + qData.difficulty;
+		}
+		await this._delayChecking(this.#aDelay); // Wait for aDelay so people have time to answer
+		await tools.editCatch(aMessage, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 4605510));
+	}
+
+	// We first do a for loop that asks for all the questions and give the answers
+	// it also add the points of the user to the database each time, this way in
+	// case of crash, the points are kept. Not forgeting to update the cache to avoid
+	// it from being cleared automatically.
+	// Then we exit the loop when the game ends and we calculate the total points
+	// + the winner. The game as ended we can clear the cache.
+	async #startGame() {
+		this._running = true;
+		const guildID = this._guild.id;
+
+		logger.info("Server: " + this._guild.name + " (" + this._guild.memberCount + " users)" + " (" + this._guild.id + ")");
+		logger.info("Questions amount: " + this.#qTotal);
+		logger.info("Language: " + this._lang);
+		await tools.sendCatch(this._channel, lm.getEb(this._lang).getStartEmbed(this.#difficulty, this.#qTotal));
+
+		logger.info("-------------- NEW GAME --------------");
+		// ASK QUESTIONS
+		for (this.#qNumber; this.#qNumber <= this.#qTotal; this.#qNumber++) {
+			logger.info("------------ NEW QUESTION ------------ (" + this.#qNumber + "/" + this.#qTotal + ")");	
+			if (this._running == false) {
+				tools.sendCatch(this._channel, lm.getEb(this._lang).getGameStoppedEmbed());
+				break;
+			}
+			
+			// This way users can update a setting while the game has already started!
+			let settings = await this.#db.getSettings(guildID, ["questionDelay", "answerDelay", "lang"]);
+			this.#qDelay = settings.questionDelay;
+			this.#aDelay = settings.answerDelay;
+			this._lang = settings.lang;
+
+			try {
+				// It asks one question and gives the answser + points calculation
+				await this.#newQuestionAnswer();
+				this.#saveGameState();
+			} catch (err) {
+				logger.error(err);
+				logger.error("Error: ending game...");
+				tools.sendCatch(this._channel, lm.getString("error", this._lang));
+				this._running = false;
+			}
+		}
+		this.#deleteGameState();
+		let winners = messages.getScoreString(this._guild, this.#scores, this._lang, this.#db);
+		tools.sendCatch(this._channel, lm.getEb(this._lang).getGameEndedEmbed(winners));
+		this._terminate();
 	}
 
 	async preStart(args) {
-        let guildID = this.#guild.id;
+        let guildID = this._guild.id;
 		let difficulty = args[1];
 		let questionsAmount = args[2];
 
-		// If / Not below 0 / Not above 3 / Is an int and is not null
+		// If / Not below 0 / Not above 3 / Is an int / Is not null
 		if (difficulty < 0 || difficulty > 3 || !tools.isInt(difficulty) && difficulty != null) {
-			tools.sendCatch(this._channel, lm.getEb(this.#lang).getBadDifEmbed());
-			this.terminate();
+			tools.sendCatch(this._channel, lm.getEb(this._lang).getBadDifEmbed());
+			this._terminate();
             return;
 		}
-		else // Mean it's null
-			this.#difficulty = await db.getSetting(guild.id, "defaultDifficulty");
+		else if (difficulty == null) // Mean it's null
+			difficulty = await this.#db.getSetting(guildID, "defaultDifficulty");
 
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
-		if ((questionsAmount < 1 || questionsAmount > 100 || !tools.isInt(questionsAmount) && questionsAmount != null) && questionsAmount != 0) {
-			tools.sendCatch(this._channel, lm.getEb(this.#lang).getBadQuesEmbed());
-            this.terminate();
+		if ((questionsAmount < 1 || questionsAmount > 100 || !tools.isInt(questionsAmount) && questionsAmount != null)) {
+			tools.sendCatch(this._channel, lm.getEb(this._lang).getBadQuesEmbed());
+            this._terminate();
             return;
 		}
-		else { // Mean it's null4
-			questionsAmount = await db.getSetting(guild.id, "defaultQuestionsAmount");
+		else if (questionsAmount == null) {
+			questionsAmount = await this.#db.getSetting(guildID, "defaultQuestionsAmount");
 			if (questionsAmount == 0)
 				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"))
-					this.#questionsAmount = 2147483647;
+					questionsAmount = 2147483647;
 		}
 
-        startGame(guild, channel, difficulty, questionsAmount, lang);
+		this.#difficulty = Number(difficulty);
+		this.#qTotal = Number(questionsAmount);
+
+        this.#startGame();
     }
-	
-	get channelID() { return this._channel.id; }
-}
-
-
-function countPoints(guild, channel, lang) {
-    const guildID = guild.id;
-	const guildCache = cache.get(guildID) || {};
-    var scoreTable = guildCache.score;
-    winners = messages.getScoreString(guild, scoreTable, lang);
-    // db.updateUserStats(guild, winnerID, 0, 1); <- INSIDE getScoreString function
-    tools.sendCatch(channel, lm.getEb(lang).getGameEndedEmbed(winners));
-}
-
-function getGoodAnswerLetter(proposals, goodAnswer) {
-    for (var i = 0; i < proposals.length; i++) { // For each answer
-        if (proposals[i] == goodAnswer) { // If good answer
-            return reactionsTable[i];
-        }
-    }
-    return 'Err';
-}
-
-async function getGoodAnswerPlayers(message, proposals, goodAnswer) {
-	try {
-		var badAnswerUsers = new Map();
-		var goodAnswerUsers = new Map();
-		for (var i = 0; i < proposals.length; i++) { // For each proposition
-			const reaction = reactionsTable[i]; // Get reaction
-			if (proposals[i] == goodAnswer) { // If good answer
-				goodAnswerUsers = await message.reactions.cache.get(reaction).users.cache; // Get users that reacted with [reaction]
-			} else { // Else if wrong answer
-				const badUsers = await message.reactions.cache.get(reaction).users.cache; // Get all users that reacted with [reaction]
-				const iterator = badUsers.keys();
-				for (let userID of iterator) { // For each user that reacted with [reaction]
-					const user = badUsers.get(userID); // Get user
-					badAnswerUsers.set(userID, user); // Add him to the bad answer table
-				}
-			}
-		}
-		var userNumber = 0;
-		var wonPlayers = [];
-		const goodIterator = goodAnswerUsers.keys();
-		for (let goodUserID of goodIterator) { // For each user that answered correctly
-			const goodUser = goodAnswerUsers.get(goodUserID); // Get user
-			if (!badAnswerUsers.has(goodUserID)) { // If he is not in bad users list
-				wonPlayers[userNumber] = goodUser;
-				userNumber++;
-			}
-		}
-		return wonPlayers;
-	} catch (error) { return []; }
 }
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
 
 
 
 // ----------------------------------- GAME ----------------------------------- //
-// We first do a for loop that asks for all the questions and give the answers
-// it also add the points of the user to the database each time, this way in
-// case of crash, the points are kept. Not forgeting to update the cache to avoid
-// it from being cleared automatically.
-// Then we exit the loop when the game ends and we calculate the total points
-// + the winner. The game as ended we can clear the cache.
-async function startGame(guild, channel, difficulty, qAmount, lang, qNumberRestore) {
-    const guildID = guild.id;
-	const dataSavePath = "cache/" + guildID + '.json';
-
-	var qDelay = await db.getSetting(guildID, "questionDelay");
-	var aDelay = await db.getSetting(guildID, "answerDelay");
-
-    logger.info("-------------- NEW GAME --------------");
-	logger.info("Server ID: " + guild.id);
-    logger.info("Server: " + guild.name + " (" + guild.memberCount + " users)");
-    logger.info("Questions delay: " + qDelay);
-    logger.info("Answers delay: " + aDelay);
-    logger.info("Questions amount: " + qAmount);
-    logger.info("Language: " + lang);
-    await tools.sendCatch(channel, lm.getEb(lang).getStartEmbed(difficulty, qAmount));
-
-	// ASK QUESTIONS
-    for (var qNumber = qNumberRestore || 1; qNumber <= qAmount; qNumber++) {
-        logger.info("------------ NEW QUESTION ------------ (" + qNumber + "/" + qAmount + ")");
-
-		// This way users can update a setting while the game has already started!
-		qDelay = await db.getSetting(guildID, "questionDelay");
-		aDelay = await db.getSetting(guildID, "answerDelay");
-		lang = await db.getSetting(guildID, "lang");
-
-		if ((cache.get(guildID) || {}).running == 1) { // 1 = Waiting for stop
-            tools.sendCatch(channel, lm.getEb(lang).getGameStoppedEmbed());
-            break;
-        }
-
-		try {
-			// It asks one question and gives the answser + points calculation
-			await newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang, guildID);
-		} catch (error) {
-			logger.error(error);
-			logger.error("Error: ending game...");
-			tools.sendCatch(channel, lm.getString("error", lang));
-			var guildCache = cache.get(guildID);
-			guildCache.running = 1;
-			cache.set(guildID, guildCache); // Stop the game asap
-		}
-
-		var guildCache = cache.get(guildID);
-		if (fs.existsSync(dataSavePath)) {
-			let gameSaveData = JSON.parse(fs.readFileSync(dataSavePath), reviver);
-			gameSaveData.cache = guildCache;
-			gameSaveData.data.qNumber = qNumber + 1;
-			fs.writeFileSync(dataSavePath, JSON.stringify(gameSaveData, replacer));
-			logger.info("Updated game state json");
-		} else {
-			logger.warn("Game state json not found");
-		}
-    }
-	if (fs.existsSync(dataSavePath)) fs.unlinkSync(dataSavePath); // Remove the save file
-    await countPoints(guild, channel, lang);
-    var guildCache = cache.get(guildID);
-	delete guildCache.player;
-	delete guildCache.channel;
-	delete guildCache.score;
-	guildCache.running = 0;
-	cache.set(guildID, guildCache);
-    logger.info("Cache cleared");
-}
 
 
 
-async function newQuestionAnswer(channel, difficulty, qAmount, qNumber, qDelay, aDelay, lang, guildID) {
-	var qData = await lm.request(lang, difficulty);
-	qData["qNumber"] = qNumber;
-	qData["qAmount"] = qAmount;
-	if (!qData) throw ("No question found");
-
-	logger.info("Answer: " + qData.answer);
-	const qMessage = await tools.sendCatch(channel, lm.getEb(lang).getQuestionEmbed(qData, qDelay / 1000, colors[qData.points]));
-	if (!qMessage) throw new Error("Error: can't send question message");
-	for (var i = 0; i < reactionsTable.length; i++) {
-		if (!await tools.reactCatch(qMessage, reactionsTable[i])) break;
-	}
-
-	await delayChecking(guildID, qDelay); // Wait for qDelay so people have time to answer
-	await giveAnswer(qMessage, qData, aDelay, lang, guildID);
-}
 
 
 
-async function giveAnswer(qMessage, qData, aDelay, lang, guildID) {
-	const goodAnswerLetter = getGoodAnswerLetter(qData.proposals, qData.answer);
-	const goodAnswerPlayers = await getGoodAnswerPlayers(qMessage, qData.proposals, qData.answer);
+
+
+async function giveAnswer(qMessage, qData) {
+	
+	
+	let goodAnswerUsers = await qMessage.reactions.cache.get(reactionsTable[qData.answer]).users.fetch(); // Get users that reacted with [reaction]
+	
+	console.log(goodAnswerUsers);
+	
 	await tools.editCatch(qMessage, lm.getEb(lang).getQuestionEmbed(qData, 0, 4605510));
 	const playersString = messages.getPlayersString(goodAnswerPlayers, lang);
 	const aMessage = await tools.sendCatch(qMessage.channel, lm.getEb(lang).getAnswerEmbed(goodAnswerLetter, qData.answer, qData.anecdote, playersString, 16750869));
@@ -298,112 +301,9 @@ module.exports = {
 
 
 
-    stop: function (message, reason, lang) {
-        const guildID = message.guild.id;
-		const guildCache = cache.get(guildID);
-        const channel = message.channel;
-        if (guildCache.running < 2) { // If no game running (2 = Game running)
-            tools.sendCatch(channel, lm.getEb(lang).getNoGameRunningEmbed());
-            return;
-        }
-        if (guildCache.player == message.author.id || message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") || message.author.id == 137239068567142400) {
-            guildCache.running = 1;
-			cache.set(guildID, guildCache); // 1 = Waiting for stop
-            tools.sendCatch(channel, lm.getEb(lang).getStopEmbed(reason));
-            logger.info("Game aborted");
-        } else {
-            tools.sendCatch(channel, lm.getEb(lang).getWrongPlayerStopEmbed());
-        }
-    },
-
-	restoreGame: async function(rawdata) {
-		const data = JSON.parse(rawdata, reviver);
-
-		const gameData = data.data;
-		const cacheData = data.cache;
-		const guildID = gameData.guildID;
-
-		logger.info("Restoring game for guild " + guildID);
-		if (!cacheData || !gameData) { logger.warn("Cache data not found, restore failed"); return; }
-
-		const guild = await client.guilds.fetch(guildID);
-		const channel = await guild.channels.cache.get(cacheData.channel);
-
-		if (guild && channel) {
-			cache.set(guildID, cacheData);
-			tools.sendCatch(channel, lm.getString("gameRestored", gameData.lang));
-			startGame(guild, channel, gameData.difficulty, gameData.qAmount, gameData.lang, gameData.qNumber);
-			logger.success("Restoring game for guild " + guildID + " succeed");
-		}
-		else {
-			logger.warn("Restoring failed");
-		}
-	},
 
 
 
-    preStart: async function (message, args, lang) {
-        const guild = message.guild;
-        const guildID = guild.id;
-		const guildCache = cache.get(guildID) || {};
-        const channel = message.channel;
-		var questionsAmount;
-		var difficulty;
-
-		if (cache.get("stopScheduled") == 1) { // If no stop scheduled
-			tools.sendCatch(channel, lm.getString("tryAgainLater", lang));
-			return;
-		}
-		if (guildCache.running >= 1) { // If no game already running
-            tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(guildCache.channel));
-            return;
-        }
-
-		// If / Not below 0 / Not above 3 / Is an int and is not null
-		if (args[1] < 0 || args[1] > 3 || !tools.isInt(args[1]) && args[1] != null) {
-			tools.sendCatch(channel, lm.getEb(lang).getBadDifEmbed());
-            return;
-		}
-		else { // Mean it's null
-			difficulty = args[1] || await db.getSetting(guild.id, "defaultDifficulty") || 0;
-		}
-
-		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
-		if ((args[2] < 1 || args[2] > 100 || !tools.isInt(args[2]) && args[2] != null) && args[2] != 0) {
-			tools.sendCatch(channel, lm.getEb(lang).getBadQuesEmbed());
-            return;
-		}
-		else { // Mean it's null
-			questionsAmount = args[2] || await db.getSetting(guild.id, "defaultQuestionsAmount") || 10;
-			if (questionsAmount == 0) {
-				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) questionsAmount = 2147483647;
-			}
-		}
-
-        // 0 = Stopped / 1 = Waiting for stop / 2 = Game running
-		gameCacheData = {
-			runing: 2,
-			player: message.author.id,
-			channel: channel.id,
-			score: new Map()
-		};
-		cache.set(guildID, gameCacheData);
-		
-		dataSave = {
-			data: {
-				guildID: guildID,
-				qAmount: questionsAmount,
-				difficulty: difficulty,
-				lang: lang
-			},
-			cache: gameCacheData
-		}
-
-		fs.writeFileSync("cache/" + guildID + '.json', JSON.stringify(dataSave, replacer));
-		logger.info("Saved game state in json");
-
-        startGame(guild, channel, difficulty, questionsAmount, lang);
-    }
 }
 
 module.exports = ClassicGame;

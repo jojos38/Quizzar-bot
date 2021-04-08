@@ -17,39 +17,47 @@ class Database {
 
 	static async #findOne(collection, toFind, filter) {
 		try { return await collection.findOne(toFind, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 
 	static async #findMany(collection, toFind, filter) {
 		try { return await collection.find(toFind, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 
 	static async #deleteOne(collection, toDelete, filter) {
 		try { return await collection.deleteOne(toDelete, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 
 	static async #deleteMany(collection, toDelete, filter) {
 		try { return await collection.deleteMany(toDelete, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 	
 	static async #insertOne(collection, toInsert, filter) {
 		try { return await collection.insertOne(toInsert, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 
 	static async #updateOne(collection, toUpdate, newValue) {
 		try { return await collection.updateOne(toUpdate, newValue); }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
 	}
 	
 	static async #exists(collection, item) {
 		try { return await collection.findOne(item, { projection: { _id: 1} }) != undefined; }
-		catch (err) { logger.error(err);  return null; }
+		catch (err) { logger.error(err); return null; }
+	}
+	
+	static async #aggregate(collection, query) {
+		try { return await collection.aggregate(query); }
+		catch (err) { logger.error(err); return null; }
 	}
 
+	/**
+	 * Open the connection to the database
+	 */
 	async init() {
 		logger.info("Database connecting...");
 		const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database + '?authSource=admin';
@@ -67,6 +75,9 @@ class Database {
 		catch (err) { logger.error(err); }
 	}
 
+	/**
+	 * Closes the database connection
+	 */
 	async close() {
 		if (client.close) {
 			await client.close();
@@ -74,14 +85,27 @@ class Database {
 		} else logger.warn("Database not initialized");
     }
 	
+	/**
+	 * Returns a random question from the given language and difficulty
+	 */
+	async getRandomQuestion(lang, difficulty) {
+		let match = { lang: lang }
+		if (difficulty > 0) match.difficulty = Number(difficulty);
+		else match.difficulty = Math.floor(Math.random() * 3) + 1;
+		let question = await (await this.#col.questions.aggregate([
+			{ $match: match },
+			{ $sample: { size: 1 } }
+		])).toArray();
+		return question[0];
+	}
 	
 	/**
 	 * Deletes every settings and users data from a guild
 	 */
 	async resetGuildSettings(guildID) {
-		await Database.#deleteOne(this.#col.channels, { guildID: guildID });
-		await Database.#deleteOne(this.#col.usersGuild, { guildID: guildID });
-		await Database.#deleteOne(this.#col.settings, { guildID: guildID });
+		await Database.#deleteMany(this.#col.channels, { guildID: guildID });
+		await Database.#deleteMany(this.#col.usersGuild, { guildID: guildID });
+		await Database.#deleteMany(this.#col.settings, { guildID: guildID });
 		logger.info("Settings resetted successfully for guild " + guildID);
     }
 
@@ -125,8 +149,7 @@ class Database {
 	 * @return {Array} All the added channels of a given guild
 	 */
     async getGuildChannels(guildID) {
-		let channels = await (await Database.#findOne(this.#col.channels, { guildID: guildID }, { projection: { _id: 0, guildID: 0 } })).toArray();
-		if (!channels) logger.error("Error while getting allowed channels for guild " + guildID);
+		let channels = await (await Database.#findMany(this.#col.channels, { guildID: guildID }, { projection: { _id: 0, guildID: 0 } })).toArray();
 		return channels || []
     }
 
@@ -139,13 +162,9 @@ class Database {
         let userQuery = { userID: userID };
 		let userGuildQuery = { guildID: guildID, userID: userID };
 
-		// TODO remove this
-		addedScore = Number(addedScore)
-		addedWon = Number(addedWon);
-
         let user = await Database.#findOne(this.#col.users, userQuery);
 		if (user) {
-			logger.info("Updated user " + username + " [Score: " + user.score + " => " + finalScore + ", " + "Won: " + user.won + " => " + finalWon + "]");
+			logger.info("Updated user " + username + " [Score: " + user.score + " => " + (user.score + addedScore) + ", " + "Won: " + user.won + " => " + (user.won + addedWon) + "]");
 			await Database.#updateOne(this.#col.users, userQuery, { $inc: { score: addedScore, won: addedWon } }, { $set: { username: username } });
 		} else {
 			logger.info("Added user " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
@@ -154,8 +173,8 @@ class Database {
 		
 		var userGuild = await Database.#findOne(this.#col.usersGuild, userGuildQuery);
 		if (userGuild) {
-			logger.info("Updated user guild score " + username + " [Score: " + userGuild.score + " => " + finalScore + ", " + "Won: " + userGuild.won + " => " + finalWon + "]");
-			await Database.#updateOne(this.#col.usersGuild, userGuildQuery, { $inc: { score: finalScore, won: finalWon } }, { $set: { username: username } });
+			logger.info("Updated user guild score " + username + " [Score: " + userGuild.score + " => " + (userGuild.score + addedScore) + ", " + "Won: " + userGuild.won + " => " + (userGuild.won + addedWon) + "]");
+			await Database.#updateOne(this.#col.usersGuild, userGuildQuery, { $inc: { score: addedScore, won: addedWon } }, { $set: { username: username } });
 		} else {
 			logger.info("Added user guild score " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
 			await Database.#insertOne(this.#col.usersGuild, { guildID: guildID, userID: userID, username: username, score: addedScore, won: addedWon });
@@ -173,22 +192,50 @@ class Database {
     }
 
 	/**
+	 * Insert a setting which is missing from a guild
+	 * @return The value of the setting
+	 */
+	async #insertMissingSetting(guildID, settingName) {
+		const projection = { projection: { _id: 0, guildID: 0 } };
+		let globalSetting = await Database.#findOne(this.#col.defaultSettings, { setting: settingName }, projection);
+		if (globalSetting) {
+			let success = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: globalSetting.value });
+			if (success) logger.info("Setting " + settingName + " was missing in " + guildID + " and was added");
+			else logger.error("Error while adding missing setting " + settingName + " in " + guildID);
+			return globalSetting.value;
+		} else logger.error("Setting " + settingName + " was not found in default_settings");
+	}
+
+	/**
 	 * Get a setting from a guild
-	 * @return The setting or null
+	 * @param {settingName} A string or an array of the settings to get
+	 * @return The value of the setting
 	 */
     async getSetting(guildID, settingName) {
-		const projection = { projection: { _id: 0, setting: 0, guildID: 0 } };
-		let setting = await Database.#findOne(this.#col.settings, { guildID: guildID, setting: settingName }, projection);
-		if (setting) return setting.value;
-		else {
-			let globalSetting = await Database.#findOne(this.#col.defaultSettings, { setting: settingName }, projection);
-			if (globalSetting) {
-				let success = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: globalSetting.value });
-				if (success) logger.info("Setting " + settingName + " was missing in " + guildID + " and was added");
-				else logger.error("Error while adding missing setting " + settingName + " in " + guildID);
-				return globalSetting.value;
-			} else logger.error("Setting " + settingName + " was not found in default_settings");
+		const projection = { projection: { _id: 0, guildID: 0, setting: 0 } };
+		let query = { guildID: guildID, setting: settingName };
+		let setting = await Database.#findOne(this.#col.settings, query, projection);
+		if (setting != null) return setting.value;
+		else return await this.#insertMissingSetting(guildID, settingName);
+    }
+	
+	/**
+	 * Get multiple settings from a guild
+	 * @param {settingName} An array of the settings to get
+	 * @return A key value object or null
+	 */
+    async getSettings(guildID, settingName) {
+		const projection = { projection: { _id: 0, guildID: 0 } };
+		let query = { guildID: guildID, setting: { $in: [] } };
+		for (let setting of settingName) query.setting.$in.push(setting);
+		let tmpSettings = await (await Database.#findMany(this.#col.settings, query, projection)).toArray();
+		var setting = {};
+		// Parse to a key value map
+		for (let tmpSetting of tmpSettings) setting[tmpSetting.setting] = tmpSetting.value;
+		for (let tmpSetting of settingName) {
+			if (setting[tmpSetting] == null) setting[tmpSetting] = await this.#insertMissingSetting(guildID, tmpSetting);
 		}
+		return setting;
     }
 
 	/**
