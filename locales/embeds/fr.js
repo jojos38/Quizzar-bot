@@ -173,11 +173,7 @@ module.exports = {
                 {
                     name: prefix + "defquestions",
                     value: "Défini le nombre de questions par défaut lorsque qu'aucun paramètre n'est choisi (entre 1 et 2147483647)"
-                },
-				{
-                    name: prefix + "stuck",
-                    value: "Si le bot est bloqué utilisez cette commande (Cette commande peut causer des problèmes, ne l'utilisez qu'en cas de nécessité !)"
-                }
+		}
             ]
         });
         return embed;

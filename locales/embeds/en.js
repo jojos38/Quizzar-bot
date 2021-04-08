@@ -171,10 +171,6 @@ module.exports = {
                 {
                     name: prefix + "defquestions",
                     value: "Define default number of questions when it's not specified (between 1 and 100)"
-                },
-				{
-                    name: prefix + "stuck",
-                    value: "If the bot is stuck use this command (This command can cause unexpected results, don't us it if not needed!)"
                 }
             ]
         });
