@@ -41,5 +41,6 @@
 	"maintenance": "**Bot under maintenance.**",
 	"prefixSet": "Prefix set successfully",
 	"prefixError": "Error hapenned: The prefix must be between 1 and 3 characters and must be ASCII only.",
-	"gameRestored": "It seems that the bot rebooted during your game, it was restored."
+	"gameRestored": "It seems that the bot rebooted during your game, it was restored.",
+	"missingPerm": "I am missing the Manage Messages permission! I won't be able to delete reactions."
 }
