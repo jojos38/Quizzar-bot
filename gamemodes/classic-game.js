@@ -42,7 +42,7 @@ class ClassicGame extends Game {
 			difficulty: this.#difficulty,
 			channelID: this._channel.id,
 			guildID: this._guild.id,
-			qNumber: this.#qNumber,
+			qNumber: this.#qNumber + 1,
 			qTotal: this.#qTotal,
 			scores: this.#scores,
 			userID: this._userID,
@@ -226,7 +226,7 @@ class ClassicGame extends Game {
             return;
 		}
 		else if (!questionsAmount) {
-			if (this._guild.member(this._userID).hasPermission("MANAGE_MESSAGES"))
+			if (this._guild.member(this._userID).hasPermission("MANAGE_MESSAGES") && questionsAmount == 0)
 				questionsAmount = 2147483647;
 			else
 				questionsAmount = await this.#db.getSetting(guildID, "defaultQuestionsAmount");
