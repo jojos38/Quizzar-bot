@@ -141,7 +141,7 @@ class Database {
 		// If channel does not exists
 		if (!await Database.#exists(this.#col.channels, query)) {
 			logger.info("Channel " + channelID + " does not exists");
-			return false; 
+			return false;
 		}
 		// If channel exists, delete it
         if (await Database.#deleteOne(this.#col.channels, query)) {

@@ -128,7 +128,7 @@ client.on("disconnect", () => {
 });
 
 client.on("channelDelete", function (channel) {
-    db.removeGuildChannel(channel, "en");
+    db.removeGuildChannel(channel.id, "en");
 });
 
 client.on("guildCreate", guild => {
