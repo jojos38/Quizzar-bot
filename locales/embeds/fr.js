@@ -295,12 +295,12 @@ module.exports = {
         });
         return embed;
     },
-    getQuestionEmbed: function (qData, timeleft, embedColor) {
+    getQuestionEmbed: function (qData, qNumber, qTotal, timeleft, embedColor) {
         // 0:thème --- 1:difficulté --- 2:question --- 3:propositions --- 4:réponse --- 5:anecdote --- 6:points --- 7:num.ques --- 8:tot.ques
         const proposals = qData.proposals;
         const embed = new Discord.MessageEmbed({
             author: {
-                name: "Question " + qData.qNumber + " / " + qData.qAmount + " :",
+                name: "Question " + qNumber + " / " + qTotal + " :",
                 icon_url: logoURL
             },
             footer: {
