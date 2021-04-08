@@ -225,7 +225,7 @@ class ClassicGame extends Game {
             this._terminate();
             return;
 		}
-		else {
+		else if (!questionsAmount) {
 			if (this._guild.member(this._userID).hasPermission("MANAGE_MESSAGES"))
 				questionsAmount = 2147483647;
 			else
