@@ -100,7 +100,7 @@ module.exports = {
 
     addGuildChannel: async function (guildID, channel, lang) {
 		const channelID = channel.id;
-        var result = await findOneCatch(col.channels, { guildID: guildID, channelID: channelID });
+        var result = await findOneCatch(col.channels, { channelID: channelID });
 		if (result) { // If it already exist
 			if (lang) await tools.sendCatch(channel, lm.getString("alreadyAuthorized", lang));
 			return; // Return if channel already exist
