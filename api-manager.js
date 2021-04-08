@@ -58,15 +58,15 @@ function queryAndSend(client) {
 		config.botsondiscord
 	);
 	post(
-                'discord.boats',
-                '/api/bot/' + config.id,
-                {server_count: guildCount},
-                config.discordboats
-        );
+		'discord.boats',
+		'/api/bot/' + config.id,
+		{server_count: guildCount},
+		config.discordboats
+	);
 }
 
 module.exports = {
 	init: function(client) {
-		setInterval(function() { queryAndSend(client) }, 7200000); //logs hi every second
+		setInterval(function() { queryAndSend(client) }, 7200000);
 	}
 }

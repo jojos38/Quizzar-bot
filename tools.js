@@ -56,5 +56,10 @@ module.exports = {
 	reactCatch: async function(message, reaction) {
 		try { await message.react(reaction); return true;}
 		catch (error) { logger.error("Error while reacting to message"); logger.error(error); return false;}
+	},
+	
+	removeReactionCatch: async function(reaction, userID) {
+		try { await reaction.users.remove(userID); return true;}
+		catch (error) { logger.error("Error while removing reaction from message"); logger.error(error); return false;}
 	}
 }

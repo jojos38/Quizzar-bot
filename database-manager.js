@@ -3,18 +3,24 @@
  * @author jojos38
  */
 
-// -------------------- SOME VARIABLES -------------------- //
+
+
+// ---------------------------- SOME VARIABLES ---------------------------- //
 const { database, username, password, ip, port } = require('./dbconfig.json');
 const MongoClient = require('mongodb').MongoClient
 const tools = require('./tools.js');
 const logger = require('./logger.js');
 const eb = tools.embeds;
-// -------------------- SOME VARIABLES -------------------- //
+// ---------------------------- SOME VARIABLES ---------------------------- //
+
 
 
 class Database {
 	#col = {};
 
+	/**
+	 * Those are just basic functions but that catches errors
+	 */
 	static async #findOne(collection, toFind, filter) {
 		try { return await collection.findOne(toFind, filter || { projection: { _id: 0} }); }
 		catch (err) { logger.error(err); return null; }

@@ -1,17 +1,18 @@
+/**
+ * @file All the logic of the "classic" gamemode
+ * @author jojos38
+ */
 
-// -------------------- SETTINGS -------------------- //
+
+
+// -------------- SOME VARIABLES -------------- //
 const reactionsTable = ['🇦', '🇧', '🇨', '🇩'];
-// -------------------- SETTINGS -------------------- //
-
-
-
-// ------------------------------ SOME VARIABLES ------------------------------ //
 const messages = require('messages.js');
 const Game = require("game.js");
 const tools = require('tools.js');
 const logger = require('logger.js');
 const fs = require('fs');
-// ------------------------------ SOME VARIABLES ------------------------------ //
+// -------------- SOME VARIABLES -------------- //
 
 
 
@@ -133,7 +134,7 @@ class ClassicGame extends Game {
 				if (userID != reaction.client.user.id) {
 					if (reaction.emoji.name == goodAnswerReaction) goodAnswerUsers.set(userID, user[1].username);
 					else delete goodAnswerUsers.delete(userID);
-					reaction.users.remove(userID);
+					tools.removeReactionCatch(reaction, userID);
 				}
 			}
 

@@ -1,24 +1,31 @@
-// ------------------------------ SOME VARIABLES ------------------------------ //
-const logger = require('logger.js');
-// ------------------------------ SOME VARIABLES ------------------------------ //
+/**
+ * @file Manages the database inputs / outputs
+ * @author jojos38
+ */
 
 
+
+// ------------------------ SOME FUNCTIONS ------------------------ //
+/**
+ * This is used by the delayChecking function to wait x ms
+ */
 async function delay(ms) {
-    // return await for better async stack trace support in case of errors.
-    return await new Promise(resolve => setTimeout(resolve, ms));
+	return await new Promise(resolve => setTimeout(resolve, ms));
 }
+// ------------------------ SOME FUNCTIONS ------------------------ //
+
 
 
 class Game {
 	static _colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
-	
+
 	_lang;
 	_guild;
 	_userID;
 	_channel;
 	_manager;
 	_running;
-	
+
 	constructor(manager, userID, guild, channel, lang) {
 		this._manager = manager;
 		this._channel = channel;
@@ -28,6 +35,10 @@ class Game {
 		this._running = false;
 	}
 
+	/**
+	 * Used to be able to save Map inside json
+	 * This is used by the saveGameState function
+	 */
 	_replacer(key, value) {
 	  if(value instanceof Map) {
 		return {
@@ -39,6 +50,10 @@ class Game {
 	  }
 	}
 
+	/**
+	 * Used to be able to restore Map from json
+	 * This is used by the restoreGameState function
+	 */
 	_reviver(key, value) {
 	  if(typeof value === 'object' && value !== null) {
 		if (value.dataType === 'Map') {
@@ -47,7 +62,12 @@ class Game {
 	  }
 	  return value;
 	}
-	
+
+	/**
+	 * This function awaits for x secondsd while checking that the game is still running
+	 * If the game is not running anymore the waiting will stop, it's used to prevent a
+	 * game from being stuck if the question delay is very high
+	 */
 	async _delayChecking(ms) {
 		//return new Promise(async function (resolve, reject) {
 			// This way if the game is force stopped it will leave the current question
@@ -60,10 +80,16 @@ class Game {
 		//});
 	}
 
+	/**
+	 * Called when a game has ended, it removes the game from the manager
+	 */
 	_terminate(channelID) {
 		this._manager.deleteGame(channelID || this.getChannelID());
 	}
 	
+	/**
+	 * Getters / Setters
+	 */
 	getChannelID() { return this._channel.id; }
 	getUserID() { return this._userID; }
 	getLang() { return this._lang; }
