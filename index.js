@@ -2,8 +2,6 @@
 require('app-module-path').addPath(__dirname);
 const OWNER_ID = 137239068567142400;
 const ACTIVITY_MESSAGE = "!jhelp";
-const DEFAULT_PREFIX = "!j";
-const DEFAULT_LANGUAGE = "en";
 var logMessages = false;
 // -------------------- SETTINGS -------------------- //
 
@@ -11,18 +9,20 @@ var logMessages = false;
 
 // -------------------- SOME VARIABLES -------------------- //
 const Discord = require('discord.js');
-const Database = require('database-manager.js');
+const DatabaseManager = require('database-manager.js');
+const ApiManager = require('api-manager.js');
+const GameManager = require('games-manager.js');
 global.config = require('config.json');
 global.lm = require('languages-manager.js');
 global.client = new Discord.Client();
-const db = new Database();
-const GameManager = require('games-manager.js');
+
+const db = new DatabaseManager();
+const apiManager = new ApiManager(client, config.id, config.discordTokens);
 const gameManager = new GameManager();
+
 const tools = require('tools.js');
 const logger = require('logger.js');
-const apiManager = require('api-manager.js');
 const fs = require('fs');
-let isBotReady = false;
 // -------------------- SOME VARIABLES -------------------- //
 
 
@@ -103,26 +103,6 @@ process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches u
 
 
 // ---------------------------------------------- LISTENERS ---------------------------------------------- //
-client.once('ready', async function () {
-    isBotReady = true;
-    logger.info('Bot ready');
-    client.user.setActivity(ACTIVITY_MESSAGE);
-
-	// Create cache directory
-	if (!fs.existsSync("cache")){
-		fs.mkdirSync("cache");
-	} else {
-		fs.readdir("./cache", function (err, files) {
-			if (err) logger.error(err);
-			for (file of files) {
-				let filePath = 'cache/' + file;
-				let gameData = fs.readFileSync(filePath);
-				let game = gameManager.restoreClassicGame(db, file.split('.').slice(0, -1).join('.'), gameData);
-			}
-		});
-	}
-});
-
 client.on("disconnect", () => {
     logger.error("Connection to Discord's servers lost!");
 });
@@ -417,20 +397,29 @@ client.on('message', async function (message) {
 
 
 // ------- START ------- //
-function checkConnected() {
-    if (!isBotReady) {
-        logger.error("Bot wasn't ready in time... Rebooting...");
-        process.exit(1);
-    }
-}
-
 async function start() {
 	await db.init();
 	await lm.reloadLanguages(); // Load languages
 	logger.info("Connecting to Discord...");
-	setTimeout(checkConnected, 9000000);
 	await client.login(config.token);
-	apiManager.init(client);
 }
+
+client.once('ready', async function () {
+	client.user.setActivity(ACTIVITY_MESSAGE);
+	apiManager.init();
+    logger.info('Bot ready');
+	if (!fs.existsSync("cache")){
+		fs.mkdirSync("cache");
+	} else {
+		fs.readdir("./cache", function (err, files) {
+			if (err) logger.error(err);
+			for (file of files) {
+				let gameData = fs.readFileSync('cache/' + file);
+				let game = gameManager.restoreClassicGame(db, file.split('.').slice(0, -1).join('.'), gameData);
+			}
+		});
+	}
+});
+
 start();
 // ------- START ------- //
