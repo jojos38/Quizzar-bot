@@ -23,42 +23,42 @@ class Database {
 	 */
 	static async #findOne(collection, toFind, filter) {
 		try { return await collection.findOne(toFind, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toFind); logger.error(err); return null; }
 	}
 
 	static async #findMany(collection, toFind, filter) {
 		try { return await collection.find(toFind, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toFind); logger.error(err); return null; }
 	}
 
 	static async #deleteOne(collection, toDelete, filter) {
 		try { return await collection.deleteOne(toDelete, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toDelete); logger.error(err); return null; }
 	}
 
 	static async #deleteMany(collection, toDelete, filter) {
 		try { return await collection.deleteMany(toDelete, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toDelete); logger.error(err); return null; }
 	}
 	
 	static async #insertOne(collection, toInsert, filter) {
 		try { return await collection.insertOne(toInsert, filter || { projection: { _id: 0} }); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toInsert); logger.error(err); return null; }
 	}
 
 	static async #updateOne(collection, toUpdate, newValue) {
 		try { return await collection.updateOne(toUpdate, newValue); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(toUpdate); logger.error(err); return null; }
 	}
 	
 	static async #exists(collection, item) {
 		try { return await collection.findOne(item, { projection: { _id: 1} }) != undefined; }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(item); logger.error(err); return null; }
 	}
 	
 	static async #aggregate(collection, query) {
 		try { return await collection.aggregate(query); }
-		catch (err) { logger.error(err); return null; }
+		catch (err) { logger.error(query); logger.error(err); return null; }
 	}
 
 	/**

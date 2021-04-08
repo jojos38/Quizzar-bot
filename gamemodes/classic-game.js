@@ -221,16 +221,17 @@ class ClassicGame extends Game {
 			difficulty = await this.#db.getSetting(guildID, "defaultDifficulty");
 
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
-		if ((questionsAmount < 1 || questionsAmount > 100 || !tools.isInt(questionsAmount) && questionsAmount != null)) {
+		if (((questionsAmount < 1 || questionsAmount > 100 || !tools.isInt(questionsAmount)) && questionsAmount != 0)) {
 			tools.sendCatch(this._channel, lm.getEb(this._lang).getBadQuesEmbed());
             this._terminate();
             return;
 		}
-		else if (questionsAmount == null) {
-			questionsAmount = await this.#db.getSetting(guildID, "defaultQuestionsAmount");
+		else {
 			if (questionsAmount == 0)
-				if (message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"))
+				if (this._guild.member(this._userID).hasPermission("MANAGE_MESSAGES"))
 					questionsAmount = 2147483647;
+				else
+					questionsAmount = await this.#db.getSetting(guildID, "defaultQuestionsAmount");
 		}
 
 		this.#difficulty = Number(difficulty);
