@@ -30,7 +30,7 @@ class ApiManager {
 	#running;
 	#postDelay;
 	#initialized;
-	
+
 	constructor(client, selfID, tokens, delay) {
 		this.#client = client;
 		this.#selfID = selfID;
@@ -38,7 +38,7 @@ class ApiManager {
 		this.#initialized = false;
 		this.#postDelay = delay || 60 * 60 * 1000;
 	}
-	
+
 	/**
 	 * Do a post request for a given api
 	 * @param {string} hostname - The hostname of the api without path

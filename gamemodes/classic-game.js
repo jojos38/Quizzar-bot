@@ -6,19 +6,19 @@
 
 
 // -------------- SOME VARIABLES -------------- //
-const reactionsTable = ['🇦', '🇧', '🇨', '🇩'];
-const messages = require('messages.js');
+const fs = require('fs');
 const Game = require("game.js");
 const tools = require('tools.js');
 const logger = require('logger.js');
-const fs = require('fs');
+const messages = require('messages.js');
+const reactionsTable = ['🇦', '🇧', '🇨', '🇩'];
 // -------------- SOME VARIABLES -------------- //
 
 
 
 class ClassicGame extends Game {
 	static type = "classic";
-	
+
 	#db;
 	#qTotal;
 	#aDelay;
@@ -51,7 +51,7 @@ class ClassicGame extends Game {
 		fs.writeFileSync(this.#dataSavePath, JSON.stringify(gameSaveData, this._replacer));
 		logger.info("Updated game state json");
 	}
-	
+
 	async restoreGameState(rawdata) {
 		const data = JSON.parse(rawdata, this._reviver);
 		const guildID = data.guildID;
@@ -79,11 +79,11 @@ class ClassicGame extends Game {
 			this._terminate(channelID);
 		}
 	}
-	
+
 	#deleteGameState() {
 		if (fs.existsSync(this.#dataSavePath)) fs.unlinkSync(this.#dataSavePath); // Remove the save file
 	}
-	
+
 	async #getGoodAnswerPlayers(message, goodAnswer) {
 		try {
 			var badAnswerUsers = new Map();
@@ -114,18 +114,18 @@ class ClassicGame extends Game {
 			return wonPlayers;
 		} catch (error) { return []; }
 	}
-	
+
 	async #newQuestionAnswer() {
 		const qData = await this.#db.getRandomQuestion(this._lang, this.#difficulty);
 		const goodAnswerText = qData.proposals[qData.answer];
 		const goodAnswerReaction = reactionsTable[qData.answer];
 		const goodAnswerUsers = new Map();
 		logger.info("Answer: " + qData.proposals[qData.answer]);
-		
+
 		const qMessage = await tools.sendCatch(this._channel, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, this.#qDelay / 1000, Game._colors[qData.difficulty]));
 		if (!qMessage) throw new Error("Can't send question message");
-		
-		const filter = (reaction, user) => { return reactionsTable.includes(reaction.emoji.name); };	
+
+		const filter = (reaction, user) => { return reactionsTable.includes(reaction.emoji.name); };
 		let collector = qMessage.createReactionCollector(filter, { time: this.#qDelay });
 		collector.on('collect', (reaction, collector) => {
 			for (let user of reaction.users.cache) {
@@ -138,7 +138,7 @@ class ClassicGame extends Game {
 			}
 
 		});
-		
+
 		for (let i = 0; i < reactionsTable.length; i++) if (!await tools.reactCatch(qMessage, reactionsTable[i])) break;
 
 		await this._delayChecking(this.#qDelay); // Wait for qDelay so people have time to answer
@@ -147,7 +147,7 @@ class ClassicGame extends Game {
 		const doubleCheck = await this.#getGoodAnswerPlayers(qMessage, goodAnswerReaction);
 		doubleCheck.forEach((value, key) => goodAnswerUsers.set(key, value));
 
-		await tools.editCatch(qMessage, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, 0, 4605510));
+		await tools.editCatch(qMessage, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, 0, Game._colors[0]));
 		const playersString = messages.getPlayersString(goodAnswerUsers, this._lang);
 		const aMessage = await tools.sendCatch(qMessage.channel, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 16750869));
 		for (const [userID, username] of goodAnswerUsers.entries()) { // For each player that answered correctly
@@ -155,15 +155,9 @@ class ClassicGame extends Game {
 			this.#scores[userID] = (this.#scores[userID] || 0) + qData.difficulty;
 		}
 		await this._delayChecking(this.#aDelay); // Wait for aDelay so people have time to answer
-		await tools.editCatch(aMessage, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 4605510));
+		await tools.editCatch(aMessage, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, Game._colors[0]));
 	}
 
-	// We first do a for loop that asks for all the questions and give the answers
-	// it also add the points of the user to the database each time, this way in
-	// case of crash, the points are kept. Not forgeting to update the cache to avoid
-	// it from being cleared automatically.
-	// Then we exit the loop when the game ends and we calculate the total points
-	// + the winner. The game as ended we can clear the cache.
 	async #startGame() {
 		this._running = true;
 		const guildID = this._guild.id;
@@ -178,12 +172,12 @@ class ClassicGame extends Game {
 		logger.info("-------------- NEW GAME --------------");
 		// ASK QUESTIONS
 		for (this.#qNumber; this.#qNumber <= this.#qTotal; this.#qNumber++) {
-			logger.info("------------ NEW QUESTION ------------ (" + this.#qNumber + "/" + this.#qTotal + ")");	
+			logger.info("------------ NEW QUESTION ------------ (" + this.#qNumber + "/" + this.#qTotal + ")");
 			if (this._running == false) {
 				tools.sendCatch(this._channel, lm.getEb(this._lang).getGameStoppedEmbed());
 				break;
 			}
-			
+
 			// This way users can update a setting while the game has already started!
 			let settings = await this.#db.getSettings(guildID, ["questionDelay", "answerDelay", "lang"]);
 			this.#qDelay = settings.questionDelay;

@@ -95,10 +95,10 @@ class Database {
 	 * Returns a random question from the given language and difficulty
 	 */
 	async getRandomQuestion(lang, difficulty) {
-		let match = { lang: lang }
+		const match = { lang: lang }
 		if (difficulty > 0) match.difficulty = Number(difficulty);
 		else match.difficulty = Math.floor(Math.random() * 3) + 1;
-		let question = await (await this.#col.questions.aggregate([
+		const question = await (await this.#col.questions.aggregate([
 			{ $match: match },
 			{ $sample: { size: 1 } }
 		])).toArray();
@@ -155,7 +155,7 @@ class Database {
 	 * @return {Array} All the added channels of a given guild
 	 */
     async getGuildChannels(guildID) {
-		let channels = await (await Database.#findMany(this.#col.channels, { guildID: guildID }, { projection: { _id: 0, guildID: 0 } })).toArray();
+		const channels = await (await Database.#findMany(this.#col.channels, { guildID: guildID }, { projection: { _id: 0, guildID: 0 } })).toArray();
 		return channels || []
     }
 
@@ -165,10 +165,10 @@ class Database {
 	 * @param {addedWon} addedWon - The total won parties to add to the user's wons
 	 */
     async updateUserStats(guildID, userID, username, addedScore, addedWon) {
-        let userQuery = { userID: userID };
-		let userGuildQuery = { guildID: guildID, userID: userID };
+        const userQuery = { userID: userID };
+		const userGuildQuery = { guildID: guildID, userID: userID };
 
-        let user = await Database.#findOne(this.#col.users, userQuery);
+        const user = await Database.#findOne(this.#col.users, userQuery);
 		if (user) {
 			logger.info("Updated user " + username + " [Score: " + user.score + " => " + (user.score + addedScore) + ", " + "Won: " + user.won + " => " + (user.won + addedWon) + "]");
 			await Database.#updateOne(this.#col.users, userQuery, { $inc: { score: addedScore, won: addedWon } }, { $set: { username: username } });
@@ -177,7 +177,7 @@ class Database {
 			await Database.#insertOne(this.#col.users, { userID: userID, username: username, score: addedScore, won: addedWon });
 		}
 
-		var userGuild = await Database.#findOne(this.#col.usersGuild, userGuildQuery);
+		const userGuild = await Database.#findOne(this.#col.usersGuild, userGuildQuery);
 		if (userGuild) {
 			logger.info("Updated user guild score " + username + " [Score: " + userGuild.score + " => " + (userGuild.score + addedScore) + ", " + "Won: " + userGuild.won + " => " + (userGuild.won + addedWon) + "]");
 			await Database.#updateOne(this.#col.usersGuild, userGuildQuery, { $inc: { score: addedScore, won: addedWon } }, { $set: { username: username } });
@@ -192,8 +192,8 @@ class Database {
 	 * @return {Object} The global score and the guild score
 	 */
     async getUserStats(guildID, userID) {
-		var guildScore = await Database.#findOne(this.#col.usersGuild, { guildID: guildID, userID: userID });
-		var globalScore = await Database.#findOne(this.#col.users, { userID: userID });
+		const guildScore = await Database.#findOne(this.#col.usersGuild, { guildID: guildID, userID: userID });
+		const globalScore = await Database.#findOne(this.#col.users, { userID: userID });
 		return { global: globalScore || {}, guild: guildScore || {} };
     }
 
@@ -203,9 +203,9 @@ class Database {
 	 */
 	async #insertMissingSetting(guildID, settingName) {
 		const projection = { projection: { _id: 0, guildID: 0 } };
-		let globalSetting = await Database.#findOne(this.#col.defaultSettings, { setting: settingName }, projection);
+		const globalSetting = await Database.#findOne(this.#col.defaultSettings, { setting: settingName }, projection);
 		if (globalSetting) {
-			let success = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: globalSetting.value });
+			const success = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: globalSetting.value });
 			if (success) logger.info("Setting " + settingName + " was missing in " + guildID + " and was added");
 			else logger.error("Error while adding missing setting " + settingName + " in " + guildID);
 			return globalSetting.value;
@@ -219,12 +219,12 @@ class Database {
 	 */
     async getSetting(guildID, settingName) {
 		const projection = { projection: { _id: 0, guildID: 0, setting: 0 } };
-		let query = { guildID: guildID, setting: settingName };
-		let setting = await Database.#findOne(this.#col.settings, query, projection);
+		const query = { guildID: guildID, setting: settingName };
+		const setting = await Database.#findOne(this.#col.settings, query, projection);
 		if (setting != null) return setting.value;
 		else return await this.#insertMissingSetting(guildID, settingName);
     }
-	
+
 	/**
 	 * Get multiple settings from a guild
 	 * @param {settingName} An array of the settings to get
@@ -232,9 +232,9 @@ class Database {
 	 */
     async getSettings(guildID, settingName) {
 		const projection = { projection: { _id: 0, guildID: 0 } };
-		let query = { guildID: guildID, setting: { $in: [] } };
+		const query = { guildID: guildID, setting: { $in: [] } };
 		for (let setting of settingName) query.setting.$in.push(setting);
-		let tmpSettings = await (await Database.#findMany(this.#col.settings, query, projection)).toArray();
+		const tmpSettings = await (await Database.#findMany(this.#col.settings, query, projection)).toArray();
 		var setting = {};
 		// Parse to a key value map
 		for (let tmpSetting of tmpSettings) setting[tmpSetting.setting] = tmpSetting.value;
@@ -248,13 +248,13 @@ class Database {
 	 * Set a setting for a guild
 	 */
     async setSetting(guildID, settingName, value) {
-		let settingToFind = { guildID: guildID, setting: settingName };
+		const settingToFind = { guildID: guildID, setting: settingName };
 		if (await Database.#exists(this.#col.settings, settingToFind)) {
-			let result = await Database.#updateOne(this.#col.settings, settingToFind, { $set: { value: value } });
+			const result = await Database.#updateOne(this.#col.settings, settingToFind, { $set: { value: value } });
 			if (result) logger.info("Setting " + settingName + " successfully updated to " + value);
 			else logger.error("Error while updating " + settingName + " to " + value);
 		} else {
-			let result = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: value });
+			const result = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: value });
 			if (result) logger.info("Setting " + settingName + " successfully inserted as " + value);
 			else logger.error("Error while inserting " + settingName + " as " + value);
 		}
@@ -265,7 +265,7 @@ class Database {
 	 * @return {Object} The total users that have a score and a string of the users scores
 	 */
     async getTop(guildID) {
-		let guildUsers = await (await Database.#findMany(this.#col.usersGuild, { guildID: guildID }, { sort: { score: -1, won: -1 }, projection: { _id: 0, guildID: 0 } })).toArray();
+		const guildUsers = await (await Database.#findMany(this.#col.usersGuild, { guildID: guildID }, { sort: { score: -1, won: -1 }, projection: { _id: 0, guildID: 0 } })).toArray();
 		return guildUsers;
     }
 
@@ -274,7 +274,7 @@ class Database {
 	 * @return A sorted list by score and then won of every users
 	 */
 	async getAllUsers() {
-		var users = await (await Database.#findMany(this.#col.users, null, { sort: { score: -1, won: -1 }, projection: { _id: 0 } })).toArray();
+		const users = await (await Database.#findMany(this.#col.users, null, { sort: { score: -1, won: -1 }, projection: { _id: 0 } })).toArray();
 		return users;
     }
 }

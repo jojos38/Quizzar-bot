@@ -17,7 +17,8 @@ async function delay(ms) {
 
 
 class Game {
-	static _colors = { 1: 4652870, 2: 16750869, 3: 15728640 };
+	//				  Finished Easy     Medium    Hard
+	static _colors = [4605510, 4652870, 16750869, 15728640];
 
 	_lang;
 	_guild;
@@ -27,27 +28,23 @@ class Game {
 	_running;
 
 	constructor(manager, userID, guild, channel, lang) {
+		this._running = false;
 		this._manager = manager;
 		this._channel = channel;
 		this._userID = userID;
 		this._guild = guild;
 		this._lang = lang;
-		this._running = false;
 	}
 
 	/**
 	 * Used to be able to save Map inside json
 	 * This is used by the saveGameState function
-	 */
+	*/
 	_replacer(key, value) {
-	  if(value instanceof Map) {
-		return {
-		  dataType: 'Map',
-		  value: Array.from(value.entries()), // or with spread: value: [...value]
-		};
-	  } else {
-		return value;
-	  }
+		if(value instanceof Map)
+			return { dataType: 'Map', value: Array.from(value.entries()) };
+		else
+			return value;
 	}
 
 	/**
@@ -55,12 +52,10 @@ class Game {
 	 * This is used by the restoreGameState function
 	 */
 	_reviver(key, value) {
-	  if(typeof value === 'object' && value !== null) {
-		if (value.dataType === 'Map') {
-		  return new Map(value.value);
-		}
-	  }
-	  return value;
+		if(typeof value === 'object' && value !== null)
+			if (value.dataType === 'Map')
+				return new Map(value.value);
+		return value;
 	}
 
 	/**
@@ -69,15 +64,13 @@ class Game {
 	 * game from being stuck if the question delay is very high
 	 */
 	async _delayChecking(ms) {
-		//return new Promise(async function (resolve, reject) {
-			// This way if the game is force stopped it will leave the current question
-			var waitingTime = ms / (15000 + (ms/100*10)) * 1000 // The higher the question delay, the lower the checking
-			for (var i = 0; i < ms; i += waitingTime) {;
-				if (this._running == false) break; // 1 = Waiting for stop
-				await delay(waitingTime);
-			}
-			return;
-		//});
+		// This way if the game is force stopped it will leave the current question
+		const waitingTime = ms / (15000 + (ms/100*10)) * 1000 // The higher the question delay, the lower the checking
+		for (let i = 0; i < ms; i += waitingTime) {;
+			if (this._running == false) break; // 1 = Waiting for stop
+			await delay(waitingTime);
+		}
+		return;
 	}
 
 	/**
@@ -86,7 +79,7 @@ class Game {
 	_terminate(channelID) {
 		this._manager.deleteGame(channelID || this.getChannelID());
 	}
-	
+
 	/**
 	 * Getters / Setters
 	 */

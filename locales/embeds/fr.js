@@ -320,6 +320,7 @@ module.exports = {
     getQuestionEmbed: function (qData, qNumber, qTotal, timeleft, embedColor) {
         // 0:thème --- 1:difficulté --- 2:question --- 3:propositions --- 4:réponse --- 5:anecdote --- 6:points --- 7:num.ques --- 8:tot.ques
         const proposals = qData.proposals;
+		const difficultyTable = { 1: "facile", 2: "moyen", 3: "difficile" };
         const embed = new Discord.MessageEmbed({
             author: {
                 name: "Question " + qNumber + " / " + qTotal + " :",
@@ -328,7 +329,7 @@ module.exports = {
             footer: {
                 text: "Temps restant :⠀" + timeleft + "s",
             },
-            description: "Thème : " + qData.theme + " (" + qData.difficulty + ")```yaml\n" + qData.question + "```",
+            description: "Thème : " + qData.theme + " (" + difficultyTable[qData.difficulty] + ")```yaml\n" + qData.question + "```",
             color: embedColor,
             fields: [
                 {
