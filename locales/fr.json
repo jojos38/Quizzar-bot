@@ -30,15 +30,15 @@
 		"noChannel": "Aucun channel n'a été ajouté."
 	},
 	"game": {
-		"stoppedBy": "Partie arrêtée par {{player}}",
+		"stoppedBy": "Partie arrêtée par {{{player}}}",
 		"nobodyAnswered": "Personne n'a su répondre correctement !",
-		"onePlayerAnswer": "Seul {{player}} a su répondre correctement !",
-		"andPlayerAnswer": " et {{player}} ont su répondre correctement !",
+		"onePlayerAnswer": "Seul {{{player}}} a su répondre correctement !",
+		"andPlayerAnswer": " et {{{player}}} ont su répondre correctement !",
 		"noWinner": "Il semblerait qu'il n'y ai aucun gagnant",
 		"winners": "Les gagnants de la partie sont ",
-		"twoWinners": "{{p1}} et {{p2}} avec un total de {{points}} points !",
-		"oneWinner": "Le gagnant de la partie est {{player}} avec un total de {{points}} points !",
-		"mutlipleWinners": "et {{player}} avec un total de {{points}} points !"
+		"twoWinners": "{{{p1}}} et {{{p2}}} avec un total de {{{points}}} points !",
+		"oneWinner": "Le gagnant de la partie est {{{player}}} avec un total de {{{points}}} points !",
+		"mutlipleWinners": "et {{{player}}} avec un total de {{{points}}} points !"
 	},
 	"embeds": {
 		"help": {
