@@ -8,10 +8,10 @@ module.exports = {
         var playersString = "";
         const playersNumber = players.size;
         if (playersNumber == 0) { // If no player answered	
-            playersString = lm.getString("nobodyAnswered", lang);
+            playersString = lm.getString("game.nobodyAnswered", lang);
             return playersString;
         } else if (playersNumber == 1) { // If only one player
-			playersString = lm.getString("onePlayerAnswer", lang, {player:tools.mention(players.keys().next().value, 'u')});
+			playersString = lm.getString("game.onePlayerAnswer", lang, {player:tools.mention(players.keys().next().value, 'u')});
 			return playersString;
 		}
 		
@@ -22,7 +22,7 @@ module.exports = {
 			} else if (i + 1 < playersNumber) { // If there is a next player
 				playersString = playersString + ", " + tools.mention(userID, 'u'); // Put comma
 			} else { // If it's the last player			
-				playersString = playersString + lm.getString("andPlayerAnswer", lang, {player:tools.mention(userID, 'u')});
+				playersString = playersString + lm.getString("game.andPlayerAnswer", lang, {player:tools.mention(userID, 'u')});
 				return playersString;
 			}
 			i++;
@@ -31,7 +31,7 @@ module.exports = {
 
 	getScoreString: function(guild, scoreTable, lang, db) {
 		if (!scoreTable) return {0: "Error", 1: "Error"};
-		if (Object.entries(scoreTable).length == 0) return { 0: lm.getString("noWinner", lang), 1: "" };
+		if (Object.entries(scoreTable).length == 0) return { 0: lm.getString("game.noWinner", lang), 1: "" };
 
 		var sorted = [];
 		for (const [userID, score] of Object.entries(scoreTable))
@@ -50,17 +50,17 @@ module.exports = {
 		}
 
 		var others = "";
-		var winner = lm.getString("winners", lang)
+		var winner = lm.getString("game.winners", lang)
 		if (winners == 1)
-			winner = lm.getString("oneWinner", lang, {player:tools.mention(sorted[len][0], 'u'), points:sorted[len][1]});
+			winner = lm.getString("game.oneWinner", lang, {player:tools.mention(sorted[len][0], 'u'), points:sorted[len][1]});
 		else if (winners == 2)
-			winner = winner + lm.getString("twoWinners", lang, {p1:tools.mention(sorted[len][0], 'u'), p2:tools.mention(sorted[len-1][0], 'u'), points:sorted[len][1]});
+			winner = winner + lm.getString("game.twoWinners", lang, {p1:tools.mention(sorted[len][0], 'u'), p2:tools.mention(sorted[len-1][0], 'u'), points:sorted[len][1]});
 		else {
 			for (let i = len; i > len - winners + 1; i--) {
 				if (i != len - winners + 2) winner = winner + tools.mention(sorted[i][0], 'u') + ", ";
 				else winner = winner + tools.mention(sorted[i][0], 'u');
 			}		
-			winner = winner + lm.getString("mutlipleWinners", lang, {player:tools.mention(sorted[len-winners+1][0], 'u'), points:sorted[len][1]});
+			winner = winner + lm.getString("game.mutlipleWinners", lang, {player:tools.mention(sorted[len-winners+1][0], 'u'), points:sorted[len][1]});
 		}
 		var user = winners + 1;
 		for (let i = len - winners; i >= 0; i--) {

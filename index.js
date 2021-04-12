@@ -11,9 +11,10 @@ var logMessages = false;
 const Discord = require('discord.js');
 const DatabaseManager = require('database-manager.js');
 const ApiManager = require('api-manager.js');
-const GameManager = require('games-manager.js');
+const GameManager = require('game-manager.js');
+const LanguageManager = require('language-manager.js');
 global.config = require('config.json');
-global.lm = require('languages-manager.js');
+global.lm = new LanguageManager();
 global.client = new Discord.Client();
 
 const db = new DatabaseManager();
@@ -36,7 +37,7 @@ function getChannelsString(channels, lang) {
 		channelsString = channelsString + "\n" + tools.mention(channels[i].channelID, 'c');
 	}
 	// If the string is empty, mean there was no channel
-	if (channelsString == "") channelsString = lm.getString("noChannel", lang);
+	if (channelsString == "") channelsString = lm.getString("settings.noChannel", lang);
 	return channelsString;
 }
 
@@ -66,7 +67,7 @@ async function isAllowed(message, lang) {
 	if (channelAllowed(message.guild.id, message.channel.id)) return true;
 
 	// If we went there is that the user is not allowed since previous for loop should return
-	tools.sendCatch(message.channel, lm.getEb(lang).getNotAllowedEmbed(getChannelsString(channels, lang)));
+	tools.sendCatch(message.channel, lm.getNotAllowedEmbed(lang, getChannelsString(channels, lang)));
 	return false;
 }
 
@@ -125,7 +126,6 @@ client.on("guildDelete", guild => {
 });
 
 client.on('message', async function (message) {
-
 	if (logMessages) logger.debug("Message received");
 
 	// Check if the message is not a PM
@@ -156,23 +156,19 @@ client.on('message', async function (message) {
 
 
     if (messageContent.startsWith(`${prefix}h`)) { // help
-		const helpEmbed = lm.getEb(lang).getHelpEmbed(prefix); // Get commands and rules embeds
-		await tools.sendCatch(channel, helpEmbed[0]);
-		await tools.sendCatch(channel, helpEmbed[1]);
+		tools.sendCatch(channel, lm.getHelpEmbed(lang, prefix));
     }
 
     else if (messageContent.startsWith(`${prefix}dif`)) { // dif
-		tools.sendCatch(channel, lm.getEb(lang).getDifEmbed());
+		tools.sendCatch(channel, lm.getDifEmbed(lang));
     }
 
 	else if (messageContent.startsWith(`${prefix}info`)) { // info
 		var guilds = client.guilds.cache;
 		var users = 0;
-		guilds.forEach(g => {
-		  users += g.memberCount;
-		})
+		guilds.forEach(g => { users += g.memberCount; });
 		var uptime = process.uptime();
-		tools.sendCatch(channel, lm.getEb(lang).getInfoEmbed(users, guilds.size, tools.format(uptime)));
+		tools.sendCatch(channel, lm.getInfoEmbed(lang, users, guilds.size, tools.format(uptime)));
 		return;
     }
 
@@ -181,32 +177,29 @@ client.on('message', async function (message) {
 			let game = gameManager.startClassicGame(db, guild, channel, message.author.id, lang, args);
 		}
 		else
-			tools.sendCatch(channel, lm.getEb(lang).getAlreadyRunningEmbed(channel.id));
+			tools.sendCatch(channel, lm.getAlreadyRunningEmbed(lang, channel.id));
     }
 
     else if (messageContent.startsWith(`${prefix}stop`)) { // stop
-		gameManager.stopGame(channel, message.guild.member(message.author), lm.getString("stoppedBy", lang, {player:lm.getEb(lang).mention(message.author.id, 'u')}), lang);
+		gameManager.stopGame(channel, message.guild.member(message.author), lm.getString("game.stoppedBy", lang, {player: tools.mention(message.author.id, 'u')}), lang);
     }
 
     else if (messageContent.startsWith(`${prefix}stats`)) { // stats
 		let userStats = await db.getUserStats(guild.id, message.author.id);
-		tools.sendCatch(channel, lm.getEb(lang).getUserStatsEmbed(userStats));
+		tools.sendCatch(channel, lm.getUserStatsEmbed(lang, userStats));
     }
 
     else if (messageContent.startsWith(`${prefix}top`)) { // top
 		let usersEb = [];
 		let guildUsers = await db.getTop(guild.id);
 		let totalUsers = guildUsers.length;
-
 		if (!guildUsers) { logger.error("Error while getting top for guild " + guildID); return; }
-
 		for (let i = 0; i < totalUsers; i++) {
 			let user = guildUsers[i];
 			usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
 			if (i >= 10) break;
 		}
-		if (totalUsers == 0) usersString = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(totalUsers, usersEb));
+		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb));
     }
 
     else if (messageContent.startsWith(`${prefix}globaltop`)) { // top
@@ -241,7 +234,7 @@ client.on('message', async function (message) {
 			}
 		}
 		if (totalUsers == 0) usersEb = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getEb(lang).getTopEmbed(totalUsers, usersEb));
+		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb));
     }
 
 
@@ -258,28 +251,28 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
 		let result = await db.addGuildChannel(guild.id, channel.id);
-		if (result) tools.sendCatch(channel, lm.getString("alreadyAuthorized", lang));
-		else tools.sendCatch(channel, lm.getString("channelAdded", lang));
+		if (result) tools.sendCatch(channel, lm.getString("settings.alreadyAuthorized", lang));
+		else tools.sendCatch(channel, lm.getString("settings.channelAdded", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}remove`)) { // remove [ADMIN]
 		let result = await db.removeGuildChannel(channel.id);
-		if (result) tools.sendCatch(channel, lm.getString("channelDeleted", lang));
-		else tools.sendCatch(channel, lm.getString("channelNotInList", lang));
+		if (result) tools.sendCatch(channel, lm.getString("settings.channelDeleted", lang));
+		else tools.sendCatch(channel, lm.getString("settings.channelNotInList", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}prefix`)) { // remove [ADMIN]
 		// If not empty, less than 4 characters and ASCII only
 		if ((args[1] || "").length < 4 && args[1] && /^[\x00-\x7F]*$/.test(args[1])) {
 			db.setSetting(guild.id, "prefix", args[1]);
-			tools.sendCatch(channel, lm.getString("prefixSet", lang, {delay:args[1]}));
+			tools.sendCatch(channel, lm.getString("settings.prefixSet", lang, {delay:args[1]}));
 		} else {
-			tools.sendCatch(channel, lm.getString("prefixError", lang));
+			tools.sendCatch(channel, lm.getString("settings.prefixError", lang));
 		}
     }
     else if (messageContent.startsWith(`${prefix}reset`)) { // remove [ADMIN]
 		await db.resetGuildSettings(guild.id);
-		await tools.sendCatch(channel, lm.getString("resetted", lang));
+		await tools.sendCatch(channel, lm.getString("settings.resetted", lang));
     }
 
     else if (messageContent.startsWith(`${prefix}channels`)) { // remove [ADMIN]
@@ -290,36 +283,36 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}delayq`)) { // delayquestion [ADMIN]
 		if (args[1] <= 1800000 && args[1] >= 2500 && tools.isInt(args[1])) {
 			db.setSetting(guild.id, "questionDelay", Number(args[1]));
-			tools.sendCatch(channel, lm.getString("questionDelaySet", lang, {delay:args[1]}));
+			tools.sendCatch(channel, lm.getString("settings.questionDelaySet", lang, {delay:args[1]}));
 		} else {
-			tools.sendCatch(channel, lm.getString("questionDelayError", lang));
+			tools.sendCatch(channel, lm.getString("settings.questionDelayError", lang));
 		}
     }
 
     else if (messageContent.startsWith(`${prefix}delaya`)) { // delayanswer [ADMIN]
 		if (args[1] <= 50000 && args[1] >= 500 && tools.isInt(args[1])) {
 			db.setSetting(guild.id, "answerDelay", Number(args[1]));
-			tools.sendCatch(channel, lm.getString("answerDelaySet", lang, {delay:args[1]}));
+			tools.sendCatch(channel, lm.getString("settings.answerDelaySet", lang, {delay:args[1]}));
 		} else {
-			tools.sendCatch(channel, lm.getString("answerDelayError", lang));
+			tools.sendCatch(channel, lm.getString("settings.answerDelayError", lang));
 		}
     }
 
     else if (messageContent.startsWith(`${prefix}defd`)) { // defaultdifficulty [ADMIN]
 		if (args[1] <= 3 && args[1] >= 0 && tools.isInt(args[1])) {
 			db.setSetting(guild.id, "defaultDifficulty", Number(args[1]));
-			tools.sendCatch(channel, lm.getString("difficultySet", lang, {difficulty:args[1]}));
+			tools.sendCatch(channel, lm.getString("settings.difficultySet", lang, {difficulty:args[1]}));
 		} else {
-			tools.sendCatch(channel, lm.getString("difficultyError", lang));
+			tools.sendCatch(channel, lm.getString("settings.difficultyError", lang));
 		}
     }
 
     else if (messageContent.startsWith(`${prefix}defq`)) { // defaultquestions [ADMIN]
 		if (args[1] <= 100 && args[1] >= 1 && tools.isInt(args[1])) {
 			db.setSetting(guild.id, "defaultQuestionsAmount", Number(args[1]));
-			tools.sendCatch(channel, lm.getString("questionsAmountSet", lang, {amount:args[1]}));
+			tools.sendCatch(channel, lm.getString("settings.questionsAmountSet", lang, {amount:args[1]}));
 		} else {
-			tools.sendCatch(channel, lm.getString("questionsAmountError", lang));
+			tools.sendCatch(channel, lm.getString("settings.questionsAmountError", lang));
 		}
     }
 
@@ -328,14 +321,14 @@ client.on('message', async function (message) {
 		const commandLang = (args[1] || "").substring(0, 2);
 		if (langs.includes(commandLang)) {
 			db.setSetting(guild.id, "lang", commandLang);
-			tools.sendCatch(channel, lm.getString("langSet", lang, {lang:commandLang}));
+			tools.sendCatch(channel, lm.getString("settings.langSet", lang, {lang:commandLang}));
 		} else {
-			tools.sendCatch(channel, lm.getString("langError", lang, {lang:commandLang, langs:langs}));
+			tools.sendCatch(channel, lm.getString("settings.langError", lang, {lang:commandLang, langs:langs}));
 		}
     }
 
     else if (messageContent.startsWith(`${prefix}admin`)) { // admin [ADMIN]
-		tools.sendCatch(channel, lm.getEb(lang).getAdminHelpEmbed(prefix));
+		tools.sendCatch(channel, lm.getAdminHelpEmbed(lang, prefix));
     }
 
 
@@ -399,7 +392,7 @@ client.on('message', async function (message) {
 // ------- START ------- //
 async function start() {
 	await db.init();
-	await lm.reloadLanguages(); // Load languages
+	await lm.init(); // Load languages
 	logger.info("Connecting to Discord...");
 	await client.login(config.token);
 }
