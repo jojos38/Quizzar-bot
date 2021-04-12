@@ -18,67 +18,68 @@ module.exports = {
 
     // ------------- COMMANDS ------------- //
     getHelpEmbed: function (prefix) {
-        const embed1 = new Discord.MessageEmbed({
+	prefix = prefix || "!j";
+	const embed1 = new Discord.MessageEmbed({
             color: orange,
             author: {
-                name: "Here is a list of all commands:",
+                name: "Voici la liste des commandes disponibles :",
                 icon_url: logoURL
             },
             fields: [
-                {
-                    name: prefix + "globaltop [user]",
-                    value: "**new** - Show the global top or the position of a user (have to be tagged)"
-                },
 		{
-                    name: prefix + "lang [language]",
-                    value: " - Change the language of the bot (languages available: french / english)"
+		    name: prefix + "globaltop [utilisateur]",
+		    value: "**nouveau** - Affiche le top global ou la position d'un utilisateur dans ce dernier (l'utilisateur doit être mentionné)"
+		},
+		{
+                    name: prefix + "lang [langue]",
+                    value: " - Change la langue du bot (langues disponibles: french / english)"
                 },
                 {
-                    name: prefix + "play [difficulty] [questions amount] or " + prefix + "start",
-                    value: " - Start a game\n**Note :** If the questions number is 0 then the game is (almost) infinite"
+                    name: prefix + "play [difficulté] [nombre de questions] ou " + prefix + "start",
+                    value: " - Démarre une partie\n**Note :** Si le nombre de questions spécifié est 0 alors la partie sera (quasi-)infinie"
                 },
                 {
                     name: prefix + "stop",
-                    value: " - Stop the current game\n**Note :** The 'manage messages' permission allows you to stop any game"
+                    value: " - Arrête la partie en cours\n**Note :** La permission 'gérer les messages' permet d'arrêter n'importe quelle partie"
                 },
                 {
                     name: prefix + "diff",
-                    value: " - Show all difficulties"
+                    value: " - Affiche la liste des difficultés disponibles"
                 },
                 {
-                    name: prefix + "help or " + prefix + "h",
-                    value: " - Show help"
+                    name: prefix + "help ou " + prefix + "h",
+                    value: " - Affiche l\'aide"
                 },
                 {
                     name: prefix + "info",
-                    value: " - Show informations about the bot"
+                    value: " - Affiche les crédits"
                 },
                 {
                     name: prefix + "stats",
-                    value: " - Show your stats"
+                    value: " - Affiche vos statistiques"
                 },
                 {
                     name: prefix + "top",
-                    value: " - Show top 10 best players"
+                    value: " - Affiche le top 10 de meilleurs joueurs"
                 },
                 {
                     name: prefix + "admin",
-                    value: " - Show admin commands\n**Note :** Require 'manage server' permission"
+                    value: " - Affiche la liste des commandes administrateur\n**Note :** Nécessite la permission de gérer le serveur"
                 },
-		{
-		    name: "Check out my other bot Observation!",
-		    value: "https://top.gg/bot/772446137499385866"
-		}
+                {
+                    name: "Découvrez mon autre bot, Observation!",
+                    value: "https://top.gg/bot/772446137499385866"
+                }
             ]
         });
 
         const embed2 = new Discord.MessageEmbed({
             author: {
-                name: "And the rules:",
+                name: "Et voici les règles :",
                 icon_url: logoURL
             },
             color: orange,
-            description: "- You can choose only one answer, the right answer will be shown at the end of the time\n- To answer, click on the corresponding reaction of the answer\n- Easy question gives **1** point\n- Medium question gives **2** points\n- Hard question gives **3** points\n- Won game gives **1** point of victory\n **Note:** To get a victory point there need to be at least two players in the game"
+            description: "- Vous ne pouvez choisir qu'une seule réponse, la bonne réponse sera donnée à la fin du temps impartit\n- Pour répondre à une question cliquez sur la réaction associée à la réponse\n- Une question facile donne **1** points\n- Une question intermédiaire donne **2** points\n- Une question difficile donne **3** points\n- Une partie gagnée donne **1** point de victoire\n **Note:** Pour qu'un point de victoire soit compté il faut que vous gagniez une partie avec au minimum deux participants"
         });
         const embedTable = { 0: embed1, 1: embed2 };
         return embedTable;
@@ -88,20 +89,20 @@ module.exports = {
     getInfoEmbed: function (users, servers, uptime) {
         const embed = new Discord.MessageEmbed({
 			author: {
-				name: "Crédits:",
+				name: "Crédits :",
 				icon_url: logoURL
 			},
             color: orange,
-            title: "Bot made by jojos38",
-			description: "Link of the bot: https://top.gg/bot/586183772136013824\nThanks to https://opentdb.com/ for the questions.\nSupport server: https://discord.gg/DXpb9DN\nDonate: https://paypal.me/wanzera \nMy other bot: https://top.gg/bot/772446137499385866",
+            title: "Bot crée par jojos38",
+			description: "Lien du bot : https://top.gg/bot/586183772136013824\nMerci à http://www.openquizzdb.org/ pour les questions.\nServeur de support: https://discord.gg/DXpb9DN\nDonate: https://paypal.me/wanzera\nMon autre bot: https://top.gg/bot/772446137499385866",
 			fields: [
 			  {
-				name: "Servers",
+				name: "Serveurs",
 				value: servers,
 				inline: true
 			  },
 			  {
-				name: "Users",
+				name: "Utilisateurs",
 				value: users,
 				inline: true
 			  },
@@ -119,59 +120,60 @@ module.exports = {
     getDifEmbed: function () {
         const embed = new Discord.MessageEmbed({
             color: orange,
-            description: "0 : All difficulties\n1 : Easy\n2 : Medium\n3 : Hard",
+            description: "0 : Toutes les difficultés mélangées\n1 : Facile\n2 : Confirmé\n3 : Expert",
             author: {
-                name: "List of available difficulties:",
+                name: "Liste des difficultés disponibles :",
                 icon_url: logoURL
             }
         });
         return embed;
     },
     getAdminHelpEmbed: function (prefix) {
+	prefix = prefix || "!j";
         const embed = new Discord.MessageEmbed({
-            description: "An authorized channel is a channel where bot commands are allowed.",
+            description: "Un 'channel autorisé' est un channel ou les commandes du bot sont autorisées",
             color: orange,
             author: {
-                name: "Here is a list of admin commands:",
+                name: "Voici la liste des commandes administrateur :",
                 icon_url: logoURL
             },
             fields: [
 				{
 					name: prefix + "prefix",
-					value: "Change the bot prefix"
+					value: "Changer le préfix du bot"
 				},
                 {
                     name: prefix + "add",
-                    value: "Add the current channel in the authorized channels"
+                    value: "Ajoute le channel où est lancé la commande dans la liste des channel autorisés\n**Note** : Si aucun channel n'est spécifié, tous les channels seront autorisés"
                 },
                 {
                     name: prefix + "remove",
-                    value: "Remove the current channel from the authorized channels"
+                    value: "Retire le channel où est lancé la commande de la liste des channels autorisés"
                 },
                 {
                     name: prefix + "reset",
-                    value: "Delete all bot data from the server (Authorized channels etc...)\n**Warning :** This command also delete all players stats!"
+                    value: "Supprime toutes les données de configuration du serveur (la liste des channels autorisés etc...)\n**Attention :** Cette commande supprime également toutes les statistiques des utilisateurs !"
                 },
                 {
                     name: prefix + "channels",
-                    value: "Show all authorized channels"
+                    value: "Affiche la liste des channels autorisés"
                 },
                 {
                     name: prefix + "delayquestion",
-                    value: "Define the delay to answer a question **(in millisecondes) (between 2500 and 1800000)**"
+                    value: "Défini le délai pour répondre à une question **(en millisecondes) (entre 2500 et 1800000)**"
                 },
                 {
                     name: prefix + "delayanswer",
-                    value: "Define the answer display time before continuing **(in millisecondes) (between 500 and 50000)**"
+                    value: "Défini le délai d'affichage de la réponse avant de continuer **(en millisecondes) (entre 500 et 50000)**"
                 },
                 {
                     name: prefix + "defdifficulty",
-                    value: "Define default difficulty when it's not specified (between 0 and 3)"
+                    value: "Défini la difficulté par défaut lorsque qu'aucun paramètre n'est choisi (entre 0 et 3)"
                 },
                 {
                     name: prefix + "defquestions",
-                    value: "Define default number of questions when it's not specified (between 1 and 100)"
-                }
+                    value: "Défini le nombre de questions par défaut lorsque qu'aucun paramètre n'est choisi (entre 1 et 2147483647)"
+		}
             ]
         });
         return embed;
@@ -185,11 +187,11 @@ module.exports = {
             color: orange,
 			fields: [
 			  {
-				name: "Global stats",
+				name: "Stats globales",
 				value: "Score: " + (stats.global.score || 0) + "\n" + "Won : " + (stats.global.won || 0)
 			  },
 			  {
-				name: "Guild stats",
+				name: "Stats du serveur",
 				value: "Score: " + (stats.guild.score || 0) + "\n" + "Won : " + (stats.guild.won || 0)
 			  }
 			]
@@ -209,7 +211,7 @@ module.exports = {
 		}
 		const embed = new Discord.MessageEmbed({
             author: {
-                name: "Top (" + totalUsers + " users) :",
+                name: "Top (" + totalUsers + " utilisateurs) :",
                 icon_url: logoURL
             },
 			fields: [
@@ -219,12 +221,12 @@ module.exports = {
 					inline: true
 				},
 				{
-					name: "User",
+					name: "Utilisateur",
 					value: descUsers,
 					inline: true
 				},
 				{
-					name: "Won / Score",
+					name: "Gagnées / Score",
 					value: descScore,
 					inline: true
 				}
@@ -236,11 +238,11 @@ module.exports = {
     getNoStatsEmbed: function () {
         const embed = new Discord.MessageEmbed({
             author: {
-                name: "Stats :",
+                name: "Statistiques :",
                 icon_url: logoURL
             },
             color: orange,
-            description: "No stats found, you must get at least 1 point to have stats"
+            description: "Aucune statistiques trouvées, vous devez gagner au minimum 1 point pour posséder des statistiques"
         });
         return embed;
     },
@@ -249,7 +251,7 @@ module.exports = {
     // ------------- COMMANDS ERRORS ------------- //
     getBadDifEmbed: function () {
         const embed = new Discord.MessageEmbed({
-            title: "Difficulty must be between 0 and 3",
+            title: "La difficultée doit être comprise entre 0 et 3",
             color: red,
         });
         return embed;
@@ -257,18 +259,18 @@ module.exports = {
     getNotAllowedEmbed: function (channelsString) {
         const embed = new Discord.MessageEmbed({
             author: {
-                name: "Oops",
+                name: "Mince",
                 icon_url: logoURL
             },
             color: red,
-            title: "You are not allowed to use Quizzar commands here",
-            description: "If you are admin, use !jadd to add this channel.\nTake a look here: " + channelsString
+            title: "Vous ne pouvez pas effectuer de commandes quizz dans ce channel.",
+            description: "Si vous êtes administrateur utilisez !jadd pour ajouter ce channel.\nJetez un coup d'oeil ici : " + channelsString
         });
         return embed;
     },
     getAlreadyRunningEmbed: function (channelID) {
         const embed = new Discord.MessageEmbed({
-            title: "A game is already running",
+            title: "Une autre partie est déjà en cours",
             description: this.mention(channelID, 'c'),
             color: red
         });
@@ -276,30 +278,30 @@ module.exports = {
     },
     getBadQuesEmbed: function () {
         const embed = new Discord.MessageEmbed({
-            title: "Questions amount must be between 0 and 100",
+            title: "Le nombre de questions doit se situer entre 1 et 100",
             color: red,
         });
         return embed;
     },
     getWrongPlayerStopEmbed: function () {
         const embed = new Discord.MessageEmbed({
-            title: "Only the player who started the game can stop it",
+            title: "Seul le joueur qui a démarré la partie peut l'arrêter",
             color: red
         });
         return embed;
     },
     getWrongChannelEmbed: function (channel) {
         const embed = new Discord.MessageEmbed({
-            title: "No games are running in this channel",
-            description: "Take a look here:" + channel,
+            title: "Aucune partie n'est en cours dans ce channel",
+            description: "Allez jeter un coup d'oeil ici : " + channel,
             color: red
         });
         return embed;
     },
     getNoGameRunningEmbed: function () {
         const embed = new Discord.MessageEmbed({
-            title: "No game running",
-            description: "Use !jplay to start a game",
+            title: "Aucune partie n'est en cours",
+            description: "Utilisez !jplay pour démarrer une partie",
             color: red
         });
         return embed;
@@ -309,8 +311,8 @@ module.exports = {
     // -------------------------------- GAME -------------------------------- //
     getStartEmbed: function (difficulty, questionsAmount) {
         const embed = new Discord.MessageEmbed({
-            title: "Game starting",
-            description: "Difficulty : " + difficulty + "\nQuestions amount : " + questionsAmount,
+            title: "Démarrage de la partie",
+            description: "Difficultée : " + difficulty + "\nNombre de questions : " + questionsAmount,
             color: orange,
         });
         return embed;
@@ -318,45 +320,43 @@ module.exports = {
     getQuestionEmbed: function (qData, qNumber, qTotal, timeleft, embedColor) {
         // 0:thème --- 1:difficulté --- 2:question --- 3:propositions --- 4:réponse --- 5:anecdote --- 6:points --- 7:num.ques --- 8:tot.ques
         const proposals = qData.proposals;
-		const difficultyTable = { 1: "easy", 2: "medium", 3: "hard" };
+		const difficultyTable = { 1: "facile", 2: "moyen", 3: "difficile" };
         const embed = new Discord.MessageEmbed({
             author: {
                 name: "Question " + qNumber + " / " + qTotal + " :",
                 icon_url: logoURL
             },
             footer: {
-                text: "Remaining time :⠀" + timeleft + "s",
+                text: "Temps restant :⠀" + timeleft + "s",
             },
-            description: "Theme : " + qData.theme + " (" + difficultyTable[qData.difficulty] + ")```yaml\n" + qData.question + "```",
+            description: "Thème : " + qData.theme + " (" + difficultyTable[qData.difficulty] + ")```yaml\n" + qData.question + "```",
             color: embedColor,
             fields: [
                 {
                     name: "\u200B",
-                    value: "Answer A :```- " + proposals[0] + "``` Answer C :```- " + proposals[2] + "```",
+                    value: "Réponse A :```- " + proposals[0] + "``` Réponse C :```- " + proposals[2] + "```",
                     inline: true
                 },
                 {
                     name: "\u200B",
-                    value: "Answer B :```- " + proposals[1] + "``` Answer D :```- " + proposals[3] + "```",
+                    value: "Réponse B :```- " + proposals[1] + "``` Réponse D :```- " + proposals[3] + "```",
                     inline: true
                 }
             ]
         });
         return embed;
     },
-    getAnswerEmbed: function (answerLetter, answer, anecdote, playersString, color) {
-		if (anecdote) description = "```" + anecdote + "```\n" + playersString;
-		else description = playersString;
+    getAnswerEmbed: function (answerLetter, answer, anectode, playersString, color) {
         const embed = new Discord.MessageEmbed({
             color: color,
-            title: "The good answer was " + answerLetter + ": " + answer,
-            description: description,
+            title: "La bonne réponse était la réponse " + answerLetter + " : " + answer,
+            description: "```" + anectode + "```\n" + playersString,
         });
         return embed;
     },
     getStopEmbed: function (reason) {
         const embed = new Discord.MessageEmbed({
-            title: "Game will stop",
+            title: "La partie va s'arrêter",
             description: reason,
             color: orange,
         });
@@ -364,17 +364,17 @@ module.exports = {
     },
     getGameStoppedEmbed: function () {
         const embed = new Discord.MessageEmbed({
-            title: "Game ended !",
-            description: "The current game was stopped manually",
+            title: "Partie terminée !",
+            description: "La partie en cours a été arrêtée manuellement",
             color: orange
         });
         return embed;
     },
     getGameEndedEmbed: function (players) {
         const embed = new Discord.MessageEmbed({
-            title: "Winners :",
+            title: "Gagnants :",
             color: orange,
-            description: players[0] + "\n" + players[1] + "\nLike the bot? Help me at https://paypal.me/wanzera\nMy other bot https://top.gg/bot/772446137499385866"
+            description: players[0] + "\n" + players[1] + "\nVous aimez Quizzar ? Soutenez moi sur https://paypal.me/wanzera\nMon autre bot https://top.gg/bot/772446137499385866"
         });
         return embed;
     },

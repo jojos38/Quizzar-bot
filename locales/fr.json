@@ -1,5 +1,5 @@
 {
-    "langSet":"Langage défini sur {{lang}}",
+	"langSet": "Langage défini sur {{lang}}",
 	"langError": "Le langage {{lang}} n'existe pas.\nListe des langages existants: {{langs}}",
 	"noPermission": "Il semblerait que tu n'aies pas la permission de faire cela.",
 	"noChannel": "Aucun channel n'a été ajouté.",
@@ -42,5 +42,14 @@
 	"prefixSet": "Prefix défini avec succés",
 	"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement.",
 	"gameRestored": "Il semblerait que le bot ai redémarré durant votre partie ! Cette dernière a été réstaurée.",
-	"missingPerm": "Il me manque la permission de gérer les messages ! Je ne pourrais pas supprimer les réactions."
+	"missingPerm": "Il me manque la permission de gérer les messages ! Je ne pourrais pas supprimer les réactions.",
+	"game": {
+		"stoppedBy": "Game stopped by {{player}}",
+		"nobodyAnswered": "Nobody answered correctly !",
+		"noWinner": "It seems nobody won"
+	},
+	"settings": {
+		"channelAdded": "Channel added successfully.",
+		"langSet": "Language set to {{lang}}"
+	}
 }

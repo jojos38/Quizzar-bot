@@ -122,7 +122,7 @@ class ClassicGame extends Game {
 		const goodAnswerUsers = new Map();
 		logger.info("Answer: " + qData.proposals[qData.answer]);
 
-		const qMessage = await tools.sendCatch(this._channel, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, this.#qDelay / 1000, Game._colors[qData.difficulty]));
+		const qMessage = await tools.sendCatch(this._channel, lm.getQuestionEmbed(this._lang, qData, this.#qNumber, this.#qTotal, this.#qDelay / 1000, Game._colors[qData.difficulty]));
 		if (!qMessage) throw new Error("Can't send question message");
 
 		const filter = (reaction, user) => { return reactionsTable.includes(reaction.emoji.name); };
@@ -147,15 +147,15 @@ class ClassicGame extends Game {
 		const doubleCheck = await this.#getGoodAnswerPlayers(qMessage, goodAnswerReaction);
 		doubleCheck.forEach((value, key) => goodAnswerUsers.set(key, value));
 
-		await tools.editCatch(qMessage, lm.getEb(this._lang).getQuestionEmbed(qData, this.#qNumber, this.#qTotal, 0, Game._colors[0]));
+		await tools.editCatch(qMessage, lm.getQuestionEmbed(this._lang, qData, this.#qNumber, this.#qTotal, 0, Game._colors[0]));
 		const playersString = messages.getPlayersString(goodAnswerUsers, this._lang);
-		const aMessage = await tools.sendCatch(qMessage.channel, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 16750869));
+		const aMessage = await tools.sendCatch(qMessage.channel, lm.getAnswerEmbed(this._lang, goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, 16750869));
 		for (const [userID, username] of goodAnswerUsers.entries()) { // For each player that answered correctly
 			this.#db.updateUserStats(this._guild.id, userID, username, qData.difficulty, 0); // Set user points number
 			this.#scores[userID] = (this.#scores[userID] || 0) + qData.difficulty;
 		}
 		await this._delayChecking(this.#aDelay); // Wait for aDelay so people have time to answer
-		await tools.editCatch(aMessage, lm.getEb(this._lang).getAnswerEmbed(goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, Game._colors[0]));
+		await tools.editCatch(aMessage, lm.getAnswerEmbed(this._lang, goodAnswerReaction, goodAnswerText, qData.anecdote, playersString, Game._colors[0]));
 	}
 
 	async #startGame() {
@@ -165,7 +165,7 @@ class ClassicGame extends Game {
 		logger.info("Server: " + this._guild.name + " (" + this._guild.memberCount + " users)" + " (" + this._guild.id + ")");
 		logger.info("Questions amount: " + this.#qTotal);
 		logger.info("Language: " + this._lang);
-		await tools.sendCatch(this._channel, lm.getEb(this._lang).getStartEmbed(this.#difficulty, this.#qTotal));
+		await tools.sendCatch(this._channel, lm.getStartEmbed(this._lang, this.#difficulty, this.#qTotal));
 		if (!this._guild.me.hasPermission("MANAGE_MESSAGES") && !this._guild.me.permissionsIn(this._channel).has("MANAGE_MESSAGES"))
 			await tools.sendCatch(this._channel, lm.getString("missingPerm", this._lang));
 
@@ -174,7 +174,7 @@ class ClassicGame extends Game {
 		for (this.#qNumber; this.#qNumber <= this.#qTotal; this.#qNumber++) {
 			logger.info("------------ NEW QUESTION ------------ (" + this.#qNumber + "/" + this.#qTotal + ")");
 			if (this._running == false) {
-				tools.sendCatch(this._channel, lm.getEb(this._lang).getGameStoppedEmbed());
+				tools.sendCatch(this._channel, lm.getGameStoppedEmbed(this._lang));
 				break;
 			}
 
@@ -184,20 +184,20 @@ class ClassicGame extends Game {
 			this.#aDelay = settings.answerDelay;
 			this._lang = settings.lang;
 
-			try {
+			//try {
 				// It asks one question and gives the answser + points calculation
 				await this.#newQuestionAnswer();
 				this.#saveGameState();
-			} catch (err) {
+			/*} catch (err) {
 				logger.error(err);
 				logger.error("Error: ending game...");
 				tools.sendCatch(this._channel, lm.getString("error", this._lang));
 				this._running = false;
-			}
+			}*/
 		}
 		this.#deleteGameState();
 		let winners = messages.getScoreString(this._guild, this.#scores, this._lang, this.#db);
-		tools.sendCatch(this._channel, lm.getEb(this._lang).getGameEndedEmbed(winners));
+		tools.sendCatch(this._channel, lm.getGameEndedEmbed(this._lang, winners));
 		this._terminate();
 	}
 
@@ -208,7 +208,7 @@ class ClassicGame extends Game {
 
 		// If / Not below 0 / Not above 3 / Is an int / Is not null
 		if (difficulty < 0 || difficulty > 3 || !tools.isInt(difficulty) && difficulty != null) {
-			tools.sendCatch(this._channel, lm.getEb(this._lang).getBadDifEmbed());
+			tools.sendCatch(this._channel, lm.getBadDifEmbed(this._lang));
 			this._terminate();
             return;
 		}
@@ -217,7 +217,7 @@ class ClassicGame extends Game {
 
 		// If / Not below 1 / Not above 100 / Is an int and is not null / Is not equal to 0
 		if (((questionsAmount < 1 || questionsAmount > 100 || !tools.isInt(questionsAmount)) && questionsAmount)) {
-			tools.sendCatch(this._channel, lm.getEb(this._lang).getBadQuesEmbed());
+			tools.sendCatch(this._channel, lm.getBadQuesEmbed(this._lang));
             this._terminate();
             return;
 		}

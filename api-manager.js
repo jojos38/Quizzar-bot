@@ -72,7 +72,7 @@ class ApiManager {
 	/**
 	 * Gets the bot's data and send it to the api
 	 */
-	#queryAndSend() {
+	queryAndSend() {
 		const guilds = this.#client.guilds.cache;
 		let userCount = 0;
 		let guildCount = 0;
@@ -130,7 +130,7 @@ class ApiManager {
 			logger.success("Api Manager initialized");
 			while (this.#initialized) {
 				await delay(this.#postDelay);
-				this.#queryAndSend();
+				this.queryAndSend();
 			}
 		}
 	}

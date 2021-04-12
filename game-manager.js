@@ -54,13 +54,13 @@ class GameManager {
 			if (!game.isRunning()) { return; }
 			if (member.user.id == game.getUserID() || member.hasPermission("MANAGE_MESSAGES")) {
 				game.stop();
-				tools.sendCatch(channel, lm.getEb(lang).getStopEmbed(reason));
+				tools.sendCatch(channel, lm.getStopEmbed(lang, reason));
 				logger.info("Game aborted");
 			} else {
-				tools.sendCatch(channel, lm.getEb(lang).getWrongPlayerStopEmbed());
+				tools.sendCatch(channel, lm.getWrongPlayerStopEmbed(lang));
 			}
 		} else {
-			tools.sendCatch(channel, lm.getEb(lang).getNoGameRunningEmbed());
+			tools.sendCatch(channel, lm.getNoGameRunningEmbed(lang));
 		}
 	}
 
