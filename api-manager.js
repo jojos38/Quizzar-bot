@@ -83,7 +83,7 @@ class ApiManager {
 
 		this.#post(
 			'discordbotlist.com',
-			'/api/v1/bots/' + this.#selfID + '1/stats',
+			'/api/v1/bots/' + this.#selfID + '/stats',
 			{guilds: guildCount, users: userCount},
 			this.#tokens.discordbotlist
 		);
