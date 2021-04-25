@@ -89,7 +89,7 @@ class Database {
 			await client.close();
 			logger.success("Database closed");
 		} else logger.warn("Database not initialized");
-    }
+	}
 
 	/**
 	 * Returns a random question from the given language and difficulty
@@ -113,13 +113,13 @@ class Database {
 		await Database.#deleteMany(this.#col.usersGuild, { guildID: guildID });
 		await Database.#deleteMany(this.#col.settings, { guildID: guildID });
 		logger.info("Settings resetted successfully for guild " + guildID);
-    }
+	}
 
 	/**
 	 * Adds a guild channel inside the database (allow normal users to start games within it)
 	 * @return {boolean} If the channel was existing
 	 */
-    async addGuildChannel(guildID, channelID) {
+	async addGuildChannel(guildID, channelID) {
 		// Check if channel already exists
 		if (await Database.#exists(this.#col.channels, { channelID: channelID })) {
 			logger.info("Channel " + channelID + " already exists in guild " + guildID);
@@ -130,17 +130,17 @@ class Database {
 			logger.info("Channel " + channelID + " inserted successfully in guild " + guildID);
 			return false;
 		}
-    }
+	}
 
 	/**
 	 * Removes a guild channel from the database (disallow normal users to start games within it)
 	 * @return {boolean} If the channel was existing
 	 */
-    async removeGuildChannel(channelID) {
+	async removeGuildChannel(channelID) {
 		const query = { channelID: channelID };
 		// If channel does not exists
 		if (!await Database.#exists(this.#col.channels, query)) {
-			logger.info("Channel " + channelID + " does not exists");
+			// logger.info("Channel " + channelID + " does not exists");
 			return false;
 		}
 		// If channel exists, delete it
@@ -148,26 +148,25 @@ class Database {
 			logger.info("Channel " + channelID + " deleted successfully");
 			return true;
 		}
-    }
+	}
 
 	/**
 	 * Used by the channels command to list the channels
 	 * @return {Array} All the added channels of a given guild
 	 */
-    async getGuildChannels(guildID) {
+	async getGuildChannels(guildID) {
 		const channels = await (await Database.#findMany(this.#col.channels, { guildID: guildID }, { projection: { _id: 0, guildID: 0 } })).toArray();
 		return channels || []
-    }
+	}
 
 	/**
 	 * Increase the score and the won games from a user globally and in the guild, in the database
 	 * @param {Integer} addedScore - The total points to add to the user's score
 	 * @param {addedWon} addedWon - The total won parties to add to the user's wons
 	 */
-    async updateUserStats(guildID, userID, username, addedScore, addedWon) {
+	async updateUserStats(guildID, userID, username, addedScore, addedWon) {
         const userQuery = { userID: userID };
-		const userGuildQuery = { guildID: guildID, userID: userID };
-
+	const userGuildQuery = { guildID: guildID, userID: userID };
         const user = await Database.#findOne(this.#col.users, userQuery);
 		if (user) {
 			logger.info("Updated user " + username + " [Score: " + user.score + " => " + (user.score + addedScore) + ", " + "Won: " + user.won + " => " + (user.won + addedWon) + "]");
@@ -185,17 +184,17 @@ class Database {
 			logger.info("Added user guild score " + username + " [Score: 0 => " + addedScore + ", " + "Won: 0 => " + addedWon + "]");
 			await Database.#insertOne(this.#col.usersGuild, { guildID: guildID, userID: userID, username: username, score: addedScore, won: addedWon });
 		}
-    }
+	}
 
 	/**
 	 * Get the global score and the specific guild score of a user
 	 * @return {Object} The global score and the guild score
 	 */
-    async getUserStats(guildID, userID) {
+	async getUserStats(guildID, userID) {
 		const guildScore = await Database.#findOne(this.#col.usersGuild, { guildID: guildID, userID: userID });
 		const globalScore = await Database.#findOne(this.#col.users, { userID: userID });
 		return { global: globalScore || {}, guild: guildScore || {} };
-    }
+	}
 
 	/**
 	 * Insert a setting which is missing from a guild
@@ -217,20 +216,20 @@ class Database {
 	 * @param {settingName} A string or an array of the settings to get
 	 * @return The value of the setting
 	 */
-    async getSetting(guildID, settingName) {
+	async getSetting(guildID, settingName) {
 		const projection = { projection: { _id: 0, guildID: 0, setting: 0 } };
 		const query = { guildID: guildID, setting: settingName };
 		const setting = await Database.#findOne(this.#col.settings, query, projection);
 		if (setting != null) return setting.value;
 		else return await this.#insertMissingSetting(guildID, settingName);
-    }
+	}
 
 	/**
 	 * Get multiple settings from a guild
 	 * @param {settingName} An array of the settings to get
 	 * @return A key value object or null
 	 */
-    async getSettings(guildID, settingName) {
+	async getSettings(guildID, settingName) {
 		const projection = { projection: { _id: 0, guildID: 0 } };
 		const query = { guildID: guildID, setting: { $in: [] } };
 		for (let setting of settingName) query.setting.$in.push(setting);
@@ -242,12 +241,12 @@ class Database {
 			if (setting[tmpSetting] == null) setting[tmpSetting] = await this.#insertMissingSetting(guildID, tmpSetting);
 		}
 		return setting;
-    }
+	}
 
 	/**
 	 * Set a setting for a guild
 	 */
-    async setSetting(guildID, settingName, value) {
+	async setSetting(guildID, settingName, value) {
 		const settingToFind = { guildID: guildID, setting: settingName };
 		if (await Database.#exists(this.#col.settings, settingToFind)) {
 			const result = await Database.#updateOne(this.#col.settings, settingToFind, { $set: { value: value } });
@@ -258,16 +257,16 @@ class Database {
 			if (result) logger.info("Setting " + settingName + " successfully inserted as " + value);
 			else logger.error("Error while inserting " + settingName + " as " + value);
 		}
-    }
+	}
 
 	/**
 	 * Get the top 10 users score of a given guild
 	 * @return {Object} The total users that have a score and a string of the users scores
 	 */
-    async getTop(guildID) {
+	async getTop(guildID) {
 		const guildUsers = await (await Database.#findMany(this.#col.usersGuild, { guildID: guildID }, { sort: { score: -1, won: -1 }, projection: { _id: 0, guildID: 0 } })).toArray();
 		return guildUsers;
-    }
+	}
 
 	/**
 	 * Get every users that used the bot and their scores
@@ -276,7 +275,7 @@ class Database {
 	async getAllUsers() {
 		const users = await (await Database.#findMany(this.#col.users, null, { sort: { score: -1, won: -1 }, projection: { _id: 0 } })).toArray();
 		return users;
-    }
+	}
 }
 
 module.exports = Database;

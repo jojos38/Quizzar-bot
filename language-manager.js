@@ -73,8 +73,8 @@ class LanguageManager {
 			description: t.description,
 			fields: [
 				{ name: t.servers, value: servers, inline: true },
-				{ name: t.users, value: servers, inline: true },
-				{ name: t.uptime, value: servers, inline: true }
+				{ name: t.users, value: users, inline: true },
+				{ name: t.uptime, value: uptime, inline: true }
 			]
 		});
 	}

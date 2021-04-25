@@ -57,13 +57,13 @@ class ClassicGame extends Game {
 		const guildID = data.guildID;
 		const channelID = data.channelID;
 
-		logger.info("Restoring game for guild " + guildID);
-		const guild = await client.guilds.fetch(guildID);
-		const channel = await guild.channels.cache.get(channelID);
-
-		if (guild && channel) {
+		try {
+			logger.info("Restoring game for guild " + guildID);
+			this.#dataSavePath = "cache/" + channelID + ".json";
+			const guild = await client.guilds.fetch(guildID);
+			const channel = await guild.channels.cache.get(channelID);
+			if (!guild || !channel) throw new Error("Guild or channel not found");
 			tools.sendCatch(channel, lm.getString("gameRestored", data.lang));
-			this.#dataSavePath = "cache/" + channel.id + ".json";
 			this.#difficulty = data.difficulty;
 			this.#qNumber = data.qNumber;
 			this.#scores = data.scores;
@@ -74,14 +74,19 @@ class ClassicGame extends Game {
 			this.#startGame();
 			logger.success("Restoring game for guild " + guildID + " succeed");
 		}
-		else {
+		catch(err) {
 			logger.warn("Restoring failed");
+			logger.warn(err);
+			this.#deleteGameState(channelID);
 			this._terminate(channelID);
 		}
 	}
 
-	#deleteGameState() {
-		if (fs.existsSync(this.#dataSavePath)) fs.unlinkSync(this.#dataSavePath); // Remove the save file
+	#deleteGameState(channelID) {
+		if (fs.existsSync(this.#dataSavePath)) {
+			fs.unlinkSync(this.#dataSavePath); // Remove the save file
+			logger.info("Save file removed for game " + this._channelID || channelID);
+		}
 	}
 
 	async #getGoodAnswerPlayers(message, goodAnswer) {

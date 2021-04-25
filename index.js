@@ -400,7 +400,7 @@ async function start() {
 client.once('ready', async function () {
 	client.user.setActivity(ACTIVITY_MESSAGE);
 	apiManager.init();
-    logger.info('Bot ready');
+	logger.info('Bot ready');
 	if (!fs.existsSync("cache")){
 		fs.mkdirSync("cache");
 	} else {
