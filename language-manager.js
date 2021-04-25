@@ -68,7 +68,7 @@ class LanguageManager {
 		const t = this.getString("embeds.info", lang);
 		return new Discord.MessageEmbed({
 			color: orange,
-			author: { name: t.title, icon_url: logoURL },
+			author: { name: t.author, icon_url: logoURL },
 			title: t.title,
 			description: t.description,
 			fields: [
