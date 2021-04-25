@@ -54,7 +54,7 @@ class LanguageManager {
 	}
 
     getHelpEmbed(lang, prefix) {
-		const t = this.getString("embeds.help", lang);
+		const t = JSON.parse(JSON.stringify(this.getString("embeds.help", lang)));
 		for (let i = 0; i < t.fields.length - 1; i++)
 			t.fields[i].name = prefix + t.fields[i].name;
         return new Discord.MessageEmbed({
@@ -63,7 +63,7 @@ class LanguageManager {
             fields: t.fields
         });
     }
-	
+
     getInfoEmbed(lang, users, servers, uptime) {
 		const t = this.getString("embeds.info", lang);
         return new Discord.MessageEmbed({
@@ -78,7 +78,7 @@ class LanguageManager {
 			]
         });
     }
-	
+
 	getDifEmbed(lang) {
 		const t = this.getString("embeds.difficulties", lang);
         return new Discord.MessageEmbed({
@@ -87,9 +87,9 @@ class LanguageManager {
             author: { name: t.name, icon_url: logoURL }
         });
     }
-	
+
 	getAdminHelpEmbed(lang, prefix) {
-		const t = this.getString("embeds.admin", lang);
+		const t = JSON.parse(JSON.stringify(this.getString("embeds.admin", lang)));
 		for (let i = 0; i < t.fields.length; i++)
 			t.fields[i].name = prefix + t.fields[i].name;
 		return new Discord.MessageEmbed({
@@ -99,7 +99,7 @@ class LanguageManager {
             fields: t.fields
         });
     }
-	
+
 	getUserStatsEmbed(lang, stats) {
 		const t = this.getString("embeds.stats", lang);
         return new Discord.MessageEmbed({
@@ -117,7 +117,7 @@ class LanguageManager {
 			]
         });
     }
-	
+
 	getNoStatsEmbed(lang) {
 		return new Discord.MessageEmbed({
 			color: orange,
@@ -127,7 +127,7 @@ class LanguageManager {
 			}
 		});
 	}
-	
+
 	getTopEmbed(lang, totalUsers, users) {
 		if (totalUsers == 0) return this.getNoStatsEmbed(lang);
 		const t = this.getString("embeds.top", lang);
@@ -154,7 +154,7 @@ class LanguageManager {
             color: orange
         });
     }
-	
+
 	getBadDifEmbed(lang) {
 		const t = this.getString("embeds.badDif", lang);
         return new Discord.MessageEmbed({
@@ -162,7 +162,7 @@ class LanguageManager {
             color: red
         });
     }
-	
+
 	getNotAllowedEmbed(lang, channelsString) {
 		const t = this.getString("embeds.notAllowed", lang);
         return new Discord.MessageEmbed({
@@ -172,16 +172,16 @@ class LanguageManager {
             description: t.description + channelsString
         });
     }
-	
+
 	getAlreadyRunningEmbed(lang, channelID) {
 		const t = this.getString("embeds.alreadyRunning", lang);
         return new Discord.MessageEmbed({
             title: t.title,
             description: tools.mention(channelID, 'c'),
             color: red
-        });   
+        });
     }
-	
+
     getBadQuesEmbed(lang) {
 		const t = this.getString("embeds.badQues", lang);
         return new Discord.MessageEmbed({
@@ -189,7 +189,7 @@ class LanguageManager {
             color: red,
         });
     }
-	
+
     getWrongPlayerStopEmbed(lang) {
 		const t = this.getString("embeds.wrongPlayerStop", lang);
         return new Discord.MessageEmbed({
@@ -197,7 +197,7 @@ class LanguageManager {
             color: red
         });
     }
-	
+
     getNoGameRunningEmbed(lang) {
 		const t = this.getString("embeds.noGameRunning", lang);
         return new Discord.MessageEmbed({
@@ -206,7 +206,7 @@ class LanguageManager {
             color: red
         });
     }
-	
+
 	getStopEmbed(lang, reason) {
 		const t = this.getString("embeds.stop", lang);
         return new Discord.MessageEmbed({
@@ -214,9 +214,9 @@ class LanguageManager {
             description: reason,
             color: orange,
         });
-        
+
     }
-	
+
     getGameStoppedEmbed(lang) {
 		const t = this.getString("embeds.gameStopped", lang);
         return new Discord.MessageEmbed({
@@ -224,9 +224,9 @@ class LanguageManager {
             description: t.description,
             color: orange
         });
-        
+
     }
-	
+
     getGameEndedEmbed(lang, players) {
 		const t = this.getString("embeds.gameEnded", lang);
         return new Discord.MessageEmbed({
@@ -234,9 +234,9 @@ class LanguageManager {
             color: orange,
             description: players[0] + "\n" + players[1] + "\n" + t.description
         });
-        
+
     }
-	
+
 	getStartEmbed(lang, difficulty, questionsAmount) {
 		const t = this.getString("embeds.gameStarted", lang);
         return new Discord.MessageEmbed({
@@ -244,9 +244,9 @@ class LanguageManager {
             description: t.difficulty + difficulty + "\n" + t.questions + questionsAmount,
             color: orange,
         });
-        
+
     }
-	
+
     getQuestionEmbed(lang, qData, qNumber, qTotal, timeleft, embedColor) {
         const t = this.getString("embeds.question", lang);
 		const proposals = qData.proposals;
@@ -273,9 +273,9 @@ class LanguageManager {
                 }
             ]
         });
-        
+
     }
-	
+
     getAnswerEmbed(lang, answerLetter, answer, anecdote, playersString, color) {
 		const t = this.getString("embeds.answer", lang);
 		if (anecdote) var description = "```" + anecdote + "```\n" + playersString;
@@ -285,7 +285,7 @@ class LanguageManager {
             title: t.answer + answerLetter + ": " + answer,
             description: description,
         });
-        
+
     }
 }
 
