@@ -232,7 +232,7 @@ client.on('message', async function (message) {
 				usersTable.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 			}
 		}
-		if (totalUsers == 0 || position == -1)
+		if (totalUsers == 0 || (position == -1 && args[1]))
 			tools.sendCatch(channel, lm.getTopNoStatsEmbed(lang, totalUsers));
 		else
 			tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersTable, position));
