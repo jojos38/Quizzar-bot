@@ -209,7 +209,7 @@ client.on('message', async function (message) {
 		// If there is a user ID
 		if (args[1]) {
 			let position = -1;
-			
+
 			// Get the ID from the message
 			let userID = args[1].replace(/[\\<>@#&!]/g, "");
 			// Get the user position in the list
@@ -242,9 +242,9 @@ client.on('message', async function (message) {
 	// If moderator allowed to send the command
 	if (!await isModeratorAllowed(message)) return;
 	// #################################################### MODERATOR COMMANDS #################################################### //
-	
-	
-	
+
+
+
     if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
 		let result = await db.addGuildChannel(guild.id, channel.id);
 		if (result) tools.sendCatch(channel, lm.getString("settings.alreadyAuthorized", lang));
