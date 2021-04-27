@@ -163,6 +163,18 @@ class LanguageManager {
 		});
 	}
 
+	getTopNoStatsEmbed(lang, totalUsers) {
+		const t = this.getString("embeds.top", lang);
+		return new Discord.MessageEmbed({
+			author: {
+				name: this.getString("embeds.top.title", lang, {totalUsers}),
+				icon_url: logoURL
+			},
+			description: t.noStats,
+			color: orange
+		});
+	}
+
 	getBadDifEmbed(lang) {
 		const t = this.getString("embeds.badDif", lang);
 		return new Discord.MessageEmbed({

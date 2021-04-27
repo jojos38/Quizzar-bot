@@ -190,20 +190,20 @@ client.on('message', async function (message) {
     }
 
     else if (messageContent.startsWith(`${prefix}top`)) { // top
-		let usersEb = [];
+		let usersTable = [];
 		let guildUsers = await db.getTop(guild.id);
 		let totalUsers = guildUsers.length;
 		if (!guildUsers) { logger.error("Error while getting top for guild " + guildID); return; }
 		for (let i = 0; i < totalUsers; i++) {
 			let user = guildUsers[i];
-			usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
+			usersTable.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 			if (i >= 10) break;
 		}
-		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb));
+		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersTable));
     }
 
     else if (messageContent.startsWith(`${prefix}globaltop`)) { // top
-		let usersEb = [];
+		let usersTable = [];
 		const users = await db.getAllUsers();
 		let totalUsers = users.length;
 		let position = -1;
@@ -222,18 +222,20 @@ client.on('message', async function (message) {
 				if (position - 5 < 0) position = 5;
 				for (let i = position - 5; i < position + 5; i++) {
 					let user = users[i];
-					usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
+					usersTable.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 				}
 			}
 		} else {
 			for (let i = 0; i < totalUsers; i++) {
 				if (i >= 10) break;
 				let user = users[i];
-				usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
+				usersTable.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 			}
 		}
-		if (totalUsers == 0) usersEb = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb, position));
+		if (totalUsers == 0 || position == -1)
+			tools.sendCatch(channel, lm.getTopNoStatsEmbed(lang, totalUsers));
+		else
+			tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersTable, position));
     }
 
 

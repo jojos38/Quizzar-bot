@@ -146,7 +146,8 @@
 		"top": {
 			"title": "Top ({{totalUsers}} utilisateurs):",
 			"username": "Utilisateur",
-			"wonScore": "Victoires / Score"
+			"wonScore": "Victoires / Score",
+			"noStats": "Aucune statistique trouvées pour cet utilisateur"
 		},
 		"badDif": {
 			"title": "La difficultée doit être comprise entre 0 et 3"
