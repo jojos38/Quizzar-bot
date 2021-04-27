@@ -1,5 +1,5 @@
 /**
- * @file Manages the database inputs / outputs
+ * @file Game object, includes the functions to start and stop games that are general to every gamemode
  * @author jojos38
  */
 

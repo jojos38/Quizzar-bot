@@ -1,5 +1,5 @@
 /**
- * @file Manages the database inputs / outputs
+ * @file Useful functions and such
  * @author jojos38
  */
 

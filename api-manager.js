@@ -1,5 +1,5 @@
 /**
- * @file Manages the database inputs / outputs
+ * @file Manages api interactions
  * @author jojos38
  */
 

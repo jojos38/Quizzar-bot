@@ -1,5 +1,5 @@
 /**
-* @file Manages the database inputs / outputs
+* @file Manages the translations inputs / outputs
 * @author jojos38
 */
 

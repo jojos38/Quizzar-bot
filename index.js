@@ -1,5 +1,11 @@
+/**
+ * @file Entry point, permissions, commands
+ * @author jojos38
+ */
+
+
+
 // -------------------- SETTINGS -------------------- //
-require('app-module-path').addPath(__dirname);
 const OWNER_ID = 137239068567142400;
 const ACTIVITY_MESSAGE = "!jhelp";
 var logMessages = false;
@@ -8,39 +14,33 @@ var logMessages = false;
 
 
 // -------------------- SOME VARIABLES -------------------- //
-const Discord = require('discord.js');
-const DatabaseManager = require('database-manager.js');
-const ApiManager = require('api-manager.js');
-const GameManager = require('game-manager.js');
-const LanguageManager = require('language-manager.js');
+require('app-module-path').addPath(__dirname);
 global.config = require('config.json');
-global.lm = new LanguageManager();
-global.client = new Discord.Client();
-
-const db = new DatabaseManager();
-const apiManager = new ApiManager(client, config.id, config.discordTokens);
-const gameManager = new GameManager();
-
+// Others
+const fs = require('fs');
 const tools = require('tools.js');
 const logger = require('logger.js');
-const fs = require('fs');
+const messages = require('messages.js');
+// Database
+const DatabaseManager = require('database-manager.js');
+const db = new DatabaseManager();
+// Discord
+const Discord = require('discord.js');
+global.client = new Discord.Client();
+// Language Manager
+const LanguageManager = require('language-manager.js');
+global.lm = new LanguageManager();
+// Api Manager
+const ApiManager = require('api-manager.js');
+const apiManager = new ApiManager(client, config.id, config.discordTokens);
+// Game Manager
+const GameManager = require('game-manager.js');
+const gameManager = new GameManager();
 // -------------------- SOME VARIABLES -------------------- //
 
 
 
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
-// Return a string of all the channels the bot is allowed to use
-function getChannelsString(channels, lang) {
-	var channelsString = "";
-	// Loop trough each channe and add them to a string
-	for (var i = 0; i < channels.length; i++) {
-		channelsString = channelsString + "\n" + tools.mention(channels[i].channelID, 'c');
-	}
-	// If the string is empty, mean there was no channel
-	if (channelsString == "") channelsString = lm.getString("settings.noChannel", lang);
-	return channelsString;
-}
-
 function getUserNickname(guild, user) {
 	let nick;
 	if (guild.members.cache.get(user.userID)) nick = guild.members.cache.get(user.userID).nickname || guild.members.cache.get(user.userID).user.username;
@@ -67,7 +67,7 @@ async function isAllowed(message, lang) {
 	if (channelAllowed(message.guild.id, message.channel.id)) return true;
 
 	// If we went there is that the user is not allowed since previous for loop should return
-	tools.sendCatch(message.channel, lm.getNotAllowedEmbed(lang, getChannelsString(channels, lang)));
+	tools.sendCatch(message.channel, lm.getNotAllowedEmbed(lang, messages.getChannelsString(channels, lang)));
 	return false;
 }
 
@@ -92,11 +92,11 @@ async function exitHandler(options, exitCode) {
     if (options.exit) process.exit();
 }
 
-process.on('exit', exitHandler.bind(null,{cleanup:true})); // do something when app is closing
-process.on('SIGINT', exitHandler.bind(null,{exit:true})); // catches ctrl+c event
-process.on('SIGUSR1', exitHandler.bind(null,{exit:true})); // catches "kill pid" (for example: nodemon restart)
-process.on('SIGUSR2', exitHandler.bind(null,{exit:true})); // catches "kill pid" (for example: nodemon restart)
-process.on('uncaughtException', exitHandler.bind(null,{exit:true})); //catches uncaught exceptions
+process.on('exit', exitHandler.bind(null,{cleanup:true})); // Do something when app is closing
+process.on('SIGINT', exitHandler.bind(null,{exit:true})); // Catches ctrl+c event
+process.on('SIGUSR1', exitHandler.bind(null,{exit:true})); // Catches "kill pid" (for example: nodemon restart)
+process.on('SIGUSR2', exitHandler.bind(null,{exit:true})); // Catches "kill pid" (for example: nodemon restart)
+process.on('uncaughtException', exitHandler.bind(null,{exit:true})); // Catches uncaught exceptions
 // ----------------------------------- SOME FUNCTIONS ----------------------------------- //
 
 
@@ -240,16 +240,12 @@ client.on('message', async function (message) {
 
 	// #################################################### MODERATOR COMMANDS #################################################### //
 	// If moderator allowed to send the command
-	if (!await isModeratorAllowed(message)) { return; }
+	if (!await isModeratorAllowed(message)) return;
 	// #################################################### MODERATOR COMMANDS #################################################### //
-
-
-
-   	if (messageContent.startsWith(`${prefix}stuck`)) { // stuck [ADMIN]
-		game.unstuck(message, lang);
-    }
-
-    else if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
+	
+	
+	
+    if (messageContent.startsWith(`${prefix}add`)) { // add [ADMIN]
 		let result = await db.addGuildChannel(guild.id, channel.id);
 		if (result) tools.sendCatch(channel, lm.getString("settings.alreadyAuthorized", lang));
 		else tools.sendCatch(channel, lm.getString("settings.channelAdded", lang));
@@ -277,7 +273,7 @@ client.on('message', async function (message) {
 
     else if (messageContent.startsWith(`${prefix}channels`)) { // remove [ADMIN]
 		const channels = await db.getGuildChannels(guild.id)
-		tools.sendCatch(channel, getChannelsString(channels, lang));
+		tools.sendCatch(channel, messages.getChannelsString(channels, lang));
     }
 
     else if (messageContent.startsWith(`${prefix}delayq`)) { // delayquestion [ADMIN]
@@ -340,16 +336,12 @@ client.on('message', async function (message) {
 
 
 
-    if (messageContent.startsWith(`${prefix}kill`)) { // kill [ADMIN]
+    if (messageContent.startsWith(`${prefix}kill`)) { // kill [OWNER]
 		exitHandler({cleanup:true}, null);
     }
 
-    else if (messageContent.startsWith(`${prefix}reload`)) { // reload [OWNER]
-		lm.reloadLanguages();
-    }
-
     // This function is NOT USED TO LOG THE CONTENT OF THE MESSAGES
-    // But only when a message is received
+    // But only tell a message is received
     else if (messageContent.startsWith(`${prefix}log`)) { // logmessages [OWNER]
 		if (args[1] == "true" || args[1] == "false") {
 			var finalValue = args[1] == "true";
@@ -364,19 +356,14 @@ client.on('message', async function (message) {
     else if (messageContent.startsWith(`${prefix}ls`)) { // ls [OWNER]
 		var guilds = client.guilds.cache;
 		var users = 0;
-		var en = 0;
 		for (var g of guilds) {
 			var templang = await db.getSetting(g[0], "lang");
-			if (templang == "en") en++;
 			var members = g[1].memberCount;
 			users += members;
 			logger.debug("[" + g[0] + "] (" + templang + ") (" + members + " users) " + g[1].name);
 		}
-		var ratioEN = (en / guilds.size * 100).toFixed(2);
-		var ratioFR = (100-ratioEN).toFixed(2);
 		logger.debug("Total users: " + users);
 		logger.debug("Total servers: " + guilds.size);
-		logger.debug("English:" + ratioEN + "% (" + en + ") French:" + ratioFR + "% (" + (guilds.size-en) + ")");
     }
 
 	else if (messageContent.startsWith(`${prefix}status`)) { // status [OWNER]
@@ -389,19 +376,9 @@ client.on('message', async function (message) {
 
 
 
-// ------- START ------- //
-async function start() {
-	await db.init();
-	await lm.init(); // Load languages
-	logger.info("Connecting to Discord...");
-	await client.login(config.token);
-}
-
-client.once('ready', async function () {
-	client.user.setActivity(ACTIVITY_MESSAGE);
-	apiManager.init();
-	logger.info('Bot ready');
-	if (!fs.existsSync("cache")){
+// ----------------- START ----------------- //
+function restoreCachedGames() {
+	if (!fs.existsSync("cache")) {
 		fs.mkdirSync("cache");
 	} else {
 		fs.readdir("./cache", function (err, files) {
@@ -412,7 +389,21 @@ client.once('ready', async function () {
 			}
 		});
 	}
+}
+
+async function start() {
+	await db.init(); // Connect database
+	await lm.init(); // Load languages
+	logger.info("Connecting to Discord...");
+	await client.login(config.token);
+}
+
+client.once('ready', async function () {
+	client.user.setActivity(ACTIVITY_MESSAGE);
+	apiManager.init();
+	logger.info('Bot ready');
+	restoreCachedGames();
 });
 
 start();
-// ------- START ------- //
+// ----------------- START ----------------- //
