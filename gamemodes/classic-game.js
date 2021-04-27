@@ -189,16 +189,16 @@ class ClassicGame extends Game {
 			this.#aDelay = settings.answerDelay;
 			this._lang = settings.lang;
 
-			//try {
+			try {
 				// It asks one question and gives the answser + points calculation
 				await this.#newQuestionAnswer();
 				this.#saveGameState();
-			/*} catch (err) {
+			} catch (err) {
 				logger.error(err);
 				logger.error("Error: ending game...");
 				tools.sendCatch(this._channel, lm.getString("error", this._lang));
 				this._running = false;
-			}*/
+			}
 		}
 		this.#deleteGameState();
 		let winners = messages.getScoreString(this._guild, this.#scores, this._lang, this.#db);
