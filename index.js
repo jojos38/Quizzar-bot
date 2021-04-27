@@ -196,7 +196,7 @@ client.on('message', async function (message) {
 		if (!guildUsers) { logger.error("Error while getting top for guild " + guildID); return; }
 		for (let i = 0; i < totalUsers; i++) {
 			let user = guildUsers[i];
-			usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
+			usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 			if (i >= 10) break;
 		}
 		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb));
@@ -206,10 +206,9 @@ client.on('message', async function (message) {
 		let usersEb = [];
 		const users = await db.getAllUsers();
 		let totalUsers = users.length;
+		let position = -1;
 		// If there is a user ID
 		if (args[1]) {
-			let position = -1;
-
 			// Get the ID from the message
 			let userID = args[1].replace(/[\\<>@#&!]/g, "");
 			// Get the user position in the list
@@ -223,18 +222,18 @@ client.on('message', async function (message) {
 				if (position - 5 < 0) position = 5;
 				for (let i = position - 5; i < position + 5; i++) {
 					let user = users[i];
-					usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
+					usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 				}
 			}
 		} else {
 			for (let i = 0; i < totalUsers; i++) {
 				if (i >= 10) break;
 				let user = users[i];
-				usersEb.push({ score: user.score, won: user.won, position: getUserNickname(guild, user, i + 1) });
+				usersEb.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 			}
 		}
 		if (totalUsers == 0) usersEb = lm.getString("noStats", lang);
-		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb));
+		tools.sendCatch(channel, lm.getTopEmbed(lang, totalUsers, usersEb, position));
     }
 
 

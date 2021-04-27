@@ -128,18 +128,26 @@ class LanguageManager {
 		});
 	}
 
-	getTopEmbed(lang, totalUsers, users) {
+	getTopEmbed(lang, totalUsers, users, userPosition) {
 		if (totalUsers == 0) return this.getNoStatsEmbed(lang);
 		const t = this.getString("embeds.top", lang);
 		let descUsers;
 		let descScore;
 		let descPosition;
-		let i = 1;
 		for (let user of users) {
-			descPosition = descPosition ? descPosition + "\n" + i : i;
-			descUsers = descUsers ? descUsers + "\n" + user.position : user.position;
-			descScore = descScore ? descScore + "\n" + user.won + " - " + user.score : user.won + " - " + user.score;
-			i++;
+			let position, username, score;
+			if (user.position == userPosition) {
+				position = "**" + user.position + "**";
+				username = "**" + user.username + "**";
+				score = "**" + user.won + " - " + user.score + "**";
+			} else {
+				position = user.position;
+				username = user.username;
+				score = user.won + " - " + user.score;
+			}
+			descPosition = descPosition ? descPosition + "\n" + position : position;
+			descUsers = descUsers ? descUsers + "\n" + username : username;
+			descScore = descScore ? descScore + "\n" + score : score;
 		}
 		return new Discord.MessageEmbed({
 			author: {
