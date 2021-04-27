@@ -222,7 +222,7 @@ client.on('message', async function (message) {
 				if (position - 5 < 0) position = 5;
 				for (let i = position - 5; i < position + 5; i++) {
 					let user = users[i];
-					usersTable.push({ score: user.score, won: user.won, position: i + 1, username: getUserNickname(guild, user, i + 1) });
+					usersTable.push({ score: user.score, won: user.won, position: i, username: getUserNickname(guild, user, i + 1) });
 				}
 			}
 		} else {
