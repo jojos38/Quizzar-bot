@@ -22,9 +22,9 @@
     "app-module-path": "^2.2.0",
     "bufferutil": "^4.0.3",
     "discord.js": "^12.5.1",
-    "i18n": "^0.13.2",
+    "i18n": "^0.13.3",
     "messageformat": "^2.3.0",
-    "mongodb": "^3.6.4",
-    "utf-8-validate": "^5.0.4"
+    "mongodb": "^3.6.7",
+    "utf-8-validate": "^5.0.5"
   }
 }
