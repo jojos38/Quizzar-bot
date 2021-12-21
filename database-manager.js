@@ -66,7 +66,7 @@ class Database {
 	 */
 	async init() {
 		logger.info("Database connecting...");
-		const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database + '?authSource=admin';
+		const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database;
 		try  {
 			const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 });
 			const mainDB = client.db(database);
