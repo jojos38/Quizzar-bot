@@ -7,7 +7,8 @@
 
 // ---------------------------- SOME VARIABLES ---------------------------- //
 const { database, username, password, ip, port } = require('./dbconfig.json');
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+const NodeCache = require('node-cache');
 const tools = require('./tools.js');
 const logger = require('./logger.js');
 const eb = tools.embeds;
@@ -16,6 +17,7 @@ const eb = tools.embeds;
 
 
 class Database {
+	#cache;
 	#col = {};
 
 	/**
@@ -68,6 +70,7 @@ class Database {
 		logger.info("Database connecting...");
 		const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database;
 		try  {
+			this.#cache = new NodeCache({stdTTL: 900});
 			const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 });
 			const mainDB = client.db(database);
 			this.#col.users = mainDB.collection('users');
@@ -216,48 +219,70 @@ class Database {
 	 * @param {settingName} A string or an array of the settings to get
 	 * @return The value of the setting
 	 */
-	async getSetting(guildID, settingName) {
-		const projection = { projection: { _id: 0, guildID: 0, setting: 0 } };
-		const query = { guildID: guildID, setting: settingName };
-		const setting = await Database.#findOne(this.#col.settings, query, projection);
-		if (setting != null) return setting.value;
-		else return await this.#insertMissingSetting(guildID, settingName);
-	}
+    	async getSetting(guildID, settingName) {
+        	// Cache
+            	const cachedSetting = this.#cache.get(guildID + settingName);
+            	if (cachedSetting) return cachedSetting;
+
+        	// Query
+        	const projection = {projection: {_id: 0, guildID: 0, setting: 0}};
+        	const query = {guildID: guildID, setting: settingName};
+        	let setting = await Database.#findOne(this.#col.settings, query, projection);
+        	if (setting != null) setting = setting.value; else setting = await this.#insertMissingSetting(guildID, settingName);
+        	this.#cache.set(guildID + settingName, setting);
+        	return setting;
+    	}
 
 	/**
 	 * Get multiple settings from a guild
 	 * @param {settingName} An array of the settings to get
 	 * @return A key value object or null
 	 */
-	async getSettings(guildID, settingName) {
-		const projection = { projection: { _id: 0, guildID: 0 } };
-		const query = { guildID: guildID, setting: { $in: [] } };
-		for (let setting of settingName) query.setting.$in.push(setting);
-		const tmpSettings = await (await Database.#findMany(this.#col.settings, query, projection)).toArray();
-		var setting = {};
-		// Parse to a key value map
-		for (let tmpSetting of tmpSettings) setting[tmpSetting.setting] = tmpSetting.value;
-		for (let tmpSetting of settingName) {
-			if (setting[tmpSetting] == null) setting[tmpSetting] = await this.#insertMissingSetting(guildID, tmpSetting);
-		}
-		return setting;
-	}
+    	async getSettings(guildID, settingsNames) {
+        	let returnSettings = {};
+        	// Cache
+            	const tmpCache = [...settingsNames]; // Make a copy of the array otherwise splice causes issues
+            	for (const [i, setting] of tmpCache.entries()) {
+                	const cacheSetting = this.#cache.get(guildID + setting);
+                	if (cacheSetting) {
+                    		returnSettings[setting] = cacheSetting;
+                 		settingsNames.splice(i, 1);
+                	}
+            	}
+
+        	// Database query, get all the settings that were not cached
+        	const projection = {projection: {_id: 0, guildID: 0}};
+        	const query = {guildID: guildID, setting: {$in: []}};
+        	for (const setting of settingsNames) query.setting.$in.push(setting);
+        	const tmpSettings = await (await Database.#findMany(this.#col.settings, query, projection)).toArray();
+
+        	// Parse to a key value map
+        	// If setting already exists in database
+        	for (const tmpSetting of tmpSettings) {
+            		// Get the settings and cache them
+            		returnSettings[tmpSetting.setting] = tmpSetting.value;
+            		this.#cache.set(guildID + tmpSetting, returnSettings[tmpSetting]);
+        	}
+        	// If settings didn't exist in database
+        	for (const tmpSetting of settingsNames) {
+            		// Add the missing settings and cache them
+            		if (!returnSettings[tmpSetting]) returnSettings[tmpSetting] = await this.#insertMissingSetting(guildID, tmpSetting);
+            		this.#cache.set(guildID + tmpSetting, returnSettings[tmpSetting]);
+        	}
+        	return returnSettings;
+    	}
 
 	/**
 	 * Set a setting for a guild
 	 */
-	async setSetting(guildID, settingName, value) {
-		const settingToFind = { guildID: guildID, setting: settingName };
-		if (await Database.#exists(this.#col.settings, settingToFind)) {
-			const result = await Database.#updateOne(this.#col.settings, settingToFind, { $set: { value: value } });
-			if (result) logger.info("Setting " + settingName + " successfully updated to " + value);
-			else logger.error("Error while updating " + settingName + " to " + value);
-		} else {
-			const result = await Database.#insertOne(this.#col.settings, { guildID: guildID, setting: settingName, value: value });
-			if (result) logger.info("Setting " + settingName + " successfully inserted as " + value);
-			else logger.error("Error while inserting " + settingName + " as " + value);
-		}
-	}
+    	async setSetting(guildID, settingName, value) {
+        	const settingToFind = { guildID: guildID, setting: settingName };
+        	if (await Database.#updateOne(this.#col.settings, settingToFind, { $set: { value: value } }, { upsert: true })) {
+            		logger.info('Setting ' + settingName + ' successfully updated to ' + value);
+            		this.#cache.set(guildID + settingName, value);
+        	}
+        	else logger.error('Error while updating ' + settingName + ' to ' + value);
+    	}
 
 	/**
 	 * Get the top 10 users score of a given guild

@@ -25,6 +25,7 @@
     "i18n": "^0.13.3",
     "messageformat": "^2.3.0",
     "mongodb": "^3.6.7",
+    "node-cache": "^5.1.2",
     "utf-8-validate": "^5.0.5"
   }
 }
