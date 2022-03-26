@@ -105,12 +105,12 @@ class ApiManager {
 			{guildCount: guildCount},
 			this.#tokens.botsondiscord
 		);
-		this.#post(
+		/*this.#post(
 			'discord.boats',
 			'/api/bot/' + this.#selfID,
 			{server_count: guildCount},
 			this.#tokens.discordboats
-		);
+		);*/
 	}
 
 	/**
