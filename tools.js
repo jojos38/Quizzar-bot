@@ -53,8 +53,18 @@ module.exports = {
 	 * Those functions are used to safely interact with the Discord api
 	 */
 	sendCatch: async function(channel, message) {
-		try { return await channel.send(message); }
-		catch (error) { logger.warn("Can't send message"); logger.warn(error); return null; }
+		const embed = typeof message === 'object';
+		const messageObj = embed ? { embeds: [message] } : { content: message };
+		try { return await channel.send(messageObj) }
+		catch (error) { logger.warn("Error while sending message"); logger.error(error); return null; }
+	},
+
+	replyCatch: async function(interaction, message, type, ephemeral) {
+		if (type === 0) var messageObj = { content: message, ephemeral: ephemeral };
+		else if (type === 1) var messageObj = { embeds: [message], ephemeral: ephemeral };
+		else if (type === 2) { var messageObj = message; messageObj.ephemeral = ephemeral; }
+		try { return await interaction.reply(messageObj) }
+		catch (error) { logger.warn("Error while replying interaction"); logger.error(error); return null; }
 	},
 
 	editCatch: async function(message, newContent) {

@@ -1,5 +1,5 @@
 {
-	"thanks": "Merci d'utiliser Quizzar ! Tapez !jhelp dans n'importe quel channel de votre serveur pour voir la liste des commandes.",
+	"thanks": "Merci d'utiliser Quizzar ! Tapez /help dans n'importe quel channel de votre serveur pour voir la liste des commandes.",
 	"error": "Une erreur est survenue, la partie a été arrêtée. Cette erreur peut être due à de mauvaises permissions.\nSi vous êtes sûr que les permissions sont correctes vous pouvez rejoindre le serveur de support.",
 	"gameRestored": "Il semblerait que le bot ai redémarré durant votre partie ! Cette dernière a été réstaurée.",
 	"missingPerm": "Il me manque la permission de gérer les messages ! Je ne pourrais pas supprimer les réactions.",
@@ -8,17 +8,18 @@
 	"settings": {
 		"noPermission": "Il semblerait que tu n'aies pas la permission de faire cela.",
 		"questionDelaySet": "Le délai pour répondre à une question a été défini sur {{delay}} ms",
-		"questionDelayError": "Le délai doit se situer entre 2500ms et 1800000ms. \nExemple: **!jdelayq 5000**",
+		"questionDelayError": "Le délai doit se situer entre 2500ms et 1800000ms. \nExemple: **/delayq 5000**",
 		"langSet": "Langage défini sur {{lang}}",
 		"langError": "Le langage {{lang}} n'existe pas.\nListe des langages existants: {{langs}}",
 		"resetted": "Paramètres réinitialisés.",
 		"resettedError": "Une erreur est survenue lors de la suppression des paramètres: aucun paramètre existant.",
+		"resetConfirm": "Voulez-vous vraiment supprimer l'entièreté de la configuration du serveur ?",
 		"answerDelaySet": "Le délai d'affichage de la réponse a été défini sur {{delay}} ms",
-		"answerDelayError": "Le délai doit se situer entre 500ms et 50000ms. \nExemple: **!jdelaya 5000**",
+		"answerDelayError": "Le délai doit se situer entre 500ms et 50000ms. \nExemple: **/delaya 5000**",
 		"difficultySet": "Le difficulté par défaut a été définie sur {{difficulty}}",
-		"difficultyError": "La difficuté doit se situer entre 0 et 3. \nExemple: **!jdefdif 0**\nTapez !jdif pour voir la liste des difficultés.",
+		"difficultyError": "La difficuté doit se situer entre 0 et 3. \nExemple: **/defdif 0**\nTapez /dif pour voir la liste des difficultés.",
 		"questionsAmountSet": "Le nombre de questions par défaut a été défini sur {{amount}}",
-		"questionsAmountError": "Le nombre de questions doit se situer entre 1 et 100. \nExemple: !jdefques 5",
+		"questionsAmountError": "Le nombre de questions doit se situer entre 1 et 100. \nExemple: /defques 5",
 		"prefixSet": "Prefix défini avec succés",
 		"prefixError": "Une erreur est survenue: Le préfix doit être situé entre 1 et 3 caractères et doit être en ASCII seulement.",
 		"alreadyAuthorized": "Ce salon est déjà dans la liste des salons autorisés.",
@@ -155,7 +156,7 @@
 		"notAllowed": {
 			"name": "Mince",
 			"title": "Vous ne pouvez pas effectuer de commandes quizz dans ce channel.",
-			"description": "Si vous êtes administrateur utilisez !jadd pour ajouter ce channel.\nJetez un coup d'oeil ici: "
+			"description": "Si vous êtes administrateur utilisez /add pour ajouter ce channel.\nJetez un coup d'oeil ici: "
 		},
 		"alreadyRunning": {
 			"title": "Une autre partie est déjà en cours"
@@ -168,7 +169,7 @@
 		},
 		"noGameRunning": {
 			"title": "Aucune partie n'est en cours",
-			"description": "Utilisez !jplay pour démarrer une partie"
+			"description": "Utilisez /play pour démarrer une partie"
 		},
 		"gameStarted": {
 			"title": "Démarrage de la partie",

@@ -10,9 +10,9 @@ For now one game mode is available, but more gamemodes are coming in the future!
 - Classic Game: The bot asks up to 100 questions with (by default) 15 seconds between each question. At the end of the game, one (or multiple if same score) winner is announced.
 
 A system of statistics is available, questions gives you points as well as winning a game. You can compare your scores to other people within a server or globally and see your statistics!</br>
-You can prevent the bot from being used in other channels than the ones you define using !jadd and !jremove in the channel you wanna allow or disallow.
+You can prevent the bot from being used in other channels than the ones you define using /add and /remove in the channel you wanna allow or disallow.
 
 -----
 
 - The manage channels permission is optional, if you don't want the bot to be able to see hidden channels, disable it.
-- Type !jhelp to start using the bot
+- Type /help to start using the bot
