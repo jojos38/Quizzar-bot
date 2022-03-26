@@ -171,7 +171,7 @@ class ClassicGame extends Game {
 		logger.info("Questions amount: " + this.#qTotal);
 		logger.info("Language: " + this._lang);
 		await tools.sendCatch(this._channel, lm.getStartEmbed(this._lang, this.#difficulty, this.#qTotal));
-		if (!this._guild.me.hasPermission("MANAGE_MESSAGES") && !this._guild.me.permissionsIn(this._channel).has("MANAGE_MESSAGES"))
+		if (!this._guild.me.permissions.has("MANAGE_MESSAGES") && !this._guild.me.permissionsIn(this._channel).has("MANAGE_MESSAGES"))
 			await tools.sendCatch(this._channel, lm.getString("missingPerm", this._lang));
 
 		logger.info("-------------- NEW GAME --------------");
@@ -208,8 +208,8 @@ class ClassicGame extends Game {
 
 	async preStart(args) {
         let guildID = this._guild.id;
-		let difficulty = args[1];
-		let questionsAmount = args[2];
+		let difficulty = args[0];
+		let questionsAmount = args[1];
 
 		// If / Not below 0 / Not above 3 / Is an int / Is not null
 		if (difficulty < 0 || difficulty > 3 || !tools.isInt(difficulty) && difficulty != null) {
@@ -227,7 +227,7 @@ class ClassicGame extends Game {
             return;
 		}
 		else if (!questionsAmount) {
-			if (this._guild.member(this._userID).hasPermission("MANAGE_MESSAGES") && questionsAmount == 0)
+			if (this._guild.members.cache.get(this._userID).permissions.has("MANAGE_MESSAGES") && questionsAmount === 0)
 				questionsAmount = 2147483647;
 			else
 				questionsAmount = await this.#db.getSetting(guildID, "defaultQuestionsAmount");

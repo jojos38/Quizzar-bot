@@ -52,7 +52,7 @@ class GameManager {
 		let game = this.#games[channel.id];
 		if (game) {
 			if (!game.isRunning()) { return; }
-			if (member.user.id == game.getUserID() || member.hasPermission("MANAGE_MESSAGES")) {
+			if (member.user.id == game.getUserID() || member.permissions.has("MANAGE_MESSAGES")) {
 				game.stop();
 				tools.sendCatch(channel, lm.getStopEmbed(lang, reason));
 				logger.info("Game aborted");

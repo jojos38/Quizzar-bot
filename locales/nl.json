@@ -1,32 +1,33 @@
 {
-	"thanks": "Thanks for using Quizzar! Type !jhelp in any channel to the see the commands.",
-	"error": "Error hapenned, game stopped. This error might be caused by missing permissions or by API malfunction.\nIf you are sure that the permissions are set correctly please try again later or join the support server to get help.",
+	"thanks": "Thanks for using Quizzar! Type /help in any channel to the see the commands.",
+	"error": "Error happened, game stopped. This error might be caused by missing permissions or by API malfunction.\nIf you are sure that the permissions are set correctly please try again later or join the support server to get help.",
 	"gameRestored": "It seems that the bot rebooted during your game, it was restored.",
 	"missingPerm": "I am missing the Manage Messages permission! I won't be able to delete reactions.",
 	"points": "points",
 	"score": "score",
 	"settings": {
 		"noPermission": "It seems you don't have permission to do that.",
-		"questionDelaySet": "The delay to answer a question have been set to {{{delay}}} ms",
-		"questionDelayError": "The delay must be between 2500ms and 1800000ms. \nExample: **!jdelayq 5000**",
-		"langSet": "Language set to {{{lang}}}",
-		"langError": "Language {{{lang}}} does not exist.\nList of available languages: {{{langs}}}",
-		"resetted": "Settings resetted.",
-		"resettedError": "Error hapenned while deleting settings: no setting existing.",
-		"answerDelaySet": "The answer displaying delay have been set to {{{delay}}} ms",
-		"answerDelayError": "The delay must be between 500ms and 50000ms. \nExample: **!jdelaya 5000**",
-		"difficultySet": "The default difficulty have been set to {{{difficulty}}}",
-		"difficultyError": "The default difficulty must be between 0 and 3. \nExample: **!jdefdif 0**\nUse !jdif to see all difficulties.",
-		"questionsAmountSet": "The default questions amount have been set to {{{amount}}}",
-		"questionsAmountError": "The questions amount must be between 1 and 100. \nExample: !jdefques 5",
+		"questionDelaySet": "The delay to answer a question have been set to {{delay}} ms",
+		"questionDelayError": "The delay must be between 2500ms and 1800000ms. \nExample: **/delayq 5000**",
+		"langSet": "Language set to {{lang}}",
+		"langError": "Language {{lang}} does not exist.\nList of available languages: {{langs}}",
+		"resetted": "Data erased successfully",
+		"resetCancel": "Operation cancelled",
+		"resetConfirm": "Are you sure you want to reset all settings?",
+		"answerDelaySet": "The answer displaying delay have been set to {{delay}} ms",
+		"answerDelayError": "The delay must be between 500ms and 50000ms. \nExample: **/delaya 5000**",
+		"difficultySet": "The default difficulty have been set to {{difficulty}}",
+		"difficultyError": "The default difficulty must be between 0 and 3. \nExample: **/defdif 0**\nUse /dif to see all difficulties.",
+		"questionsAmountSet": "The default questions amount have been set to {{amount}}",
+		"questionsAmountError": "The questions amount must be between 1 and 100. \nExample: /defques 5",
 		"prefixSet": "Prefix set successfully",
-		"prefixError": "Error hapenned: The prefix must be between 1 and 3 characters and must be ASCII only.",
+		"prefixError": "Error happened: The prefix must be between 1 and 3 characters and must be ASCII only.",
 		"alreadyAuthorized": "This channel is already authorized.",
 		"channelAdded": "Channel added successfully.",
-		"channelAddedError": "Error hapenned while adding channel.",
+		"channelAddedError": "Error happened while adding channel.",
 		"channelNotInList": "This channel is not in authorized list.",
 		"channelDeleted": "Channel deleted successfully.",
-		"channelDeletedError": "Error hapenned while deleting the channel.",
+		"channelDeletedError": "Error happened while deleting the channel.",
 		"noChannel": "No channel have been added."
 	},
 	"game": {
@@ -55,10 +56,6 @@
 				{
 					"name": "stop",
 					"value": " - Stop the current game\n**Note :** The 'manage messages' permission allows you to stop any game"
-				},
-				{
-					"name": "diff",
-					"value": " - Show all difficulties"
 				},
 				{
 					"name": "info",
@@ -155,7 +152,7 @@
 		"notAllowed": {
 			"name": "Oops",
 			"title": "You are not allowed to use Quizzar commands here",
-			"description": "If you are admin, use !jadd to add this channel.\nTake a look here: "
+			"description": "If you are admin, use /add to add this channel.\nTake a look here: "
 		},
 		"alreadyRunning": {
 			"title": "A game is already running"
@@ -168,7 +165,7 @@
 		},
 		"noGameRunning": {
 			"title": "No game running",
-			"description": "Use !jplay to start a game"
+			"description": "Use /play to start a game"
 		},
 		"gameStarted": {
 			"title": "Game starting",

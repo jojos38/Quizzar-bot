@@ -48,9 +48,9 @@ class Database {
 		catch (err) { console.log(toInsert); logger.error(err); return null; }
 	}
 
-	static async #updateOne(collection, toUpdate, newValue) {
-		try { return await collection.updateOne(toUpdate, newValue); }
-		catch (err) { console.log(toUpdate); logger.error(err); return null; }
+	static async #updateOne(collection, toUpdate, newValue, options) {
+		try {return await collection.updateOne(toUpdate, newValue, options);}
+		catch (err) {console.log(toUpdate); logger.error(err); return null;}
 	}
 
 	static async #exists(collection, item) {
@@ -71,7 +71,7 @@ class Database {
 		const url = 'mongodb://' + username + ':' + password + '@' + ip + ':' + port + '/' + database;
 		try  {
 			this.#cache = new NodeCache({stdTTL: 900});
-			const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 1 });
+			const client = await MongoClient.connect(url);
 			const mainDB = client.db(database);
 			this.#col.users = mainDB.collection('users');
 			this.#col.channels = mainDB.collection('channels');
@@ -119,38 +119,26 @@ class Database {
 	}
 
 	/**
-	 * Adds a guild channel inside the database (allow normal users to start games within it)
-	 * @return {boolean} If the channel was existing
+	 * Adds a guild channel inside the database (allow the bot to scan messages inside it)
+	 * @return {boolean} True if the channel was inserted, false it was existing
 	 */
 	async addGuildChannel(guildID, channelID) {
-		// Check if channel already exists
-		if (await Database.#exists(this.#col.channels, { channelID: channelID })) {
-			logger.info("Channel " + channelID + " already exists in guild " + guildID);
-			return true;
-		}
 		// Insert channel if it doesn't exists
-		if (await Database.#insertOne(this.#col.channels, { guildID: guildID, channelID: channelID })) {
-			logger.info("Channel " + channelID + " inserted successfully in guild " + guildID);
-			return false;
-		}
+		const query = {guildID: guildID, channelID: channelID};
+		const result = await Database.#updateOne(this.#col.channels, query, { '$set': query }, {upsert: true});
+		logger.info('Channel ' + channelID + ' inserted successfully in guild ' + guildID);
+		return result.upsertedCount === 1; // If upsert means the channel was inserted, else it already existed
 	}
 
 	/**
-	 * Removes a guild channel from the database (disallow normal users to start games within it)
-	 * @return {boolean} If the channel was existing
+	 * Removes a guild channel from the database (disallow the bot from scanning the messages inside it)
+	 * @return {boolean} True if the channel was deleted, false it was not existing
 	 */
 	async removeGuildChannel(channelID) {
-		const query = { channelID: channelID };
-		// If channel does not exists
-		if (!await Database.#exists(this.#col.channels, query)) {
-			// logger.info("Channel " + channelID + " does not exists");
-			return false;
-		}
 		// If channel exists, delete it
-        if (await Database.#deleteOne(this.#col.channels, query)) {
-			logger.info("Channel " + channelID + " deleted successfully");
-			return true;
-		}
+		const result = await Database.#deleteOne(this.#col.channels, {channelID: channelID});
+		logger.info('Channel ' + channelID + ' deleted successfully');
+		return result.deletedCount === 1;
 	}
 
 	/**
